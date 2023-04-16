@@ -1,52 +1,28 @@
-from spatialmath.base import*
-
+import spatialmath.base as smb
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 5:50
+# 5:50 - 7:36
+print(smb.rot2(0), "\n")
+print(smb.rot2(0.2), "\n")
 
-print(rot2(0),"\n")
+R = smb.rot2(30, "deg")
 
-# 6:03
+print(R, "\n")
 
-print(rot2(0.2),"\n")
+c1 = R[:, 0]
 
-# 6:12 , 6:18
+print(c1, "\n")
 
-R = rot2(30, 'deg')
-print(R,"\n")
+c2 = R[:, 1]
 
-# 6:37
+print(c2, "\n")
+print(np.dot(c1, c2), "\n")
+print(np.linalg.det(R), "\n")
+print(np.linalg.inv(R), "\n")
+print(np.transpose(R), "\n")
 
-c1 = R[:,0]
-
-print(c1,"\n")
-
-# 6:42
-
-c2 = R[:,1]
-
-print(c2,"\n")
-
-# 6:48
-
-print(np.dot(c1,c2),"\n")
-
-# 6:54
-
-print(np.linalg.det(R),"\n")
-
-# 7:05
-
-print(np.linalg.inv(R),"\n")
-
-# 7:08
-
-print(np.transpose(R),"\n")
-
-# 7:26
-
-trplot2(R)
-plt.xlim(-1,1.5)
-plt.ylim(-1,1.5)
+smb.trplot2(R)
+plt.xlim(-1, 1.5)
+plt.ylim(-1, 1.5)
 plt.show()
