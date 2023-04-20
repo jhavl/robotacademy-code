@@ -12,7 +12,7 @@ SE2(1,2,30,'deg')
 
 axis([0 5 0 5])
 
-xis square
+axis square
 
 hold on
 
