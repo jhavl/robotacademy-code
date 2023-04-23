@@ -1,0 +1,170 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.510 --> 00:00:07.310
+Here is one of the digital images that we
+have just been looking at and on the right
+
+00:00:07.310 --> 00:00:13.270
+we can see some of its pertinent details.
+Now we can determine the total number of bytes
+
+00:00:13.270 --> 00:00:19.070
+in the image by multiplying the image width
+by the image height by three. The number three
+
+00:00:19.070 --> 00:00:23.050
+comes from the fact that for every pixel in
+the image we need to represent the amount
+
+00:00:23.050 --> 00:00:27.940
+of red, green and blue. And each of those
+is represented by a single byte. And when
+
+00:00:27.940 --> 00:00:32.949
+we compute this product we see that something
+like 21 million bytes of information is in
+
+00:00:32.949 --> 00:00:40.359
+this image. However, on disk the image only
+occupies 3.7 megabytes, so the number of bytes
+
+00:00:40.359 --> 00:00:45.659
+on disk is way less then the number of colour
+pixels that there are in the original image.
+
+00:00:45.659 --> 00:00:50.489
+If we take the ratio of these two numbers,
+we see that the number of bytes required to
+
+00:00:50.489 --> 00:00:56.920
+store the image in the file on disk is a very
+small fraction of the total number of bytes
+
+00:00:56.920 --> 00:01:02.619
+required to represent all the coloured pixels
+in the image, and this comes about because
+
+00:01:02.619 --> 00:01:08.650
+this image has been compressed.
+Now all images contain a large number of pixel
+
+00:01:08.650 --> 00:01:13.290
+data and we want to make the file size as
+small as we possibly can. That means then
+
+00:01:13.290 --> 00:01:19.350
+we can fit more images into the same amount
+of disk. There are two fundamentally different
+
+00:01:19.350 --> 00:01:25.220
+approaches to image compression. The first
+is Lossless compression, and what this does
+
+00:01:25.220 --> 00:01:30.360
+is exploit redundancy or recurring patterns
+in the image and codes them very efficiently,
+
+00:01:30.360 --> 00:01:37.070
+so they require overall less space. And this
+is in stark contrast to Lossy compression,
+
+00:01:37.070 --> 00:01:43.950
+the most common example of which is JPEG compression. And what lossy compression does is exploit
+
+00:01:43.950 --> 00:01:48.700
+the fact that the human vision system is far
+from perfect, and that there is some information
+
+00:01:48.700 --> 00:01:54.100
+that you can remove from the image in such
+a way that the human observer does not notice
+
+00:01:54.100 --> 00:01:58.590
+very much change. So some of the problems
+with the human vision system is we are not
+
+00:01:58.590 --> 00:02:03.150
+very good at noticing very fine detail. We
+are not as good at resolving the differences
+
+00:02:03.150 --> 00:02:09.009
+between colours as we are at resolving the
+differences between different intensities.
+
+00:02:09.009 --> 00:02:12.879
+And our colour sensitivity actually depends
+on the sorts of colours that we are looking
+
+00:02:12.879 --> 00:02:18.819
+at. So we can exploit these bugs in the human
+visual system in order to remove information
+
+00:02:18.819 --> 00:02:23.319
+that we wouldn’t notice anyway and make
+the files much smaller.
+
+00:02:23.319 --> 00:02:30.189
+Here is an image of our favourite robot and
+on disk this image occupies 480 kilobytes.
+
+00:02:30.189 --> 00:02:35.799
+If we observe this little region within the
+robot and we zoom in on that what we can see
+
+00:02:35.799 --> 00:02:42.889
+is that it looks pretty good, we can see the
+edges are fairly sharp, and there is some
+
+00:02:42.889 --> 00:02:47.799
+interesting colour gradations there. Now this
+image has only been modestly compressed, it
+
+00:02:47.799 --> 00:02:55.109
+is 82% of the original image size. But if
+we start to increase the amount of compression,
+
+00:02:55.109 --> 00:03:00.930
+we are throwing away additional information,
+we see the image starts to become quite seriously
+
+00:03:00.930 --> 00:03:07.389
+degraded when we zoom in and look at it very
+closely. So with the very high level of compression
+
+00:03:07.389 --> 00:03:12.200
+the image is only occupying twelve per cent
+of the original storage, so we have made massive
+
+00:03:12.200 --> 00:03:17.529
+savings in the disk space required, but the
+image is starting to look fairly poor when
+
+00:03:17.529 --> 00:03:23.389
+we zoom in on it. And if we zoom in even further
+we can see that it has become quite blocky,
+
+00:03:23.389 --> 00:03:28.430
+quite quantised, and there are many fewer
+colours here than there are in the original
+
+00:03:28.430 --> 00:03:32.669
+image.
+All of these images have the same number of
+
+00:03:32.669 --> 00:03:38.879
+pixels, but the actual file size varies. This
+image as we mentioned before is 3.7 megabytes
+
+00:03:38.879 --> 00:03:44.159
+long. This crocodile is only 2.9 megabytes
+long. The bird picture
+
+00:03:44.159 --> 00:03:49.529
+3.8 megabytes. The size of an image after
+it has been compressed is a function of how
+
+00:03:49.529 --> 00:03:51.879
+much information is in that image.
+

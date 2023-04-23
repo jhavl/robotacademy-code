@@ -1,0 +1,399 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.300 --> 00:00:08.519
+Just to recap we have a camera, which is observing
+an object in three-dimensional space. We can
+
+00:00:08.519 --> 00:00:13.160
+project the position of the object in 3D space
+into the image plane where it has a coordinate
+
+00:00:13.160 --> 00:00:19.910
+U, V. Assume that the camera is able to move
+and it has translational velocity and rotational
+
+00:00:19.910 --> 00:00:24.340
+velocity. The velocity of the point on the
+image plane is related to the camera spatial
+
+00:00:24.340 --> 00:00:27.710
+velocity by the image Jacobian.
+
+00:00:27.710 --> 00:00:33.210
+We can demonstrate this principle very simply.
+If I move my head to the right then the robot
+
+00:00:33.210 --> 00:00:39.390
+and everything else in the world appears to
+move to the left. If instead I rotate my head
+
+00:00:39.390 --> 00:00:44.059
+towards the right then everything in the world
+also tends to move to the left.
+
+00:00:44.059 --> 00:00:49.579
+So there's an ambiguity between moving my
+head; pure translation to the right and the
+
+00:00:49.579 --> 00:00:54.590
+rotation of my head to the right. The visual
+appearance is somewhat similar.
+
+00:00:54.590 --> 00:01:01.660
+There are two important concepts that we need
+to be aware of. The first issue is perceptibly.
+
+00:01:01.660 --> 00:01:05.979
+In general as the camera moves, points on
+the image plane move as well.
+
+00:01:05.979 --> 00:01:10.619
+So there are some cases where with the camera
+moving some points in the image plane will
+
+00:01:10.619 --> 00:01:16.570
+not appear to move. In that case we say the
+motion is imperceptible. Looking at the image
+
+00:01:16.570 --> 00:01:20.350
+we are not able to tell whether the camera
+is moving or not.
+
+00:01:20.350 --> 00:01:26.860
+Another important issue is what we call ambiguity
+and that is at sometimes quite different camera
+
+00:01:26.860 --> 00:01:31.950
+velocities cause the same change in the image.
+And we will give some concrete examples of
+
+00:01:31.950 --> 00:01:37.240
+both of these effects shortly. Consider the
+case where the camera is moving in the positive
+
+00:01:37.240 --> 00:01:42.159
+Z direction we have this radiating pattern
+of optical flow that we introduced earlier.
+
+00:01:42.159 --> 00:01:47.159
+Let's consider we have an image plane point
+right in the middle of the image plane. We
+
+00:01:47.159 --> 00:01:52.470
+can see that the optical flow vectors get
+larger as we move away from the centre. In
+
+00:01:52.470 --> 00:01:57.570
+fact at the very centre there is no apparent
+velocity. But, if I am heading directly towards
+
+00:01:57.570 --> 00:02:02.930
+an object it doesn't appear to be moving to
+the side or upwards or downwards; it's stays
+
+00:02:02.930 --> 00:02:04.259
+exactly where it is.
+
+00:02:04.259 --> 00:02:08.970
+This is the thing that I am going to hit if
+I keep moving in the positive Z direction.
+
+00:02:08.970 --> 00:02:13.010
+So if I just look at a point in the middle
+of the image plane; it's not possible for
+
+00:02:13.010 --> 00:02:16.129
+me to determine whether I am moving forwards
+or not.
+
+00:02:16.129 --> 00:02:21.129
+Another example of imperceptible motion is
+the case where the camera is rotating around
+
+00:02:21.129 --> 00:02:26.760
+its optical axis. So again if I consider a
+point in the image plane there is no apparent
+
+00:02:26.760 --> 00:02:30.319
+velocity at this particular point with the
+camera rotating.
+
+00:02:30.319 --> 00:02:34.150
+Clearly if I consider a point toward the edge
+of the image there is a significant velocity
+
+00:02:34.150 --> 00:02:38.550
+component due to the camera rotation. But,
+in the centre of the image there is none and
+
+00:02:38.550 --> 00:02:44.650
+I cannot tell by looking at a point there whether my camera is rotating around the optical axis or not.
+
+00:02:45.730 --> 00:02:49.780
+Let's compute the visual Jacobian but, this
+time we are going to do it about the point
+
+00:02:49.780 --> 00:02:57.319
+which is in the centre of the image. And that is at coordinate 512, 512 that is the principle point.
+
+00:02:57.319 --> 00:03:01.430
+That's where the optical axis pierces the
+image plane and we can see that up here in
+
+00:03:01.430 --> 00:03:03.920
+the parameters of the camera object.
+
+00:03:03.920 --> 00:03:08.390
+We will compute the visual Jacobian at this
+particular point, now let's take a look at
+
+00:03:08.390 --> 00:03:15.970
+what happens when we move the camera and start
+again with motion in the "X" direction. We
+
+00:03:15.970 --> 00:03:24.400
+transpose that and we see again that this point moves at 160 pixels per second in the negative "U" direction.
+
+00:03:24.400 --> 00:03:30.390
+Now let's see what happens if we move in the
+"Z" direction and we see now that this particular
+
+00:03:30.390 --> 00:03:32.489
+point is going to have a zero velocity.
+
+00:03:32.489 --> 00:03:37.250
+So my camera is moving forward at a meter
+per second and as far as that particular point,
+
+00:03:37.250 --> 00:03:42.400
+its projection image plane; it's not moving
+at all. And the same thing happens in the
+
+00:03:42.400 --> 00:03:51.470
+case of rotation around the optical axis.
+We see again, this particular point has got
+
+00:03:51.470 --> 00:03:53.720
+zero motion on the image plane.
+
+00:03:53.720 --> 00:04:00.909
+Motion ambiguity is an interesting thing.
+If we look at the optical flow field due to
+
+00:04:00.909 --> 00:04:05.720
+positive velocity in the "X' direction; we
+see that all that all the optical flow vectors
+
+00:04:05.720 --> 00:04:07.260
+point towards the left.
+
+00:04:07.260 --> 00:04:12.599
+If I were to rotate the camera in a positive
+direction around the "Y" axis we get the flow
+
+00:04:12.599 --> 00:04:16.900
+field shown here on the right. And we can
+see that they look quite similar. They are
+
+00:04:16.900 --> 00:04:21.930
+certainly very similar in the middle rows
+of the image, but we can see at the top and
+
+00:04:21.930 --> 00:04:27.610
+the bottom of the image that for the camera
+rotation case the optical flow vectors appear
+
+00:04:27.610 --> 00:04:35.470
+to be slightly curved, they are not all parallel as they are in the case of pure velocity in the "X" direction.
+
+00:04:35.470 --> 00:04:40.979
+There is some sort of ambiguity between translation
+and rotation. If I translate the camera or
+
+00:04:40.979 --> 00:04:46.000
+I rotate the camera we get somewhat similar
+optical flow fields. Let's explore this in
+
+00:04:46.000 --> 00:04:47.610
+a little bit more detail.
+
+00:04:47.610 --> 00:04:52.880
+On the left we see the optical flow due to
+pure camera translation. On the right hand
+
+00:04:52.880 --> 00:04:58.320
+side we have the case for the camera rotating
+around the "Y" axis. The top graph shows the
+
+00:04:58.320 --> 00:05:03.970
+case when the camera has a lens with a large
+focal length. This corresponds to a telephoto
+
+00:05:03.970 --> 00:05:09.130
+or a zoom lens. And we see in this case that
+the optical flow patterns are very, very similar
+
+00:05:09.130 --> 00:05:14.699
+indeed. However, if we use a lens with a small
+focal length that corresponds to a wide field
+
+00:05:14.699 --> 00:05:20.169
+of view we see that the optical flow pattern
+now is very, very different to the pattern
+
+00:05:20.169 --> 00:05:26.400
+due to pure "X" translation. This ambiguity
+in fact depends on the focal length of the
+
+00:05:26.400 --> 00:05:32.520
+lens. We can explain this by looking in some detail at the structure of the image Jacobian matrix.
+
+00:05:32.530 --> 00:05:37.889
+Consider the case where the camera has translation
+velocity in the "X" direction. Then that velocity
+
+00:05:37.889 --> 00:05:44.840
+multiplies this column of the image Jacobian.
+The ambiguous case occurs with rotation around
+
+00:05:44.840 --> 00:05:50.229
+the "Y" axis and omega "Y" multiplies this
+column of Jacobian matrix.
+
+00:05:50.229 --> 00:05:55.380
+For the case where "F" is very large a long
+the focal length; then these two terms become
+
+00:05:55.380 --> 00:05:59.960
+quite similar. So what happens in this case
+because "F" is very large it dominates "U'
+
+00:05:59.960 --> 00:06:06.500
+squared. So the result is effectively a constant.
+It's no longer a function of "U" and the same
+
+00:06:06.500 --> 00:06:10.910
+for the first column the corresponding term
+it is not a function of "U". So these two
+
+00:06:10.910 --> 00:06:13.759
+terms become similar functions.
+
+00:06:13.759 --> 00:06:18.650
+If we look at the second row we can see that
+it has "F", becomes very large and it is in
+
+00:06:18.650 --> 00:06:24.160
+the denominator. This term will approach zero
+and again becomes very similar to the corresponding
+
+00:06:24.160 --> 00:06:28.090
+elements in the first column of the image
+Jacobian matrix.
+
+00:06:28.090 --> 00:06:33.050
+We can take an intuitive approach to this
+problem. Here we have a very wide field of
+
+00:06:33.050 --> 00:06:37.919
+view image of a cathedral that corresponds
+through a very small focal length lens. And
+
+00:06:37.919 --> 00:06:43.750
+here we see a narrow field of view image of
+same cathedral and that corresponds to a large
+
+00:06:43.750 --> 00:06:48.600
+focal length lens; a big zoom lens, a telephoto
+lens if you'd like.
+
+00:06:48.600 --> 00:06:55.780
+Now that large focal length lens corresponds
+to the central part of this wide field of
+
+00:06:55.780 --> 00:07:00.669
+view image. So in this central part of the
+wide field of view image where the "U" and
+
+00:07:00.669 --> 00:07:06.270
+"V" coordinates are small we get this motion
+ambiguity. We can't tell whether the camera
+
+00:07:06.270 --> 00:07:12.449
+is rotating or translating. But, even in the
+periphery of the image where U and V are large,
+
+00:07:12.449 --> 00:07:17.900
+the motion is not ambiguous at all. Camera
+rotation and camera translation cause very,
+
+00:07:17.900 --> 00:07:25.100
+very different optical flow phenomenon. This ambiguity is very definitely related to the focal length.
+
+00:07:25.100 --> 00:07:30.020
+Clearly rotational motion and translational
+motion are very, very different. But, what
+
+00:07:30.030 --> 00:07:35.810
+we've just been saying is that using an image
+sensor; just like our eye that it is not possible
+
+00:07:35.810 --> 00:07:41.970
+for us to tell in general the difference between some rotational motions and some translational motions.
+
+00:07:42.360 --> 00:07:48.100
+Surely this would be a showstopper for using
+vision to control robots. And it is a bit
+
+00:07:48.110 --> 00:07:53.849
+of a problem and one way to get around that
+is to use a separate sensor to measure rotation.
+
+00:07:53.849 --> 00:07:59.349
+So this is a picture of a rotational measurement
+unit which has got gyroscope sensors in it
+
+00:07:59.349 --> 00:08:05.690
+which can measure independently the rotation
+of a robot and we can use this extra information
+
+00:08:05.690 --> 00:08:10.160
+to disambiguate the information that we get
+from our visual sensor.
+
+00:08:10.160 --> 00:08:16.720
+But, what about us? We have our eyes and clearly
+for us we can easily determine if we are rotating
+
+00:08:16.720 --> 00:08:23.810
+or whether we are translating. Yes we can,
+but to do that we also use inertial sensors.
+
+00:08:23.810 --> 00:08:29.129
+We actually have rotational sensors in our
+head. In our inner ear there are these three
+
+00:08:29.129 --> 00:08:34.680
+semi-circular canals and they measure the
+angular velocity of our head and we have three
+
+00:08:34.680 --> 00:08:40.000
+sensors in our left ear and three sensors
+in our right ear. And our brain fuses the
+
+00:08:40.000 --> 00:08:44.920
+rotational information that comes from our
+inner ear with our optical flow information
+
+00:08:44.920 --> 00:08:46.320
+that comes from our eyes.
+
+00:08:46.320 --> 00:08:52.370
+It is fused in our brain it gives us a very
+unambiguous information about our motion whether
+
+00:08:52.370 --> 00:08:55.320
+we're rotating or whether we are translating.
+

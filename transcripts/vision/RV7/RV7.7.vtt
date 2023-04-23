@@ -1,0 +1,163 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.330 --> 00:00:08.069
+Let's recap some of the important topics we've
+covered in this particular lecture. We've
+
+00:00:08.069 --> 00:00:13.130
+talked about the fundamental image formation
+process and the simplest case is what we call
+
+00:00:13.130 --> 00:00:18.380
+the "Pinhole Camera." Light comes from a light
+source, in this case the sun, reflects off
+
+00:00:18.380 --> 00:00:24.119
+points on the three dimensional object, those
+light rays pass through the pin hole and cause
+
+00:00:24.119 --> 00:00:28.760
+a very faint inverted image to be formed on
+the image plane.
+
+00:00:28.760 --> 00:00:33.260
+The geometry of this situation can be very
+simply explained. It can be described using
+
+00:00:33.260 --> 00:00:37.600
+similar triangles and that leads us to the
+very simple relationship here between three
+
+00:00:37.600 --> 00:00:42.579
+dimensional world co-ordinates, capital X,
+capital Y, capital Z and the two dimensional
+
+00:00:42.579 --> 00:00:45.840
+image plane co-ordinates little x and little y.
+
+00:00:45.840 --> 00:00:51.239
+So this is a mapping or a projection from
+three dimensions down to two dimensions and
+
+00:00:51.239 --> 00:00:54.219
+this is called "Perspective Projection."
+
+00:00:54.219 --> 00:00:59.680
+One of the disadvantages of the pinhole imaging
+model is that a lot of the light rays are
+
+00:00:59.680 --> 00:01:04.720
+lost; they simply hit the opaque plane that
+holds the pinhole. If we introduce a lens
+
+00:01:04.720 --> 00:01:09.170
+instead we're able to gather many more of
+the rays that leave each particular point
+
+00:01:09.170 --> 00:01:14.270
+on the object and that allows a brighter image
+to be formed.
+
+00:01:14.270 --> 00:01:19.250
+A consequence of the perspective projection,
+the mapping from three dimensions down into
+
+00:01:19.250 --> 00:01:25.680
+two, is that some of the geometry is not preserved.
+Here we see that parallel lines in the world
+
+00:01:25.680 --> 00:01:31.159
+are no longer parallel lines in the image.
+We see that a large circle in the world is
+
+00:01:31.159 --> 00:01:37.360
+not a circle in the image. And perspective
+projection guarantees only to do this, it
+
+00:01:37.360 --> 00:01:42.630
+will map a line to a line, but it doesn't
+necessarily retain parallelism, angles are
+
+00:01:42.630 --> 00:01:48.130
+not necessarily preserved and conic sections
+are mapped to conic sections; so that means
+
+00:01:48.130 --> 00:01:53.720
+that a circle could appear as an ellipse and
+an ellipse could appear as a circle.
+
+00:01:53.720 --> 00:01:59.219
+A really important consequence of the perspective
+projection is that there is no unique inverse.
+
+00:01:59.219 --> 00:02:05.130
+We've lost a dimension, so for a particular
+image there are an infinite number of possible
+
+00:02:05.130 --> 00:02:10.629
+objects that could have caused that image.
+It could be a small object close to me or
+
+00:02:10.629 --> 00:02:16.810
+it could be a large object further away. There
+is no way, just from the image geometry that
+
+00:02:16.810 --> 00:02:17.849
+we can tell this.
+
+00:02:17.849 --> 00:02:22.730
+So in practice we use a number of tricks that
+come from our experience from growing up in
+
+00:02:22.730 --> 00:02:29.520
+a three dimensional world, in order to disambiguate
+this. Though we can trick this. If we create
+
+00:02:29.520 --> 00:02:34.690
+a two dimensional image; shown here as a piece
+of street art, which causes on the retina
+
+00:02:34.690 --> 00:02:41.209
+of our eye, exactly the same image as we would
+get from looking at a three dimensional world,
+
+00:02:41.209 --> 00:02:47.959
+then all of the three dimensional interpretation
+part of our brain kicks in and causes us to
+
+00:02:47.959 --> 00:02:53.970
+feel, to interpret the image as being three
+dimensional even though the rational part
+
+00:02:53.970 --> 00:02:59.950
+of our brain knows that this is a piece of
+flat street art. The impression is still very,
+
+00:02:59.950 --> 00:03:01.110
+very vivid.
+
+00:03:01.110 --> 00:03:05.620
+Another way we can look at the consequence
+of there being no unique inverse is in an
+
+00:03:05.620 --> 00:03:10.989
+illusion like this and it's because Chris
+is a full size person but because he's standing
+
+00:03:10.989 --> 00:03:15.569
+further away he appears to be smaller and
+although initially we're surprised when we
+
+00:03:15.569 --> 00:03:19.950
+look at that, again the rational part of our
+brain that understands the three dimensional
+
+00:03:19.950 --> 00:03:25.569
+world kicks in and says "Okay, actually we
+will assume that he is a full size person,
+
+00:03:25.569 --> 00:03:27.700
+he therefore must be further away."
+

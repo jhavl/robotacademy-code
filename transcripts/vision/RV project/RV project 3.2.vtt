@@ -1,0 +1,170 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.250 --> 00:00:09.340
+I'd like to talk to you now about improving the color segmentation of your Robotic Visions worksheet.
+
+00:00:09.340 --> 00:00:13.900
+Two of the techniques that you
+can use is Gamma Correction and Chromaticity Co-ordinates.
+
+00:00:13.900 --> 00:00:16.980
+Let's go into MATLAB now and investigate these two techniques.
+
+00:00:18.490 --> 00:00:23.539
+Okay so for my getColor function here, it
+has two inputs, the first is the Robotic Vision
+
+00:00:23.539 --> 00:00:28.340
+worksheet image and the second is the color
+channel that I'm interested in for the 2D
+
+00:00:28.340 --> 00:00:30.390
+objects that I wish to segment.
+
+00:00:30.390 --> 00:00:36.860
+So the output of this function is the segmented
+2D objects, depending on the color channel.
+
+00:00:36.860 --> 00:00:42.750
+So to improve my segmented output with my
+getColor function, I've used two different
+
+00:00:42.750 --> 00:00:46.570
+methods.
+The first is Gamma Correction. Now gamma correction
+
+00:00:46.570 --> 00:00:53.149
+can be applied through either using the igamma
+function or you can also supply the gamma
+
+00:00:53.149 --> 00:00:55.940
+input when you're using iread with the toolbox.
+
+00:00:55.940 --> 00:01:00.530
+For this example, I'm just going to show you
+how to use igamma. So for igamma we create
+
+00:01:00.530 --> 00:01:06.720
+a new variable called limg for example and
+we can call the igamma function and igamma
+
+00:01:06.720 --> 00:01:13.220
+has two inputs; the first is your input image
+which for us is just the Robotic Vision worksheet
+
+00:01:13.220 --> 00:01:18.799
+and the second input variable is the particular
+gamma correction you wish to apply.
+
+00:01:18.799 --> 00:01:27.119
+For this example I'm just going to use sRGB.
+Okay so this function has created another
+
+00:01:27.119 --> 00:01:32.600
+image, with is the gamma corrected version
+of my input image as you can see there.
+
+00:01:32.600 --> 00:01:38.090
+So you guys should experiment with the different
+gamma corrections you can apply and that will
+
+00:01:38.090 --> 00:01:42.600
+be depended on the type of camera you have
+used to take the Robotic Vision worksheet
+
+00:01:42.600 --> 00:01:44.549
+image.
+
+00:01:44.549 --> 00:01:50.549
+The second method I've used in getColor is
+to create chromaticity co-ordinates. Now the
+
+00:01:50.549 --> 00:01:57.749
+toolbox has a function called tristim2cc and this allows you to generate chromaticity co-ordinates from an input image.
+
+00:01:57.810 --> 00:02:05.920
+So how that function works is that it returns
+R and G values and then we call out tristim2cc
+
+00:02:05.920 --> 00:02:11.489
+function and the input is simply just the
+Robotic Vision Worksheet or whatever image
+
+00:02:11.489 --> 00:02:13.430
+that you're interested in.
+
+00:02:13.430 --> 00:02:17.599
+And for this example, instead of using my
+original image, let's actually use the gamma
+
+00:02:17.599 --> 00:02:21.639
+corrected image. Okay and then we can visualize that.
+
+00:02:26.320 --> 00:02:30.160
+Okay, so you can see on the left hand side, we have the
+
+00:02:30.960 --> 00:02:35.880
+R value of the chromaticity co-ordinate and on the right hand side we have the G value.
+
+00:02:35.880 --> 00:02:40.600
+So for the R value on the
+left, you can see that the red 2D objects
+
+00:02:40.610 --> 00:02:47.349
+are quite bright. So they look much brighter
+than say the, and they have a value up here
+
+00:02:47.349 --> 00:02:54.530
+of 0.83 and their much brighter than the blue
+2D objects, for example the circle here, which
+
+00:02:54.530 --> 00:02:56.610
+only has a value of 0.14.
+
+00:02:56.610 --> 00:03:02.409
+And then in between those two values, we have
+the green 2D objects, so if we look at the
+
+00:03:02.409 --> 00:03:09.489
+small green circle here, you can see it has
+a G value of 0.25. Conversely on the right
+
+00:03:09.489 --> 00:03:19.099
+hand side here with the G values, your green
+2D objects have a value say of 0.62, your
+
+00:03:19.099 --> 00:03:26.409
+red objects are quite dark this time, so the
+large red square only has a G value of 0.09
+
+00:03:26.409 --> 00:03:31.780
+and the in between values for this is now
+the blue circles. So the blue circle has a
+
+00:03:31.780 --> 00:03:37.180
+value of 0.21 for this top circle here.
+
+00:03:37.180 --> 00:03:43.060
+So you can use the chromaticity co-ordinates
+in your segmentation to try and identify what
+
+00:03:43.060 --> 00:03:49.200
+color the 2D object is going to be a part
+of, being either red, green or blue and you
+
+00:03:49.200 --> 00:03:56.320
+can use both the red values and the green values to determine what color a particular object belongs to.
+
+00:03:57.080 --> 00:04:01.220
+Okay, so those are the two methods that I
+recommend that you use; gamma correction and
+
+00:04:01.239 --> 00:04:05.049
+chromaticity co-ordinates. You don't have
+to use these methods if you don't want to,
+
+00:04:05.049 --> 00:04:09.989
+but I strongly recommend that you experiment with these two and see what sort of results that you get.
+

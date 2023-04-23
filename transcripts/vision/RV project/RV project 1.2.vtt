@@ -1,0 +1,228 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.440 --> 00:00:08.519
+I like to talk to you guys now about the different
+steps that are required to complete the robotic
+
+00:00:08.519 --> 00:00:12.559
+vision project. Let's take a look now what
+the steps are.
+
+00:00:12.559 --> 00:00:16.970
+So the first week which you are currently
+doing now is the project introduction. So
+
+00:00:16.970 --> 00:00:21.220
+in this week we're going to learn about what
+the project is and see what the final output
+
+00:00:21.220 --> 00:00:26.510
+should be. So what is actually required from
+the project. You need to download the robotic
+
+00:00:26.510 --> 00:00:31.970
+vision worksheet and print it off. So it's
+in a pdf format and it's in an A2. So you
+
+00:00:31.970 --> 00:00:37.489
+can print off an A4 and join 4x4 sheet together
+to get the full A2 work sheet.
+
+00:00:37.489 --> 00:00:41.620
+The last thing that you have to do is to make
+sure that all the software of your computer
+
+00:00:41.620 --> 00:00:48.210
+is configured including MATLAB and all the
+toolboxes so the robotic vision tool box will
+
+00:00:48.210 --> 00:00:54.969
+need to be installed. If you're following
+the course then this should already been completed.
+
+00:00:54.969 --> 00:01:00.170
+The next week is called getting an image.
+So the first you need to do is to take a photo
+
+00:01:00.170 --> 00:01:05.780
+of the work sheet using a particular camera
+you have, so that can be a mobile phone camera,
+
+00:01:05.780 --> 00:01:08.560
+a compact camera or a webcam.
+
+00:01:08.560 --> 00:01:13.950
+So just a camera to take a photo of the worksheet.
+The next step is that we're going to get that
+
+00:01:13.950 --> 00:01:21.570
+photo and then load the photo image into MATLAB.
+The final thing for that week is to make sure
+
+00:01:21.570 --> 00:01:27.350
+that you guys understand what MATLAB functions
+look like and how they work. So this whole
+
+00:01:27.350 --> 00:01:31.960
+project is going to be broken down into a
+series of MATLAB functions that we're going
+
+00:01:31.960 --> 00:01:33.710
+to join together at the end.
+
+00:01:33.710 --> 00:01:37.430
+Now just note that these functions are going
+to be quite small so there is going to be
+
+00:01:37.430 --> 00:01:42.479
+less than a hundred lines of code. If you're
+writing functions that are more than a hundred
+
+00:01:42.479 --> 00:01:47.570
+lines of code, then you really need to stop
+and rethink your approach because your algorithm
+
+00:01:47.570 --> 00:01:52.920
+is getting much too large for this particular
+project.
+
+00:01:52.920 --> 00:01:58.750
+The next week is week 3 and that's color segmentation.
+So for this week we will be writing a MATLAB
+
+00:01:58.750 --> 00:02:03.869
+function and the output for that function
+will be a binary image of a particular color
+
+00:02:03.869 --> 00:02:09.530
+that we specify. So we'll be generating a
+binary image for the red color space, green
+
+00:02:09.530 --> 00:02:11.590
+color space and blue color space.
+
+00:02:11.590 --> 00:02:19.250
+We'll also be experimenting with gamma correction
+and chromaticity coordinates so these two
+
+00:02:19.250 --> 00:02:25.129
+methods will allow us to get better binary
+image outputs from the MATLAB function when
+
+00:02:25.129 --> 00:02:28.650
+we do the color segmentation.
+
+00:02:28.650 --> 00:02:33.860
+Week 4 is called shape and size. So for this
+week we'll be writing another MATLAB function
+
+00:02:33.860 --> 00:02:39.050
+that classifies the 2D objects that exist
+on our work sheet in terms of a shape. So
+
+00:02:39.050 --> 00:02:45.050
+the shape can be either a square, circle or
+a triangle and a size with the size can be
+
+00:02:45.050 --> 00:02:46.819
+either small or large.
+
+00:02:46.819 --> 00:02:52.680
+And in this week we'll be learning about blobs
+in image processing and their different properties.
+
+00:02:52.680 --> 00:02:59.409
+So we're going to be getting a blob from our
+binary image and then we'll see that particular
+
+00:02:59.409 --> 00:03:05.150
+property and then try and classify in terms
+of other shape and size.
+
+00:03:05.150 --> 00:03:09.739
+After that comes week 5 which is homography.
+Now in this week we're going to be writing
+
+00:03:09.739 --> 00:03:15.110
+two different functions. The first MATLAB
+function that we'll be writing will allow
+
+00:03:15.110 --> 00:03:19.819
+us to find the blue calibration circles on
+our work sheets. So there are nine calibration
+
+00:03:19.819 --> 00:03:27.319
+circles and this function will identify the
+pixel positions of the calibration circles on the page.
+
+00:03:27.860 --> 00:03:32.960
+The next function that we'll write will generate
+a homography matrix. So we will take the position
+
+00:03:32.970 --> 00:03:39.450
+of the calibration circles, will also measure
+the x and y Cartesian position of the circles.
+
+00:03:39.450 --> 00:03:45.150
+And then with these two different points,
+we then generate a homography matrix.
+
+00:03:45.150 --> 00:03:50.510
+And the final thing we'll learn is why homography
+matrices are useful and how they can fail
+
+00:03:50.510 --> 00:03:54.270
+with different sets of points.
+
+00:03:56.320 --> 00:04:02.959
+Last week is week 6, for weeks 1 through 6
+of the complete vision system and in this
+
+00:04:02.959 --> 00:04:07.810
+week we'll be combining all the previous week's
+functions that was written. Everything that
+
+00:04:07.810 --> 00:04:13.310
+was done will be rolled into a MATLAB script
+and that would generate the output for our
+
+00:04:13.310 --> 00:04:21.590
+project. We'll identify the position of all the 2D objects and print that out into the MATLAB work space.
+
+00:04:21.750 --> 00:04:27.750
+Also this week, we'll investigate some interesting
+ways we can represent the output to the 2D
+
+00:04:27.750 --> 00:04:34.820
+object position data and how we can interact,
+how users can interact with this data. So
+
+00:04:34.820 --> 00:04:39.550
+that is week 1 through 6 for the robotic vision
+project.
+
+00:04:39.550 --> 00:04:44.150
+And the final week, which is optional, is
+called integration with the robot. So in this
+
+00:04:44.150 --> 00:04:50.160
+week, we're going to take the 2D position
+output from the robot vision project and then
+
+00:04:50.160 --> 00:04:55.240
+feed that into the input of a robotic arm
+system. So that will allow us to get our robotic
+
+00:04:55.240 --> 00:05:02.750
+arm system and then move it or actuate it
+to a 2D object on our work sheet page.
+
+00:05:02.750 --> 00:05:08.289
+So those are the full weeks of the robotic
+vision projects. I hope you'll join me in
+
+00:05:08.289 --> 00:05:09.680
+completing this project.
+

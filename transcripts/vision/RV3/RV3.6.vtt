@@ -1,0 +1,142 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.409 --> 00:00:08.540
+Imagine now that we want to try and implement
+some of these monadic operations, like adding
+
+00:00:08.540 --> 00:00:15.440
+a constant to every pixel, or to multiply
+every pixel by a constant.
+
+00:00:15.440 --> 00:00:20.519
+One way to do this would be to write some
+code with some nested loops that step through
+
+00:00:20.519 --> 00:00:26.320
+every element in the matrix and performs the
+monadic operation on them.
+
+00:00:26.320 --> 00:00:31.140
+In MATLAB there is an easy way to do it and
+it is a technique in MATLAB that is referred
+
+00:00:31.140 --> 00:00:34.830
+to as vectorization.
+
+00:00:34.830 --> 00:00:41.340
+Consider that we have a matrix with n rows
+and m columns and we have a scalar.
+
+00:00:41.340 --> 00:00:46.870
+And in in the middle we have a number of standard
+arithmetic operators; plus, minus, times,
+
+00:00:46.870 --> 00:00:48.520
+divide and so on.
+
+00:00:48.520 --> 00:00:55.489
+If, for instance, we use the addition operator—plus
+symbol—and we add the matrix to a scalar,
+
+00:00:55.489 --> 00:00:58.370
+the result will be a matrix.
+
+00:00:58.370 --> 00:01:04.039
+And what MATLAB is going to do is to add the
+scalar to every individual element of the
+
+00:01:04.039 --> 00:01:09.660
+input matrix and assign it to the corresponding
+element in the output matrix.
+
+00:01:09.660 --> 00:01:14.030
+So we do not have to write loops to go through
+and add the scalar to every element of the
+
+00:01:14.030 --> 00:01:15.430
+input matrix.
+
+00:01:15.430 --> 00:01:22.500
+MATLAB will do it for us, and we use the short
+hand notation of a matrix operator and a scalar.
+
+00:01:22.500 --> 00:01:29.300
+So we can add a constant to every element
+matrix, subtract the constant; multiply; divide;
+
+00:01:29.300 --> 00:01:31.850
+raise every element to a power; and so on.
+
+00:01:31.850 --> 00:01:35.330
+We are going to demonstrate this now with
+a real example.
+
+00:01:35.330 --> 00:01:41.960
+We will start by creating a matrix and call
+it m, and its elements will all be integers,
+
+00:01:41.960 --> 00:01:44.480
+integers between 1 and 10.
+
+00:01:44.480 --> 00:01:47.580
+And the matrix will be 4 by 4.
+
+00:01:47.580 --> 00:01:53.050
+We are going to use MATLAB’s built in randi
+function to create this matrix with random
+
+00:01:53.050 --> 00:01:54.970
+integer elements in it.
+
+00:01:54.970 --> 00:02:01.069
+Now I am going to add 1 to that matrix, or
+adding a matrix—four by four matrix—to
+
+00:02:01.069 --> 00:02:08.349
+a scalar, and what MATLAB is going to do is
+add 1 to every element of the matrix.
+
+00:02:08.349 --> 00:02:16.520
+Similarly, if I multiply the matrix by 2,
+we will see that every individual element
+
+00:02:16.520 --> 00:02:21.230
+in the matrix m has been multiplied by 2.
+
+00:02:21.230 --> 00:02:25.290
+We can perform more complex mathematical functions
+in a similar way.
+
+00:02:25.290 --> 00:02:30.300
+We can compute the square root of m, and what
+MATLAB is going to do is to compute the square
+
+00:02:30.300 --> 00:02:33.860
+root of every element within the matrix.
+
+00:02:33.860 --> 00:02:40.280
+Finally, we can raise each element of the
+matrix to the power of two, we use the operator
+
+00:02:40.280 --> 00:02:47.720
+.^ and what we see here is that every element
+in the matrix m has been squared.
+
+00:02:47.720 --> 00:02:54.280
+Important to note that this is very different
+to writing this, and what this has done is
+
+00:02:54.280 --> 00:03:00.200
+to multiply the matrix m by itself; it is
+the same as writing that.
+
+00:03:00.200 --> 00:03:05.490
+This is multiplying a matrix by a matrix,
+using matrix multiplication rules—very different
+
+00:03:05.490 --> 00:03:09.760
+to raising each element of the matrix to the
+power of 2.
+

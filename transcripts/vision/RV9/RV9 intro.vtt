@@ -1,0 +1,57 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.369 --> 00:00:20.630
+In this lecture we're going to continue an
+earlier discussion about image processing
+
+00:00:20.630 --> 00:00:26.060
+and pick up on a couple of more advance techniques
+that are interesting and useful. Image processing
+
+00:00:26.060 --> 00:00:27.939
+is are really huge area.
+
+00:00:27.939 --> 00:00:32.460
+There are some massive textbooks that cover
+it in a lot of detail. Much more detail and
+
+00:00:32.460 --> 00:00:36.700
+than I can hope to do here. But I want to
+just introduce you to a couple of techniques
+
+00:00:36.700 --> 00:00:38.690
+that I think really are useful.
+
+00:00:38.690 --> 00:00:42.300
+The first thing we going to reveal is the
+mathematical morphology. And where we left
+
+00:00:42.300 --> 00:00:47.670
+it, we could use shape filters that could
+detect squares or rectangles of different
+
+00:00:47.670 --> 00:00:52.510
+sizes. Here we going to extend that and look
+at how we can detect shapes that are perhaps
+
+00:00:52.510 --> 00:00:55.640
+diagonal lines or circles.
+
+00:00:55.640 --> 00:01:00.280
+The second technique we are going to visit
+is what we call image warping. This is a fairly
+
+00:01:00.280 --> 00:01:05.030
+general technique that allows us to change
+the shape of an image and we are going to
+
+00:01:05.030 --> 00:01:09.619
+look at some examples about how we can make
+an image larger or smaller, about how we can
+
+00:01:09.619 --> 00:01:12.780
+rotate an image or about how we can shift
+an image.
+

@@ -1,0 +1,272 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.390 --> 00:00:08.610
+The output of each week in the Robotic Vision
+Project will be to write a function in MATLAB.
+
+00:00:08.610 --> 00:00:12.849
+Functions are very important in programming
+and also for this project, so let's take a
+
+00:00:12.849 --> 00:00:17.300
+look now at a simple example that I've put
+together in MATLAB.
+
+00:00:17.300 --> 00:00:21.939
+Functions are really important with programming
+and they're really useful, so if you're new
+
+00:00:21.939 --> 00:00:27.130
+to MATLAB or just programming in general,
+you really need to be aware about how they
+
+00:00:27.130 --> 00:00:29.000
+do really make your life easier.
+
+00:00:29.000 --> 00:00:35.620
+So functions is basically just a collection
+of programming lines that can be used repeatedly
+
+00:00:35.620 --> 00:00:41.020
+with just one function call; so they basically
+obstruct away or hide some code that we've
+
+00:00:41.020 --> 00:00:46.050
+already written and the project is basically
+going to be you guys each week making a new
+
+00:00:46.050 --> 00:00:52.280
+function to solve a particular task. So as
+you're doing the project or any programming
+
+00:00:52.280 --> 00:00:56.920
+problem in general, if you’re starting to
+copy and paste code that you've written before,
+
+00:00:56.920 --> 00:01:01.000
+you really need to be thinking about "Okay,
+should I be actually copying and pasting it
+
+00:01:01.000 --> 00:01:05.019
+or should I be making new functions?" And
+as you make a new function you also need to
+
+00:01:05.019 --> 00:01:09.240
+think about what sort of parameters these
+functions should have, so what are the inputs
+
+00:01:09.240 --> 00:01:10.490
+to the function?
+
+00:01:10.490 --> 00:01:15.799
+So if you have good and robust inputs that
+means that the function can be used to be
+
+00:01:15.799 --> 00:01:22.599
+solve other types of problems and it will
+also be useful for other people using your code.
+
+00:01:22.600 --> 00:01:28.400
+So that's my spiel on functions; they're very
+useful and I've put together a simple example
+
+00:01:28.400 --> 00:01:32.500
+of a MATLAB function, so let's go through
+that right now.
+
+00:01:32.500 --> 00:01:38.479
+Okay so I have a function here called "greysmooth"
+so let's take a look at that function and
+
+00:01:38.479 --> 00:01:42.240
+this function contains some comments and I'm
+going to go through this line by line and
+
+00:01:42.240 --> 00:01:45.369
+we're going to see how MATLAB functions work.
+
+00:01:45.369 --> 00:01:51.299
+So the function greysmooth has two inputs,
+the first is img which is the input image
+
+00:01:51.299 --> 00:01:57.020
+and the second is the kernel size. Now this
+kernel size dictates the smoothing that occurs
+
+00:01:57.020 --> 00:02:02.729
+on my output image which will be the input
+image but converted into greyscale and then
+
+00:02:02.729 --> 00:02:08.869
+smoothed over. Okay so that's what the function
+greysmooth is going to do.
+
+00:02:08.869 --> 00:02:13.599
+For MATLAB functions, they always start with
+the key word of "Function" and they always
+
+00:02:13.599 --> 00:02:16.430
+finish with the key word of "End".
+
+00:02:16.430 --> 00:02:24.470
+Now with functions, the first variable that
+you type after the key word is the upper variables
+
+00:02:24.470 --> 00:02:30.040
+and for my function here for this demonstration
+I just have one, which is called "simg" and
+
+00:02:30.040 --> 00:02:37.260
+that is equal to the name of your function,
+so my name's obviously greysmooth and coincidently
+
+00:02:37.260 --> 00:02:42.629
+the name of the function also needs to be
+the name of the MATLAB file, so greysmooth.m
+
+00:02:42.629 --> 00:02:45.489
+and the greysmooth function.
+
+00:02:45.489 --> 00:02:50.390
+After that you've put some brackets and then
+you have the input parameters for your function.
+
+00:02:50.390 --> 00:02:56.790
+So for greysmooth we have two inputs, img which is the input image and then the kernel size which is M.
+
+00:02:59.800 --> 00:03:04.200
+Okay, so that's the declaration
+of MATLAB functions.
+
+00:03:04.209 --> 00:03:08.569
+The first step I want to do in my function
+is to generate a greyscale version of the
+
+00:03:08.569 --> 00:03:15.989
+input image, so I'm going to create a new
+variable and we'll call the imono function,
+
+00:03:15.989 --> 00:03:23.010
+and that will take in my input image and then
+convert it into greyscale.
+
+00:03:23.010 --> 00:03:27.390
+The next step is to actually create the smoothing
+kernel, so I'll make another variable called
+
+00:03:27.390 --> 00:03:35.420
+"K" and then I’ll create my smoothing kernel.
+So you can already see here, the power of
+
+00:03:35.420 --> 00:03:41.209
+functions. So if I wanted to call greysmooth,
+I can then supply a smooth smoothing kernel
+
+00:03:41.209 --> 00:03:46.799
+size and then that will change the ends inside
+the function. Now if you didn't write this,
+
+00:03:46.799 --> 00:03:51.430
+if you were just typing these commands in
+the MATLAB workspace you would have to go
+
+00:03:51.430 --> 00:03:57.379
+back and retype out the kernel line again
+and then substitute N for the different numbers
+
+00:03:57.379 --> 00:04:03.060
+that you wanted, but because we've written
+it as a function, every time we call it the
+
+00:04:03.060 --> 00:04:08.959
+computer will then do the work for us and
+it will change the N inside.
+
+00:04:08.959 --> 00:04:16.489
+The last step is to actually create the smooth
+output image; so we will use my simg variable
+
+00:04:16.489 --> 00:04:24.770
+and then call the icon function and icon takes
+in the kernel size and the greyscale image.
+
+00:04:24.770 --> 00:04:29.950
+Okay so that's my greysmooth function. Let's
+go into the MATLAB workspace now and test it out.
+
+00:04:30.880 --> 00:04:39.210
+So first thing I need to do before I do that,
+is actually import an image, so I will call
+
+00:04:39.210 --> 00:04:46.570
+in my iread function, read in the Robotic
+Vision worksheet like so and now I can generate
+
+00:04:46.570 --> 00:04:55.350
+a smooth image, so I call my greysmooth, import
+this image and let's do a smoothing of say 25.
+
+00:04:57.040 --> 00:05:03.520
+Okay so that's smoothed the input image and
+let's take a look at that smoothed image.
+
+00:05:03.520 --> 00:05:08.370
+So you can see we've taken in our Robotic
+Vision worksheet image and it's applied a
+
+00:05:08.370 --> 00:05:14.150
+smoothing on top of that, so you can see its
+a little bit blurry comparative to the normal image.
+
+00:05:16.160 --> 00:05:22.100
+Okay, so say we wanted to increase the amount
+of smoothing, with our function, so because
+
+00:05:22.120 --> 00:05:26.449
+we've written a function we can just call
+it again and let's increase the smoothing
+
+00:05:26.449 --> 00:05:34.780
+from 25 to say 50. Okay so that's smoothed
+it using a kernel size of 50 and then we can
+
+00:05:34.780 --> 00:05:41.130
+use the idisp command again to visualize both
+images at the same time; so on the left hand
+
+00:05:41.130 --> 00:05:46.590
+side I have my first image which had a kernel
+size of 25 and then in the right we have my
+
+00:05:46.590 --> 00:05:50.789
+smoothed image again, but this time using
+a kernel size of 50 and you can see it's much
+
+00:05:50.789 --> 00:05:52.930
+more blurry this time.
+
+00:05:52.930 --> 00:05:59.500
+So I hope this demonstration of functions
+shows you the power and how useful they are,
+
+00:05:59.500 --> 00:06:06.039
+so for the project you'll be writing a new
+function each week to achieve a particular task.
+
+00:06:06.039 --> 00:06:11.090
+And just note that the size of your functions
+should not be that large, they should be round
+
+00:06:11.090 --> 00:06:15.639
+about 100 lines or less of code and if you're
+functions are larger than that, then you should
+
+00:06:15.639 --> 00:06:20.419
+really take a step back and think about the
+way you've approached the problem and maybe
+
+00:06:20.419 --> 00:06:23.539
+you're algorithm needs to be improved.
+

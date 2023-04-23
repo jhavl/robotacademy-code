@@ -1,0 +1,432 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.750 --> 00:00:10.990
+Another important class of image processing
+operations are what we call diadic operations.
+
+00:00:10.990 --> 00:00:17.680
+Now diadic operations have got two input arguments
+and one output. As we discussed for the monadic
+
+00:00:17.680 --> 00:00:22.680
+case, we have an arbitrary function; in this
+case it is a function of two input variables
+
+00:00:22.680 --> 00:00:31.859
+which we will call x and y. So it is f(x,y).
+And that function is applied to the corresponding
+
+00:00:31.859 --> 00:00:37.690
+pixels from the two input images, and the
+result is deposited in the corresponding element
+
+00:00:37.690 --> 00:00:44.260
+of the output image. All three images have
+to be exactly the same size and we apply the
+
+00:00:44.260 --> 00:00:50.410
+same function to every pixel in the two input
+images.
+
+00:00:50.410 --> 00:00:56.449
+So what sort of functions are useful for diadic
+image processing? What is this function f
+
+00:00:56.449 --> 00:01:00.890
+of x and y?
+Well we could perform arithmetic, we could
+
+00:01:00.890 --> 00:01:06.750
+add two images together or we could subtract
+two images, or we could multiply two images.
+
+00:01:06.750 --> 00:01:12.460
+We could also perform more complex functions
+like perhaps take the square root of the sum
+
+00:01:12.460 --> 00:01:17.750
+of the squares.
+When it comes to implementing some of these
+
+00:01:17.750 --> 00:01:24.799
+diadic operations, MATLAB’s inbuilt vectorization
+capacity comes to our aid.
+
+00:01:24.799 --> 00:01:32.290
+So if I was to add two matrices together,
+and I do that by using the plus operator,
+
+00:01:32.290 --> 00:01:37.560
+what MATLAB will do is add the corresponding
+elements of each matrix, deposit the result
+
+00:01:37.560 --> 00:01:41.060
+into the corresponding element of the output
+matrix.
+
+00:01:41.060 --> 00:01:45.450
+Once again all of these matrices are of exactly
+the same size.
+
+00:01:45.450 --> 00:01:52.770
+So we can use any of MATLAB’s arithmetic
+operators and we can also use any of MATLAB’s
+
+00:01:52.770 --> 00:01:58.729
+built-in logical operators.
+If we use the logical operators what happens
+
+00:01:58.729 --> 00:02:05.140
+is that the corresponding elements of the
+input matrices are compared using that logic
+
+00:02:05.140 --> 00:02:10.619
+operator and the result, either true or false,
+is deposited into the corresponding element
+
+00:02:10.619 --> 00:02:15.379
+in the output matrix.
+Now you might notice here that amongst the
+
+00:02:15.379 --> 00:02:18.430
+arithmetic operators there are a couple of
+unusual ones.
+
+00:02:18.430 --> 00:02:24.110
+One is .* and that means multiply the corresponding
+elements of the input matrices together.
+
+00:02:24.110 --> 00:02:31.239
+And the other one is ./ which means divide
+the corresponding elements of the input matrices.
+
+00:02:31.239 --> 00:02:36.459
+In MATLAB if you use just the * operator,
+that is a traditional matrix multiplication
+
+00:02:36.459 --> 00:02:42.269
+which is quite different. Here we are talking
+about multiplying element by element.
+
+00:02:42.269 --> 00:02:48.680
+Similarly, ./ means element wise division
+of corresponding elements in the input matrices,
+
+00:02:48.680 --> 00:02:55.410
+where / refers to multiplication by an inverse
+of a matrix, quite a different thing.
+
+00:02:55.410 --> 00:03:01.489
+Let’s have a look at a possible example
+of a diadic operator and in this particular
+
+00:03:01.489 --> 00:03:06.800
+case we will look at image subtraction—one
+image minus another image.
+
+00:03:06.800 --> 00:03:13.019
+So here is an image of an intersection taken
+from a high vantage point and looking down.
+
+00:03:13.019 --> 00:03:19.909
+And here is another frame from this same sequence—it
+is actually the fourth frame in the sequence.
+
+00:03:19.909 --> 00:03:24.739
+And these images look very, very similar to
+each other. The traffic is not moving very
+
+00:03:24.739 --> 00:03:29.060
+quickly at all.
+But if I subtract these two images, I get
+
+00:03:29.060 --> 00:03:34.269
+an image that looks like this. And what it
+has done is it has shown us whereabouts the
+
+00:03:34.269 --> 00:03:39.489
+two images are different. It shows us the
+discrepancy between the two images. And what
+
+00:03:39.489 --> 00:03:46.239
+we can see is that there are some bright pixels
+up here. So this shows quite clearly whereabouts
+
+00:03:46.239 --> 00:03:50.549
+the two images are different and we can see
+that the difference is mostly in that column
+
+00:03:50.549 --> 00:03:54.599
+of traffic, which is beginning to move downward
+in the frame.
+
+00:03:54.599 --> 00:03:58.909
+Although the images look very, very similar,
+simply by taking the difference it really
+
+00:03:58.909 --> 00:04:02.650
+highlights where the change in the image has
+occurred.
+
+00:04:02.650 --> 00:04:08.500
+But we do need to be a little bit careful
+when we subtract pixel values, particularly
+
+00:04:08.500 --> 00:04:13.739
+if they are of the unsigned integer eight
+type that we have used previously.
+
+00:04:13.739 --> 00:04:19.080
+Consider this example. Consider a pixel in
+frame one has got a value of 55. The corresponding
+
+00:04:19.080 --> 00:04:24.780
+pixel in frame two has got a value of 55.
+The difference: clearly 0.
+
+00:04:24.780 --> 00:04:30.630
+Now in this particular case the pixel in frame
+one has got a value of 60, it is a bit bigger
+
+00:04:30.630 --> 00:04:35.910
+then the value of the pixel in frame two.
+The difference is clearly of 5.
+
+00:04:35.910 --> 00:04:40.830
+Now in this case when the frame one pixel
+has got a value of 55, the frame two pixel
+
+00:04:40.830 --> 00:04:48.160
+has got a value of 60, MATLAB will compute
+a difference of zero and this is because we
+
+00:04:48.160 --> 00:04:54.550
+are subtracting unsigned integers. Unsigned
+integers cannot be negative by definition,
+
+00:04:54.550 --> 00:05:00.790
+they are unsigned. So in this case we are
+going to get an erroneous result.
+
+00:05:00.790 --> 00:05:07.720
+The way to get around it is to cast the images
+to a different data type; move them from being
+
+00:05:07.720 --> 00:05:15.060
+unsigned integers, perhaps to being signed integers, or perhaps to being double precision floating point values.
+
+00:05:18.280 --> 00:05:20.220
+Let’s create a tangible example of this.
+
+00:05:20.220 --> 00:05:26.220
+I am going to create a camera, a movie camera,
+which is a special type of object which opens
+
+00:05:26.220 --> 00:05:32.120
+a movie file and returns the frames of that
+as individual grey scale images.
+
+00:05:32.120 --> 00:05:38.050
+So I have created the movie object; it is
+in the workspace called cam. It is a movie
+
+00:05:38.050 --> 00:05:41.919
+object. And now I am going to grab one frame
+from that movie.
+
+00:05:41.919 --> 00:05:45.610
+So I am going to use the grab method, which
+we have seen before and I am going to grab
+
+00:05:45.610 --> 00:05:52.850
+the first frame out of the movie. And I am
+going to grab the next frame out of the movie,
+
+00:05:52.850 --> 00:05:58.680
+so two sequential frames. Now I am going to
+display the image difference and I am going
+
+00:05:58.680 --> 00:06:04.789
+to display the image which is the result of
+image one minus image two.
+
+00:06:04.789 --> 00:06:09.180
+And here we see a grey scale image and it
+looks a little bit unusual and we can see
+
+00:06:09.180 --> 00:06:14.460
+some interesting activity around here.
+The result of im1 minus im2 is actually a
+
+00:06:14.460 --> 00:06:19.919
+signed quantity. The pixel in image one could
+be smaller then the pixel in image two. So
+
+00:06:19.919 --> 00:06:26.350
+it is useful to display this with a different
+colour map and I am going to use the option
+
+00:06:26.350 --> 00:06:32.190
+invsigned here. And what it is going to do
+is display pixels that are negative as red
+
+00:06:32.190 --> 00:06:38.479
+and pixels that are positive as blue, and
+the background, where it is 0, is white.
+
+00:06:38.479 --> 00:06:44.460
+So let’s zoom in on this part of the image
+up here. And what we can see is some red pixels
+
+00:06:44.460 --> 00:06:49.240
+and some blue pixels and this is showing us
+where the pixels in the image have changed
+
+00:06:49.240 --> 00:06:55.520
+from one frame to the next.
+So this is where there is motion in the scene.
+
+00:06:55.520 --> 00:07:00.479
+If we go back and look at the original movie
+we can see that this is where the traffic
+
+00:07:00.479 --> 00:07:05.800
+starts to move across the intersection. These
+are the only pixels in the scene that are
+
+00:07:05.800 --> 00:07:10.330
+changing. We can use this image difference
+mechanism to determine which parts of the
+
+00:07:10.330 --> 00:07:12.639
+scene have been changed.
+
+00:07:12.639 --> 00:07:18.169
+Let’s discuss a more sophisticated image
+processing operation. It is what is called
+
+00:07:18.169 --> 00:07:24.590
+the green screen effect. And what we want
+to do is to superimpose this abstract scene
+
+00:07:24.590 --> 00:07:30.800
+of a hat, a ball and a ladder into the scene
+of a road in a desert.
+
+00:07:30.800 --> 00:07:36.889
+What we want to do is to merge these two images,
+and we are going to do that using the information
+
+00:07:36.889 --> 00:07:42.280
+in the top image, where those pixels that
+are green are going to be substituted by the
+
+00:07:42.280 --> 00:07:47.250
+background pixels from the bottom image.
+The green screen effect is widely used in
+
+00:07:47.250 --> 00:07:53.590
+television production and here is an image
+of me filming one of the introductory pieces
+
+00:07:53.590 --> 00:07:59.490
+for the MOOC. All of the pixels that are in
+the green background are substituted by a
+
+00:07:59.490 --> 00:08:02.949
+number of photographs and graphics and so
+on.
+
+00:08:02.949 --> 00:08:09.229
+This effect is also used by newsreaders, weather
+men on TV. When I am doing this it is really
+
+00:08:09.229 --> 00:08:13.520
+important that I don’t wear anything that
+is green. If, for instance, I wore a green
+
+00:08:13.520 --> 00:08:19.139
+shirt then my body would just disappear, and
+it would be replaced by the background photographs.
+
+00:08:19.139 --> 00:08:24.819
+So let’s talk about how we do the green
+screen effect. So here are the two images
+
+00:08:24.819 --> 00:08:30.720
+again. In the top we have our abstract image
+against the green background and in the bottom
+
+00:08:30.720 --> 00:08:36.240
+we have the real scene that we want to superimpose
+the abstract image into.
+
+00:08:36.240 --> 00:08:42.810
+The first step is to determine which pixels
+are green and we do that by making two decisions
+
+00:08:42.810 --> 00:08:49.050
+and we create two logical images. The top
+one shows all the pixels that are not green.
+
+00:08:49.050 --> 00:08:54.390
+So white value means that the corresponding
+input pixel is not green. The bottom one is
+
+00:08:54.390 --> 00:09:00.470
+the opposite of that: the white pixels correspond
+to green in the input image. These images
+
+00:09:00.470 --> 00:09:04.870
+are logical images. The pixels have only got
+the value true or false. Sometimes these are
+
+00:09:04.870 --> 00:09:09.040
+called binary images because they only have
+two possible values. Sometimes they are called
+
+00:09:09.040 --> 00:09:14.940
+mask images because we use them to mask out
+particular regions of the input scene.
+
+00:09:14.940 --> 00:09:21.540
+The next step then is to multiply the mask
+matrices by the original input images. And
+
+00:09:21.540 --> 00:09:28.149
+what we have in the top line is an image where
+all of the green pixels have been set to black,
+
+00:09:28.149 --> 00:09:32.410
+and the remaining pixels are the abstract
+object.
+
+00:09:32.410 --> 00:09:37.830
+We do the same thing for the bottom image.
+We multiply the input image by the mask and
+
+00:09:37.830 --> 00:09:43.959
+now we have the input image with a hole in
+it. The black pixels correspond to the abstract
+
+00:09:43.959 --> 00:09:47.130
+object.
+Notice that we have used the diadic operation
+
+00:09:47.130 --> 00:09:53.649
+twice here, in each case to multiply a masked
+matrix by an original colour image.
+
+00:09:53.649 --> 00:09:59.910
+The last step then is to add these two images
+together. And that is yet another diadic operation,
+
+00:09:59.910 --> 00:10:04.660
+and what we are left with then is an image
+which contains our abstract object against
+
+00:10:04.660 --> 00:10:07.020
+the background of a desert scene.
+

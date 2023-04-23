@@ -1,0 +1,195 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.270 --> 00:00:06.970
+How many colors are there?
+It sounds like a very simple question but
+
+00:00:06.970 --> 00:00:11.699
+the answer is far from simple. It’s commonly
+agreed that there are seven colors in a rainbow.
+
+00:00:11.699 --> 00:00:17.960
+They are red, orange, yellow, green, blue,
+indigo and violet. If you ask the Crayola
+
+00:00:17.960 --> 00:00:22.740
+Company, the people who make crayons, they’ve
+got 120 different colored crayons in their
+
+00:00:22.740 --> 00:00:30.289
+range. The HTML language, which describes
+web pages, has got 121 uniquely named colors
+
+00:00:30.289 --> 00:00:35.910
+that we can use. Many Unix-based operating
+systems, for instance, the very popular Linux
+
+00:00:35.910 --> 00:00:41.220
+operating system, have a windowing system
+called X11, and X11 distributions come with
+
+00:00:41.220 --> 00:00:46.790
+a file called RGB.text, which lists a whole
+bunch of different colors, and the last time
+
+00:00:46.790 --> 00:00:51.750
+I looked at this file it contained 881 different
+colors.
+
+00:00:51.750 --> 00:00:55.660
+If you look at a collection of all the words
+in the English language, what they call the
+
+00:00:55.660 --> 00:01:02.680
+English Corpus, there are around 4000 different
+words that we use to describe colors.
+
+00:01:02.680 --> 00:01:06.350
+Another simple question that’s got a complex
+answer is ‘where does one color end and
+
+00:01:06.350 --> 00:01:12.859
+another color start?’. So over here we can
+see a figure which contains a range of colors
+
+00:01:12.859 --> 00:01:19.159
+from reds, yellows, greens, blues, and so
+on. And in a recent exercise they surveyed
+
+00:01:19.159 --> 00:01:25.200
+a large number of web users, 1.5 million web
+users, and asked them to draw boundaries between
+
+00:01:25.200 --> 00:01:30.679
+the different colors, and to name them. And
+this is a consensus across 1.5 million web
+
+00:01:30.679 --> 00:01:35.599
+users. It shows what people tend to agree
+as being green and what they think is blue
+
+00:01:35.599 --> 00:01:40.639
+and what they think is teal and so on. This
+is difficult because we’re trying to delineate
+
+00:01:40.639 --> 00:01:46.310
+regions in color, and color is a continuum,
+and we’re trying to enforce sort of arbitrary
+
+00:01:46.310 --> 00:01:51.759
+boundaries across this otherwise continuous
+notion of color.
+
+00:01:51.759 --> 00:01:57.369
+The way we interpret color also depends on
+our cultural background. In Asia, orange is
+
+00:01:57.369 --> 00:02:03.569
+a very, very positive color, but in the United
+States, Australia and parts of Europe, orange
+
+00:02:03.569 --> 00:02:09.759
+is considered to be a color of danger or of
+hazard. Some African languages, for example,
+
+00:02:09.759 --> 00:02:14.390
+do not have any words which distinguish the
+color red from the color orange. However,
+
+00:02:14.390 --> 00:02:19.620
+all of the languages have got words to describe
+black and white, and if the language has got
+
+00:02:19.620 --> 00:02:24.130
+more colors than just those two, the next
+most likely color that they are going to describe
+
+00:02:24.130 --> 00:02:31.340
+is red, and next most likely is either yellow
+or green. Blue is frequently the sixth named
+
+00:02:31.340 --> 00:02:37.190
+color in many languages, so blue really is
+not as important as red and green, black and
+
+00:02:37.190 --> 00:02:42.980
+white. Brown comes later and then all of the
+other colors that we’ve got names for.
+
+00:02:42.980 --> 00:02:48.720
+This rather complex graph shows a relationship
+between the culture, which is indicated by
+
+00:02:48.720 --> 00:02:55.880
+the letters here, and the emotion, which is
+indicated by the radial color bars, numbered
+
+00:02:55.880 --> 00:03:03.440
+from 1 through 284. What we can see is the
+very different colors that are used to represent
+
+00:03:03.440 --> 00:03:10.480
+different emotions or feelings across cultures.
+If we look at the occurrence of color terms
+
+00:03:10.480 --> 00:03:15.970
+in a big collection of English words, for
+instance, the Bank of English Corpus contains
+
+00:03:15.970 --> 00:03:19.940
+a lot of literature from the United States,
+United Kingdom, and Australia for example,
+
+00:03:19.940 --> 00:03:25.680
+then we could look at a histogram of the occurrence
+of those color words. And we see that black
+
+00:03:25.680 --> 00:03:31.370
+is by far the most frequently occurring word,
+followed by white, followed by red, green
+
+00:03:31.370 --> 00:03:38.390
+blue and so on, whereas the least occurring
+words are those like ultramarine and chartreuse.
+
+00:03:38.390 --> 00:03:44.490
+The most common color words are also the oldest.
+So 1200 years ago there weren’t that many
+
+00:03:44.490 --> 00:03:49.680
+different color words but as time has passed
+we’ve introduced more and more color words
+
+00:03:49.680 --> 00:03:55.990
+into our vocabulary. There’s a big transition
+point around the year 800, where we changed
+
+00:03:55.990 --> 00:04:02.350
+form a focus just on brightness, talking about
+white, black, grey and so on, where we started
+
+00:04:02.350 --> 00:04:07.950
+to get more interested in talking about the
+hue, the actual color, rather than just the
+
+00:04:07.950 --> 00:04:12.980
+brightness. Perhaps this was a technological
+transition as well, perhaps when dyes and
+
+00:04:12.980 --> 00:04:18.069
+pigments became much more common.
+The Pantone company’s whole livelihood is
+
+00:04:18.069 --> 00:04:24.139
+based on color. They catalogue colors, they
+describe all of the colors using unique numeric
+
+00:04:24.139 --> 00:04:29.969
+codes, and they promote every year a color
+of the year. So the color of the year in 2013
+
+00:04:29.969 --> 00:04:35.229
+is this green. The bottom line is that color is really, really important to humans.
+

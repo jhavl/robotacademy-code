@@ -1,0 +1,179 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.209 --> 00:00:08.059
+Color cameras are functionally equivalent
+to the system of cones that we have in the
+
+00:00:08.059 --> 00:00:10.000
+retinas of our eye.
+
+00:00:10.000 --> 00:00:14.250
+Incoming light from the scene is focused by
+a lens onto an artificial retina.
+
+00:00:14.250 --> 00:00:19.640
+This artificial retina comprises an array
+of silicone photo sensors.
+
+00:00:19.640 --> 00:00:23.060
+These are solid state circuits that measure
+the amount of incoming light.
+
+00:00:23.060 --> 00:00:26.880
+They are actually sensitive to quite a broad
+spectrum of light.
+
+00:00:26.880 --> 00:00:33.170
+So to make them color sensitive we print on
+top of these silicone sensors individual color
+
+00:00:33.170 --> 00:00:38.309
+filters where we print patterns of red, green
+and blue filters.
+
+00:00:38.309 --> 00:00:42.989
+This gives the individual silicone photo sensor
+then the ability to measure the amount of
+
+00:00:42.989 --> 00:00:49.079
+incoming red, green or blue light at that
+particular point on the artificial retina.
+
+00:00:49.079 --> 00:00:53.620
+Most color cameras use an array of color filters
+that looks something like this.
+
+00:00:53.620 --> 00:00:59.250
+This pattern of color filters is frequently
+referred to as a Bayer filter array, and is
+
+00:00:59.250 --> 00:01:05.330
+named after Bryce Bayer who invented this
+idea way back in 1976.
+
+00:01:05.330 --> 00:01:11.140
+The fundamental element in the Bayer filter
+is a two by two grid and it contains two green
+
+00:01:11.140 --> 00:01:15.120
+filters one red filter and one blue filter.
+
+00:01:15.120 --> 00:01:20.750
+For the purpose of example, imagine that each
+of the underlying photo sensors is returning
+
+00:01:20.750 --> 00:01:26.250
+these particular values and these are unsigned
+eight bit integer numbers which vary between
+
+00:01:26.250 --> 00:01:27.600
+0 and 255.
+
+00:01:27.600 --> 00:01:33.549
+And further, let’s consider we want to measure
+the amount of red, green and blue at this
+
+00:01:33.549 --> 00:01:36.170
+particular point on the artificial retina.
+
+00:01:36.170 --> 00:01:41.200
+Well the answer for red is really pretty clear,
+the amount of red at this point is 75, it
+
+00:01:41.200 --> 00:01:47.469
+is what is being returned by the photo sensor
+after the light has passed through the overlying
+
+00:01:47.469 --> 00:01:48.469
+red filter.
+
+00:01:48.469 --> 00:01:54.049
+But let’s say now that I want to know the
+amount of green light at this particular location
+
+00:01:54.049 --> 00:01:58.909
+and that is problematic because this particular
+sensor has got a red filter on it there is
+
+00:01:58.909 --> 00:02:03.920
+no way that I can measure the amount of green
+light there because there is a red filter
+
+00:02:03.920 --> 00:02:05.159
+not a green filter.
+
+00:02:05.159 --> 00:02:10.610
+Now what we do is simply average the green
+value of all of the neighbours and we say
+
+00:02:10.610 --> 00:02:15.670
+that this is a good approximation to the amount
+of green light at the pixel that is circled.
+
+00:02:15.670 --> 00:02:19.680
+Similarly, if you want to measure the amount
+of blue light at this particular pixel we
+
+00:02:19.680 --> 00:02:23.020
+take the average of the neighbouring blue
+pixels.
+
+00:02:23.020 --> 00:02:27.910
+So for every pixel in this array we can measure
+directly one color and we can estimate two
+
+00:02:27.910 --> 00:02:30.430
+other colors from its neighbours.
+
+00:02:30.430 --> 00:02:36.460
+If our sensor is an NxM pixel array, then
+we can estimate the red, green and blue values
+
+00:02:36.460 --> 00:02:37.550
+of every pixel.
+
+00:02:37.550 --> 00:02:45.110
+That means than we have a total of 3xNxM values
+returned from this artificial retina.
+
+00:02:45.110 --> 00:02:49.650
+But in reality there are only NxM actual measurements
+being made.
+
+00:02:49.650 --> 00:02:53.580
+There are only that many individual photo
+sensors.
+
+00:02:53.580 --> 00:02:56.110
+The rest of the values have been estimated.
+
+00:02:56.110 --> 00:03:01.280
+So an alternative approach is just to store
+the values directly measured by the photo
+
+00:03:01.280 --> 00:03:07.590
+sensors—the NxM value—and then also take
+note of the properties of the color filters
+
+00:03:07.590 --> 00:03:13.410
+that are associated with the different pixels
+and this is an alternative way of representing
+
+00:03:13.410 --> 00:03:17.470
+the image and this is referred to as a raw
+image file format.
+
+00:03:17.470 --> 00:03:21.180
+It is different to a normal red, green and
+blue image.
+
+00:03:21.180 --> 00:03:27.110
+We need to do some post processing; we need
+to apply the characteristics of the filters
+
+00:03:27.110 --> 00:03:30.230
+in the camera to the data that is stored within
+the file.
+

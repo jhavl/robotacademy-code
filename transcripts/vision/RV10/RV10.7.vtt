@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.199 --> 00:00:08.820
+I'd like to finish off by sharing with you
+two quite amazing research videos they both
+
+00:00:08.820 --> 00:00:14.150
+show the power of combining visual information
+taken from multiple viewpoints.
+
+00:00:14.150 --> 00:00:19.480
+The first is a system that draws large depositories
+of photographs, for instance, Flickr. In this
+
+00:00:19.480 --> 00:00:23.150
+case they retrieve a whole lot of images taken
+of Rome.
+
+00:00:23.150 --> 00:00:28.430
+All of these images taken by different people
+at different times clearly have a lot of overlap.
+
+00:00:28.430 --> 00:00:33.880
+What they do is they find the same points
+in multiple images and from that then, they
+
+00:00:33.880 --> 00:00:39.800
+can then reconstruct the relative precision
+of the cameras that took those pictures.
+
+00:00:39.800 --> 00:00:45.559
+Then they can combine this information across
+hundreds or even thousands of pictures and
+
+00:00:45.559 --> 00:00:49.320
+use that to reconstruct a full three-dimensional
+model.
+
+00:00:49.320 --> 00:00:53.879
+They didn't have to go and visit, they just
+mined the web for photographs that were already
+
+00:00:53.879 --> 00:00:59.539
+there, and with some very clever algorithms
+were able to extract from all those pictures,
+
+00:00:59.539 --> 00:01:01.780
+this three dimensional model.
+
+00:01:01.780 --> 00:01:07.400
+This next one extends the technique to combine
+information from millions and millions of
+
+00:01:07.400 --> 00:01:14.120
+images taken by different people with different cameras at different times but of the same subject matter.
+

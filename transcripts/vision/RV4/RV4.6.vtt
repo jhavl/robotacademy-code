@@ -1,0 +1,170 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.819 --> 00:00:08.750
+We previously introduced the Gaussian kernel
+and the Gaussian kernel is very frequently
+
+00:00:08.750 --> 00:00:15.209
+used in image processing because the ability
+to smooth the image reduces noise within the
+
+00:00:15.209 --> 00:00:16.209
+image.
+
+00:00:16.209 --> 00:00:21.280
+And particularly if we are computing the derivative
+of an image noise can be quite significant.
+
+00:00:21.280 --> 00:00:25.670
+Taking a derivative tends to enhance any noise
+that is within the image, so it is important
+
+00:00:25.670 --> 00:00:31.140
+to reduce the noise in advance and we can
+do that by smoothing with a Gaussian.
+
+00:00:31.140 --> 00:00:36.970
+So the operation of computing an image derivative—we
+can express as a convolution between a derivative
+
+00:00:36.970 --> 00:00:40.200
+kernel D and the input
+image I.
+
+00:00:40.200 --> 00:00:46.070
+And we denote the result as ∇I; that is,
+the upside down triangle in front of the I:
+
+00:00:46.070 --> 00:00:49.449
+represents a derivative of the image I.
+
+00:00:49.449 --> 00:00:53.680
+And we want to smooth the image before we
+apply the derivative to it, so we represent
+
+00:00:53.680 --> 00:00:54.680
+it like this.
+
+00:00:54.680 --> 00:01:00.461
+We apply the Gaussian image; we convolve the
+Gaussian image standard deviation σ with
+
+00:01:00.461 --> 00:01:06.120
+the image I, and then we convolve it with
+the derivative kernel.
+
+00:01:06.120 --> 00:01:12.670
+Using the rules of associativity we can rewrite
+it so that we apply the derivative kernel
+
+00:01:12.670 --> 00:01:14.290
+to the Gaussian.
+
+00:01:14.290 --> 00:01:18.840
+Those two together we refer to as a derivative
+of Gaussian kernel.
+
+00:01:18.840 --> 00:01:25.909
+So convolving DoG kernel with the image performs
+both smoothing and gradient computation and
+
+00:01:25.909 --> 00:01:30.840
+this is what the DoG kernel looks like and
+this is its analytical form.
+
+00:01:30.840 --> 00:01:37.340
+We can compute the DoG kernel using the MATLAB
+tool box function kdgauss, where the first
+
+00:01:37.340 --> 00:01:42.400
+argument is σ and the second argument is
+the half width of the kernel.
+
+00:01:42.400 --> 00:01:47.310
+Now sometimes it is useful to compute the
+second derivative, and the Laplacian is an
+
+00:01:47.310 --> 00:01:49.990
+isotropic second derivative operator.
+
+00:01:49.990 --> 00:01:53.951
+It tells us where the gradient has got a maximum
+value and it doesn’t matter whether it is
+
+00:01:53.951 --> 00:01:56.270
+in the U- or V- direction.
+
+00:01:56.270 --> 00:02:01.810
+The notation IUU indicates the second derivative
+in the U direction.
+
+00:02:01.810 --> 00:02:06.509
+IVV is the second derivative in the V direction.
+
+00:02:06.509 --> 00:02:13.880
+We can compute the second derivative by convolving
+the image with the Laplacian kernel and the
+
+00:02:13.880 --> 00:02:19.440
+Laplacian kernel is simply a symmetric 3 by
+3 matrix shown here.
+
+00:02:19.440 --> 00:02:27.580
+And in the MATLAB tool box we can obtain a
+value of this kernel using the function klaplace.
+
+00:02:27.580 --> 00:02:31.190
+Computing a secondary derivative is even more
+noise enhancing then the first derivative,
+
+00:02:31.190 --> 00:02:34.320
+so it is even more important that we smooth
+the image first.
+
+00:02:34.320 --> 00:02:39.320
+So we can pull the same trick that we did
+with the first derivative, we write here the
+
+00:02:39.320 --> 00:02:43.579
+secondary derivative operation as the Laplacian
+kernel convolved with the input image, but
+
+00:02:43.579 --> 00:02:49.299
+if we smooth the image first with a Gaussian
+kernel using the rules of associativity, we
+
+00:02:49.299 --> 00:02:56.350
+can rewrite this as a convolution of the Laplacian
+kernel with the Gaussian kernel and that is
+
+00:02:56.350 --> 00:02:58.579
+then convolved with the input image.
+
+00:02:58.579 --> 00:03:03.820
+The convolution of the Laplacian and Gaussian
+kernels is referred to as the Laplacian of
+
+00:03:03.820 --> 00:03:06.390
+Gaussian kernel and it is shown here.
+
+00:03:06.390 --> 00:03:10.190
+It has a shape that is often referred to as
+a Mexican hat, sometimes it is referred to
+
+00:03:10.190 --> 00:03:12.050
+even as the Mexican hat function.
+
+00:03:12.050 --> 00:03:18.090
+It is an upside down Mexican hat; we can see
+here its analytic form and we can compute
+
+00:03:18.090 --> 00:03:24.699
+this kernel using the tool box function klog,
+where the first argument is the standard deviation
+
+00:03:24.699 --> 00:03:28.689
+and the second argument is the half width
+of the kernel.
+

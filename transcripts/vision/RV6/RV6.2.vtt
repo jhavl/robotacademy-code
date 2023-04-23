@@ -1,0 +1,366 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.510 --> 00:00:06.300
+Let’s load a color image into our workspace.
+
+00:00:06.300 --> 00:00:13.010
+We’ll put it into the variable called im,
+and the image that I’m going to use is called
+
+00:00:13.010 --> 00:00:16.309
+flowers8 and it’s a png format file.
+
+00:00:16.309 --> 00:00:20.869
+So this is one of the files that’s distributed
+with the toolbox.
+
+00:00:20.869 --> 00:00:23.020
+We have loaded it into the workspace.
+
+00:00:23.020 --> 00:00:27.600
+Now once again this is an unsigned 8-bit integer
+image.
+
+00:00:27.600 --> 00:00:31.330
+We can see that the image belongs to the class
+uint8.
+
+00:00:31.330 --> 00:00:35.790
+The dimensions of this image are interesting
+compared to what we’ve seen before.
+
+00:00:35.790 --> 00:00:42.809
+We see that this one has got 426 rows, 640
+columns and an extra dimension with a value
+
+00:00:42.809 --> 00:00:44.219
+of 3.
+
+00:00:44.219 --> 00:00:49.749
+We refer to the second dimension as the plane,
+and that will become clear shortly.
+
+00:00:49.749 --> 00:00:53.819
+First thing we’re going to do is to display
+the image and we see a picture containing
+
+00:00:53.819 --> 00:00:55.929
+a number of colored flowers.
+
+00:00:55.929 --> 00:01:01.129
+Now if I click on some pixel values—I’m
+going to click here on this red flower—we
+
+00:01:01.129 --> 00:01:04.930
+see that it has got a pixel value which has
+three components.
+
+00:01:04.930 --> 00:01:08.770
+The pixel value is actually a vector, and
+those numbers indicate the amount of red,
+
+00:01:08.770 --> 00:01:10.530
+the amount of green, the amount of blue.
+
+00:01:10.530 --> 00:01:14.540
+So I’ve just clicked on a red flower and
+we see that the red amount is 176, and this
+
+00:01:14.540 --> 00:01:17.460
+is quite significant.
+
+00:01:17.460 --> 00:01:20.160
+Remember,
+8-bit unsigned integers go from a minimum
+
+00:01:20.160 --> 00:01:26.330
+value of 0 to a maximum value of 255, so this
+pixel has got quite a lot of red in it.
+
+00:01:26.330 --> 00:01:29.700
+It’s got almost no green, and it’s got
+almost no blue.
+
+00:01:29.700 --> 00:01:32.050
+Let’s move over to a pink flower.
+
+00:01:32.050 --> 00:01:35.730
+This is a bit closer to white, and we see
+that this pixel has got a significant amount
+
+00:01:35.730 --> 00:01:38.810
+of red, and a fair amount of green, and a
+fair amount of blue.
+
+00:01:38.810 --> 00:01:44.210
+Let’s go and have a look on a green leaf
+here, and we see that the green value is the
+
+00:01:44.210 --> 00:01:49.080
+biggest one, but there is also an amount of
+red and blue there, but dominated by green.
+
+00:01:49.080 --> 00:01:52.890
+There are some tiny little blue flowers so
+I’m going to zoom in on this part of the
+
+00:01:52.890 --> 00:01:59.450
+image, and click on one of those blue flowers,
+and as we would expect, the blue value dominates
+
+00:01:59.450 --> 00:02:00.450
+here.
+
+00:02:00.450 --> 00:02:02.750
+Let’s have a look at one of these image
+planes.
+
+00:02:02.750 --> 00:02:04.610
+I am going to display the image.
+
+00:02:04.610 --> 00:02:10.190
+I’m going to display all rows and all columns,
+but only those pixels that belong to plane
+
+00:02:10.190 --> 00:02:11.440
+number 1.
+
+00:02:11.440 --> 00:02:12.629
+And there we have it.
+
+00:02:12.629 --> 00:02:15.689
+This is now a grey scale image.
+
+00:02:15.689 --> 00:02:19.620
+The color has all gone and this is the red
+plane, the first plane.
+
+00:02:19.620 --> 00:02:24.480
+And if I look at the values here we see that
+they are quite bright where there was red
+
+00:02:24.480 --> 00:02:27.709
+in the image, and they’re very dark where
+there was no red in the image.
+
+00:02:27.709 --> 00:02:32.030
+So it will be dark in the green leaves, it
+will be dark on the blue flowers.
+
+00:02:32.030 --> 00:02:36.209
+We can look at the green plane, that’s plane
+number 2.
+
+00:02:36.209 --> 00:02:38.530
+We can see that this looks quite different.
+
+00:02:38.530 --> 00:02:44.209
+The red flowers are quite dark—that’s
+because they don’t have any green in them—whereas
+
+00:02:44.209 --> 00:02:48.730
+the leaves are looking a little bit brighter
+than they were before, and the pinky white
+
+00:02:48.730 --> 00:02:52.810
+flowers are also looking reasonably bright
+because the white flowers have got a mixture
+
+00:02:52.810 --> 00:02:54.439
+of red and green and blue.
+
+00:02:54.439 --> 00:02:58.709
+Finally, we can look at the blue plane, that’s
+the third plane.
+
+00:02:58.709 --> 00:03:02.870
+And here we see that the little blue flowers
+around the bottom are now looking quite bright.
+
+00:03:02.870 --> 00:03:06.190
+The white flowers as I mentioned, pinky white
+flowers as I mentioned before, are also looking
+
+00:03:06.190 --> 00:03:09.099
+reasonably bright because they contain a fair
+amount of blue.
+
+00:03:09.099 --> 00:03:13.019
+The green leaves are also looking quite dark
+because there’s not much blue being reflected
+
+00:03:13.019 --> 00:03:15.400
+from those leaves.
+
+00:03:15.400 --> 00:03:19.790
+We can consider a color image then as comprising
+three planes.
+
+00:03:19.790 --> 00:03:23.340
+We refer to those as the red, green and blue
+planes.
+
+00:03:23.340 --> 00:03:28.349
+Each plane we can consider to be a grey scale
+image, where the pixel value corresponds to
+
+00:03:28.349 --> 00:03:33.019
+the amount of that primary color at that particular
+pixel location.
+
+00:03:33.019 --> 00:03:37.269
+So if we look at these white flowers here,
+we see that they are bright in the red, green
+
+00:03:37.269 --> 00:03:38.269
+and blue images.
+
+00:03:38.269 --> 00:03:42.920
+That means that those white flowers contain
+a lot of red, and a lot of green and a lot
+
+00:03:42.920 --> 00:03:43.920
+of blue.
+
+00:03:43.920 --> 00:03:47.659
+By contrast, the red flowers are quite bright
+in the red image, but they’re very, very
+
+00:03:47.659 --> 00:03:49.900
+dark in the green and blue images.
+
+00:03:49.900 --> 00:03:55.569
+So the red flowers comprise a lot of red color,
+as you would expect, not much green and not
+
+00:03:55.569 --> 00:03:56.650
+much blue.
+
+00:03:56.650 --> 00:04:00.701
+We can see that the yellow flowers are bright
+in the red and green images; that is, they
+
+00:04:00.701 --> 00:04:05.400
+reflect red light and green light, but they
+do not reflect blue light.
+
+00:04:05.400 --> 00:04:11.129
+If we consider our color image as a stack
+of planes, red green and blue, imagine them
+
+00:04:11.129 --> 00:04:13.169
+stacked up one above the other.
+
+00:04:13.169 --> 00:04:17.790
+So when it comes to describe a pixel in a
+color image now, we describe the pixel at
+
+00:04:17.790 --> 00:04:22.480
+the coordinate u,v and this is what we’ve
+done previously; u is the horizontal coordinate,
+
+00:04:22.480 --> 00:04:24.340
+v is the vertical coordinate.
+
+00:04:24.340 --> 00:04:28.570
+And now what we’re going to do is drill
+down through this stack of images.
+
+00:04:28.570 --> 00:04:34.090
+So this is the red value, then we find the
+green value, and then we find the blue value.
+
+00:04:34.090 --> 00:04:39.280
+So at the coordinate u,v the pixel value is
+actually comprised of three numbers.
+
+00:04:39.280 --> 00:04:43.670
+It is a three-element vector: contains a red,
+green and blue component.
+
+00:04:43.670 --> 00:04:49.570
+We’ve previously looked at the way we index
+into a matrix in MATLAB, and in MATLAB we
+
+00:04:49.570 --> 00:04:52.200
+represent a matrix with two coordinates.
+
+00:04:52.200 --> 00:04:57.690
+The first coordinate is the row number, and
+the second coordinate is the column number.
+
+00:04:57.690 --> 00:05:02.350
+In a color image it’s a three-dimensional
+matrix as far as MATLAB is concerned, and
+
+00:05:02.350 --> 00:05:06.130
+again we use this analogy of a stack of planes.
+
+00:05:06.130 --> 00:05:11.970
+So again, the first index is the row number,
+the second index is the column number and
+
+00:05:11.970 --> 00:05:14.620
+the third index is what we call the plane
+number.
+
+00:05:14.620 --> 00:05:18.700
+It’s which sheet in the stack that we are
+referring to.
+
+00:05:18.700 --> 00:05:23.420
+And there’s a caution as I’ve mentioned
+in an earlier lecture: when we are talking
+
+00:05:23.420 --> 00:05:29.070
+about indexing into an image in MATLAB, we
+use the row followed by the column.
+
+00:05:29.070 --> 00:05:34.420
+When we refer to an image we generally refer
+to the horizontal coordinate, then the vertical
+
+00:05:34.420 --> 00:05:37.580
+coordinate, and they are transposed; they
+are swapped.
+
+00:05:37.580 --> 00:05:39.870
+So be careful with that.
+
+00:05:39.870 --> 00:05:43.460
+We can do this programmatically; that is,
+from the command line.
+
+00:05:43.460 --> 00:05:44.680
+So we have our image.
+
+00:05:44.680 --> 00:05:51.270
+Let’s look at the value of the pixel at
+coordinate 100,100, and we want to look at
+
+00:05:51.270 --> 00:05:53.210
+all of the planes.
+
+00:05:53.210 --> 00:05:56.120
+We get this rather strange result from MATLAB.
+
+00:05:56.120 --> 00:06:00.340
+It has given use three numbers, as we would
+expect: the amount of red, green and blue,
+
+00:06:00.340 --> 00:06:02.870
+but in a rather inconvenient form.
+
+00:06:02.870 --> 00:06:07.870
+We actually have to use the MATLAB operator
+squeeze when we do this, to remove two of
+
+00:06:07.870 --> 00:06:11.430
+what MATLAB refers to as singleton dimensions.
+
+00:06:11.430 --> 00:06:16.870
+So if we do that now we have a vector value
+for this particular pixel.
+

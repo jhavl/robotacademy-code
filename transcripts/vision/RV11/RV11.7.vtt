@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.149 --> 00:00:06.589
+It's going to be useful to say a little bit
+more about the point correspondence problem.
+
+00:00:06.589 --> 00:00:11.910
+Here we have again the initial view of our
+triangular object and here we have the final
+
+00:00:11.910 --> 00:00:16.270
+view, or the desired view, of our triangle
+object.
+
+00:00:16.270 --> 00:00:20.400
+When the points move in the image plane it's
+possible for them to move like this and this
+
+00:00:20.400 --> 00:00:25.039
+is the example that we just looked at a moment
+ago. But it's also possible for the points
+
+00:00:25.039 --> 00:00:31.390
+to move like this and if they did that then
+the motion of the object in three dimensional
+
+00:00:31.390 --> 00:00:37.219
+space is going to be much more complex. It's
+almost going to require the object to flip
+
+00:00:37.219 --> 00:00:40.260
+around in the three-dimensional world.
+
+00:00:40.260 --> 00:00:45.649
+Another way we could define the correspondence
+is like this and again it involved a different
+
+00:00:45.649 --> 00:00:48.440
+kind of three-dimensional motion.
+
+00:00:48.440 --> 00:00:54.579
+And finally we could have this particular
+way of point moving on the image plane.
+
+00:00:54.579 --> 00:01:00.379
+Each different way of associating a yellow
+dot with a red dot is going to result in a
+
+00:01:00.379 --> 00:01:05.979
+different motion in the three-dimensional
+world. The net result will be the same in
+
+00:01:05.979 --> 00:01:10.090
+the image plane but the actual three-dimensional
+motion will be different.
+

@@ -1,0 +1,331 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:01.750
+Image formation
+
+00:00:01.750 --> 00:00:08.769
+Now, we're going to look at a more mathematical
+way to describe the projection process, projection
+
+00:00:08.769 --> 00:00:13.420
+of a point from the real world into the image
+plane. In the last lecture, we looked at it
+
+00:00:13.420 --> 00:00:18.460
+from a very intuitive and geometric perspective.
+This time, we're going to look at it more
+
+00:00:18.460 --> 00:00:21.990
+mathematically.
+We're going to use a different projection
+
+00:00:21.990 --> 00:00:26.430
+model to what we used last time. We're going
+to use a model that's referred to as the "central
+
+00:00:26.430 --> 00:00:31.970
+projection" model. The key elements of this
+model are the cameras co-ordinate frame we
+
+00:00:31.970 --> 00:00:39.149
+denote by C. The image plane is parallel to
+the camera's x and y axis and positioned at
+
+00:00:39.149 --> 00:00:44.800
+a distance F in the positive z direction.
+F is equivalent to the focal length of the
+
+00:00:44.800 --> 00:00:49.510
+lens that we talked about in the last lecture.
+Now in order to project the point, what we
+
+00:00:49.510 --> 00:00:55.930
+do is we cast a ray from the point in the
+world through the image plane to the origin
+
+00:00:55.930 --> 00:01:01.100
+of the camera. With the central projection
+model, you'll note that the image is non-inverted
+
+00:01:01.100 --> 00:01:06.020
+as it was in the case that we talked about
+in the last lecture. We can write an equation
+
+00:01:06.020 --> 00:01:12.869
+for the point P in homogeneous coordinates,
+we multiply the world coordinates, X, Y, Z
+
+00:01:12.869 --> 00:01:19.360
+by a 3 x 4 matrix in order to get the homogeneous
+coordinates of the projected point on the
+
+00:01:19.360 --> 00:01:22.439
+image plane.
+Let's look at this equation in a little bit
+
+00:01:22.439 --> 00:01:28.729
+more detail. It's quite straightforward to
+write an expression for x̃, ỹ, z̃ in terms
+
+00:01:28.729 --> 00:01:34.670
+of the focal length and the world coordinate,
+X, Y, Z. We can transform the homogeneous
+
+00:01:34.670 --> 00:01:38.650
+coordinates to Cartesian coordinates using
+the rule that we talked about in the last
+
+00:01:38.650 --> 00:01:44.079
+section and with a little bit of rearrangement,
+we can bring the equation into this form and
+
+00:01:44.079 --> 00:01:48.890
+this is exactly the same form as we derived
+in the last lecture by looking at similar
+
+00:01:48.890 --> 00:01:52.200
+triangles.
+What's really convenient and useful about
+
+00:01:52.200 --> 00:01:57.570
+this homogeneous representation of the image
+formation process is that it is completely
+
+00:01:57.570 --> 00:02:04.119
+linear. We don't have this explicit division
+by Z, the distance between the camera and
+
+00:02:04.119 --> 00:02:09.129
+the object. It's implicit in the way we write
+the equations in homogeneous form.
+
+00:02:09.129 --> 00:02:13.860
+Let's look at this equation again and we can
+factor this matrix into two. The matrix on
+
+00:02:13.860 --> 00:02:19.180
+the right has elements that are either 0 or
+1 or f, the focal length of the lens. So this
+
+00:02:19.180 --> 00:02:24.340
+matrix performs the scaling and zooming. It’s
+a function of the focal length of our lens.
+
+00:02:24.340 --> 00:02:29.560
+The matrix on the left has got an interesting
+shape, it’s only a 3 x 4 and this matrix
+
+00:02:29.560 --> 00:02:35.090
+performs the dimensionality reduction, crunches
+points from three dimensions down into two.
+
+00:02:35.090 --> 00:02:39.989
+And so far, we consider the image plane to
+be continuous. In reality, the image plane
+
+00:02:39.989 --> 00:02:45.360
+is quantized. It consists of a massive array
+of light sensing elements which corresponds
+
+00:02:45.360 --> 00:02:51.569
+to the pixels in the output image. The dimension
+of each pixel in this grid, I’m going to
+
+00:02:51.569 --> 00:02:58.940
+denote by the Greek letter Pu. So the pixels
+are Ρu wide and they’re Ρv high. Pixels
+
+00:02:58.940 --> 00:03:04.060
+are really really small so the width and height
+of a pixel is often at the order of around
+
+00:03:04.060 --> 00:03:07.200
+10 microns, maybe a bit bigger, maybe a bit
+smaller.
+
+00:03:07.200 --> 00:03:13.080
+What we need to do now is to convert the coordinate
+P which we computed previously and that was
+
+00:03:13.080 --> 00:03:17.409
+in units of meters with respect to the origin
+of the image plane.
+
+00:03:17.409 --> 00:03:22.769
+We need to convert it to units of pixels and
+our pixel coordinate system has got a different
+
+00:03:22.769 --> 00:03:27.840
+origin as we talked about in earlier lectures.
+Pixel coordinates are measured from the top-left
+
+00:03:27.840 --> 00:03:32.580
+corner of the image so we need to do a scaling
+and we need to do a shifting and that’s
+
+00:03:32.580 --> 00:03:38.190
+a simple linear operation. So if we have the
+Cartesian x and y coordinates of the point
+
+00:03:38.190 --> 00:03:43.510
+P on the image plane, we can convert that
+to the equivalent pixel coordinate which we
+
+00:03:43.510 --> 00:03:49.370
+denote by the coordinates u and v and we can
+represent that again in homogeneous form.
+
+00:03:49.370 --> 00:03:54.340
+Here we multiplied by a matrix, the elements
+of the matrix are the dimensions of the pixel
+
+00:03:54.340 --> 00:03:59.769
+Pu and Pv and the coordinates of what’s
+called the principal point. The principal point is
+
+00:03:59.769 --> 00:04:06.620
+the pixel coordinate where the z
+axis of the camera origin frame
+
+00:04:06.620 --> 00:04:09.920
+pierces the image plane. The homogeneous pixel coordinates can be converted
+
+00:04:09.920 --> 00:04:15.040
+to the more familiar Cartesian pixel coordinates
+u and v by the transformation rule that we
+
+00:04:15.040 --> 00:04:17.799
+covered earlier.
+Essentially, we take the first and second
+
+00:04:17.799 --> 00:04:22.520
+element of the homogeneous vector and divide
+it by the third element of the homogeneous
+
+00:04:22.520 --> 00:04:25.610
+vector.
+Now, we can put all these pieces together
+
+00:04:25.610 --> 00:04:31.639
+and we can write the complete camera model
+in terms of three matrices. The product of
+
+00:04:31.639 --> 00:04:37.030
+the first two matrices is typically denoted
+by the symbol K and we refer to these as the
+
+00:04:37.030 --> 00:04:42.270
+intrinsic parameters. All the numbers in these
+two matrices are functions of the camera itself.
+
+00:04:42.270 --> 00:04:45.449
+It doesn't matter where the camera is where
+it’s pointing, they’re only a function
+
+00:04:45.449 --> 00:04:51.070
+of the camera. These numbers include the height
+and width of the pixels on the image plane,
+
+00:04:51.070 --> 00:04:55.009
+the coordinates of the principal point and
+the focal length of the lens.
+
+00:04:55.009 --> 00:05:00.410
+The third matrix describes the extrinsic parameters
+and these describe where the camera is but
+
+00:05:00.410 --> 00:05:03.039
+they don’t say anything about the type of
+camera.
+
+00:05:03.039 --> 00:05:09.110
+The elements in this matrix are a function
+of the relative pose of the camera with respect
+
+00:05:09.110 --> 00:05:14.680
+to the world origin frame. In fact, it is
+the inverse of xi C.
+
+00:05:14.680 --> 00:05:20.169
+The product of all of these matrices together
+is referred to as the camera matrix and it’s
+
+00:05:20.169 --> 00:05:27.270
+often given the symbol C.
+So this single matrix, this single 3 x 4 matrix
+
+00:05:27.270 --> 00:05:33.539
+is all we need to describe the mapping from
+a world coordinate, X, Y and Z through to
+
+00:05:33.539 --> 00:05:39.660
+a homogeneous representation of the pixel
+coordinate on the image plane. That homogeneous
+
+00:05:39.660 --> 00:05:44.389
+image plane coordinate can be converted to
+the familiar Cartesian image plane coordinate
+
+00:05:44.389 --> 00:05:50.530
+using this transformation rule here. So this
+is a very simple and concise way of performing
+
+00:05:50.530 --> 00:05:54.580
+perspective projection.
+Let’s consider now what happens when I introduce
+
+00:05:54.580 --> 00:06:01.819
+a non-zero scale factor λ. The homogeneous
+coordinate elements ũ, ṽ and w̃ will
+
+00:06:01.819 --> 00:06:08.889
+all be scaled by λ. When I convert them to
+Cartesian form, the λ term will be factored
+
+00:06:08.889 --> 00:06:14.580
+out, it's in the numerator and the denominator so
+the result will be unchanged. This is a particular
+
+00:06:14.580 --> 00:06:20.270
+advantage of writing the relationship in homogeneous
+form. It gives us what’s called scaling variance.
+
+00:06:20.270 --> 00:06:24.000
+Because we can multiply the matrix by an arbitrary
+
+00:06:24.000 --> 00:06:29.330
+scale factor, it means we can write the camera
+matrix in a slightly simplified form, which
+
+00:06:29.330 --> 00:06:34.990
+we refer to as a normalized camera matrix.
+We do that by choosing one particular element
+
+00:06:34.990 --> 00:06:41.110
+of that matrix to have a value of 1 and typically
+we choose the bottom right element and set it to 1.
+
+00:06:41.110 --> 00:06:45.250
+This normalized camera matrix still contains
+
+00:06:45.250 --> 00:06:50.500
+all of the information to completely describe
+the image formation process. It contains the
+
+00:06:50.500 --> 00:06:54.830
+focal length of the lens, it contains the
+dimensions of the pixels, it contains the
+
+00:06:54.830 --> 00:07:00.620
+coordinate of the principal point and it contains
+the position and orientation of the camera
+
+00:07:00.620 --> 00:07:05.830
+in three dimensional space. And finally, we can convert the homogeneous pixel coordinates
+
+00:07:05.830 --> 00:07:11.020
+to the more familiar Cartesian pixel coordinates
+which we denote by u and v.
+

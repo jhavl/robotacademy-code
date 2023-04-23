@@ -1,0 +1,341 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:03.220
+Modeling cameras in MATLAB
+
+00:00:03.220 --> 00:00:08.300
+Let’s demonstrate some of these principles
+in MATLAB. I’m going to create a point in
+
+00:00:08.300 --> 00:00:15.309
+the world and it’s going to be at coordinate
+0.2 meters in the X direction 0.3 meters in
+
+00:00:15.309 --> 00:00:21.580
+the Y direction and it’s going to be 5 meters
+in Z direction. Now Z is the direction along
+
+00:00:21.580 --> 00:00:26.960
+the axis of a camera we call the optical axis
+of the camera. This is a relatively small
+
+00:00:26.960 --> 00:00:33.120
+object five meters away from the camera and
+a world point is always a column vector so
+
+00:00:33.120 --> 00:00:34.050
+there it is.
+
+00:00:34.050 --> 00:00:38.870
+Now I’m going to create a camera object
+in fact a central camera object which does
+
+00:00:38.870 --> 00:00:45.410
+the particular projection that we just learned
+about and it’s got a focal length of eight
+
+00:00:45.410 --> 00:00:47.370
+millimetres.
+
+00:00:47.370 --> 00:00:54.629
+So here we created the workspace now a central
+camera projection object. This object has
+
+00:00:54.629 --> 00:00:59.070
+got quite a lot of methods and we’ll have
+a look at some of those. But first thing I’m
+
+00:00:59.070 --> 00:01:04.900
+going to do is to use this camera object and
+I’m going to project my world point capital
+
+00:01:04.900 --> 00:01:10.170
+P to the image plane, what you see here is that we have got some very small numbers.
+
+00:01:10.170 --> 00:01:14.930
+These numbers are less than half a millimetre.
+We've taken our view of the world and we've
+
+00:01:14.930 --> 00:01:19.540
+made it much, much smaller and projected it
+onto the image plane. This is where the piece
+
+00:01:19.540 --> 00:01:25.400
+of film would be or this is where the digital
+camera chip would be. In this projection there’s
+
+00:01:25.400 --> 00:01:30.619
+no notion of pixels we've just taken image
+in the world and it’s described in terms
+
+00:01:30.619 --> 00:01:35.220
+of size and its distance in units of meters. We've projected it to the image plane and
+
+00:01:35.220 --> 00:01:40.930
+this is talking about the size of the image
+also in units of meters; a very small number of meters.
+
+00:01:40.930 --> 00:01:41.670
+ 
+
+00:01:41.670 --> 00:01:45.479
+Now let’s turn this into a digital camera
+let’s introduce the notion of pixels. We’re
+
+00:01:45.479 --> 00:01:51.649
+going to create a new camera object. Basically
+recycle this line and we will tell it that
+
+00:01:51.649 --> 00:01:58.079
+the pixels are ten microns on a side so the
+pixels are square ten microns wide ten microns
+
+00:01:58.079 --> 00:02:05.229
+high. And their image plane has got a resolution
+of one thousand and twenty four square. This
+
+00:02:05.229 --> 00:02:07.840
+is a mega pixel camera.
+
+00:02:07.840 --> 00:02:13.560
+Now if we look at the parameters of our camera
+object we see here we can see the focal length.
+
+00:02:13.560 --> 00:02:19.310
+Here we can see the size of pixels, the number
+of pixels, 1024 x 1024 exactly what we entered
+
+00:02:19.310 --> 00:02:24.610
+on the command line. And this parameter the
+principle point which is where the optical
+
+00:02:24.610 --> 00:02:30.739
+axis pierces the image plane is smacked in
+the middle at coordinate 512, 512.
+
+00:02:30.739 --> 00:02:36.190
+Now that I have my digital camera object,
+we can re do that projection that we had before
+
+00:02:36.190 --> 00:02:43.080
+project to world point P and this now is the
+coordinate of that point in units of pixels.
+
+00:02:43.080 --> 00:02:50.239
+Another method of the camera object is to
+actually plot these on a graphical image plane
+
+00:02:50.239 --> 00:02:56.250
+and here we can see where that world point
+has been projected to on the digital cameras
+
+00:02:56.250 --> 00:03:02.769
+image plane. So now the methods we can look
+at the cameras intrinsic parameters. Now this
+
+00:03:02.769 --> 00:03:08.519
+is the intrinsic parameter matrix; this is
+the overall camera projection matrix. We can
+
+00:03:08.519 --> 00:03:13.580
+pass an additional option into the project
+function.
+
+00:03:13.580 --> 00:03:18.370
+First argument again is our world point and
+now I’m going to shift the camera a little
+
+00:03:18.370 --> 00:03:24.180
+bit. Now I’m going to tell it to shift the
+camera 0.1 meters in the X direction given
+
+00:03:24.180 --> 00:03:29.129
+the camera’s coordinate frame that’s a
+shift of 0.1 meters to the right. Not going
+
+00:03:29.129 --> 00:03:35.629
+to move it in the Y or in the Z directions
+so now what we see is that the projection
+
+00:03:35.629 --> 00:03:40.110
+is different. And we would expect that, we
+see that the U coordinate has been reduced
+
+00:03:40.110 --> 00:03:46.709
+from 544 to 528 and that’s what we would
+expect if we move the camera to the right
+
+00:03:46.709 --> 00:03:52.420
+we would expect the image plane coordinate
+to move a bit to the left.
+
+00:03:52.420 --> 00:03:58.099
+Instead of translating the camera we could
+rotate the camera so we can rotate the camera
+
+00:03:58.099 --> 00:04:06.120
+around the Y axis. Now the Y axis points downwards
+so if I do this rotation of 0.1 radians around
+
+00:04:06.120 --> 00:04:12.950
+the Y axis that’s essentially rotating the
+camera towards the right and if we do that
+
+00:04:12.950 --> 00:04:18.130
+here’s the projection again and as we would
+expect if I rotate the camera a bit towards
+
+00:04:18.130 --> 00:04:24.740
+the right the pixel in the image will move
+a bit towards the left on the image plane.
+
+00:04:24.740 --> 00:04:29.840
+Let’s consider a more complex example, one
+where there are multiple points in the world.
+
+00:04:29.840 --> 00:04:34.150
+To create multiple points in a grid pattern
+now I’m going to use the toolbox function
+
+00:04:34.150 --> 00:04:43.680
+mkgrid and I want a 2x2 grid and the points
+spaced on 0.2 metre centers and I want the
+
+00:04:43.680 --> 00:04:52.160
+center of the grid to be at a coordinate 1,
+2, 0. So this is a grid in the XY plane, the
+
+00:04:52.160 --> 00:04:56.970
+center of the grid is offset 1 metre in the
+X direction and 2 metres in the Y direction
+
+00:04:56.970 --> 00:04:59.820
+and all the points have got a Z coordinate
+of zero.
+
+00:04:59.820 --> 00:05:06.520
+So here are the set of points that I have
+just created in order to view these four points
+
+00:05:06.520 --> 00:05:13.090
+which lie on a ground plane I’m going to
+create a new camera. It’s a central projection
+
+00:05:13.090 --> 00:05:18.449
+model camera again. I’m going to set default
+camera parameters so this is default values
+
+00:05:18.449 --> 00:05:25.300
+for focal length image plane size and pixel
+size. I’m going to explicitly give the pose
+
+00:05:25.300 --> 00:05:30.669
+of the camera so our four points are lying
+on the ground plane so in order for my camera
+
+00:05:30.669 --> 00:05:35.340
+to be able to see them it needs to be somewhere
+up high looking down so the first thing that
+
+00:05:35.340 --> 00:05:41.169
+I’m going to do is to place the camera 4
+metres above the ground. So this is a translation
+
+00:05:41.169 --> 00:05:48.470
+of 4 metres along the positive Z axis and
+then I’m going to rotate it around the Z
+
+00:05:48.470 --> 00:05:57.630
+axis by Pi on three radians and then I’m
+going to rotate the camera around the Y axis
+
+00:05:57.630 --> 00:05:59.120
+so it points down at the ground.
+
+00:05:59.120 --> 00:06:04.780
+So just rotate it around the Y axis by pi
+radians. Bare with me I’ll work this example
+
+00:06:04.780 --> 00:06:08.569
+out and these numbers should give something
+like the right result.
+
+00:06:08.569 --> 00:06:13.539
+First thing we’re going to do is to project
+those 4 world points onto the camera’s image
+
+00:06:13.539 --> 00:06:19.330
+plane and here we have the coordinates of
+those points. So they clearly lay within the
+
+00:06:19.330 --> 00:06:24.800
+field of view and we can actually have a look
+at those four points. And we can plot those
+
+00:06:24.800 --> 00:06:28.960
+and that’s what the image plane looks like.
+So they’re just in the edge of the field
+
+00:06:28.960 --> 00:06:32.169
+of view of our camera, which is looking down.
+
+00:06:32.169 --> 00:06:36.180
+Now let’s try and get a 3D understanding
+of what’s going on here so I’m going to
+
+00:06:36.180 --> 00:06:41.039
+create a new figure. I’m going to call it
+figure two and another method on the camera
+
+00:06:41.039 --> 00:06:45.660
+object we just created is called plot camera.
+What that does it to render it’s a 3D model
+
+00:06:45.660 --> 00:06:52.520
+of a camera into a graphic and the other thing
+that I’m going to do is to add to these
+
+00:06:52.520 --> 00:06:58.120
+graphic the 4 world points given my capital
+P I’m going to render them as the little
+
+00:06:58.120 --> 00:07:05.250
+spheres with a radius of 0.5 meters each so
+created this little scene, turn the grid on
+
+00:07:05.250 --> 00:07:06.580
+to make it a bit easier to see.
+
+00:07:06.580 --> 00:07:13.080
+If I turn on my 3D rotation tool I can spin
+this around. Here we can see what it looks
+
+00:07:13.080 --> 00:07:18.280
+like, here are the four points on the ground
+plane now then I created using the grid function.
+
+00:07:18.280 --> 00:07:22.280
+And up the top we can see the camera and we
+can see the axis of the camera. Camera is
+
+00:07:22.280 --> 00:07:27.860
+a little bit small. We can zoom in and have
+a look at the camera there is it, there we
+
+00:07:27.860 --> 00:07:34.919
+can see its x, y and z axis, zoom in a little
+bit more perhaps and we can see there, it
+
+00:07:34.919 --> 00:07:41.380
+looks a little bit like a camera. It’s a
+box with a cylinder on the front. These are
+
+00:07:41.380 --> 00:07:47.770
+just the few examples of the many things that
+you can do using the camera classes within
+
+00:07:47.770 --> 00:07:48.669
+the toolbox.
+

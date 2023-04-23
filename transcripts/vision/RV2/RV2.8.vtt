@@ -1,0 +1,213 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.730 --> 00:00:09.219
+We have talked quite a bit about how an image
+is represented as a matrix inside a MATLAB.
+
+00:00:09.219 --> 00:00:15.570
+Conversely, a matrix that we create using
+MATLAB tools can be displayed as an image.
+
+00:00:15.570 --> 00:00:21.460
+So what we are going to do now is use some
+of MATLAB’s fundamental image creation tools
+
+00:00:21.460 --> 00:00:27.890
+to produce some test images. So we are going
+to create a new image purely through code.
+
+00:00:27.890 --> 00:00:33.480
+So let’s start off by assigning to a workspace
+variable im, my standard name for an image.
+
+00:00:33.480 --> 00:00:38.710
+I am going to use the function zeros. And
+what that does is create a matrix with dimensions
+
+00:00:38.710 --> 00:00:45.309
+200 by 200 and all the elements in that matrix
+are zeroes. And I am going to set one element
+
+00:00:45.309 --> 00:00:51.690
+of that to the value of 1. Now I can display
+this matrix that I just created as an image
+
+00:00:51.690 --> 00:00:57.390
+and what we can see is this largely black,
+because all the pixels are zero, which represents
+
+00:00:57.390 --> 00:01:03.460
+black and up in the top left-most corner you
+can see a tiny little patch of white. That
+
+00:01:03.460 --> 00:01:08.600
+is the one pixel that I set to the value of
+1—1 representing white.
+
+00:01:08.600 --> 00:01:15.330
+Now, I can create a slightly bigger object
+in this and what I am going to do is, within
+
+00:01:15.330 --> 00:01:24.900
+this matrix, I am going to set all the pixels
+from row 150 to row 160, and all the columns
+
+00:01:24.900 --> 00:01:32.610
+from column 60 to column 70, and I am going
+to set those to a value of 0.5. So that is
+
+00:01:32.610 --> 00:01:37.970
+a grey, half way between black and white.
+And I am going to set all those elements of
+
+00:01:37.970 --> 00:01:45.180
+the matrix to the value of 0.5, now I can
+display that matrix again and we see we have
+
+00:01:45.180 --> 00:01:51.690
+created a small grey square in the image.
+So we are creating an image simply by writing
+
+00:01:51.690 --> 00:01:54.970
+code. The toolbox contains a function to create
+
+00:01:54.970 --> 00:01:59.290
+circles. I am going to do that, I am going
+to call the circle function, it is called
+
+00:01:59.290 --> 00:02:05.420
+kcircle. And I am going to say I want a circle
+of radius 30—we see that it has created
+
+00:02:05.420 --> 00:02:10.700
+a matrix of dimensions 61 by 61. Let’s have
+a look at this thing that we just created.
+
+00:02:10.700 --> 00:02:16.930
+We can see here is the image representation
+of that matrix. We can explore it using idisp,
+
+00:02:16.930 --> 00:02:21.299
+and we see that all these pixels in here,
+these matrix elements, have got a value of
+
+00:02:21.299 --> 00:02:25.530
+1. And all these ones which don’t lie in
+the circle have got a value of 0.
+
+00:02:25.530 --> 00:02:31.010
+So this function has returned a matrix which
+is square and the elements in that are either
+
+00:02:31.010 --> 00:02:36.249
+0 if they don’t belong inside the circle
+and white if they do belong inside the circle.
+
+00:02:36.249 --> 00:02:42.140
+Now what we can do now is actually paste this
+circle into the image that we had before,
+
+00:02:42.140 --> 00:02:45.560
+so let’s just go back to the image that
+we had a moment ago.
+
+00:02:45.560 --> 00:02:56.819
+And I am going to paste the circle into that
+image and I do it like this. I am going to
+
+00:02:56.819 --> 00:03:03.120
+make the circle, not bright white, I am going
+to make it a slightly brighter grey then the
+
+00:03:03.120 --> 00:03:08.099
+square was. So I am going to multiply all
+of the elements in the circle by the value
+
+00:03:08.099 --> 00:03:13.959
+of 0.7, so it will have a 70% grey value.
+And I am going to place the circle with its
+
+00:03:13.959 --> 00:03:21.819
+centre at 100 by 30. So that is the u coordinate
+of a 100 and the
+
+00:03:21.819 --> 00:03:26.670
+v coordinate of 30.
+All I have done now is updated the elements
+
+00:03:26.670 --> 00:03:32.450
+in the matrix im. The value that I had before
+and now it has got a circle pasted into it.
+
+00:03:32.450 --> 00:03:37.150
+So let’s have a look at that.
+
+00:03:37.150 --> 00:03:46.299
+And we see that the image now contains a square
+and a circle. Toolbox has got some other functions
+
+00:03:46.299 --> 00:03:53.790
+for creating graphical entities within a matrix.
+Another function is iline and that draws a
+
+00:03:53.790 --> 00:03:58.779
+line into a matrix. So I am going to draw
+a line into the matix im.
+
+00:03:58.779 --> 00:04:06.480
+The line is going to start at coordinate 30
+by 40. And it is going to go to 150 by 190,
+
+00:04:06.480 --> 00:04:12.209
+and I’m going to make it have a value of
+90% grey.
+
+00:04:12.209 --> 00:04:20.260
+Let’s display that. And there we have a
+matrix which now contains a square, a line,
+
+00:04:20.260 --> 00:04:27.000
+a circle and a single bright pixel.
+Toolbox has got some functions to create slightly
+
+00:04:27.000 --> 00:04:34.040
+more elaborate test patterns, accessed through
+the test pattern function. And here I am going
+
+00:04:34.040 --> 00:04:40.180
+to create a ramp function and I am going to
+create an image of dimensions 200 by 200 pixels.
+
+00:04:40.180 --> 00:04:48.380
+And let’s have a look at that.
+And here we have what is called a grey scale
+
+00:04:48.380 --> 00:04:53.210
+ramp. Let’s have a look at the grey scale
+values in here. They are quite low, about
+
+00:04:53.210 --> 00:04:57.670
+0.5 and as we move horizontally it gets brighter
+and brighter all the way up
+
+00:04:57.670 --> 00:05:02.950
+to 1. So if it is a grey scale ramp pattern
+we can create more elaborate test patterns
+
+00:05:02.950 --> 00:05:08.900
+such as grid of squares or circles.
+Here is an example. We assign it to an output
+
+00:05:08.900 --> 00:05:16.070
+variable im, use the test pattern function.
+Ask for squares. We want the output image
+
+00:05:16.070 --> 00:05:23.460
+to be 200 pixels by 200 pixels. We want the
+squares to be on a 50 pixel spacing and we
+
+00:05:23.460 --> 00:05:33.780
+want the squares to be 25 pixels square. Let’s display that image. And there we have a grid of 16 squares.
+

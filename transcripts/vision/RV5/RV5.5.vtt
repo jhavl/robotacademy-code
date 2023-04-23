@@ -1,0 +1,200 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.360 --> 00:00:08.099
+In this optional section what I want to do
+is revisit the concept of eigenvalues and
+
+00:00:08.099 --> 00:00:12.509
+eigenvectors, in case you’ve forgotten what
+they are. They are a concept that we’re
+
+00:00:12.509 --> 00:00:18.730
+going to need in the next segment.
+So let’s consider a simple linear algebra
+
+00:00:18.730 --> 00:00:24.540
+case. We have a vector, v. It’s an Nx1 vector,
+and we’re going to pre-multiply it by a
+
+00:00:24.540 --> 00:00:30.210
+square matrix NxN, and the result will of
+course be a vector, an Nx1 vector.
+
+00:00:30.210 --> 00:00:37.300
+Now for every matrix ‘A’, there are N
+vectors whose direction is unchanged by A.
+
+00:00:37.300 --> 00:00:43.300
+That means the vector v and the vector v prime
+will be parallel to each other. And these
+
+00:00:43.300 --> 00:00:48.520
+vectors we refer to as eigenvectors.
+Now, although the vector v and the vector
+
+00:00:48.520 --> 00:00:54.070
+v prime will be parallel, they may not be
+necessarily the same length. So the length
+
+00:00:54.070 --> 00:00:58.710
+is scaled by the eigenvalue that corresponds
+to the eigenvector.
+
+00:00:58.710 --> 00:01:03.730
+So that’s a lot of words. Let’s look at
+a graphical example of this in practice.
+
+00:01:03.730 --> 00:01:09.260
+We’ve chosen a very simple A matrix; it’s
+a 2 by 2 matrix, so there will be two eigenvectors
+
+00:01:09.260 --> 00:01:14.080
+and eigenvalues. And you can see an eigenvalue
+just about coming up … now. That’s the
+
+00:01:14.080 --> 00:01:19.330
+case where the red vector, the input vector,
+and the blue output vector are parallel to
+
+00:01:19.330 --> 00:01:24.180
+one another. There’s another one … now.
+Notice that they are parallel to each other
+
+00:01:24.180 --> 00:01:28.260
+but they’re not the same length. So the
+ratio of the length of the red vector to the
+
+00:01:28.260 --> 00:01:34.530
+blue vector is the eigenvalue.
+So the term eigenvector … it’s a German
+
+00:01:34.530 --> 00:01:39.180
+word and it means ‘own vector’. It’s
+a special vector that belongs to the matrix.
+
+00:01:39.180 --> 00:01:43.290
+So there are a couple of equations that we
+can write. First of all we can use the equation
+
+00:01:43.290 --> 00:01:49.790
+that we had before: that v multiplied by the
+matrix A gives us the output vector v prime.
+
+00:01:49.790 --> 00:01:54.320
+And in the particular case when they’re
+parallel then they are related by a scalar;
+
+00:01:54.320 --> 00:01:58.270
+that the two vectors are parallel, only their
+length is different. So we can represent that
+
+00:01:58.270 --> 00:02:05.049
+by the scalar factor lambda, which is an eigenvalue.
+So if these two equations are true we can
+
+00:02:05.049 --> 00:02:09.090
+write this, and we’re following through
+some maths. We’re not interested in the
+
+00:02:09.090 --> 00:02:14.080
+case where v=0, we’re interested in the
+case where the determinant of A minus lambda,
+
+00:02:14.080 --> 00:02:19.680
+I, is equal to 0. So if we can write that
+expression for any matrix, it’s easy for
+
+00:02:19.680 --> 00:02:24.500
+a 2 by 2 case, more difficult for 3 by 3,
+very, very difficult for bigger matrices,
+
+00:02:24.500 --> 00:02:29.930
+and we can solve that for the values of the
+eigenvalues; these lambda values.
+
+00:02:29.930 --> 00:02:35.150
+Once we have values for lambda we can substitute
+them into the equations above and then solve
+
+00:02:35.150 --> 00:02:41.060
+for the eigenvector.
+Now there are an infinite number of eigenvectors
+
+00:02:41.060 --> 00:02:45.910
+corresponding to which eigenvalue, so typically
+we choose eigenvectors that have got a unit
+
+00:02:45.910 --> 00:02:50.980
+length. That’s an additional constraint
+that helps us choose just a single eigenvector.
+
+00:02:50.980 --> 00:02:56.160
+We’ll demonstrate this with a simple example:
+with a 2 by 2 matrix.
+
+00:03:01.940 --> 00:03:06.900
+The eigenvalues of this matrix are given simply
+using the MATLAB built-in function eig. We
+
+00:03:06.910 --> 00:03:12.480
+see the two eigenvalues are 1 and -2.
+To find the eigenvectors is a little bit more
+
+00:03:12.480 --> 00:03:21.680
+complex. We have to assign two output arguments
+from the function eig, and the first output
+
+00:03:21.680 --> 00:03:26.190
+argument which I’ve assigned to the matrix
+x has got two columns. The first column is
+
+00:03:26.190 --> 00:03:31.060
+the first eigenvector. The second column is
+the second eigenvector. And the eigenvalues
+
+00:03:31.060 --> 00:03:37.010
+now are arranged along the diagonal of the
+output matrix e.
+
+00:03:37.010 --> 00:03:42.489
+A fundamental property of the eigenvector
+is that when it is transformed by the original
+
+00:03:42.489 --> 00:03:48.159
+matrix, it is parallel to itself. Let’s
+test that.
+
+00:03:48.159 --> 00:03:54.090
+The original matrix A, and we multiply it
+by the first eigenvector which is the first
+
+00:03:54.090 --> 00:04:03.170
+column of the matrix x. We see that the resulting
+vector is indeed parallel to the eigenvector,
+
+00:04:03.170 --> 00:04:10.280
+and it has exactly the same magnitude. It’s
+been scaled by 1, and that is the value of
+
+00:04:10.280 --> 00:04:18.560
+the first eigenvalue. So the eigenvector multiplied
+by the matrix A is a vector parallel to the
+
+00:04:18.560 --> 00:04:22.770
+eigenvector with a scale factor of 1. So it
+is, in fact, the original eigenvector.
+
+00:04:22.770 --> 00:04:28.830
+Let’s try it with the other eigenvector,
+which is the second column of the matrix x.
+
+00:04:28.830 --> 00:04:35.069
+We see now that the result is indeed parallel
+to the second eigenvector, but it’s been
+
+00:04:35.069 --> 00:04:41.919
+scaled by -2, and -2 is the second eigenvalue
+of the matrix A.
+

@@ -1,0 +1,78 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.270 --> 00:00:19.800
+In the last couple of lectures, we've looked
+at the process of image formation, that's
+
+00:00:19.800 --> 00:00:27.320
+how we transform the 3D world, into a two-dimensional
+image or representation of that world. The
+
+00:00:27.320 --> 00:00:31.599
+actual three-dimensional structure of the
+world is really, really important, for animals
+
+00:00:31.599 --> 00:00:37.420
+as well as for robots. So in the case of animals,
+if you image that you are a predatory animal,
+
+00:00:37.420 --> 00:00:41.870
+it's really important to know how far away
+the prey is. If you're a prey animal it's
+
+00:00:41.870 --> 00:00:45.510
+really important to know how far away the
+predator is. If you're a robot, you might
+
+00:00:45.510 --> 00:00:50.520
+want to know how far away is the object that
+you want to reach and grab. If you're a mobile
+
+00:00:50.520 --> 00:00:55.670
+robot, you want to know which parts of the
+space in front of you have got objects sticking
+
+00:00:55.670 --> 00:00:59.789
+up above the ground, that prevent you from
+driving there and which parts of the world
+
+00:00:59.789 --> 00:01:02.550
+are free from those kinds of obstacles.
+
+00:01:02.550 --> 00:01:08.110
+So we want to have a three dimensional structure
+of the world, but we've only got a two dimensional
+
+00:01:08.110 --> 00:01:13.970
+representational projection. How do we solve
+this problem? When human beings look at a
+
+00:01:13.970 --> 00:01:18.549
+two dimensional image or a photograph, we
+imagine the three dimensional structure and
+
+00:01:18.549 --> 00:01:23.759
+that comes from our experience of 3D worlds,
+the experiences that we've gain through our
+
+00:01:23.759 --> 00:01:29.430
+whole lives. And I'm going to talk a little
+bit about some of the mechanism by which human
+
+00:01:29.430 --> 00:01:35.400
+beings fill in this missing dimension. In
+particular I'm going to talk about binocular
+
+00:01:35.400 --> 00:01:39.799
+stereo and that's how we take information
+from two cameras, like the two eyes that we
+
+00:01:39.799 --> 00:01:45.549
+have in our heads and recreate three dimensional
+world from that. And this is a very common
+
+00:01:45.549 --> 00:01:49.100
+technique in robotics called "Stereo Vision".
+

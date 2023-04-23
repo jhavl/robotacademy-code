@@ -1,0 +1,289 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.149 --> 00:00:07.819
+In the last lecture we talked about monadic
+image processing, and that is where we take
+
+00:00:07.819 --> 00:00:12.730
+a pixel from the input image, apply a function
+to it and put the result into the corresponding
+
+00:00:12.730 --> 00:00:14.539
+pixel in the output image.
+
+00:00:14.539 --> 00:00:18.891
+And we looked at a number of functions: we
+looked at gamma encoding and decoding; we
+
+00:00:18.891 --> 00:00:20.830
+looked at thresholding; and so on.
+
+00:00:20.830 --> 00:00:25.869
+So the same function is applied to every single
+pixel in the image.
+
+00:00:25.869 --> 00:00:31.740
+What happens here is that every output pixel
+is a function of the pixels in a square region
+
+00:00:31.740 --> 00:00:34.610
+around the corresponding point in the input
+image.
+
+00:00:34.610 --> 00:00:41.040
+So the input to the function is a number of
+pixels, the output is a single pixel value.
+
+00:00:41.040 --> 00:00:45.900
+Such a function, which is based on a number
+of pixels, can then say something either about
+
+00:00:45.900 --> 00:00:51.720
+the uniformity or the variation of the pixels
+over that input square region.
+
+00:00:51.720 --> 00:00:55.030
+We call this a window and denote it by the
+symbol W.
+
+00:00:55.030 --> 00:01:00.240
+So let’s consider an example function we
+might use and a common one would be to consider
+
+00:01:00.240 --> 00:01:01.240
+the average.
+
+00:01:01.240 --> 00:01:06.370
+So what we are going to do is for that square
+input window, take all of the pixel values,
+
+00:01:06.370 --> 00:01:11.250
+compute the average, and place the average
+into the corresponding pixel in the output
+
+00:01:11.250 --> 00:01:12.250
+image.
+
+00:01:12.250 --> 00:01:15.370
+So here is the original image, the Mona Lisa
+image that we have seen before.
+
+00:01:15.370 --> 00:01:21.580
+And the output is the average pixel value
+over a 7 by 7 window.
+
+00:01:21.580 --> 00:01:26.890
+So what the average can do is it can reduce
+noise but we also see that it reduces the
+
+00:01:26.890 --> 00:01:30.500
+resolution—it has made this image look somewhat
+blurry.
+
+00:01:30.500 --> 00:01:36.200
+Let’s see how this actually works in practice;
+and I have constructed a toy example here
+
+00:01:36.200 --> 00:01:40.620
+where we have an input grey scale image double
+precision input image.
+
+00:01:40.620 --> 00:01:42.810
+So the pixel values vary between 0 and 1.
+
+00:01:42.810 --> 00:01:47.650
+So we have a grey background with values of
+0.3 and a bright square in the middle where
+
+00:01:47.650 --> 00:01:49.460
+the pixel values are 0.8.
+
+00:01:49.460 --> 00:01:55.290
+We will start the animation and what we can
+see here is the input pixel window, which
+
+00:01:55.290 --> 00:02:01.590
+is shown here as red and it is moving, marching
+across the image left to right, top to bottom.
+
+00:02:01.590 --> 00:02:05.670
+And what you can see on the right-hand side
+are the average values being deposited into
+
+00:02:05.670 --> 00:02:07.830
+the output image.
+
+00:02:07.830 --> 00:02:12.680
+Couple of things to note: first of all, note
+that we can’t compute the pixel values in
+
+00:02:12.680 --> 00:02:15.160
+the outer most row and column pixels.
+
+00:02:15.160 --> 00:02:18.060
+And we will talk about that shortly.
+
+00:02:18.060 --> 00:02:26.329
+Also note that the quite clearly obvious bright
+white square in the input image has been smeared
+
+00:02:26.329 --> 00:02:27.329
+out.
+
+00:02:27.329 --> 00:02:31.569
+That value of 0.8 only exists now at a single
+pixel in the output image.
+
+00:02:31.569 --> 00:02:36.230
+Around that are some slightly brighter values
+and beyond that is the background and so we
+
+00:02:36.230 --> 00:02:42.040
+see here what we saw when we took the average
+of the Mona Lisa image—that the sharp, crisp,
+
+00:02:42.040 --> 00:02:46.819
+boundaries in the image have been smeared
+out or blurred.
+
+00:02:46.819 --> 00:02:49.280
+Now the effect of the window size makes a
+real difference.
+
+00:02:49.280 --> 00:02:56.069
+So again, here is our input image and if we
+compute the average with a 7 by 7 window moving
+
+00:02:56.069 --> 00:03:00.409
+over the input image, this is the result,
+and if we increase the size of the window,
+
+00:03:00.409 --> 00:03:02.849
+now it is a 21 by 21 window.
+
+00:03:02.849 --> 00:03:06.269
+We can see that it is very blurry indeed.
+
+00:03:06.269 --> 00:03:10.450
+So what tends to happen is that any feature
+in the image that is smaller than the size
+
+00:03:10.450 --> 00:03:13.499
+of the window will be very strongly attenuated.
+
+00:03:13.499 --> 00:03:16.470
+It will tend to disappear in the output image.
+
+00:03:16.470 --> 00:03:22.629
+We might say that the output image is blurry,
+fuzzy, has a lower resolution or whatever.
+
+00:03:22.629 --> 00:03:28.150
+We have blurred out, smoothed over fine detail
+in the image.
+
+00:03:28.150 --> 00:03:32.049
+Let’s try this in a full scale image.
+
+00:03:32.049 --> 00:03:36.959
+We are going to load our favourite image the
+Mona Lisa into the workspace variable im.
+
+00:03:36.959 --> 00:03:44.260
+I am going to compute a new image with the
+workspace variable I am going to call s7.
+
+00:03:44.260 --> 00:03:51.709
+And every output pixel is the average of a
+7 by 7 neighbourhood or window of the pixels
+
+00:03:51.709 --> 00:03:52.889
+in the input image.
+
+00:03:52.889 --> 00:03:57.349
+To do that I am going to use the tool box
+function icon and will explain about this
+
+00:03:57.349 --> 00:04:01.030
+function a bit more as we proceed.
+
+00:04:01.030 --> 00:04:04.949
+The first argument is the image that I am
+going to perform the average on which is the
+
+00:04:04.949 --> 00:04:07.510
+Mona Lisa image in the workspace variable
+im.
+
+00:04:07.510 --> 00:04:12.779
+The second argument defines the area over
+which we compute the average.
+
+00:04:12.779 --> 00:04:20.139
+Now I wanted to compute the average over a
+7 by 7 window and so to specify that, I pass
+
+00:04:20.139 --> 00:04:24.139
+in a matrix with a function ones(7,7).
+
+00:04:24.139 --> 00:04:29.300
+That produces a matrix that is 7 by 7 and
+every element in that matrix
+
+00:04:29.300 --> 00:04:30.300
+is 1.
+
+00:04:30.300 --> 00:04:34.710
+So that second argument defines the region
+over which I am going to perform the average
+
+00:04:34.710 --> 00:04:36.500
+for every single input pixel.
+
+00:04:36.500 --> 00:04:41.210
+I am going to display the original Mona Lisa
+image.
+
+00:04:41.210 --> 00:04:44.050
+And I am going to create another figure.
+
+00:04:44.050 --> 00:04:50.870
+I am going to display the averaged version
+of that and we can see that there is a lot
+
+00:04:50.870 --> 00:04:53.270
+less detail in the background.
+
+00:04:53.270 --> 00:04:59.080
+It is much smoother; you might say it is blurrier,
+you might say it has got lower resolution.
+
+00:04:59.080 --> 00:05:05.490
+Now let’s increase the size of the region
+over which we are doing the averaging.
+
+00:05:05.490 --> 00:05:16.430
+So I am going now to correlate with a window
+which is 21 by 21 pixels in size.
+
+00:05:16.430 --> 00:05:23.900
+Now I am going to display that image and we
+can see that this looks very blurry indeed.
+
+00:05:23.900 --> 00:05:29.710
+The effect of averaging over a region of pixels
+is to eliminate very fine detail within the
+
+00:05:29.710 --> 00:05:36.129
+image, so any detail that is of a size that
+is smaller than the window that we are using,
+
+00:05:36.129 --> 00:05:41.990
+in this last case, 21 by 21 pixels, any detail
+that is the order of 1 or 2 pixels in size
+
+00:05:41.990 --> 00:05:44.199
+is going to be eliminated.
+

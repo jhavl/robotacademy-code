@@ -1,0 +1,110 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.330 --> 00:00:09.299
+A very useful and concise way of describing
+the grey levels within an image is using a
+
+00:00:09.299 --> 00:00:13.830
+tool called a histogram.
+Here I have a contrived and low resolution
+
+00:00:13.830 --> 00:00:21.140
+image, where the pixel grey values vary between
+0, which is black, and 10, which is white.
+
+00:00:21.140 --> 00:00:25.350
+We can consider the histogramming process
+as a sorting process. I am going to take the
+
+00:00:25.350 --> 00:00:29.849
+first pixel, which has got a grey scale value
+of 6, and I am going to drop it into the bin
+
+00:00:29.849 --> 00:00:34.370
+for pixels with a value of 6. And I am going
+to take the next pixel which has got a value
+
+00:00:34.370 --> 00:00:38.650
+of 10, and I am going to drop it into the
+bin for pixels of value of 10, and so on.
+
+00:00:38.650 --> 00:00:42.370
+And we repeat this process on and on until
+we have coloured all of the pixels in the
+
+00:00:42.370 --> 00:00:46.140
+image.
+And we have this histogram. At a glance this
+
+00:00:46.140 --> 00:00:50.330
+histogram tells us some very interesting things
+about the image. If all of the pixels are
+
+00:00:50.330 --> 00:00:56.049
+at the left-hand side of the histogram, this
+tells us that it is a very dark image. Conversely,
+
+00:00:56.049 --> 00:00:59.089
+if all of the pixels are at the right-hand
+side of the histogram, this tells us that
+
+00:00:59.089 --> 00:01:04.559
+it is a very bright image.
+You have very likely encountered histograms.
+
+00:01:04.559 --> 00:01:10.420
+They are commonly displayed in the viewfinder
+of a camera. What we are seeing here is the
+
+00:01:10.420 --> 00:01:16.100
+viewfinder of an iPhone camera app and we
+can see the histogram here on the display.
+
+00:01:16.100 --> 00:01:19.930
+The left-hand side of the histogram corresponds
+to the dark pixels, and the right-hand side
+
+00:01:19.930 --> 00:01:25.860
+of the histogram corresponds to bright pixels.
+If I move the camera from this view to down
+
+00:01:25.860 --> 00:01:29.460
+underneath my desk where it is all very dark,
+we can see that there are an increasing number
+
+00:01:29.460 --> 00:01:34.310
+of dark pixels in the scene. As I bring the
+camera up from underneath the desk and point
+
+00:01:34.310 --> 00:01:38.110
+it out the window where it is very bright,
+we see the distribution of pixels moving more
+
+00:01:38.110 --> 00:01:42.590
+towards the bright end of the histogram.
+If I repeat the process, but this time I have
+
+00:01:42.590 --> 00:01:48.640
+the camera set to automatic exposure control,
+what happens now is that the software within
+
+00:01:48.640 --> 00:01:53.390
+the camera is trying to keep the histogram
+balanced. It is trying to keep an even mixture
+
+00:01:53.390 --> 00:01:58.010
+of dark pixels and bright pixels, so that
+the average is somewhere in the middle. And
+
+00:01:58.010 --> 00:02:01.860
+the behaviour this time is quite different,
+when we look under the desk, we can see the
+
+00:02:01.860 --> 00:02:03.120
+wires and the carpet.
+
+00:02:06.040 --> 00:02:09.820
+When we look out the window, we can now quite clearly see the world outside.
+

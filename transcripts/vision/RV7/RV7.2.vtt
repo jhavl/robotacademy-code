@@ -1,0 +1,326 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:09.500
+Let’s talk about the geometry of how images
+are formed. All images start with light coming
+
+00:00:09.500 --> 00:00:14.599
+from some source of illumination; perhaps
+the sun, perhaps indoor lights in the ceiling
+
+00:00:14.599 --> 00:00:19.180
+of a building and that light reflects off
+objects in the world. Some of that reflected
+
+00:00:19.180 --> 00:00:25.269
+light ends up in our eyes. There are two types
+of reflection. There is the mirror-like reflection
+
+00:00:25.269 --> 00:00:30.199
+we call specular reflection and there is the
+reflection from a diffuse or matte surface,
+
+00:00:30.199 --> 00:00:33.230
+which is called Lambertian reflection.
+
+00:00:33.230 --> 00:00:39.550
+Most surfaces are a mixture of specular reflection
+and Lambertion reflection. But irrespective
+
+00:00:39.550 --> 00:00:44.290
+of the sort of reflection that’s occurring,
+we have light from a light source reflecting
+
+00:00:44.290 --> 00:00:49.969
+off objects and some of those light rays are
+going to enter our eyes. Let’s look at this
+
+00:00:49.969 --> 00:00:52.020
+in a graphical representation.
+
+00:00:52.020 --> 00:00:56.730
+Once again, we have our observer of the scene.
+We have a three-dimensional object in the
+
+00:00:56.730 --> 00:01:02.480
+world and we’re going to consider what happens
+at just a few points on that particular object.
+
+00:01:02.480 --> 00:01:05.269
+So the first thing we need is a source of
+light.
+
+00:01:05.269 --> 00:01:10.500
+We turn on the sun and what’s going to happen
+now is light is going to be reflected from
+
+00:01:10.500 --> 00:01:15.470
+the sun at a number of these points and some
+of those light rays are going to enter the
+
+00:01:15.470 --> 00:01:19.700
+eyes of the observer.
+When we look at a three-dimensional statue
+
+00:01:19.700 --> 00:01:24.299
+like this either through a camera or with
+our own eyes, we experience a very vivid and
+
+00:01:24.299 --> 00:01:30.270
+crisp image of that object. But if I simply
+hold up a piece of paper here and it is receiving
+
+00:01:30.270 --> 00:01:34.970
+light that’s reflected off the statue, then
+no matter how hard or how closely I look at
+
+00:01:34.970 --> 00:01:41.049
+this paper, there is no concept of image being
+formed on here. We need to organize the light
+
+00:01:41.049 --> 00:01:45.240
+rays, which are leaving the statue in order
+to get a crisp image.
+
+00:01:45.240 --> 00:01:50.770
+So let’s look at this problem graphically.
+We have an image plane, the piece of paper
+
+00:01:50.770 --> 00:01:56.829
+that I just held up and if I consider any
+particular point on that image plane, the
+
+00:01:56.829 --> 00:02:01.659
+light that’s falling on any single point
+could have come from any number of points
+
+00:02:01.659 --> 00:02:06.250
+on the three-dimensional object. What’s
+happened is the light from all of those points
+
+00:02:06.250 --> 00:02:11.599
+is being mixed up so that if I just hold up
+a piece of paper no coherent image will be
+
+00:02:11.599 --> 00:02:12.900
+formed on that.
+
+00:02:12.900 --> 00:02:16.810
+What we need to do is to order the light rays
+in some way and the simplest way to think
+
+00:02:16.810 --> 00:02:22.370
+about doing this is to put an opaque plane
+in front of the image plane and to drill a
+
+00:02:22.370 --> 00:02:27.349
+small hole in it. This is a configuration
+that’s referred to as a pinhole camera.
+
+00:02:27.349 --> 00:02:33.390
+What this does is order the rays that are
+leaving the points on the object and it causes
+
+00:02:33.390 --> 00:02:39.290
+an inverted (that is an upside-down image)
+to be formed on the image plane. This approach
+
+00:02:39.290 --> 00:02:43.930
+to imaging is called a pinhole camera. Sometimes
+it’s called a camera obscura and it’s
+
+00:02:43.930 --> 00:02:46.450
+been known since ancient times.
+
+00:02:46.450 --> 00:02:51.349
+This picture shows a building with a small
+hole drilled in its wall and what’s happening
+
+00:02:51.349 --> 00:02:57.080
+is that there is an image of the bright sun
+outside is being cast on the interior wall
+
+00:02:57.080 --> 00:02:58.550
+of the building.
+
+00:02:58.550 --> 00:03:03.470
+Here are some examples of pinhole camera images
+that I’ve downloaded from the web. People
+
+00:03:03.470 --> 00:03:07.239
+have observed these images perhaps they’ve
+been inside a darkened room, there’s been
+
+00:03:07.239 --> 00:03:12.360
+a bright scene outside, a bright sunny day
+and there’s been perhaps a hole on the blind
+
+00:03:12.360 --> 00:03:16.879
+or window covering and that has caused an
+image of the outside world to be cast on the
+
+00:03:16.879 --> 00:03:17.879
+wall.
+
+00:03:17.879 --> 00:03:21.282
+Now recall from the previous example that
+this image is inverted. So in the left-hand
+
+00:03:21.282 --> 00:03:22.282
+image, the person like turned their camera
+upside-down and you can see an electric toothbrush
+
+00:03:22.282 --> 00:03:23.282
+hanging from the top and in the right-hand
+image, you can see the fact that the pinhole
+
+00:03:23.282 --> 00:03:26.010
+image is in fact inverted. Here is an example
+of a very, very large pinhole camera. This
+
+00:03:26.010 --> 00:03:32.409
+was an amazing project that happened in a
+disused aircraft hangar back in 2008. On the
+
+00:03:32.409 --> 00:03:37.590
+left, we can see a bunch of people standing
+in front of the image plane. That’s where
+
+00:03:37.590 --> 00:03:42.730
+the image from the pinhole camera has been
+cast and on the right-hand side, you can see
+
+00:03:42.730 --> 00:03:47.400
+them endeavouring to actually capture that
+image so they made a very, very large piece
+
+00:03:47.400 --> 00:03:52.540
+of film, a very large negative and they’re
+going to put it up against the wall and expose
+
+00:03:52.540 --> 00:03:55.939
+it and capture an image using this pinhole
+camera.
+
+00:03:55.939 --> 00:04:01.860
+So, a quick refresher on what happens with
+a pinhole camera. Rays of light leave various
+
+00:04:01.860 --> 00:04:06.530
+points on the object. They all pass through
+the pinhole and cast an upside-down image
+
+00:04:06.530 --> 00:04:09.180
+on what we call the image plane.
+
+00:04:09.180 --> 00:04:14.549
+The geometry of this pinhole camera is actually
+very simple to describe. We’ll consider
+
+00:04:14.549 --> 00:04:19.850
+that the object is at a distance Z away from
+the plane of the pinhole and the image plane
+
+00:04:19.850 --> 00:04:26.040
+is a distance F (F for focal distance) away
+from the plane of the pinhole.
+
+00:04:26.040 --> 00:04:33.270
+Then if the height of the object is Y, the
+height of the image is y and these are two
+
+00:04:33.270 --> 00:04:38.350
+similar triangles. So it’s very easy to
+write the relationship over here. It simply
+
+00:04:38.350 --> 00:04:45.139
+comes from the fact that we’ve got two similar
+triangles. We can also do the same thing for
+
+00:04:45.139 --> 00:04:51.030
+the horizontal plane. We introduce the symbol
+X for the distance out of the page of the
+
+00:04:51.030 --> 00:04:56.759
+object that we’re looking at and x for the
+distance along the wall in the image plane.
+
+00:04:56.759 --> 00:05:03.440
+We can again write the equations that come
+from looking at two similar triangles. So
+
+00:05:03.440 --> 00:05:10.800
+this image formation process maps a point
+in the world with coordinates X, Y and Z to
+
+00:05:10.800 --> 00:05:17.940
+a point on the image plane whose coordinates
+are x and y. We can rearrange those equations
+
+00:05:17.940 --> 00:05:18.970
+in this fashion.
+
+00:05:18.970 --> 00:05:28.410
+So if x now in terms of the real world coordinates
+X and Z and similarly for y. So this is what
+
+00:05:28.410 --> 00:05:35.660
+we call a projection. It projects a three-dimensional
+quantity X, Y, Z into a two-dimensional quantity,
+
+00:05:35.660 --> 00:05:42.610
+x and y. It is a mapping between three dimensions
+and two dimensions.
+
+00:05:42.610 --> 00:05:48.860
+This referred to as perspective projection.
+This is the mathematical basis for the process
+
+00:05:48.860 --> 00:05:55.250
+that we’d call perspective projection. A
+consequence of perspective projection is that
+
+00:05:55.250 --> 00:06:02.610
+there is no unique inverse. If I have an image
+of the object in the real world then there
+
+00:06:02.610 --> 00:06:07.360
+are an infinite number of possible objects
+that could cause that image. It could be a
+
+00:06:07.360 --> 00:06:12.340
+small object that’s close to me or it could
+be a large object that’s further away from
+
+00:06:12.340 --> 00:06:13.340
+me.
+
+00:06:13.340 --> 00:06:18.810
+One of the dimensions has been fundamentally
+lost. From a two-dimensional image, we cannot
+
+00:06:18.810 --> 00:06:25.020
+recover this third dimension. Now, in our
+brains, we use a lot of tricks to try and
+
+00:06:25.020 --> 00:06:28.789
+recover that third dimension.
+We know something about the structure of the
+
+00:06:28.789 --> 00:06:33.039
+world. We know something about the size of
+objects. So if we see what looks like a small
+
+00:06:33.039 --> 00:06:38.729
+person we think “No, no, no, it’s probably
+a large person who is further away.”
+
+00:06:38.729 --> 00:06:45.030
+So to recover the third dimension is fundamentally
+impossible but there is other information
+
+00:06:45.030 --> 00:06:47.400
+that we can bring to bear to recover it.
+

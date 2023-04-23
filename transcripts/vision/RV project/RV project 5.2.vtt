@@ -1,0 +1,240 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.339 --> 00:00:08.091
+I'd like to talk to you now about the importance
+of homographies and why we need to apply it
+
+00:00:08.091 --> 00:00:12.380
+to the robotic vision worksheet. I've put
+together some tips and tricks to improve your
+
+00:00:12.380 --> 00:00:17.529
+homography. So let's go into MATLAB now and
+take a look at these.
+
+00:00:17.529 --> 00:00:19.650
+Okay so how does a homography actually work?
+
+00:00:19.650 --> 00:00:21.640
+What does it describe?
+
+00:00:21.640 --> 00:00:27.279
+Well if I look at the output of my tracked
+mark script you can see I have these two figures.
+
+00:00:27.279 --> 00:00:32.169
+Now on the left hand side I have my rectified
+image with the calibration circles marked
+
+00:00:32.169 --> 00:00:37.340
+with red asterisks. And on the right hand
+side I have my regional robotic vision worksheet
+
+00:00:37.340 --> 00:00:40.980
+image and the calibrations circles are marked
+as well.
+
+00:00:40.980 --> 00:00:46.120
+So what homography does is that I give it
+the points of the circles on the right hand
+
+00:00:46.120 --> 00:00:51.829
+side in this image and then I also compare
+that to the calibration circle positions on
+
+00:00:51.829 --> 00:00:57.129
+the left hand side and homography generates
+a matrix which describes the relationship
+
+00:00:57.129 --> 00:00:59.500
+between these two different viewpoints.
+
+00:00:59.500 --> 00:01:06.170
+So once I have the relationship I can then
+rectify the entire image from that H matrix
+
+00:01:06.170 --> 00:01:11.530
+alone. So that is a very powerful tool and
+allows us to do some cool things with computer
+
+00:01:11.530 --> 00:01:15.040
+vision and robotics.
+
+00:01:15.040 --> 00:01:21.320
+Okay so that's what a homography matrix is.
+Alright so what are some tips and tricks when
+
+00:01:21.320 --> 00:01:23.630
+you're writing your own getHomography function.
+
+00:01:23.630 --> 00:01:27.960
+My first tip is that you need to make sure
+that all the calibrations circles are in the
+
+00:01:27.960 --> 00:01:32.270
+image. Alright so if you don't have all the
+circles in there then it's going to very difficult
+
+00:01:32.270 --> 00:01:35.250
+to generate a homography matrix.
+
+00:01:35.250 --> 00:01:41.070
+The next tip is that the blob centroids that
+you get from identifying the blue circles.
+
+00:01:41.070 --> 00:01:47.490
+The centroid of that blob needs to be almost
+on top of the centroid in the actual image.
+
+00:01:47.490 --> 00:01:53.290
+Alright so if there's any misalignment between
+the two centroids then the homography matrix
+
+00:01:53.290 --> 00:01:59.540
+that you generate may not describe the relationship
+between the different viewpoints that well.
+
+00:01:59.540 --> 00:02:03.659
+The third tip is that because a homography
+describes the plainer relationship between
+
+00:02:03.659 --> 00:02:07.521
+two different viewpoints of your camera you
+need to make sure that the worksheet is as
+
+00:02:07.521 --> 00:02:11.950
+flat as possible. So make sure there are no
+creases or folds in the worksheet. Because
+
+00:02:11.950 --> 00:02:17.390
+once again if you do have any of those then
+the homography matrix will not describe the
+
+00:02:17.390 --> 00:02:21.640
+relationship that well between the two different
+viewpoints.
+
+00:02:21.640 --> 00:02:26.739
+And finally and probably the most important
+point is that a homography works off the correspondences
+
+00:02:26.739 --> 00:02:33.400
+between the points in two different views.
+So you can see I've labeled my circles here
+
+00:02:33.400 --> 00:02:38.980
+on the right and left hand side of the image.
+And these numbers are correspond to the ordering
+
+00:02:38.980 --> 00:02:43.120
+of the points that I supplied it when I generated
+my homography.
+
+00:02:43.120 --> 00:02:47.360
+So you need to make sure that the ordering
+or the correspondence of the points is correct
+
+00:02:47.360 --> 00:02:54.620
+such that you can generate the H matrix the
+way you want to. And the way I did mine was
+
+00:02:54.620 --> 00:02:59.989
+that I identified where the large blue circle
+was, as you can see here's the circle number
+
+00:02:59.989 --> 00:03:05.030
+two with the green asterisks. And because
+I confined the large blue circle I could then
+
+00:03:05.030 --> 00:03:10.129
+rectify my image on the left hand side here
+such that the X and Y Cartesian coordinates
+
+00:03:10.129 --> 00:03:14.409
+was located at the top left hand side of my
+rectified image.
+
+00:03:14.409 --> 00:03:23.610
+And the final thing to note is that you can
+check the quality of your homography matrix
+
+00:03:23.610 --> 00:03:27.750
+by looking at the residual so let's take a
+look at that now.
+
+00:03:27.750 --> 00:03:37.530
+Alright so let's look at my "getHomography"
+function and check its residual on the output.
+
+00:03:37.530 --> 00:03:43.599
+So you can see that the residual that's generated
+is 1, 1.08 and that's really good, but what
+
+00:03:43.599 --> 00:03:44.909
+does this residual mean?
+
+00:03:44.909 --> 00:03:46.709
+Where does it come from?
+
+00:03:46.709 --> 00:03:53.150
+Okay so if we have a look at the points that
+I supplied to getHomography. I have P1 which
+
+00:03:53.150 --> 00:03:58.330
+is the position of the circles in the X and
+Y Cartesian coordinates. And P2 is the other
+
+00:03:58.330 --> 00:04:04.170
+set of coordinates and that is the position
+of the pixel centroids.
+
+00:04:04.170 --> 00:04:11.569
+So what the residual is that it is the error
+that's generated when you do the rectification
+
+00:04:11.569 --> 00:04:18.660
+of the points so if I use the homtrans function
+you can see where it comes about.
+
+00:04:18.660 --> 00:04:26.440
+So while you homtrans on P2, you can see that
+this is the point positions in the rectified
+
+00:04:26.440 --> 00:04:32.130
+image and you can see when you compare the
+output of homtrans to P1 that a matches quite
+
+00:04:32.130 --> 00:04:36.669
+closely to other position that I want in the
+alternate view.
+
+00:04:36.669 --> 00:04:42.150
+But they're not quite exact. So there's a
+residual when you do this comparison. And
+
+00:04:42.150 --> 00:04:47.680
+this is where this maximum residual value
+comes from. So when you do do your homography,
+
+00:04:47.680 --> 00:04:53.169
+always check to the residual and to make sure
+that it's not too large. A large residual
+
+00:04:53.169 --> 00:04:58.580
+indicates that the homography matrix that
+you generated poorly describes the relationship
+
+00:04:58.580 --> 00:05:03.330
+between the two different viewpoints that
+you supplied to the homography function.
+
+00:05:03.330 --> 00:05:09.090
+So those are my tips and tricks on homographies.
+Good luck with writing your own functions
+
+00:05:09.090 --> 00:05:14.139
+and make sure you do the getCalibration function
+and the getHomography function this week.
+
