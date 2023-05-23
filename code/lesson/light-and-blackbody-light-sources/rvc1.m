@@ -19,5 +19,5 @@ E = blackbody(lambda, 6000);
 %% 6:14
 hold on
 
-%% 
+%% 6:23
 plot(lambda, E, '--')

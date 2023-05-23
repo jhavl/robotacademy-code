@@ -1,0 +1,27 @@
+import machinevisiontoolbox as mv
+
+# 2:22
+im = mv.Image.Read("building2-1.png")
+
+# 2:25
+im.disp()
+
+# 2:47
+C = im.SIFT()
+
+# 2:57
+print(C[0])
+
+# 3:37
+#C[0].plot(['y', 'scale', 16, 'clock'])
+
+# 4:04
+im.disp(darken = True)
+
+# 4:14
+#C.plot(['w', 'scale', 4, 'clock'])
+
+# 6:10
+print(C[0].descriptor)
+
+input("press any key to exit")
