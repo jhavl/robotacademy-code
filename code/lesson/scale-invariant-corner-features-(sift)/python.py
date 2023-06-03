@@ -12,14 +12,8 @@ C = im.SIFT()
 # 2:57
 print(C[0])
 
-# 3:37
-#C[0].plot(['y', 'scale', 16, 'clock'])
-
 # 4:04
-im.disp(darken = True)
-
-# 4:14
-#C.plot(['w', 'scale', 4, 'clock'])
+im.disp(darken = True) 
 
 # 6:10
 print(C[0].descriptor)

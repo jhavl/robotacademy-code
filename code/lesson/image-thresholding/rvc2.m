@@ -31,14 +31,14 @@ m == 3
 %% 5:12
 im = iread('penguins.png', 'grey', 'double');
 
-idism(im)
+idisp(im)
 
 figure
 
 ihist(im)
 
 %% 5:34
-b = in > 0.45;
+b = im > 0.45;
 
 %% 5:55
 idisp(b)
