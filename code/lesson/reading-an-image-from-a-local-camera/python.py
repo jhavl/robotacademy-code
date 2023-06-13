@@ -14,5 +14,3 @@ cam.grab().disp()
 
 # 2:04
 cam.release()
-
-input("Press any key to exit")

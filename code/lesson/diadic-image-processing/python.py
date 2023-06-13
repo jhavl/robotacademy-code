@@ -13,5 +13,3 @@ im2 = next(images, None)
 # 6:02
 mv.idisp(im1.image - im2.image)
 
-input("press any key to close")
-

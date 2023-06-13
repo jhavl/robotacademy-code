@@ -17,4 +17,3 @@ subplot(3,1,3)
 plot(sdd)
 
 quinticpolytraj([0 1],0:1,0:(1/49):1, "VelocityBoundaryCondition") 
-% no proper method for setting initial velocity or end velocity

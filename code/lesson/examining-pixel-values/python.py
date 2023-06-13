@@ -4,5 +4,3 @@ import machinevisiontoolbox as mv
 im = mv.Image.Read('street.png')
 
 im.disp()
-
-input("Press any key to exit")

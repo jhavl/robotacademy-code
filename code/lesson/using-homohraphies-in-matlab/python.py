@@ -20,10 +20,10 @@ Q = P[:2]
 print(Q,"\n")
 
 # 1:07
+# H = mv.homography(p,Q)
 
 # 1:31
 #print(smb.homtrans(H,p))
 
 # 1:52
 #print(smb.homtrans(np.linalg.inv(H),p))
-input("press any key to exit")

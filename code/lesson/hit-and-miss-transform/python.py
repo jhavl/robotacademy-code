@@ -10,9 +10,7 @@ thin = im.thin()
 thin.disp()
 
 # 4:51
-pts = triplepoint(thin)
+pts = thin.triplepoint()
 
 # 4:58
 pts.disp()
-
-input("press any key to exit")

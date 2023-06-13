@@ -53,5 +53,3 @@ p560 = p560.gravity([0, 0, 9.81/6])
 
 # 6:50
 print(p560.gravload([0, 0, 0, 0, 0, 0]), "\n")
-
-input("Press any key to exit")

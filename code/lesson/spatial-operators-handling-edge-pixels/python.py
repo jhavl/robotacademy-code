@@ -13,5 +13,3 @@ s7.disp()
 s21 = im.convolve(K = np.ones((21,21)))
 
 s21.disp()
-
-input("Press any key to exit")

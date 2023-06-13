@@ -13,7 +13,7 @@ q1dd = sym.Symbol('q1dd')
 q2dd = sym.Symbol('q2dd')
 
 # 0:29
-#twolink.inertia([q1, q2])
+twolink.inertia([q1, q2])
 
 # 2:44
 twolink = rtb.models.DH.Planar2()
@@ -35,5 +35,3 @@ twolink.plot([0, np.pi])
 
 # 4:10
 twolink.inertia([0, np.pi])
-
-input("Press any key to exit")

@@ -17,5 +17,3 @@ disparity, similarity, DSI = L.stereo_simple(R, hw=3, drange=[40, 90])
 
 # 5:04
 disparity.disp()
-
-input("press any key to exit")

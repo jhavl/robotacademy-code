@@ -23,5 +23,3 @@ im.disp()
 
 # 6:07
 print(im.image[652][561])
-
-input("Press any key to exit")

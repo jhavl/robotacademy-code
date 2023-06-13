@@ -15,7 +15,7 @@ cls, cxy, residue = im.kmeans_color(k=4, seed = 0)
 cls.disp()
 
 # 6:00
-tom = cls == 2 # changed to two to make sure tomatos are selected
+tom = cls == 2
 
 # 6:02
 tom.disp()
@@ -38,5 +38,3 @@ closed = tom.close(se.image)
 
 # 9:17
 closed.disp()
-
-input("press any key to exit")

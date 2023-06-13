@@ -24,5 +24,3 @@ next(cam, None).disp()
 
 # 1:50
 print(cam)
-
-input("Press any key to exit")

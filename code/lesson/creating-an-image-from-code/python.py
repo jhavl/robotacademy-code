@@ -1,6 +1,4 @@
 import machinevisiontoolbox as mv
-import matplotlib.pyplot as plt
-import numpy as np
 
 # 0:36
 im = mv.Image.Zeros(200, dtype = 'float32')
@@ -50,5 +48,3 @@ im = mv.Image.Squares(4, 200, bg = 0, fg = 1)
 
 # 5:30
 im.disp()
-
-input("Press any key to exit")

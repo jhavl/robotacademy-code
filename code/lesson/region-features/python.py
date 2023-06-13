@@ -19,5 +19,3 @@ im.disp()
 im.draw_circle((int(b.centroid[0][0]),int(b.centroid[0][1])), 3, color = 0, thickness = -1)
 im.draw_circle((int(b.centroid[1][0]),int(b.centroid[1][1])), 3, color = 0, thickness = -1)
 im.disp()
-
-input("press any key to exit")

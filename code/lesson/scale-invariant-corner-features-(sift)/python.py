@@ -17,5 +17,3 @@ im.disp(darken = True)
 
 # 6:10
 print(C[0].descriptor)
-
-input("press any key to exit")

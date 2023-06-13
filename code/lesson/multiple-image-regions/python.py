@@ -1,4 +1,5 @@
 import machinevisiontoolbox as mv
+import matplotlib.pyplot as plt
 
 # 5:16
 im = mv.Image.Read('shark2.png')
@@ -26,6 +27,16 @@ b = im.blobs()
 # 8:36
 im.disp()
 
+# 8:44
+b[0].plot_box(color = 'g')
+plt.show()
+
+# 8:50
+b[1].plot_box(color = 'g')
+plt.show()
+
+# 9:07
+
 # 9:13
 print(b[1].area,"\n")
 
@@ -41,4 +52,4 @@ print(b[1].centroid[0],"\n")
 # 9:41
 print(b[1].moments.m01,"\n")
 
-input("press any key to exit")
+input("Press any key to exit")

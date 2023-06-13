@@ -25,5 +25,3 @@ print(im.image[99, 99][2],"\n")
 
 # 6:11
 print(im.image[99, 99],"\n")
-
-input("press any key to exit")

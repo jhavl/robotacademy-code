@@ -1,5 +1,4 @@
 import machinevisiontoolbox as mv
-from spatialmath import SE3
 import numpy as np
 
 # 2:49

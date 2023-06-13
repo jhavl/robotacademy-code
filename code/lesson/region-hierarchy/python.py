@@ -18,5 +18,3 @@ L.disp()
 # 2:39
 b = im.blobs()
 print(b,"\n")
-
-input("press any key to exit")

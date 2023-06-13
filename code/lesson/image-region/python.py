@@ -68,5 +68,3 @@ print(vcen,"\n")
 
 im.draw_circle((int(ucen), int(vcen)), 1, color = 0, thickness = 3)
 im.disp()
-
-input("press any key to exit")

@@ -46,5 +46,3 @@ mv.idisp(im4)
 
 # 5:59
 im4 = im.image[im.image.shape[0]::-1,:]
-
-input("Press any key to exit")

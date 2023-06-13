@@ -51,5 +51,3 @@ print(im, "\n")
 
 # 5:07
 print(imd, "\n")
-
-input("Press any key to exit")
