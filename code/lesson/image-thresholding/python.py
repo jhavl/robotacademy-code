@@ -39,6 +39,7 @@ im = mv.Image.Read('penguins.png', grey = True, dtype = 'float32')
 
 im.disp()
 
+plt.figure()
 hist = im.hist()
 hist.plot()
 
@@ -56,5 +57,3 @@ b.disp()
 
 # 7:21
 im.threshold_interactive()
-
-input("Press any key to exit")

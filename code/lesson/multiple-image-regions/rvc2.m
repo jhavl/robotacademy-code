@@ -28,25 +28,25 @@ b = iblobs(im)
 idisp(im)
 
 %% 8:44
-b(1).plot_box('g')
-
-%% 8:50
 b(2).plot_box('g')
 
+%% 8:50
+b(3).plot_box('g')
+
 %% 9:07
-b(1).plot('b*')
+b(2).plot('b*')
 
 %% 9:13
-b(1).area
+b(2).area
 
 %% 9:19
-b(1).class
+b(2).class
 
 %% 9:28
-b(1).p
+b(2).p
 
 %% 9:34
-b(1).uc
+b(2).uc
 
 %% 9:41
-b(1).moments.m01
+b(2).moments.m01

@@ -28,14 +28,16 @@ b = im.blobs()
 im.disp()
 
 # 8:44
-b[0].plot_box(color = 'g')
-plt.show()
+im.draw_box(ltrb=[b[0].bbox[0], b[0].bbox[2], b[0].bbox[1], b[0].bbox[3]], color=255)
+im.disp()
 
 # 8:50
-b[1].plot_box(color = 'g')
-plt.show()
+im.draw_box(ltrb=[b[1].bbox[0], b[1].bbox[2], b[1].bbox[1], b[1].bbox[3]], color=255)
+im.disp()
 
 # 9:07
+im.draw_circle((round(b[1].u), round(b[1].v)), 5, color=0, thickness = -1)
+im.disp()
 
 # 9:13
 print(b[1].area,"\n")
@@ -51,5 +53,3 @@ print(b[1].centroid[0],"\n")
 
 # 9:41
 print(b[1].moments.m01,"\n")
-
-input("Press any key to exit")

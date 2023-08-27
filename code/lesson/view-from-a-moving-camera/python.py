@@ -3,10 +3,11 @@ import spatialmath as sm
 import matplotlib.pyplot as plt
 
 # 1:47
-cam = mv.CentralCamera().Default()
+cam = mv.CentralCamera().Default(imagesize = 1024, pp = (512,512))
 
 # 1:59
 P = (1, 1, 5)
+print(P, "\n")
 
 # 2:09
 p0 = cam.project_point(P)
