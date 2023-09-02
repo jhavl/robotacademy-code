@@ -48,4 +48,3 @@ im = mv.Image.Squares(4, 200, bg = 0, fg = 1)
 
 # 5:30
 im.disp()
-

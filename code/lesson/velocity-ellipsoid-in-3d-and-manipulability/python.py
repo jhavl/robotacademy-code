@@ -29,10 +29,10 @@ p560 = rtb.models.Puma560()
 p560.plot(p560.qn)
 
 # 5:23
-p560.plot_vellipse(p560.qn)
+# Ellipse plotting of ERobot's is not currently implemented yet
 
 # 6:02
 p560.plot(p560.qs)
 
 # 6:16
-p560.plot_vellipse(p560.qs)
+# Ellipse plotting of ERobot's is not currently implemented yet

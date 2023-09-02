@@ -15,17 +15,17 @@ print(TB, "\n")
 
 # 1:44
 qA = p560.ikine_a(TA)
-print(qA, "\n")
+print(qA.q, "\n")
 
 # 1:52
 qB = p560.ikine_a(TB)
-print(qB, "\n")
+print(qB.q, "\n")
 
 # 2:04
-tg = rtb.jtraj(qA, qB, 50)
+tg = rtb.jtraj(qA.q, qB.q, 50)
 
 # 2:25
-p560.plot(tg)
+p560.plot(tg.q)
 
 # 2:43
-rtb.qplot(tg)
+# qplot function currently not working
