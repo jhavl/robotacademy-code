@@ -5,7 +5,7 @@ import spatialmath.base as smb
 # 1:12
 p560 = rtb.models.DH.Puma560()
 
-#T = sm.SE3.Trans(0.6, 0.1, 0.0) * sm.SE3(smb.rpy2tr(0, 180, 0, unit = 'deg'))
+T = sm.SE3.Trans(0.6, 0.1, 0.0) * sm.SE3(smb.rpy2tr(0, 180, 0, unit = 'deg'))
 print(T, "\n")
 
 # 1:55
