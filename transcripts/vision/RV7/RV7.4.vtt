@@ -1,0 +1,219 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.270 --> 00:00:08.490
+One problem with pinhole cameras, is that
+the images that they create are very, very
+
+00:00:08.490 --> 00:00:12.990
+dim and that's one of the reasons that they
+are so hard to capture and the reason that
+
+00:00:12.990 --> 00:00:17.369
+the images are dim, is if we look at all the
+light rays that emerge from a particular point,
+
+00:00:17.369 --> 00:00:21.420
+in this example, only one of those light rays
+goes through and forms the image, the rest
+
+00:00:21.420 --> 00:00:27.050
+of the light rays hit the opaque plane and
+are absorbed or reflected off to somewhere else.
+
+00:00:27.050 --> 00:00:27.439
+ 
+
+00:00:27.439 --> 00:00:32.500
+So if we want to make our image brighter we
+need to be able to utilize more of the light
+
+00:00:32.500 --> 00:00:36.989
+rays that are leaving the object and the way
+we do that, is to use a lens.
+
+00:00:36.989 --> 00:00:42.239
+A lens is a very simple technique for gathering
+more of the light rays that leave a particular
+
+00:00:42.239 --> 00:00:47.840
+point in the world. Again we have our graphical
+example and we can see the light rays leaving
+
+00:00:47.840 --> 00:00:52.539
+one particular point, they've all passed through
+the lens and strike the image plane. So here
+
+00:00:52.539 --> 00:00:57.870
+we've captured many, many more light rays,
+so the image that we form will be brighter.
+
+00:00:57.870 --> 00:01:02.920
+We can describe this a bit more formally.
+We consider the distance away from the lens
+
+00:01:02.920 --> 00:01:07.510
+plane which we will call the distance F and
+the diameter of the lens which is the distance
+
+00:01:07.510 --> 00:01:12.530
+Phi and we can create a number, which is generally
+referred to as the F number of the lens, which
+
+00:01:12.530 --> 00:01:18.409
+is the ratio of F to Phi. The F number of
+the lens is typically inscribed on the front
+
+00:01:18.409 --> 00:01:25.130
+of the lens; in this case it's a F1.4 lens
+so that means capital F equals 1.4. The smaller
+
+00:01:25.130 --> 00:01:30.470
+the F number the greater is the light gathering
+power of the lens, the brighter image that
+
+00:01:30.470 --> 00:01:35.150
+it will create. Let's simplify things and
+see how lenses work.
+
+00:01:35.150 --> 00:01:41.369
+We have a simple object in the world and we
+have a lens. And a lens is described by a
+
+00:01:41.369 --> 00:01:46.390
+focal length and in this case we have what
+we call a thin lens model. This is probably
+
+00:01:46.390 --> 00:01:51.009
+familiar to you from high school physics.
+The real lenses that you have in your camera
+
+00:01:51.009 --> 00:01:56.020
+are not simple lenses like this, but they
+can be approximated by a single lens.
+
+00:01:56.020 --> 00:02:01.810
+The lens is described by two focal points,
+each a distance F away from the centre plane
+
+00:02:01.810 --> 00:02:07.829
+of the lens. To see where the image of the
+object falls, we perform this very simple
+
+00:02:07.829 --> 00:02:13.480
+geometry and the small arrow shows where the
+image will be formed. It's the intersection
+
+00:02:13.480 --> 00:02:19.590
+of the two yellow lines. This image formation
+process is described quite simply mathematically,
+
+00:02:19.590 --> 00:02:24.020
+the distance of the object which we call "Zo"
+the distance at which the image is formed
+
+00:02:24.020 --> 00:02:30.340
+"Zi" is related by this equation here, so
+Zi is the distance away from the centre of
+
+00:02:30.340 --> 00:02:35.599
+the lens, where a sharp image will be formed
+and that's what we call the "Image Plane."
+
+00:02:35.599 --> 00:02:40.340
+That's where the image is formed and that's
+where we put the sensor. Now the sensor might
+
+00:02:40.340 --> 00:02:45.849
+have been a piece of film in the old days,
+today it's much more likely that we place
+
+00:02:45.849 --> 00:02:51.500
+a semiconductor imaging chip; a large array
+of light sensitive elements and the output
+
+00:02:51.500 --> 00:02:57.410
+of this array is recorded digitally and placed
+into the flash memory in the phone or the
+
+00:02:57.410 --> 00:02:59.200
+camera.
+
+00:02:59.200 --> 00:03:04.030
+Now let's look at what happens if I move the
+object a little bit closer to the lens. The
+
+00:03:04.030 --> 00:03:10.040
+value of Zo has been reduced and we do the
+geometric construction, we see now that the
+
+00:03:10.040 --> 00:03:16.060
+image is formed in a different place; Zi has
+got a different value, as given by the equation
+
+00:03:16.060 --> 00:03:21.430
+down the bottom. What this means is that if
+I had the image plane in the original location,
+
+00:03:21.430 --> 00:03:25.780
+I would have a fuzzy image there; that image
+would be out of focus.
+
+00:03:25.780 --> 00:03:31.069
+In order to create a focussed image, I need
+to move the image plane over to here and if
+
+00:03:31.069 --> 00:03:37.010
+I place the image plane there, then I will
+have a sharp image of my object. And so this
+
+00:03:37.010 --> 00:03:43.110
+is what happens when I adjust the focus of
+an old fashioned type camera. As I rotate
+
+00:03:43.110 --> 00:03:47.920
+the lens in order to focus it, there's a screw
+thread there which is actually moving the
+
+00:03:47.920 --> 00:03:54.280
+lens away from the plane of the sensor or
+the film. So in order to focus a camera, what
+
+00:03:54.280 --> 00:04:00.299
+I need to do is to change the distance between
+the lens and the plane where the image is
+
+00:04:00.299 --> 00:04:02.360
+formed and captured.
+
+00:04:02.360 --> 00:04:07.430
+Here's an animation that shows this. As the
+object moves towards the lens, we can see,
+
+00:04:07.430 --> 00:04:14.260
+just using the simple geometric construction,
+that the location of the image is moving further
+
+00:04:14.260 --> 00:04:19.799
+and further away from the lens, so in order
+to bring it into focus, I need to move the
+
+00:04:19.799 --> 00:04:22.830
+image plane away from the lens.
+
+00:04:22.830 --> 00:04:28.280
+Interestingly a pinhole camera does not require
+focussing. Irrespective of the distance of
+
+00:04:28.280 --> 00:04:33.729
+the object, the image that it forms is always
+sharp, but the disadvantage of the pinhole
+
+00:04:33.729 --> 00:04:39.250
+lens as I mentioned earlier, is that the images
+are very, very faint. So it doesn't need focussing
+
+00:04:39.250 --> 00:04:41.210
+but it doesn't produce bright images.
+

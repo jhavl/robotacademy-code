@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.570 --> 00:00:07.950
+Let’s talk now about how we would actually
+apply the kernel to an image.
+
+00:00:07.950 --> 00:00:10.260
+What is the algorithm that we would need to
+apply?
+
+00:00:10.260 --> 00:00:15.349
+And this is what it looks like; it is a summation
+over the input window which is designated
+
+00:00:15.349 --> 00:00:22.560
+by the symbol W. And inside the summation
+we have the input image I and the kernel K.
+
+00:00:22.560 --> 00:00:30.419
+The indices I and J both range over values
+from -H to +H. What we have written here mathematically
+
+00:00:30.419 --> 00:00:35.360
+is the definition of a two dimensional correlation.
+
+00:00:35.360 --> 00:00:41.149
+There is a related operation called convolution,
+and 2D convolution is represented mathematically
+
+00:00:41.149 --> 00:00:42.149
+this way.
+
+00:00:42.149 --> 00:00:46.730
+It is very similar to the correlation we just
+looked at; in fact, the only differences are
+
+00:00:46.730 --> 00:00:48.559
+these negative signs here.
+
+00:00:48.559 --> 00:00:51.579
+For correlation they were positive signs.
+
+00:00:51.579 --> 00:00:56.100
+Now convolution is the same as correlation
+if the kernel is symmetric.
+
+00:00:56.100 --> 00:01:00.309
+The Gaussian kernel we just looked at, for
+example, is indeed symmetric.
+
+00:01:00.309 --> 00:01:05.990
+An advantage of convolution is that it can
+be written in operator form.
+
+00:01:05.990 --> 00:01:11.720
+So what this says is the output image is equal
+to the kernel convolved with the input image
+
+00:01:11.720 --> 00:01:12.720
+I.
+
+00:01:12.720 --> 00:01:19.229
+So the symbol of a cross inside a circle represents
+the operation of convolution.
+
+00:01:19.229 --> 00:01:22.540
+What are some of the properties of convolution?
+
+00:01:22.540 --> 00:01:28.030
+Well for a start it is commutative, so A convolved
+with B is the same as B convolved with A.
+
+00:01:28.030 --> 00:01:33.549
+It is also associative and this is a property
+that we will use in some upcoming slides.
+
+00:01:33.549 --> 00:01:35.660
+We say it is distributive.
+
+00:01:35.660 --> 00:01:37.390
+And it is also linear.
+
+00:01:37.390 --> 00:01:41.490
+So these are important mathematical properties
+of convolution.
+
+00:01:41.490 --> 00:01:45.020
+Now, what are the advantages of associativity?
+
+00:01:45.020 --> 00:01:50.549
+Well consider the case where I convolve an
+image with a Gaussian and then I convolve
+
+00:01:50.549 --> 00:01:51.730
+with a Gaussian again.
+
+00:01:51.730 --> 00:01:56.190
+So if you like, I can think of this as adding
+an image, I smooth it by applying a Gaussian
+
+00:01:56.190 --> 00:02:00.259
+to it and then I smooth it again.
+
+00:02:00.259 --> 00:02:06.220
+This is the same as convolving the image with
+a kernel which is the Gaussian convolved with
+
+00:02:06.220 --> 00:02:07.520
+itself.
+
+00:02:07.520 --> 00:02:12.610
+And convolving a Gaussian with another Gaussian
+results in a Gaussian.
+
+00:02:12.610 --> 00:02:18.230
+And the standard deviation of the result Gaussian
+is a function of a standard deviation of the
+
+00:02:18.230 --> 00:02:22.850
+two Gaussians that are multiplying, as shown
+over here on the left.
+
+00:02:22.850 --> 00:02:27.800
+So in order to convolve an image with a very
+large Gaussian which would require a very
+
+00:02:27.800 --> 00:02:34.270
+big kernel, it is actually equivalent to convolving
+the image with a small Gaussian multiple times
+
+00:02:34.270 --> 00:02:35.570
+consecutively.
+
+00:02:35.570 --> 00:02:38.500
+And there may be some computational advantages
+of doing that.
+

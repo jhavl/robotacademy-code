@@ -1,0 +1,294 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.250 --> 00:00:07.470
+We all started mixing colors when we were
+very young, and we learned how to combine
+
+00:00:07.470 --> 00:00:12.559
+different colors of paint to produce colors
+that we wanted.
+
+00:00:12.559 --> 00:00:15.170
+For light the rules are a little bit different.
+
+00:00:15.170 --> 00:00:20.020
+If I shine a red light and a blue light, where
+those two lights intersect I’m going to
+
+00:00:20.020 --> 00:00:22.010
+have a sort of purply color.
+
+00:00:22.010 --> 00:00:26.699
+Where the red light intersects a green light,
+where the red and green lights mix, I’m
+
+00:00:26.699 --> 00:00:29.220
+going to form the color yellow.
+
+00:00:29.220 --> 00:00:33.500
+And where the green light and the blue light
+overlap I’m going to form a color we might
+
+00:00:33.500 --> 00:00:34.550
+call aqua.
+
+00:00:34.550 --> 00:00:38.800
+Where all three colors overlap we have white.
+
+00:00:38.800 --> 00:00:44.770
+If we consider these red, green and blue lights
+as our primary light sources then by mixing
+
+00:00:44.770 --> 00:00:49.239
+them in different combinations we can form
+different colors.
+
+00:00:49.239 --> 00:00:52.180
+Here we’ve looked at just a few simple combinations.
+
+00:00:52.180 --> 00:00:59.059
+Let’s look at some more sophisticated combinations
+of our red, green and blue primary colors.
+
+00:00:59.059 --> 00:01:04.931
+This table shows how we can create a number
+of named colors from certain amounts of the
+
+00:01:04.931 --> 00:01:07.450
+red, green and blue primaries.
+
+00:01:07.450 --> 00:01:12.060
+The numbers that are represented here are
+our unsigned 8-bit integer numbers that we’ve
+
+00:01:12.060 --> 00:01:16.830
+encountered previously, so they range between
+0 and 255.
+
+00:01:16.830 --> 00:01:22.530
+So, for instance, if we wanted to create the
+color called cadmium red deep, we’d need
+
+00:01:22.530 --> 00:01:24.860
+a red amount of 227.
+
+00:01:24.860 --> 00:01:31.170
+So that’s a fair amount of red, given that
+the maximum value is 255; only 23 of green
+
+00:01:31.170 --> 00:01:32.590
+and 13 of blue.
+
+00:01:32.590 --> 00:01:35.920
+So this is a color that’s made up dominantly
+of red.
+
+00:01:35.920 --> 00:01:40.119
+Let’s have a look at another color here
+that’s perhaps a bit more balanced … let’s
+
+00:01:40.119 --> 00:01:41.180
+look at hot pink.
+
+00:01:41.180 --> 00:01:46.590
+It contains the maximum possible amount of
+red, and a fair amount of green and a fair
+
+00:01:46.590 --> 00:01:48.020
+amount of blue.
+
+00:01:48.020 --> 00:01:49.270
+So this is a palette.
+
+00:01:49.270 --> 00:01:56.369
+We can mix an arbitrary color from an arbitrary
+amount of red, green and blue, and frequently
+
+00:01:56.369 --> 00:01:59.490
+we’d like to give that color a human friendly
+name.
+
+00:01:59.490 --> 00:02:04.270
+We can demonstrate color name lookup using
+the toolbox function colorname.
+
+00:02:04.270 --> 00:02:11.870
+Let’s look up the definition of the color
+maroon, and here we see the amount of red,
+
+00:02:11.870 --> 00:02:15.480
+green and blue required to create the color
+maroon.
+
+00:02:15.480 --> 00:02:19.209
+These numbers here are what we call normalised
+tri-stimulus values.
+
+00:02:19.209 --> 00:02:21.730
+That is, they lie between 0 and 1.
+
+00:02:21.730 --> 00:02:29.340
+So in this case, 0.4 in the red channel means
+there’s 40% red, there’s only 2 % green,
+
+00:02:29.340 --> 00:02:30.420
+and perhaps 28 % blue.
+
+00:02:30.420 --> 00:02:34.540
+This function can perform the inverse function
+as well.
+
+00:02:34.540 --> 00:02:42.910
+For instance, if I had a color that had 0.1
+of red, 0.2 of green and 0.3 of blue, it’s
+
+00:02:42.910 --> 00:02:45.540
+a fairly dark color and a bit bluish.
+
+00:02:45.540 --> 00:02:51.370
+It’s looking up and it’s telling me it’s
+the color called midnight blue.
+
+00:02:51.370 --> 00:02:56.520
+This function has got a database file that
+contains eight to nine hundred different colors.
+
+00:02:56.520 --> 00:03:02.340
+We could also use this mechanism to create
+a color image, and to do that we need to pull
+
+00:03:02.340 --> 00:03:03.420
+a little bit of a trick.
+
+00:03:03.420 --> 00:03:06.489
+So I’m going to create a single pixel image.
+
+00:03:06.489 --> 00:03:08.930
+Use the MATLAB function ones.
+
+00:03:08.930 --> 00:03:12.890
+I’m going to create an image with one row
+and one column, and three planes.
+
+00:03:12.890 --> 00:03:15.830
+And it looks something like this.
+
+00:03:15.830 --> 00:03:26.879
+To set the pixel, I’m going to set row 1,
+column 1, and all planes to the color of maroon.
+
+00:03:26.879 --> 00:03:33.580
+So there it is, I’ve created a single pixel
+image, and if I display that now, I have my
+
+00:03:33.580 --> 00:03:37.010
+single pixel image, a big solid block of maroon.
+
+00:03:37.010 --> 00:03:43.150
+A very common way of visualising the way we
+mix red, green and blue primaries is what
+
+00:03:43.150 --> 00:03:45.049
+we call the color cube.
+
+00:03:45.049 --> 00:03:48.940
+So imagine that we have a three dimensional
+coordinate system.
+
+00:03:48.940 --> 00:03:51.940
+Three axes: a red axis, a green axis and a
+blue axis.
+
+00:03:51.940 --> 00:03:57.019
+We’re going to introduce here the color
+cube, and what we see here in this corner
+
+00:03:57.019 --> 00:04:01.940
+is when we have the maximum amount of red
+but no blue or no green, and we see, as you
+
+00:04:01.940 --> 00:04:03.909
+would expect, red.
+
+00:04:03.909 --> 00:04:09.110
+Up here, where we have the maximum amount
+of blue but no red or no green, we have the
+
+00:04:09.110 --> 00:04:10.610
+color blue.
+
+00:04:10.610 --> 00:04:14.360
+This corner we have maximum green, no red,
+no blue.
+
+00:04:14.360 --> 00:04:16.239
+We see the color green.
+
+00:04:16.239 --> 00:04:21.880
+There is a file in the toolbox that allows
+us to display the color cube: the function
+
+00:04:21.880 --> 00:04:23.389
+is called rgbcube.
+
+00:04:23.389 --> 00:04:24.810
+And here it is.
+
+00:04:24.810 --> 00:04:29.070
+Now this is a three dimensional structure
+so we want to do a rotation with a mouse.
+
+00:04:29.070 --> 00:04:34.000
+I’m going to move up here and select the
+3d rotate button, and I grab it with my mouse
+
+00:04:34.000 --> 00:04:36.270
+and I can rotate it.
+
+00:04:36.270 --> 00:04:41.770
+So it is a three dimensional coordinate system,
+and down here is the origin.
+
+00:04:41.770 --> 00:04:44.900
+This is where the amounts of red, green and
+blue are all 0.
+
+00:04:44.900 --> 00:04:49.720
+So we can see this dark corner here, that’s
+where there is 0 amount of red, green and
+
+00:04:49.720 --> 00:04:50.720
+blue.
+
+00:04:50.720 --> 00:04:54.370
+On the diagonally opposite corner we can see
+where there is a maximum amount of red, green,
+
+00:04:54.370 --> 00:04:57.120
+and blue, and that’s the white corner.
+
+00:04:57.120 --> 00:05:02.690
+If we look at the different faces of this
+cube, we can see that this face here is basically
+
+00:05:02.690 --> 00:05:06.120
+looking at mixtures of red and blue.
+
+00:05:06.120 --> 00:05:10.560
+This face here is looking at mixtures of blue
+and green.
+
+00:05:10.560 --> 00:05:13.610
+Of course, this is just the surface of the
+cube.
+
+00:05:13.610 --> 00:05:19.140
+If we were able to look inside the cube we
+would find an infinite number of colors in
+
+00:05:19.140 --> 00:05:22.990
+there as well; colors that we can’t see
+from the outside.
+

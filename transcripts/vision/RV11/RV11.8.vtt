@@ -1,0 +1,228 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.419 --> 00:00:08.570
+We have already discussed how the pixel velocity
+— or the image plane velocity — is related
+
+00:00:08.570 --> 00:00:15.370
+to the camera velocity by the image jacobian
+matrix. But, these quantities are all interrelated.
+
+00:00:15.370 --> 00:00:21.220
+If we know some, we can use that information
+to estimate others. The jacobian matrix depends
+
+00:00:21.220 --> 00:00:26.580
+very clearly on a constant parameter: f-hat
+— related to the focal length; it depends
+
+00:00:26.580 --> 00:00:33.300
+on image plane coordinate of a point u and
+v; and it also depends on the depth of the
+
+00:00:33.300 --> 00:00:38.820
+point — the Z coordinate of the point in
+3D space. It is interesting to note that the
+
+00:00:38.820 --> 00:00:45.480
+depth of the point — Capital Z occurs only in the first three columns of the image jacobian matrix.
+
+00:00:45.820 --> 00:00:50.520
+Let's say we want to use this interrelationship
+to estimate the distance to a point.
+
+00:00:50.520 --> 00:00:55.610
+If we look at a point across a sequence of
+images we can compute its velocity in the
+
+00:00:55.610 --> 00:01:01.059
+image plane. We know the coordinate of the
+point on the image plane, and we can measure
+
+00:01:01.059 --> 00:01:05.080
+the camera velocity using something like an
+inertial measurement unit, which would tell
+
+00:01:05.080 --> 00:01:10.630
+us the rotational velocities and also give
+us the velocity. So if we know these three
+
+00:01:10.630 --> 00:01:16.549
+things then it is reasonably straightforward
+to solve for the distance to the point.
+
+00:01:16.549 --> 00:01:20.150
+Consider now the problem where we want to
+estimate the speed of the camera.
+
+00:01:20.150 --> 00:01:24.390
+So we can again measure the pixel velocity
+by looking at some points in a scene across
+
+00:01:24.390 --> 00:01:30.430
+a sequence of images. We know the u and v
+coordinate of a point in the image. In this
+
+00:01:30.430 --> 00:01:34.619
+case we need to determine the distance to
+the point and we can use something like stereo
+
+00:01:34.619 --> 00:01:39.670
+vision to tell us how far an object is away
+from the camera. Once we have these three
+
+00:01:39.670 --> 00:01:44.920
+pieces of information then we can solve for
+the camera velocity. And a technique like
+
+00:01:44.920 --> 00:01:50.590
+this is referred to as visual odometry. An
+odometer is a device on a mobile robot that
+
+00:01:50.590 --> 00:01:55.579
+counts the rotation of the wheels to determine
+how far it is that you have moved. Visual
+
+00:01:55.579 --> 00:02:01.259
+odometry provides the same information, but
+doesn't actually require a wheel and an odometer.
+
+00:02:01.259 --> 00:02:07.009
+It estimates this by observing how the world
+is flowing past the camera.
+
+00:02:07.009 --> 00:02:09.989
+Let's consider a simple example of visual
+odometry.
+
+00:02:09.989 --> 00:02:14.140
+This is an expression that we have seen before,
+but I have highlighted two sub-matrices; they
+
+00:02:14.140 --> 00:02:21.690
+are both 1x3 sub-matrices. I am going to denote
+one of them J sub u and one of them as J sub
+
+00:02:21.690 --> 00:02:27.690
+v. We assume that the robot is moving in the
+X,Y plane and that the world is a constant
+
+00:02:27.690 --> 00:02:30.540
+distance away from the robot.
+
+00:02:30.540 --> 00:02:36.310
+We've talked about optical flow. At a particular
+pixel coordinate we can determine it’s velocity
+
+00:02:36.310 --> 00:02:42.940
+in the image plane and that gives us the information
+u-dot and v-dot. We can use an inertial measurement
+
+00:02:42.940 --> 00:02:48.230
+unit. We can use the instantaneous angular
+velocity measured by this particular sensor
+
+00:02:48.230 --> 00:02:53.280
+and we can substitute that into the spacial
+velocity vector for the elements omega-X,
+
+00:02:53.280 --> 00:03:00.590
+omega-Y, and omega-Z. Because the robot is
+moving at a constant distance with respect
+
+00:03:00.590 --> 00:03:07.440
+to the world then Z is known, and Z is constant,
+so we can say that the vZ is approximately
+
+00:03:07.440 --> 00:03:12.450
+equal to zero. There are some elements in
+the image jacobian that are not particularly
+
+00:03:12.450 --> 00:03:17.849
+significant. Their value is close to zero,
+so as a first order approximation we can just
+
+00:03:17.849 --> 00:03:21.830
+leave them out.
+The result then is that we can write a simplified
+
+00:03:21.830 --> 00:03:28.450
+expression for u-dot and v-dot in terms of
+vX and vY, the velocity of the camera which
+
+00:03:28.450 --> 00:03:33.220
+is actually the information that we are trying
+to determine, as well as the object distance
+
+00:03:33.220 --> 00:03:39.400
+— the world distance, the sub-matrices of
+the image jacobian, and the angular velocity
+
+00:03:39.400 --> 00:03:44.030
+of the camera.
+We can rearrange this to get expressions for
+
+00:03:44.030 --> 00:03:49.739
+the velocity of the camera in terms of various
+quantities that we are able to measure.
+
+00:03:49.739 --> 00:03:55.019
+So without having a wheel and without having
+an actual encoder or an odometer we can estimate
+
+00:03:55.019 --> 00:03:58.640
+the velocity of our aircraft, as it's moving
+through the air.
+
+00:03:58.640 --> 00:04:04.489
+Visual odometry is really well suited to robots
+that don't have conventional odometers. The
+
+00:04:04.489 --> 00:04:08.170
+conventional odometer requires that you have
+got a wheel and some kind of counter that
+
+00:04:08.170 --> 00:04:12.879
+tells you how many times the wheel has turned.
+If it is a flying robot or if it is an underwater
+
+00:04:12.879 --> 00:04:18.739
+robot then it doesn't have wheels and then visual odometry is a really useful sensing modality.
+
+00:04:18.739 --> 00:04:23.540
+So here we can see the underwater robot. It
+is using its stereo cameras to maintain a
+
+00:04:23.540 --> 00:04:28.889
+constant altitude above the seabed. It is
+also computing optical flow. And it is combining
+
+00:04:28.889 --> 00:04:32.780
+that with the height information that comes
+from the stereo vision, and combined with
+
+00:04:32.780 --> 00:04:37.870
+some information from onboard gyroscopes — which
+give it its' angular rate — in order to
+
+00:04:37.870 --> 00:04:42.270
+determine its velocity with respect to the
+seabed. If, for example, there is an ocean
+
+00:04:42.270 --> 00:04:47.020
+current pushing the robot sideways then the
+visual odometry will pick this up. There will
+
+00:04:47.020 --> 00:04:53.290
+be a Y component of velocity and then the
+control system onboard the robot can apply
+
+00:04:53.290 --> 00:04:59.070
+appropriate propeller thrust in order to counter
+that. So visual odometry is telling the robot
+
+00:04:59.070 --> 00:05:02.270
+its true velocity with respect to the seabed.
+

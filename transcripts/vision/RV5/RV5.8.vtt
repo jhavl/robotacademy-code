@@ -1,0 +1,66 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.360 --> 00:00:06.140
+Let’s summarise what we’ve learned.
+
+00:00:06.140 --> 00:00:11.019
+The camera is a really wonderful sensor for
+a robot to have, but it produces an unusable
+
+00:00:11.019 --> 00:00:12.259
+torrent of data.
+
+00:00:12.259 --> 00:00:14.339
+There are just too many pixels.
+
+00:00:14.339 --> 00:00:17.470
+Far more pixels than a robot can action.
+
+00:00:17.470 --> 00:00:23.370
+So what we need to do is to simplify this
+stream of data and to find meaningful objects
+
+00:00:23.370 --> 00:00:28.770
+within that stream of data that a robot can
+respond to, move to, whatever.
+
+00:00:28.770 --> 00:00:34.050
+So a region is a set of adjacent pixels with
+a similar intensity or colour.
+
+00:00:34.050 --> 00:00:38.290
+We’ve talked about techniques to find regions
+within a scene.
+
+00:00:38.290 --> 00:00:44.000
+We’ve use a technique called region labelling
+to distinguish multiple distinct objects that
+
+00:00:44.000 --> 00:00:47.940
+exist within a single binary image.
+
+00:00:47.940 --> 00:00:52.920
+Once we have labelled regions, then we can
+extract features to describe each of those
+
+00:00:52.920 --> 00:00:53.920
+regions.
+
+00:00:53.920 --> 00:00:57.160
+We have multiple regions within the scene,
+and for each of them we can determine the
+
+00:00:57.160 --> 00:01:03.750
+position of the region, the size of the region,
+the shape of the region, and its orientation.
+
+00:01:03.750 --> 00:01:08.930
+We’ve talked about techniques to measure
+and estimate all of these things, and demonstrated
+
+00:01:08.930 --> 00:01:13.400
+how to do a lot of these things using MATLAB
+and the MATLAB tool box.
+

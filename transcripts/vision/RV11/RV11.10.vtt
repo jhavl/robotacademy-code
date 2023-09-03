@@ -1,0 +1,180 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.320 --> 00:00:06.930
+Let's summarise some of the main points from
+this lecture.
+
+00:00:06.930 --> 00:00:12.389
+We talked about how a robot knows where objects
+are in its environment. A robot doesn't actually
+
+00:00:12.389 --> 00:00:17.890
+measure the position of its tool tip, it is
+inferred from joint angle measurements and
+
+00:00:17.890 --> 00:00:22.580
+from a kinematic model. It knows the Cartesian
+coordinate of where the tool tip needs to
+
+00:00:22.580 --> 00:00:27.289
+go in the world, and it’s the job of the
+motion controller to take the tool tip there.
+
+00:00:27.289 --> 00:00:31.019
+A number of things can go wrong with this
+process; there could be errors in the sensors,
+
+00:00:31.019 --> 00:00:35.270
+there could be errors in the kinematic model,
+we may not know the base position of the robot
+
+00:00:35.270 --> 00:00:40.079
+accurately, we may not know the location of
+the circuit board very accurately. All of
+
+00:00:40.079 --> 00:00:44.899
+these issues have consequences on the way
+we construct a modern industrial robot and
+
+00:00:44.899 --> 00:00:48.309
+they generally tend to lead to increased cost.
+
+00:00:48.309 --> 00:00:52.320
+We can contrast that with the way human beings
+solve problems; for instance threading a needle.
+
+00:00:52.320 --> 00:00:58.620
+I use my eyes to guide or to steer the end
+of the thread through the hole in the needle.
+
+00:00:58.620 --> 00:01:04.449
+If we consider this problem a bit more schematically
+where we're trying to align the end of two
+
+00:01:04.449 --> 00:01:11.770
+objects, we can consider the task in the three-dimensional
+Cartesian space and we can also look at that
+
+00:01:11.770 --> 00:01:18.189
+task with a camera. We can look at a two-dimensional
+representation of that task being achieved.
+
+00:01:18.189 --> 00:01:22.640
+We talked about how using information from
+just a single image actually provides insufficient
+
+00:01:22.640 --> 00:01:27.840
+information to reliably perform this task
+in three-dimensional space. But we can actually
+
+00:01:27.840 --> 00:01:33.820
+perform the task simultaneously in two camera
+views, aligning the red and blue objects,
+
+00:01:33.820 --> 00:01:41.420
+and if that happens, then in the real three-dimensional world the red and blue objects will also become aligned.
+
+00:01:41.520 --> 00:01:45.960
+We talked about what happens when we move
+a camera. The camera's got six degrees of
+
+00:01:45.960 --> 00:01:51.360
+freedom; its velocity can be described in
+terms of three translational velocity components
+
+00:01:51.360 --> 00:01:57.670
+and three rotational velocity components.
+If we imagine that the camera is looking at
+
+00:01:57.670 --> 00:02:03.509
+a regular array of points a constant distance
+away, then each of the camera velocity components
+
+00:02:03.509 --> 00:02:09.200
+results in a fairly unique pattern of motion
+of those points on the image plane. And here
+
+00:02:09.200 --> 00:02:14.310
+we can see the patterns of motion, which are
+referred to as optical flow, due to velocity
+
+00:02:14.310 --> 00:02:21.040
+in the X direction, velocity in the Z direction
+or rotational velocity around the Z axis.
+
+00:02:21.040 --> 00:02:26.129
+The patterns are fairly distinct but some
+of them are a little bit similar, and in particular
+
+00:02:26.129 --> 00:02:32.980
+velocity in the X direction is quite similar
+to the pattern of motion induced by rotation
+
+00:02:32.980 --> 00:02:38.550
+around the Y axis; they look quite similar,
+but the amount of similarity actually depends
+
+00:02:38.550 --> 00:02:44.590
+on the focal length of the lens. For a large
+focal length, the ambiguity is quite pronounced.
+
+00:02:44.590 --> 00:02:51.019
+As the focal length gets smaller, the ambiguity
+is much less evident. This ambiguity between
+
+00:02:51.019 --> 00:02:57.480
+vX and omega-Y, we also see between vY and
+omega-X, there's a symmetry there.
+
+00:02:57.480 --> 00:03:02.890
+The relationship between the camera velocity
+which is described by a six vector and the
+
+00:03:02.890 --> 00:03:09.730
+velocity of the point on the image plane,
+is described by the image Jacobian matrix.
+
+00:03:09.730 --> 00:03:14.800
+The image Jacobian matrix tells us, for a
+particular camera motion, how points will
+
+00:03:14.800 --> 00:03:20.060
+move on the image plane. We can turn this
+around and saying instead we want to have
+
+00:03:20.060 --> 00:03:25.120
+a particular velocity on the image plane in
+order to move a shape from perhaps an initial
+
+00:03:25.120 --> 00:03:32.269
+view to a desired view. So now we have the
+image plane velocity, we can invert the relationship
+
+00:03:32.269 --> 00:03:39.429
+and determine the camera velocity that we need in order to achieve our desired view of the object.
+
+00:03:39.599 --> 00:03:44.760
+The image Jacobian relates pixel velocity
+to camera velocity, and the image Jacobian
+
+00:03:44.760 --> 00:03:49.890
+itself is a function of many parameters. It
+depends on the co-ordinate of the point on
+
+00:03:49.890 --> 00:03:55.620
+the image plane, it depends on how far the
+point is away from the camera in three-dimensional
+
+00:03:55.620 --> 00:04:00.510
+space and it depends on the focal length.
+We can re-arrange this equation in many different
+
+00:04:00.510 --> 00:04:06.580
+ways; perhaps we know pixel velocity and Z,
+and u and v, and then we can determine what
+
+00:04:06.580 --> 00:04:12.000
+the camera velocity is. There are many tricks that we can play with this image Jacobian matrix.
+

@@ -1,0 +1,228 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.199 --> 00:00:08.780
+The next part of the process is reflectance.
+That is where the incoming illuminance reflects
+
+00:00:08.780 --> 00:00:14.219
+off an object. We are very familiar with the
+ability of shiny surfaces or mirrors to reflect
+
+00:00:14.219 --> 00:00:16.810
+light.
+In high school physics we learn about the
+
+00:00:16.810 --> 00:00:21.840
+rules of reflection from such a surface, where
+the angle of incidence equals the angle of
+
+00:00:21.840 --> 00:00:26.840
+reflection and we refer to this as specular
+reflection. Now this is not saying anything
+
+00:00:26.840 --> 00:00:30.730
+about the color change that occurs during
+reflection, it is simply talking about the
+
+00:00:30.730 --> 00:00:36.250
+geometry of the reflection process.
+We refer to this as specular reflection, which
+
+00:00:36.250 --> 00:00:41.480
+is related to the Latin word for mirror. We
+met William Herschel before, who is the guy
+
+00:00:41.480 --> 00:00:47.579
+who discovered infra-red radiation and he
+made the big mirror in his telescope from
+
+00:00:47.579 --> 00:00:53.600
+a type of metal that was called speculum metal—it
+was reflective alloy of copper and tin and
+
+00:00:53.600 --> 00:00:57.980
+it was used in the old days for making telescope
+mirrors.
+
+00:00:57.980 --> 00:01:03.790
+A more realistic model for the way light is
+reflected off objects is what is called Lambertian
+
+00:01:03.790 --> 00:01:09.210
+reflection, and Lambertian reflection differs
+from specular reflection in that the incoming
+
+00:01:09.210 --> 00:01:14.759
+light is reflected off in all manner of directions.
+This is the sort of reflection that occurs
+
+00:01:14.759 --> 00:01:21.749
+from a dull or matt surface. Sometimes called
+diffuse reflection and it is named after Johann
+
+00:01:21.749 --> 00:01:28.369
+Lambert, who was a physicist in the 1700s.
+The intensity of the light that is reflected
+
+00:01:28.369 --> 00:01:34.729
+from the surface is related to the angle of
+reflection, and what is interesting with Lambertian
+
+00:01:34.729 --> 00:01:40.840
+reflection is that it leads to the brightness
+being invariant to the observer’s angle
+
+00:01:40.840 --> 00:01:44.959
+of view.
+Now the moon is a really good example of Lambertian
+
+00:01:44.959 --> 00:01:50.329
+reflection. We know that the moon is a sphere,
+but when we look at it, it appears to be a
+
+00:01:50.329 --> 00:01:56.409
+fairly uniformly bright disk, apart from the
+craters and the seas. So the reason that it
+
+00:01:56.409 --> 00:02:01.889
+appears is to be uniformly bright even though
+the light has been reflected, is proportioned
+
+00:02:01.889 --> 00:02:07.179
+to the cos sign of the angle, is that the
+area of the region that we are looking at
+
+00:02:07.179 --> 00:02:12.760
+appears to change in size. Here is an exaggerated
+example: I take this particular patch of the
+
+00:02:12.760 --> 00:02:17.599
+moon and most of the light from that patch
+is being reflected directly up, it corresponds
+
+00:02:17.599 --> 00:02:23.060
+to an array something like this. If I take
+a patch that is down near the pole it is clearly
+
+00:02:23.060 --> 00:02:28.870
+going to be inclined with respect to my field
+of view. So it is going to have one of these
+
+00:02:28.870 --> 00:02:33.980
+rays down here associated, so it is going
+to be reflecting less light, but the area—the
+
+00:02:33.980 --> 00:02:39.500
+apparent area of this patch—is smaller because
+I am looking at it obliquely. So if I consider
+
+00:02:39.500 --> 00:02:45.250
+the brightness to be the ratio of the light
+being omitted to its surface area, this is
+
+00:02:45.250 --> 00:02:49.379
+invariant to the view angle.
+So we have just looked at the geometry of
+
+00:02:49.379 --> 00:02:53.500
+the reflection, the direction of the rays
+being reflected form the surface as a function
+
+00:02:53.500 --> 00:02:59.900
+of the incoming ray. Let’s talk now about
+how reflection changes the color of incoming
+
+00:02:59.900 --> 00:03:05.969
+light. Here we see a red house brick, the
+plot here shows what we call the reflectance
+
+00:03:05.969 --> 00:03:10.010
+of the house brick; that is, the fraction
+of light that is reflected form the brick
+
+00:03:10.010 --> 00:03:14.920
+as a function of wavelength. And it is quite
+a complex curve, we see that there are some
+
+00:03:14.920 --> 00:03:19.060
+parts of the spectrum where it reflects a
+large amount of light and there are other
+
+00:03:19.060 --> 00:03:22.659
+parts of the spectrum where it reflects very
+little light.
+
+00:03:22.659 --> 00:03:27.420
+The right hand graph shows a zoom into the
+visible part of the spectrum.
+
+00:03:27.420 --> 00:03:32.939
+Now we can see that the red brick reflects
+not very much blue light in the region, say
+
+00:03:32.939 --> 00:03:38.349
+400 to 500 nanometers, but it does reflect
+a fair amount of the red light that is falling
+
+00:03:38.349 --> 00:03:44.200
+down, say the light between 600 and 700 nanometers,
+and that is why it looks red to us, it reflects
+
+00:03:44.200 --> 00:03:49.829
+more red light then it reflects blue light.
+So this is the spectrum of a red brick, different
+
+00:03:49.829 --> 00:03:55.799
+minerals have different reflectance spectrums
+and here we see the reflectance spectrum for
+
+00:03:55.799 --> 00:04:00.719
+a number of minerals. If we have an instrument
+that can measure the reflectance at a number
+
+00:04:00.719 --> 00:04:05.870
+of different wavelengths, an instrument perhaps
+like a spectrometer or a hyper spectral camera,
+
+00:04:05.870 --> 00:04:09.889
+then we can measure one of these particular
+curves and we can match it against a library
+
+00:04:09.889 --> 00:04:14.939
+of known minerals and use it to identify what
+minerals are within the scene.
+
+00:04:14.939 --> 00:04:20.530
+So to recap, incoming light, we refer to as
+the luminance and it has got a spectrum E,
+
+00:04:20.530 --> 00:04:25.410
+which has got a function of the wavelength
+lambda, and we have the reflectance of the
+
+00:04:25.410 --> 00:04:30.890
+object itself which we refer to as R and it
+is also a function of lambda.
+
+00:04:30.890 --> 00:04:34.870
+So the light that leaves the apple, which
+we refer to as the illuminance of the apple,
+
+00:04:34.870 --> 00:04:41.730
+I am going to use the symbol L and it is also
+a function of the wavelength, now L at any
+
+00:04:41.730 --> 00:04:47.350
+particular lambda is equal to E
+at that same lambda multiplied by R at that
+
+00:04:47.350 --> 00:04:52.260
+particular lambda. That is the spectrum of
+the light that is leaving the apple, the function
+
+00:04:52.260 --> 00:04:57.520
+of the spectrum of the incoming light, and
+the function of the reflectance of the apple.
+

@@ -1,0 +1,339 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:02.510
+Image warping
+
+00:00:02.510 --> 00:00:09.300
+Now we’re going to look at a very general
+technique called image warping.
+
+00:00:09.300 --> 00:00:14.090
+Image warping can be used to perform a large
+number of operations on an image and we’re
+
+00:00:14.090 --> 00:00:19.150
+going to consider some very simple examples
+first. But they can all be combined together
+
+00:00:19.150 --> 00:00:23.230
+to allow for quite complex image transformations.
+
+00:00:23.230 --> 00:00:28.470
+We did touch on image warping in the last
+lecture when we were discussing homographies
+
+00:00:28.470 --> 00:00:34.090
+and perspective rectification. Let’s consider
+first the case of image scaling.
+
+00:00:34.090 --> 00:00:40.379
+Here we have an input image of the Mona Lisa
+and I want to shrink her by a factor of perhaps
+
+00:00:40.379 --> 00:00:46.370
+a half in each direction. So if the output
+image is the same size as the input image
+
+00:00:46.370 --> 00:00:53.660
+then the shrunken Mona Lisa sits up in the
+top left-hand corner. You’ll note here that
+
+00:00:53.660 --> 00:00:57.770
+there are a large number of pixels in the
+output image which are colored red. That’s
+
+00:00:57.770 --> 00:01:03.910
+because for these pixels we don’t have any
+idea what their value should be. We’ve scaled
+
+00:01:03.910 --> 00:01:08.740
+the Mona Lisa to a quarter of her previous
+size but we’ve placed her in an output image
+
+00:01:08.740 --> 00:01:13.950
+the same size as the input so there are a
+whole lot of pixels whose value we are unable
+
+00:01:13.950 --> 00:01:14.950
+to estimate.
+
+00:01:14.950 --> 00:01:18.479
+This is a topic we’ll come back to at the
+end of this section.
+
+00:01:18.479 --> 00:01:23.610
+Now I want to combine scaling and shifting.
+So we take our original input image and we’re
+
+00:01:23.610 --> 00:01:28.790
+going to shrink her. We’re going to put
+her into the middle of the output image so
+
+00:01:28.790 --> 00:01:35.229
+she’s been reduced in size and then offset
+so that the top left corner of the Mona Lisa
+
+00:01:35.229 --> 00:01:40.579
+picture is not in the top left corner of the
+output image.
+
+00:01:40.579 --> 00:01:45.799
+I can consider rotation. In order to rotate
+the image, I first need to decide the point
+
+00:01:45.799 --> 00:01:50.600
+about which I will rotate. So we’ll rotate
+about a point here just underneath her chin
+
+00:01:50.600 --> 00:01:54.619
+and we will rotate by something like 45 degrees.
+
+00:01:54.619 --> 00:02:00.479
+When we place this rotated image into a frame
+which is the same size as the input image,
+
+00:02:00.479 --> 00:02:04.759
+we see a couple of interesting things. We
+see firstly that there are some corners of
+
+00:02:04.759 --> 00:02:07.049
+the output image which is still colored red.
+
+00:02:07.049 --> 00:02:14.209
+That’s where there are no valid pixels.
+We also see that the corners of the Mona Lisa
+
+00:02:14.209 --> 00:02:19.520
+which stick outside the image are going to
+have to be chopped off. So by rotating the
+
+00:02:19.520 --> 00:02:25.430
+Mona Lisa, we lose some corners of the original
+image and there are some corners of the output
+
+00:02:25.430 --> 00:02:28.510
+image which are unset.
+
+00:02:28.510 --> 00:02:36.930
+So then we can combine shifting, scaling and
+rotation all together into one overall transformation,
+
+00:02:36.930 --> 00:02:43.379
+the input image to the output image. In order
+to formalize this, we’re going to define
+
+00:02:43.379 --> 00:02:48.209
+the coordinate of a pixel in the input image
+using the notation U and V as we’ve done
+
+00:02:48.209 --> 00:02:53.400
+all through this course. We’re going to
+define the coordinate of the corresponding
+
+00:02:53.400 --> 00:02:59.420
+point in the output image and I’m going
+to denote those by U-prime and V-prime. So
+
+00:02:59.420 --> 00:03:05.650
+we can write a very general function, U-prime,
+as a function of the two input coordinates
+
+00:03:05.650 --> 00:03:10.200
+and V-prime as a function of the two input
+coordinates.
+
+00:03:10.200 --> 00:03:17.790
+So in these two general functions fU and fV,
+we can describe scaling, shifting, rotating,
+
+00:03:17.790 --> 00:03:22.980
+various combinations of those and many other
+kinds of very interesting distortions. You
+
+00:03:22.980 --> 00:03:26.720
+can do funhouse mirror effects and so on.
+
+00:03:26.720 --> 00:03:33.430
+Let’s look at a concrete example of scaling
+and shifting, how we actually go about doing
+
+00:03:33.430 --> 00:03:38.610
+that. We’re going to define a pixel in the
+input image, coordinates U, V and it’s right
+
+00:03:38.610 --> 00:03:44.319
+in the middle of the Mona Lisa’s eye. We’re
+going to define the corresponding point in
+
+00:03:44.319 --> 00:03:50.909
+the output image and its coordinates I U-prime
+and V-prime. This output image is one quarter
+
+00:03:50.909 --> 00:03:57.180
+the size of the input image and it’s offset
+100 horizontally and 200 vertically. So we
+
+00:03:57.180 --> 00:04:03.599
+can write a very simple relationship between
+U-prime and U and between V-prime and V.
+
+00:04:03.599 --> 00:04:10.459
+Now what we’re going to do is to consider
+every pixel in the output image, every possible
+
+00:04:10.459 --> 00:04:16.500
+value of U-prime and V-prime. For every value
+of U-prime and V-prime that we look at in
+
+00:04:16.500 --> 00:04:22.229
+the output image, we can compute what will
+be the value of U and V in the input image.
+
+00:04:22.229 --> 00:04:27.280
+So we look at every pixel in the output image
+and we work out where it comes from in the
+
+00:04:27.280 --> 00:04:32.570
+input image. So we have to in fact invert
+those general equations that we wrote earlier,
+
+00:04:32.570 --> 00:04:39.229
+the fU and the fV. Here we have inverted them
+so that we’ve got U and V now in terms of
+
+00:04:39.229 --> 00:04:43.139
+the output pixel coordinates, U-prime and
+V-prime.
+
+00:04:43.139 --> 00:04:50.800
+Let’s use an example to make this very tangible.
+Let’s choose for example the output pixel
+
+00:04:50.800 --> 00:04:59.639
+at coordinate 303 and 269. Given that, it’s
+very easy to work out the coordinate of the
+
+00:04:59.639 --> 00:05:01.150
+pixel in the input image.
+
+00:05:01.150 --> 00:05:07.210
+Interestingly, the pixel in the input image
+is fractional. We’re looking for the pixel
+
+00:05:07.210 --> 00:05:16.470
+at 50.75 and 17.25 and this is a bit problematic
+because pixels have got integer coordinates;
+
+00:05:16.470 --> 00:05:21.479
+U and V that we’ve looked at so far have
+always been integer values. So how do we go
+
+00:05:21.479 --> 00:05:26.889
+about finding this fractional pixel value
+in the input image?
+
+00:05:26.889 --> 00:05:33.289
+Let’s consider that we’ve got a little
+patch of the input image shown here in a very
+
+00:05:33.289 --> 00:05:38.690
+zoomed-in fashion. So the particular pixel
+that we’re looking for would actually lay
+
+00:05:38.690 --> 00:05:46.080
+somewhere here in our grid of pixel values.
+There are a few strategies that we can use
+
+00:05:46.080 --> 00:05:52.120
+to determine the imaginary value of the pixel
+at this particular coordinate shown here by
+
+00:05:52.120 --> 00:05:53.340
+the yellow dot.
+
+00:05:53.340 --> 00:05:58.919
+The first thing we can do is to take the value
+of the pixel that’s closest, so the yellow
+
+00:05:58.919 --> 00:06:06.229
+dot lies within the bounds of the pixel shown
+here that’s got a value of 115. So we can
+
+00:06:06.229 --> 00:06:13.289
+just say the pixel value is equal to 115.
+But it’s in the bottom corner of that particular
+
+00:06:13.289 --> 00:06:19.940
+pixel so you’d think that the 117 next door,
+the 123 beneath it might actually elevate
+
+00:06:19.940 --> 00:06:25.080
+the value there. A more sophisticated approach
+then is to take a weighted average of the
+
+00:06:25.080 --> 00:06:31.569
+neighboring pixel and the weights are proportional
+to the distance between the pixel center and
+
+00:06:31.569 --> 00:06:37.580
+the yellow dot marked here. This is the technique
+that’s referred to as bilinear interpolation.
+
+00:06:37.580 --> 00:06:45.240
+It can also be thought of as fitting a plane
+to these four points. The pixel values represent
+
+00:06:45.240 --> 00:06:51.069
+the height of the surface. We can fit a plane
+to those four points and then we can determine
+
+00:06:51.069 --> 00:06:56.690
+the height of that plane at the U, V coordinate
+of the yellow dot.
+
+00:06:56.690 --> 00:07:04.449
+Let’s consider now what happens if I choose
+a pixel down here. So this output pixel, this
+
+00:07:04.449 --> 00:07:11.449
+particular value of U-prime and V-prime, lays
+outside the Mona Lisa image in the output
+
+00:07:11.449 --> 00:07:18.250
+image. What’s going on here? If we take
+this particular output pixel coordinate, 500,
+
+00:07:18.250 --> 00:07:24.919
+300 and we map it to the coordinate in the
+input image, we find that it lays way outside
+
+00:07:24.919 --> 00:07:31.849
+the input image. So we can use some pretty
+simple logic to say that an input image coordinate
+
+00:07:31.849 --> 00:07:36.530
+like 1600, 400 lays outside the bounds of
+the input image.
+
+00:07:36.530 --> 00:07:42.360
+Therefore, we don’t have a value to put
+into the output image at that particular point.
+
+00:07:42.360 --> 00:07:47.460
+If this was a double-precision output image,
+we might use the very special double-precision
+
+00:07:47.460 --> 00:07:55.520
+value known as not a number or NaN to represent
+pixels whose value we are unable to determine.
+
+00:07:55.520 --> 00:08:00.190
+If it was an integer output image, we might
+reserve a particular integer value, perhaps
+
+00:08:00.190 --> 00:08:06.940
+zero, perhaps 255, to represent the pixels
+whose value we are unable to determine.
+

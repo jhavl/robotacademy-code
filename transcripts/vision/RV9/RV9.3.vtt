@@ -1,0 +1,170 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:02.260
+Image scaling
+
+00:00:02.260 --> 00:00:08.099
+Here, I have a high resolution image. The
+image is nearly 2,000 pixels wide and around
+
+00:00:08.099 --> 00:00:13.730
+1600 pixels tall. Let's say I wanted to produce
+a smaller version of this image, perhaps a
+
+00:00:13.730 --> 00:00:20.170
+thumbnail image. We want to reduce its size.
+So perhaps, the simplest way to go about doing
+
+00:00:20.170 --> 00:00:26.039
+this is to just select every nth pixel in
+each row and in each column and I could do
+
+00:00:26.039 --> 00:00:29.410
+that very simply with this MATLAB command
+here.
+
+00:00:29.410 --> 00:00:35.210
+I'm going to take every 7th pixel in the horizontal
+direction and every 7th pixel in the vertical
+
+00:00:35.210 --> 00:00:41.100
+direction and the result is a much smaller
+image. This image is only 260 something pixels
+
+00:00:41.100 --> 00:00:48.430
+wide and 220 something pixels tall. This is
+a process that's known as Image Decimation,
+
+00:00:48.430 --> 00:00:54.739
+very very simple to compute but you'll notice
+that there are some artefacts in this image.
+
+00:00:54.739 --> 00:01:00.340
+The tiled roof that we see very clearly in
+the left hand image has resulted in a very
+
+00:01:00.340 --> 00:01:06.210
+strange pattern in the right hand image. We
+can see that that regular texture of the tiled
+
+00:01:06.210 --> 00:01:11.880
+roof has disappeared and been replaced by
+some rather obvious lines which don't actually
+
+00:01:11.880 --> 00:01:13.760
+exist in the input image.
+
+00:01:13.760 --> 00:01:21.799
+So, this is an artefact that's being introduced
+into the output image by the process of decimation
+
+00:01:21.799 --> 00:01:26.009
+and the root cause of this is a phenomenon
+known as aliasing.
+
+00:01:26.009 --> 00:01:32.200
+The simplest way to think about aliasing is
+in terms of a 1-dimensional image intensity
+
+00:01:32.200 --> 00:01:36.840
+profile. So, let's imagine that we've drawn
+a line across an image and this is the intensity
+
+00:01:36.840 --> 00:01:42.970
+profile and it varies between plus and minus
+1 in this particular case and the horizontal
+
+00:01:42.970 --> 00:01:45.990
+axis is scaled in terms of units of pixels.
+
+00:01:45.990 --> 00:01:53.200
+So, we can see some quite high frequency variation
+of the image intensity as we move across the
+
+00:01:53.200 --> 00:02:00.439
+profile. Now, let's imagine that I sample
+this profile at every 2nd pixel. So, as a
+
+00:02:00.439 --> 00:02:07.759
+sample at pixel 0, a sample of pixel 2, at
+pixel 4 and so on. Now, given that I have
+
+00:02:07.759 --> 00:02:13.420
+made the sample shown here by the black dots,
+I could also consider that the blue curve
+
+00:02:13.420 --> 00:02:19.390
+that's shown here is equally good explanation
+of the values that I've measured at these
+
+00:02:19.390 --> 00:02:26.170
+6 sample points. This is all based on a really
+important theorem from signal processing called
+
+00:02:26.170 --> 00:02:28.670
+the Nyquist sampling theorem.
+
+00:02:28.670 --> 00:02:35.120
+In this particular case, our sampling interval
+is 2 pixels. We've chosen our samples to be
+
+00:02:35.120 --> 00:02:41.819
+every 2nd pixel and that means that any signal
+that's got a period less than twice that.
+
+00:02:41.819 --> 00:02:48.390
+So, any single with a period that's less than
+four pixels will be aliased. It will be confused
+
+00:02:48.390 --> 00:02:53.250
+with a low frequency signal after we have
+sampled.
+
+00:02:53.250 --> 00:02:58.450
+The way to eliminate this alias in problem
+is to remove the high frequency components
+
+00:02:58.450 --> 00:03:03.730
+from the image and we've talked before about
+how we can use a Gaussian curve to blur an
+
+00:03:03.730 --> 00:03:09.530
+image and perhaps, it's been unintuitive why
+we would ever want to blur an image. We go
+
+00:03:09.530 --> 00:03:14.830
+to so much trouble to make our images sharp
+and crisp and nice to look at, but convolving
+
+00:03:14.830 --> 00:03:19.590
+with the Gaussian kernel we'll remove these
+problematic high frequency components.
+
+00:03:19.590 --> 00:03:24.200
+So in order to properly sub-sample an image,
+what we need to do is to apply a Gaussian
+
+00:03:24.200 --> 00:03:30.720
+kernels and then, sub-sample or decimate.
+These 2 steps are done together in the toolbox
+
+00:03:30.720 --> 00:03:32.200
+function iscale.
+
+00:03:32.200 --> 00:03:37.440
+So, the iscale function, we parse in our high
+resolution input image and we parse in the
+
+00:03:37.440 --> 00:03:43.140
+scale factor. In this case, I want the image
+to be 1/7th the size of the input image.
+
+00:03:43.140 --> 00:03:48.920
+The result will be the low resolution image
+shown here on the right. Notice now that those
+
+00:03:48.920 --> 00:03:52.390
+artifacts due to aliasing have been eliminated.
+

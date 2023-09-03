@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.330 --> 00:00:20.972
+Welcome to this first lecture in the Robotic
+Vision course, in this first lecture we are
+
+00:00:20.972 --> 00:00:25.410
+going to recap about robots, how they work,
+and their need for senses. And then we're
+
+00:00:25.410 --> 00:00:30.090
+going to talk about senses more broadly the
+sort of senses that animals and people have
+
+00:00:30.090 --> 00:00:34.010
+and then we are going to focus on sort of
+senses that robots have perhaps things like
+
+00:00:34.010 --> 00:00:40.070
+GPS but in particular we are going to focus
+on why it is that vision makes sense as a
+
+00:00:40.070 --> 00:00:44.770
+sensor for robots, so my job in this lecture
+is to make the case for why vision is a great
+
+00:00:44.770 --> 00:00:46.070
+sensor for robots.
+

@@ -1,0 +1,166 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:03.199
+Summary
+
+00:00:03.199 --> 00:00:08.149
+This lecture's given you a flavour of some
+advanced image processing operations, but
+
+00:00:08.149 --> 00:00:12.059
+really only just touched on some of these
+techniques. So if they've peaked your interested,
+
+00:00:12.059 --> 00:00:17.260
+then I suggest you go off and do some additional
+reading and experiment with some of the code
+
+00:00:17.260 --> 00:00:19.570
+that's provided in the toolbox.
+
+00:00:19.570 --> 00:00:24.420
+The first technique that we looked at was
+mathematical morphology, but this time with
+
+00:00:24.420 --> 00:00:29.340
+more complex structuring elements. So we talked
+about how we can use morphological operations
+
+00:00:29.340 --> 00:00:35.380
+to detect lines with a particular slope within
+an image. We can actually create quite complex
+
+00:00:35.380 --> 00:00:36.380
+structuring elements.
+
+00:00:36.380 --> 00:00:41.649
+We also discussed an example where the structuring
+element contained a circle and we used that
+
+00:00:41.649 --> 00:00:48.160
+to reconstruct some missing parts of an object;
+a tomato fruit, which we know is essentially
+
+00:00:48.160 --> 00:00:49.160
+circular.
+
+00:00:49.160 --> 00:00:54.129
+We looked very briefly at the hit and miss
+transform. We can use that for operations
+
+00:00:54.129 --> 00:01:00.480
+like skeletonization and finding the intersection
+points of a number of line segments.
+
+00:01:00.480 --> 00:01:06.110
+We introduced the Hough Transform, a well-known
+technique of finding linear features within
+
+00:01:06.110 --> 00:01:12.180
+an image. In order to use the Hough Transform,
+we introduced an alternative parameterization
+
+00:01:12.180 --> 00:01:13.420
+of lines.
+
+00:01:13.420 --> 00:01:18.310
+It's not often known as the Polar Form of
+a Line. Each line is described in terms of
+
+00:01:18.310 --> 00:01:25.360
+the perimeter Theta and Rho. Each point that
+lays on an edge of an image, votes for a large
+
+00:01:25.360 --> 00:01:31.470
+number of lines. Those votes are tallied in
+an accumulator array. The lines that receive
+
+00:01:31.470 --> 00:01:36.740
+the largest number of votes then are dominant
+lines in the scene; they are supported by
+
+00:01:36.740 --> 00:01:42.380
+a large number of edge pixels and such lines
+have been overlaid graphically on the image
+
+00:01:42.380 --> 00:01:44.130
+of the church here.
+
+00:01:44.130 --> 00:01:50.350
+Finally we talked about finding corresponding
+points. It's very easy for you and me to find
+
+00:01:50.350 --> 00:01:55.720
+the co-ordinate of this balcony corner in
+two quite different pictures of that same
+
+00:01:55.720 --> 00:02:00.110
+scene, but it's not so easy for a computer
+algorithm to do that.
+
+00:02:00.110 --> 00:02:04.950
+We also touched on the problem that we can't
+just rely on the grey scale intensity of the
+
+00:02:04.950 --> 00:02:08.170
+pixel to find it in the other scene.
+
+00:02:08.170 --> 00:02:13.450
+In order to solve this problem we introduced
+the notion of a Corner Detector, which says
+
+00:02:13.450 --> 00:02:19.170
+something about the similarity of a region
+of an image, to adjacent regions of the image.
+
+00:02:19.170 --> 00:02:24.260
+We can boil this down to a very useful two
+by two matrix called the Structure Tensor.
+
+00:02:24.260 --> 00:02:30.099
+And that tells us a lot about the local shape
+of the intensity surface of the image at this
+
+00:02:30.099 --> 00:02:35.200
+particular point. We can use the Eigenvalues
+of this matrix to determine whether this region
+
+00:02:35.200 --> 00:02:39.690
+of the image is flat or constant, whether
+it contains and edge or whether it contains
+
+00:02:39.690 --> 00:02:40.690
+a peak.
+
+00:02:40.690 --> 00:02:45.450
+The structure tensor is very easily computed
+from the horizontal and vertical gradient
+
+00:02:45.450 --> 00:02:51.030
+images smoothed with a Gaussian Kernel. These
+are all techniques that we've met previously.
+
+00:02:51.030 --> 00:02:55.989
+Two common corner detector algorithms then
+use slightly different techniques to find
+
+00:02:55.989 --> 00:02:59.360
+those points where both Eigenvalues are large.
+
+00:02:59.360 --> 00:03:04.489
+Finally, we talked about feature matching.
+Given that I had a set of corner points in
+
+00:03:04.489 --> 00:03:09.260
+one image, a set of corner points in another
+image, I take a region of pixels around each
+
+00:03:09.260 --> 00:03:16.920
+of those interest points and look at the similarity
+of those image regions to determine the correspondence
+
+00:03:16.920 --> 00:03:19.409
+between points in the two images.
+

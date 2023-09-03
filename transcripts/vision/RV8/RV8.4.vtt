@@ -1,0 +1,398 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:03.340
+Planar homography
+
+00:00:03.340 --> 00:00:07.319
+Now we will consider the case where a camera
+is looking at a bunch of points and these
+
+00:00:07.319 --> 00:00:12.480
+points all lie on a plane. The plane has got
+its own co-ordinate system which we denote
+
+00:00:12.480 --> 00:00:18.250
+by co-ordinate frame zero. Clearly every point
+that lies on this plane has got a Z co-ordinate
+
+00:00:18.250 --> 00:00:23.880
+of zero, which is shown down here. The co-ordinate
+capital Z multiples all of the elements in
+
+00:00:23.880 --> 00:00:28.859
+the third column of our camera matrix but
+because it's zero we can effectively remove
+
+00:00:28.859 --> 00:00:34.649
+that column from the matrix and we can remove
+that row from the world co-ordinate vector.
+
+00:00:34.649 --> 00:00:39.770
+What we're left with now is a three by three
+matrix and we'll refer to this three by three
+
+00:00:39.770 --> 00:00:42.750
+matrix as a "Planar Homography".
+
+00:00:42.750 --> 00:00:47.879
+Just as for the camera matrix, there is an
+arbitrary scale factor and once again we can
+
+00:00:47.879 --> 00:00:52.270
+normalize the homography matrix by choosing
+one particular element that we're going to
+
+00:00:52.270 --> 00:00:57.850
+set to the value of one. So this three by
+three matrix, it's got one element that we've
+
+00:00:57.850 --> 00:01:03.090
+set to one, there are eight unique numbers
+remaining in the homography matrix. And we
+
+00:01:03.090 --> 00:01:09.380
+can estimate the homography matrix if we have
+four world points and the corresponding position
+
+00:01:09.380 --> 00:01:13.080
+of those points on the image plane of our
+camera.
+
+00:01:13.080 --> 00:01:18.299
+So the concept of corresponding points, imagine that I've got two planes, one is perhaps the
+
+00:01:18.299 --> 00:01:22.380
+image plane of the camera, the other might
+be a physical plane in the world that the
+
+00:01:22.380 --> 00:01:28.460
+camera is looking at. Alternatively the first
+could be a view of a plane in the world and
+
+00:01:28.460 --> 00:01:33.710
+the second image could be another view of
+the same plane in the world, where we've moved
+
+00:01:33.710 --> 00:01:35.680
+the camera between the two views.
+
+00:01:35.680 --> 00:01:41.290
+Now we've got four points in each of these
+planes, which I'm going to denote by the subscripts
+
+00:01:41.290 --> 00:01:45.860
+one through four and I'm going to arrange
+the co-ordinates of those points into the
+
+00:01:45.860 --> 00:01:51.720
+columns of a matrix. But what's really important
+here is the ordering of these columns. We
+
+00:01:51.720 --> 00:01:58.040
+have to ensure what's called correspondence.
+P1 and Q1 must correspond to the same point
+
+00:01:58.040 --> 00:02:04.939
+in the world and so it goes for P2, P3 and
+P4. Each point P and the corresponding point
+
+00:02:04.939 --> 00:02:08.800
+Q must refer to the same point in the world.
+
+00:02:08.800 --> 00:02:12.450
+Let's look at a practical example of how we
+can use this technique to perform something
+
+00:02:12.450 --> 00:02:17.220
+called "Perspective Rectification". Now this
+is a picture that I took of the Notre Dame
+
+00:02:17.220 --> 00:02:19.239
+Cathedral in Paris.
+
+00:02:19.239 --> 00:02:23.760
+It's a very tall cathedral, so I'm on the
+ground in front, looking up and taking a picture.
+
+00:02:23.760 --> 00:02:28.629
+And clearly because my camera is tilted upwards
+I've got a very distorted view of the front
+
+00:02:28.629 --> 00:02:33.060
+of the cathedral. But I know some things about
+cathedrals and particularly I know that the
+
+00:02:33.060 --> 00:02:36.550
+front of the cathedral is most likely to be
+a plane.
+
+00:02:36.550 --> 00:02:41.489
+So if I pick four points on the front of the
+cathedral that I believe all lie in a single
+
+00:02:41.489 --> 00:02:48.670
+plane and I can label them P1 through to P4.
+But I know that those points in a non-distorted
+
+00:02:48.670 --> 00:02:54.860
+image will form a rectangle in the image plane,
+not a trapezoid. I can compute the image plane
+
+00:02:54.860 --> 00:03:02.099
+co-ordinates Q1, Q2, Q3 and Q4 in order to
+have a rectangle in the image. So if I have
+
+00:03:02.099 --> 00:03:08.590
+now two sets of corresponding points; I have
+the points P1 through P4 and I have the points
+
+00:03:08.590 --> 00:03:12.569
+Q1 through Q4, then I can compute a homography.
+
+00:03:12.569 --> 00:03:18.620
+So if I build up a matrix P that contains
+as columns the points P1 through P4 and the
+
+00:03:18.620 --> 00:03:25.799
+matrix Q, whose columns are the points Q1
+through Q4, then I can compute a homography.
+
+00:03:25.799 --> 00:03:30.580
+And it's shown here and very simple to do
+in MATLAB. Now that I have this homography
+
+00:03:30.580 --> 00:03:37.450
+matrix H, I can use it to transform any point,
+P, in my original image, to any point, Q in
+
+00:03:37.450 --> 00:03:39.290
+a second image.
+
+00:03:39.290 --> 00:03:43.909
+And this is what the second image looks like.
+We see that the cathedral has been straightened
+
+00:03:43.909 --> 00:03:48.739
+up. We can see that the vertical edges of
+the cathedral are in fact vertical lines in
+
+00:03:48.739 --> 00:03:52.879
+the image. It's important to remember that
+there's a very strong assumption made in this
+
+00:03:52.879 --> 00:03:57.640
+process and that is that all of the points
+in the image lie on a plane.
+
+00:03:57.640 --> 00:04:02.599
+Certainly many of the points in this image
+lay on the frontal plane of the cathedral,
+
+00:04:02.599 --> 00:04:08.269
+but not all do. If we look at points around
+here, which are on the edges of the bell towers,
+
+00:04:08.269 --> 00:04:13.580
+then they do not lay on the frontal plane
+and the transformation won't be correct for
+
+00:04:13.580 --> 00:04:18.120
+them. It will introduce a distortion in that
+part of the image. You can't get anything
+
+00:04:18.120 --> 00:04:23.860
+for free, we've certainly proved that geometric
+correctness of the bulk of the cathedral.
+
+00:04:23.860 --> 00:04:28.139
+Given that I've computed the matrix H using
+MATLAB, then it's a very simple matter to
+
+00:04:28.139 --> 00:04:34.720
+apply the homography to every single point
+in the image. And we perform that by a process
+
+00:04:34.720 --> 00:04:37.270
+known as "Image Warping".
+
+00:04:37.270 --> 00:04:43.290
+To do image warping, we can see that every
+single pixel in the output image and the output
+
+00:04:43.290 --> 00:04:49.240
+image in this case is the geometrically correct,
+the rectified image of the cathedral.
+
+00:04:49.240 --> 00:04:54.750
+To illustrate this I’m going to choose just
+one particular point in the output image and
+
+00:04:54.750 --> 00:05:01.330
+it’s the pixel at co-ordinate 600,100. Now
+if I know that pixel co-ordinate, I want to
+
+00:05:01.330 --> 00:05:06.110
+try and work out what's the corresponding
+pixel co-ordinate in the input image.
+
+00:05:06.110 --> 00:05:11.280
+The homography is a mapping from the original
+image to the new image, so in order to map
+
+00:05:11.280 --> 00:05:16.180
+this co-ordinate I need to use the inverse
+of the homography and that gives me the co-ordinate
+
+00:05:16.180 --> 00:05:23.630
+of the corresponding point in the input image
+and it's got a co-ordinate of 757 and 51.
+
+00:05:23.630 --> 00:05:31.310
+The way image warping works then is we go
+and find the pixel at co-ordinate 757, 51
+
+00:05:31.310 --> 00:05:36.780
+and we take that pixel value and we insert
+it into the new image at co-ordinate 600,
+
+00:05:36.780 --> 00:05:44.090
+100. So for every single pixel in the output
+image, we work out where it comes from in
+
+00:05:44.090 --> 00:05:45.770
+the input image.
+
+00:05:45.770 --> 00:05:50.949
+You can see here that the co-ordinates in
+the input image are fractional and that requires
+
+00:05:50.949 --> 00:05:56.530
+a technique called image interpolation to
+find what is the actual pixel value at this
+
+00:05:56.530 --> 00:06:02.449
+particular fractional co-ordinate. In a nutshell,
+that's the process of image warping.
+
+00:06:02.449 --> 00:06:08.199
+Another application of image warping is this
+often used effect now in swimming telecasts,
+
+00:06:08.199 --> 00:06:14.400
+where we take the flag and the name of the
+competitors and we overlay them on the lanes
+
+00:06:14.400 --> 00:06:19.330
+of the swimming pool. It's actually quite
+an easy trick to do and it involves these
+
+00:06:19.330 --> 00:06:20.190
+homographies.
+
+00:06:20.190 --> 00:06:24.620
+Now image that I could swim well, well enough
+to get into a swimming tournament, so there's
+
+00:06:24.620 --> 00:06:29.430
+my flag and there's my name. Now I've got
+this image that I created, just using ordinary
+
+00:06:29.430 --> 00:06:34.699
+computer graphics, that's the easy bit. Now
+I want to lay that image into my lane in the
+
+00:06:34.699 --> 00:06:40.259
+swimming pool. All I need to do that, is to
+find the four corresponding points, so the
+
+00:06:40.259 --> 00:06:44.840
+four corners of this rectangle that holds
+the image that I want to overlay and the four
+
+00:06:44.840 --> 00:06:48.740
+points in the swimming pool where I'd like
+it to be laid.
+
+00:06:48.740 --> 00:06:55.160
+Once I have that information I can warp that
+original image into this very distorted image
+
+00:06:55.160 --> 00:07:02.180
+which I could then insert into or overlay
+onto the original image of the swimming pool.
+
+00:07:02.180 --> 00:07:06.940
+Those of you who are doing the project associated
+with this course, the homography is going
+
+00:07:06.940 --> 00:07:12.310
+to be very, very useful. You've probably already
+built a two dimensional robot, that sits on
+
+00:07:12.310 --> 00:07:18.520
+a worksheet and can move its end effector
+to any particular XY co-ordinate on the robot
+
+00:07:18.520 --> 00:07:19.289
+worksheet.
+
+00:07:19.289 --> 00:07:25.690
+Now image that we take a picture of that robot
+worksheet. I have an image of the robot worksheet.
+
+00:07:25.690 --> 00:07:30.460
+The homography lets me create a mapping between
+a co-ordinate in the image of the worksheet,
+
+00:07:30.460 --> 00:07:36.569
+which has got a co-ordinate of U,V in the
+image plane and I can map that to a physical
+
+00:07:36.569 --> 00:07:42.930
+co-ordinate, X,Y on the robot's worksheet.
+I can map from an image plane co-ordinate
+
+00:07:42.930 --> 00:07:48.190
+to a robot worksheet co-ordinate, or I can
+map from a robot worksheet co-ordinate back
+
+00:07:48.190 --> 00:07:51.030
+to a camera image co-ordinate.
+
+00:07:51.030 --> 00:07:55.889
+Now homography's are going to be very, very
+helpful for you in completing the project.
+
+00:07:55.889 --> 00:08:02.470
+Just to summaries the capability in the toolbox
+for computing and using homographies. Given
+
+00:08:02.470 --> 00:08:07.919
+two sets of corresponding points P and Q,
+we can compute a three by three homography
+
+00:08:07.919 --> 00:08:15.310
+matrix. The columns of P and Q represent points.
+Now P might be image co-ordinates of known
+
+00:08:15.310 --> 00:08:22.110
+points in an image, Q might be co-ordinates
+of points on the robot's physical worksheet.
+
+00:08:22.110 --> 00:08:28.220
+Alternatively P could be a set of image co-ordinates
+in one image and Q could be a set of image
+
+00:08:28.220 --> 00:08:33.409
+co-ordinates in another image. Given that
+I have the three by three homography matrix
+
+00:08:33.409 --> 00:08:40.469
+H, I can then map a set of points P, in the
+first plane, to a set of points Q, in the second plane.
+
+00:08:40.469 --> 00:08:41.430
+ 
+

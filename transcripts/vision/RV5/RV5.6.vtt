@@ -1,0 +1,368 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.649 --> 00:00:05.630
+Let’s talk about object features.
+
+00:00:05.630 --> 00:00:09.000
+We’ve already talked about describing the
+position of an object.
+
+00:00:09.000 --> 00:00:14.369
+We’ve worked out how to describe the centroid
+of an object, which is a useful way of describing
+
+00:00:14.369 --> 00:00:17.330
+where something is within the image.
+
+00:00:17.330 --> 00:00:20.740
+We’ve also talked about determining the
+size of an object—its area—and we can
+
+00:00:20.740 --> 00:00:25.300
+get that information from the zeroth moments.
+
+00:00:25.300 --> 00:00:28.970
+We might be interested to describe the shape
+of an object; does it look like a shark, or
+
+00:00:28.970 --> 00:00:35.390
+a triangle, or a circle, or a square, and
+we might be interested in describing the orientation
+
+00:00:35.390 --> 00:00:36.390
+of the object.
+
+00:00:36.390 --> 00:00:37.390
+It’s quite important.
+
+00:00:37.390 --> 00:00:41.200
+Is the shark pointing upwards, or to the left
+or to the right?
+
+00:00:41.200 --> 00:00:47.380
+So let’s talk about how we can compute some
+of these additional object features.
+
+00:00:47.380 --> 00:00:51.060
+Position we’ve already described in terms
+of the bounding box and the centroid, which
+
+00:00:51.060 --> 00:00:52.570
+is derived from first moments.
+
+00:00:52.570 --> 00:00:57.300
+The size of the object; we also call it its
+area, and it can be described form the zeroth
+
+00:00:57.300 --> 00:00:58.300
+moments.
+
+00:00:58.300 --> 00:01:03.040
+What we haven’t described so far is shape
+and orientation, so let’s talk about that.
+
+00:01:03.040 --> 00:01:07.330
+The way we’re going to do this is to use
+a technique called the equivalent ellipse.
+
+00:01:07.330 --> 00:01:11.990
+So for each of these shapes what we’re going
+to do is to consider an ellipse that is centred
+
+00:01:11.990 --> 00:01:18.110
+at the object’s centroid, and that has got
+the same moment of inertia about that centroid
+
+00:01:18.110 --> 00:01:19.700
+as the original shape has.
+
+00:01:19.700 --> 00:01:24.620
+So this means for these different kinds of
+shapes we’re going to get different shaped
+
+00:01:24.620 --> 00:01:29.190
+equivalent ellipses and they’re going to
+tell us something about the shape and the
+
+00:01:29.190 --> 00:01:31.320
+orientation of the object.
+
+00:01:31.320 --> 00:01:34.740
+This is quite a classical technique, but it’s
+actually quite useful.
+
+00:01:34.740 --> 00:01:37.610
+Let’s put it into practice.
+
+00:01:37.610 --> 00:01:39.659
+Here is our shark image.
+
+00:01:39.659 --> 00:01:41.200
+Here’s the centroid.
+
+00:01:41.200 --> 00:01:46.400
+We’re going to define a set of orthogonal
+axes; an x-axis and a y-axis that pass through
+
+00:01:46.400 --> 00:01:50.070
+the centroid of the shark, and they’re parallel
+to the u and v coordinates.
+
+00:01:50.070 --> 00:01:55.500
+Now once I’ve got this coordinate system,
+it’s easy to compute the inertia matrix
+
+00:01:55.500 --> 00:01:59.720
+for the blob around the y and x axes about
+the centroid.
+
+00:01:59.720 --> 00:02:04.310
+And we do that by computing what are called
+the central moments of the blob: mu, underscore,
+
+00:02:04.310 --> 00:02:05.310
+p,q.
+
+00:02:05.310 --> 00:02:11.959
+And this is very similar to the moment expression
+we had earlier, except inside the brackets
+
+00:02:11.959 --> 00:02:15.220
+we now subtract the coordinates of the centroid.
+
+00:02:15.220 --> 00:02:22.389
+So if we compute these moments: mu,2,0, mu,0,2
+and mu,1,1 for the blob we end up with a matrix
+
+00:02:22.389 --> 00:02:25.549
+that contain the inertia values.
+
+00:02:25.549 --> 00:02:30.420
+We want to find an ellipse that has got the
+same inertia as those we derived from the
+
+00:02:30.420 --> 00:02:31.420
+blob.
+
+00:02:31.420 --> 00:02:37.689
+Now if this is the inertia matrix we can compute
+its eigenvalues, and from those eigenvalues
+
+00:02:37.689 --> 00:02:42.299
+we can compute the major and minor axis of
+the ellipse.
+
+00:02:42.299 --> 00:02:48.099
+That’s basically half the long axis of the
+ellipse, and half the short axis of the ellipse.
+
+00:02:48.099 --> 00:02:56.970
+These radii a and b are derived from the eigenvalues
+of the matrix J. Lambda 1 is the largest eigenvalue,
+
+00:02:56.970 --> 00:02:59.510
+and lambda 2 is the smaller eigenvalue.
+
+00:02:59.510 --> 00:03:04.359
+We’re also interested in the orientation
+of the ellipse; what’s the value of θ.
+
+00:03:04.359 --> 00:03:10.370
+And we obtain θ from the elements of the
+eigenvector that corresponds to the largest
+
+00:03:10.370 --> 00:03:11.390
+eigenvalue.
+
+00:03:11.390 --> 00:03:15.430
+So we take the ratio of the two elements in
+the eigenvector, the arc tangent, and that
+
+00:03:15.430 --> 00:03:16.689
+gives us θ.
+
+00:03:16.689 --> 00:03:21.950
+That tells us the orientation of the ellipse,
+and the orientation of the ellipse tells us
+
+00:03:21.950 --> 00:03:25.689
+something about the orientation of the object
+itself.
+
+00:03:25.689 --> 00:03:28.870
+Another parameter that’s useful that we
+can derive from the equivalent ellipse is
+
+00:03:28.870 --> 00:03:32.999
+called the aspect ratio, that’s b/a.
+
+00:03:32.999 --> 00:03:37.900
+B is the short length, a is the long length,
+b/a is always less than 1.
+
+00:03:37.900 --> 00:03:41.470
+And it says something about the compactness
+of the shape.
+
+00:03:41.470 --> 00:03:47.370
+So this shark, for instance, has got a ratio
+of b over a that’s roughly 1, where this
+
+00:03:47.370 --> 00:03:51.029
+shark has got a value b/a that’s much smaller
+than 1.
+
+00:03:51.029 --> 00:03:56.609
+So b/a says something about the compactness
+of the shape.
+
+00:03:56.609 --> 00:04:06.329
+Let’s load yet another variant of our shark
+image, and we will display this.
+
+00:04:06.329 --> 00:04:14.859
+And here we see two sharks, one pitched downwards,
+and one pitched a little bit upwards.
+
+00:04:14.859 --> 00:04:22.060
+We will compute the parameters of these blobs
+using a familiar command to us, and we see
+
+00:04:22.060 --> 00:04:26.250
+we’ve found three blobs: two shark blobs
+and one background blob.
+
+00:04:26.250 --> 00:04:30.080
+Let’s simplify things and get rid of the
+background blob, since we’re really only
+
+00:04:30.080 --> 00:04:32.370
+interested in the shark objects.
+
+00:04:32.370 --> 00:04:36.120
+We use the iblobs function again; parse in
+the image.
+
+00:04:36.120 --> 00:04:43.870
+And we ask for just those blobs comprising
+pixels that belong to class 1; that is, that
+
+00:04:43.870 --> 00:04:48.330
+the colour 1 they are the white pixels within
+the scene.
+
+00:04:48.330 --> 00:04:55.360
+And now we have an array of blob objects but
+only those objects that are white within the
+
+00:04:55.360 --> 00:04:57.259
+scene: the two sharks.
+
+00:04:57.259 --> 00:05:02.430
+Where each blob is displayed we see a number
+of parameters or attributes of those blobs,
+
+00:05:02.430 --> 00:05:04.639
+and some of those are quite familiar to use
+now.
+
+00:05:04.639 --> 00:05:08.240
+For instance, the area and the centroid.
+
+00:05:08.240 --> 00:05:11.830
+The parameter θ is the orientation of the
+blob.
+
+00:05:11.830 --> 00:05:17.870
+Orientation is given in unit of radians, and
+it is in respect to a coordinate frame attached
+
+00:05:17.870 --> 00:05:21.139
+to the shark that’s parallel to the u and
+v axes.
+
+00:05:21.139 --> 00:05:24.860
+An orientation is positive in the clockwise
+direction.
+
+00:05:24.860 --> 00:05:30.289
+We can see that one shark has got a θ value
+of 29 and the other shark has a θ value of
+
+00:05:30.289 --> 00:05:36.800
+-2.58, so this suggests that they have different
+orientations.
+
+00:05:36.800 --> 00:05:42.629
+Another parameter here is the ratio b/a, and
+we refer to that as the aspect ratio.
+
+00:05:42.629 --> 00:05:47.360
+And what’s interesting here is that the
+two sharks have got the same aspect ratio,
+
+00:05:47.360 --> 00:05:57.259
+around about 0.585, or 0.586 and this is important
+and interesting because the aspect ratio is
+
+00:05:57.259 --> 00:06:02.180
+the same even though the sharks have got different
+positions and different orientations, so we
+
+00:06:02.180 --> 00:06:04.639
+refer to this as a shape in variant.
+
+00:06:04.639 --> 00:06:10.240
+It’s a characteristic of the shark and it’s
+independent of its position or its orientation.
+
+00:06:10.240 --> 00:06:15.210
+Now we’ve talked a bit before about the
+equivalent ellipse, and it’s pretty easy
+
+00:06:15.210 --> 00:06:16.949
+to plot.
+
+00:06:16.949 --> 00:06:24.740
+We apply the plot ellipse method to the vector
+of shark blobs, and what this will do is plot
+
+00:06:24.740 --> 00:06:31.379
+an equivalent ellipse for every element of
+that vector, all of the objects in the vector
+
+00:06:31.379 --> 00:06:36.300
+b, and here we see the two equivalent ellipses
+plotted.
+
+00:06:36.300 --> 00:06:42.080
+We can plot the centroids almost as easily
+using the plot method, applied to every object
+
+00:06:42.080 --> 00:06:44.469
+in the vector b.
+
+00:06:44.469 --> 00:06:47.949
+So to summarise the object features that we
+can derive for a blob.
+
+00:06:47.949 --> 00:06:51.980
+We can describe its position in terms of bounding
+box or centroid.
+
+00:06:51.980 --> 00:06:54.639
+We can determine its size, its area.
+
+00:06:54.639 --> 00:06:59.499
+We can look at its shape and that comes from
+the aspect ratio of the equivalent ellipse,
+
+00:06:59.499 --> 00:07:03.970
+and we can determine the orientation in the
+object from the orientation of the equivalent
+
+00:07:03.970 --> 00:07:04.629
+ellipse.
+

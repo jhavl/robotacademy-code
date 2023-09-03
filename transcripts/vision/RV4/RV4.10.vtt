@@ -1,0 +1,98 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.520 --> 00:00:08.200
+Let’s summarise some of the things we have
+learned: in this lecture we talked about spatial
+
+00:00:08.200 --> 00:00:10.040
+image processing operators.
+
+00:00:10.040 --> 00:00:15.500
+These operations are where the output pixel
+is a function of the corresponding surrounding
+
+00:00:15.500 --> 00:00:17.900
+region in the input image.
+
+00:00:17.900 --> 00:00:22.360
+We talked about edge effects and this where
+the input window falls off the edge of the
+
+00:00:22.360 --> 00:00:28.760
+input image and we need some sort of strategy
+to deal with this particular problem.
+
+00:00:28.760 --> 00:00:34.649
+We talked about convolution; this is where
+we apply a matrix which we call a kernel to
+
+00:00:34.649 --> 00:00:37.160
+an image using the convolution operator.
+
+00:00:37.160 --> 00:00:42.860
+We can use this to perform a raft of really
+useful image processing functions such as
+
+00:00:42.860 --> 00:00:46.140
+smoothing and gradient calculation.
+
+00:00:46.140 --> 00:00:49.840
+We looked at a number of standard kernels
+such as the Gaussian, the derivative of the
+
+00:00:49.840 --> 00:00:53.640
+Gaussian and the Laplacian of Gaussian.
+
+00:00:53.640 --> 00:00:54.640
+We also looked at the correlation.
+
+00:00:54.640 --> 00:01:00.270
+Correlation is similar to convolution; some
+of the signs in the equation are changed and
+
+00:01:00.270 --> 00:01:04.220
+it’s equivalent to convolution if the kernel
+is symmetric.
+
+00:01:04.220 --> 00:01:09.189
+Correlation is useful for tasks such as template
+matching and we used this technique to find
+
+00:01:09.189 --> 00:01:12.509
+the robot Bender in a very busy crowd scene.
+
+00:01:12.509 --> 00:01:17.960
+We also discussed non-linear filters; we talked
+about rank and median filters and showed how
+
+00:01:17.960 --> 00:01:21.319
+they are useful for removing extreme noise.
+
+00:01:21.319 --> 00:01:26.279
+We also talked about morphological image processing,
+and this is a technique that allows us to
+
+00:01:26.279 --> 00:01:30.579
+keep or remove blobs that are based on their
+size and shape.
+
+00:01:30.579 --> 00:01:35.240
+If you have an image with small noise blobs
+you can use a morphological filter to simply
+
+00:01:35.240 --> 00:01:36.709
+remove them.
+
+00:01:36.709 --> 00:01:41.390
+Or if you have an image—perhaps the result
+of thresholding, the object has got some small
+
+00:01:41.390 --> 00:01:45.990
+holes in it that you are not happy about—you
+can use a morphological processing to fill
+
+00:01:45.990 --> 00:01:46.889
+those holes in.
+

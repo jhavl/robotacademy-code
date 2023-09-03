@@ -1,0 +1,93 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.879 --> 00:00:10.370
+In monadic image processing we take an input
+image and we apply a function to every single
+
+00:00:10.370 --> 00:00:15.670
+pixel in that image.
+The result of the function applied to a particular
+
+00:00:15.670 --> 00:00:22.140
+pixel in the input image is assigned to the
+corresponding pixel in the output image, and
+
+00:00:22.140 --> 00:00:26.099
+we use the same function for every pixel within
+the image.
+
+00:00:26.099 --> 00:00:32.539
+Let’s have a look at this low-resolution
+example to get an idea of how it works in practice.
+
+00:00:32.540 --> 00:00:35.200
+So we have a function, which we apply to the
+
+00:00:35.210 --> 00:00:40.460
+first pixel input image, and the result is
+assigned to the first pixel in the output
+
+00:00:40.460 --> 00:00:45.930
+image. And then we do the same thing for the
+second pixel and the third pixel and so on,
+
+00:00:45.930 --> 00:00:49.750
+until we have processed every single pixel
+within the image.
+
+00:00:49.750 --> 00:00:55.530
+Now the demonstration here is sequential;
+we have applied it to one pixel after another.
+
+00:00:55.530 --> 00:01:02.040
+If the computer has significant parallel processing
+power then it is possible to apply the function
+
+00:01:02.040 --> 00:01:04.320
+to all of the pixels in parallel.
+
+00:01:06.060 --> 00:01:09.520
+So what is this function f(x) that we used
+
+00:01:09.530 --> 00:01:14.710
+in the previous example? Well there are lots
+of really useful functions that we could use.
+
+00:01:14.710 --> 00:01:19.960
+The first is, perhaps, we could take the square
+root of the input pixel.
+
+00:01:19.960 --> 00:01:24.689
+Another thing we could do is change the type
+of the input pixel. Perhaps we could convert
+
+00:01:24.689 --> 00:01:28.819
+unsigned integer pixels into double pixels
+or vice versa.
+
+00:01:28.819 --> 00:01:33.590
+Maybe we could change the brightness or the
+contrast of the image by operating on each
+
+00:01:33.590 --> 00:01:37.670
+pixel individually.
+We could perform a function called histogram
+
+00:01:37.670 --> 00:01:42.069
+normalisation, and we will talk about that
+in a following section.
+
+00:01:42.069 --> 00:01:46.319
+We could perform an operation called thresholding,
+which we will also talk about in upcoming
+
+00:01:46.319 --> 00:01:50.569
+section.
+And we could perform an arty kind of transformation
+
+00:01:50.569 --> 00:01:54.559
+called posterization, and again we will talk
+about that very shortly.
+

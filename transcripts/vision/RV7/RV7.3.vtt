@@ -1,0 +1,83 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:08.570
+There is no way we can throw away something
+as important as a dimension without there
+
+00:00:08.570 --> 00:00:12.750
+being some consequences and there are some
+quite significant consequences, but we tend
+
+00:00:12.750 --> 00:00:13.980
+not to think about them.
+
+00:00:13.980 --> 00:00:19.640
+If I look at this scene of parallel railway
+lines, they clearly appear to converge and
+
+00:00:19.640 --> 00:00:24.500
+we expect that. Looking at this scene we know
+that they are parallel lines and this comes
+
+00:00:24.500 --> 00:00:30.859
+from our everyday experience with what a three dimensional world looks like, but it’s kind of surprising
+
+00:00:30.859 --> 00:00:35.520
+that things that are parallel in the world
+appear to us to be converging and we don’t
+
+00:00:35.520 --> 00:00:38.340
+give it any thought at all. It is unsurprising
+to us.
+
+00:00:38.340 --> 00:00:43.210
+Here is another example, looking up at a bunch
+of trees and they appear to be converging
+
+00:00:43.210 --> 00:00:47.559
+even though these trees are all parallel to
+one another, emerging vertically from the
+
+00:00:47.559 --> 00:00:48.969
+ground plain.
+
+00:00:48.969 --> 00:00:52.820
+Here is another example of the ferris wheel
+and we know that the ferris wheel is round.
+
+00:00:52.820 --> 00:00:56.660
+Now in this particular image, because I have
+looked at it obliquely, it clearly appears
+
+00:00:56.660 --> 00:00:58.739
+to be elliptical.
+
+00:00:58.739 --> 00:01:05.420
+So what’s going on here? Well, mathematically
+the perspective projection maps lines to lines,
+
+00:01:05.420 --> 00:01:11.909
+but it doesn't preserve angles. That means that parallel lines in the world will not necessarily
+
+00:01:11.909 --> 00:01:16.540
+appear to be parallel in an image. There are
+cases when there will be, but in general,
+
+00:01:16.540 --> 00:01:20.750
+parallel lines do not remain parallel after
+the projection.
+
+00:01:20.750 --> 00:01:26.950
+The other shape mapping perceptive projection
+does, is it maps conics to conics. So a conic,
+
+00:01:26.950 --> 00:01:33.240
+short for conic section is the shape that
+you get by slicing through a solid cone and
+
+00:01:33.240 --> 00:01:38.439
+though shapes can be a circle, an ellipse,
+a parabola or a hyperbola.
+

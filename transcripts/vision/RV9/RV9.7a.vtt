@@ -1,0 +1,675 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:07.350
+Finding the same point in 2 views
+Here two views of the same building. I took
+
+00:00:07.350 --> 00:00:12.389
+picture. I moved a little bit and then I took
+another picture. So we can see that the viewpoint
+
+00:00:12.389 --> 00:00:16.240
+is quite different. We can see that the chimney
+stacked up here is different and we can see
+
+00:00:16.240 --> 00:00:22.119
+this far less foliage in one side of the picture.
+So let's say that I'm interested in a point
+
+00:00:22.119 --> 00:00:28.750
+here, the corner of the balcony and in this
+image I can find its pixel coordinate. I want
+
+00:00:28.750 --> 00:00:34.450
+to find that same balcony in the other image.
+That's very easy for you and me to find that
+
+00:00:34.450 --> 00:00:39.850
+same point and I can click on it very very
+easily and I do that and I find here is its
+
+00:00:39.850 --> 00:00:45.070
+pixel coordinate. So two different views,
+the same point in the world, the same corner
+
+00:00:45.070 --> 00:00:50.450
+of the balcony when it's got two very different
+pixel coordinates because I moved the camera.
+
+00:00:50.450 --> 00:00:57.070
+Being able to solve this correspondence problem
+is fundamental to many robotic vision algorithms.
+
+00:00:57.070 --> 00:01:01.100
+And we're not going to cover those algorithms
+in this course, but I think it's interesting
+
+00:01:01.100 --> 00:01:09.250
+just to outline the principles of point detectors
+and determining correspondence. So how might
+
+00:01:09.250 --> 00:01:11.830
+we go about solving this correspondence problem?
+
+00:01:11.830 --> 00:01:16.970
+If I look at the gray scale value at this
+particular point on the corner of the balcony,
+
+00:01:16.970 --> 00:01:22.670
+I find that it's got a gray scale value of
+51. That's interesting. So I perhaps that
+
+00:01:22.670 --> 00:01:28.409
+I go and look for all the pixels in the other
+image that have got the value of 51. One of
+
+00:01:28.409 --> 00:01:33.579
+them might be on the corner of the balcony
+or one of them might be, but there are a lot
+
+00:01:33.579 --> 00:01:39.159
+of other pixels within that second image that
+have got a value of 51. In fact there's just
+
+00:01:39.159 --> 00:01:45.570
+over 6,000 of them and they are indicated
+here as white dots against our black background.
+
+00:01:45.570 --> 00:01:50.170
+So clearly this is not a very useful or reliable
+technique.
+
+00:01:50.170 --> 00:01:56.600
+Another difficulty is that although the pixel
+had a value of 51 when I took the first picture,
+
+00:01:56.600 --> 00:02:02.610
+but when I took the second picture, that pixel
+has got gray scale value of 47. So looking
+
+00:02:02.610 --> 00:02:07.229
+for a pixel with a value of 51 is forlorn
+because the pixel I'm interested in has actually
+
+00:02:07.229 --> 00:02:13.340
+got a different gray scale value even though
+it's the same point in the image. The reason
+
+00:02:13.340 --> 00:02:18.360
+for that is that the exposure setting on the
+camera is perhaps slightly different. The
+
+00:02:18.360 --> 00:02:23.300
+second image there is more blue sky, exposure
+of the camera is different and therefore all
+
+00:02:23.300 --> 00:02:28.590
+the pixel values have changed a little bit.
+So looking at the gray scale values alone
+
+00:02:28.590 --> 00:02:30.319
+is not enough.
+
+00:02:30.319 --> 00:02:36.000
+Another point that we need to take into consideration
+is that it's not possible to always find a
+
+00:02:36.000 --> 00:02:41.430
+corresponding point. Let's now take a pixel
+that's in a sky. Now there is a whole lot
+
+00:02:41.430 --> 00:02:47.830
+of other pixels in the sky that look exactly
+the same as that sky pixel in the first image.
+
+00:02:47.830 --> 00:02:52.160
+So we can see that there is some pixels for
+which there is no corresponding point.
+
+00:02:52.160 --> 00:02:57.180
+We can learn something from this example about
+trying to match a pixel in the sky from one
+
+00:02:57.180 --> 00:03:02.610
+frame to the other. But let's zoom in on this
+particular example. Each of the gray rectangles
+
+00:03:02.610 --> 00:03:09.950
+represents a single pixel. And we're going
+to consider a central 3x3 region of pixels.
+
+00:03:09.950 --> 00:03:13.750
+All these pixels have got exactly the same
+value. That's why they are shown with the
+
+00:03:13.750 --> 00:03:20.030
+identical shade of gray. I am going to chop
+out this central 3x3 region and I'm going
+
+00:03:20.030 --> 00:03:25.440
+to compare it to a whole bunch of neighboring
+3x3 regions and you can see that they are
+
+00:03:25.440 --> 00:03:26.200
+the same.
+
+00:03:26.200 --> 00:03:31.640
+Wherever I put this moving red rectangles,
+it looks exactly the same as the original
+
+00:03:31.640 --> 00:03:38.489
+3x3 window. So this central window that I
+chopped out is similar to eight other possible
+
+00:03:38.489 --> 00:03:45.010
+locations that I can put my 3x3 window. It's
+not unique and this is the problem with the
+
+00:03:45.010 --> 00:03:50.970
+sky. All the pixels are the same color. Wherever
+I put the 3x3 window it looks the same as
+
+00:03:50.970 --> 00:03:53.799
+the central 3x3 window.
+
+00:03:53.799 --> 00:03:58.970
+Let's consider an example now along an edge.
+So we have some light gray pixels and some
+
+00:03:58.970 --> 00:04:03.530
+dark gray pixels. I'm going to do exactly
+the same thing. I'm going to chop out the
+
+00:04:03.530 --> 00:04:07.709
+middle region and I'm going to compare it
+then to a bunch of neighboring regions and
+
+00:04:07.709 --> 00:04:13.159
+that matches there doesn't match there, doesn't
+match there, doesn't match there, matches
+
+00:04:13.159 --> 00:04:20.579
+well here and doesn't match here. So this
+central window matches at two other locations.
+
+00:04:20.579 --> 00:04:23.759
+So it is a bit more unique.
+
+00:04:23.759 --> 00:04:30.479
+Consider now this pattern. A single dark pixel
+against a background of brighter pixels. I'm
+
+00:04:30.479 --> 00:04:35.540
+going to chop out the central region and once
+again I'm going to move the 3x3 window around.
+
+00:04:35.540 --> 00:04:41.050
+And we see that it doesn't match anywhere
+else. It is unique. It only matches to that
+
+00:04:41.050 --> 00:04:48.350
+central location. So we say that this particular
+3x3 pattern of pixels is locally unique. It's
+
+00:04:48.350 --> 00:04:52.389
+distinct. It's means that it's going to be
+a pattern that we could perhaps recognize
+
+00:04:52.389 --> 00:04:54.490
+in a different image.
+
+00:04:54.490 --> 00:04:59.699
+Let's try to formalize this. We're going to
+look at our central 3x3 window. We're going
+
+00:04:59.699 --> 00:05:05.190
+to look at an arbitrary 3x3 window which is
+displaced from that central window in the
+
+00:05:05.190 --> 00:05:11.630
+horizontal direction by delta U and in the
+vertical direction by delta V. So we can describe
+
+00:05:11.630 --> 00:05:18.539
+the similarity of these two windows. Capital
+I is our input image. The reference 3x3 window
+
+00:05:18.539 --> 00:05:24.289
+is centered at the coordinate U,V. And to
+do that we are going to index I and J over
+
+00:05:24.289 --> 00:05:29.690
+a region, so I and J. In this simple example
+are going to vary between minus 1 and plus
+
+00:05:29.690 --> 00:05:30.330
+1.
+
+00:05:30.330 --> 00:05:35.020
+So this is a similarity measure. It's going
+to tell us how similar the central window
+
+00:05:35.020 --> 00:05:41.070
+is to the shifted window. We can compute the
+similarity for an arbitrary valuable shift.
+
+00:05:41.070 --> 00:05:45.530
+Similarity's got the value of zero if the
+two regions are identical and has a large
+
+00:05:45.530 --> 00:05:52.199
+positive value if the regions are not similar.
+Now we'll introduce a measure, capital C which
+
+00:05:52.199 --> 00:05:53.610
+we call cornerness.
+
+00:05:53.610 --> 00:06:00.520
+It's related to the uniqueness of a particular
+patch of pixels. And it is the minimum value
+
+00:06:00.520 --> 00:06:07.229
+of the similarity as we shift that 3x3 window
+around the reference window. If the reference
+
+00:06:07.229 --> 00:06:13.090
+window is similar to the window in all the
+shifted locations, then the minimum value
+
+00:06:13.090 --> 00:06:18.770
+of the similarity is going to be a very low
+value. We're going to have a low value of
+
+00:06:18.770 --> 00:06:24.520
+cornerness; a low value of uniqueness. So
+this is a point that's not very distinct.
+
+00:06:24.520 --> 00:06:31.289
+If however we find that when we shift the
+window, it's very very dissimilar to the reference
+
+00:06:31.289 --> 00:06:36.199
+window, then the similarity values are all
+going to be very high. The minimum of all
+
+00:06:36.199 --> 00:06:41.080
+these very high values is going to be a higher
+value. So we're going to have a high value
+
+00:06:41.080 --> 00:06:45.350
+of cornerness or a high value of uniqueness.
+
+00:06:45.350 --> 00:06:51.139
+So this is the underlying principle of a very
+simple corner detector. A detector known as
+
+00:06:51.139 --> 00:06:56.220
+the Moravec corner detector and is really
+the ancestor of all sorts of modern corner
+
+00:06:56.220 --> 00:07:00.099
+detectors that have followed in it's footsteps.
+
+00:07:00.099 --> 00:07:05.080
+Now we can generalize this approach. We got
+our similarity measure from before. But now
+
+00:07:05.080 --> 00:07:10.530
+what we're going to do is to introduce a Gaussian
+waiting matrix. It’s here W. And what that's
+
+00:07:10.530 --> 00:07:16.060
+going to do is to increase the weight with
+respect to windows that are close to the reference
+
+00:07:16.060 --> 00:07:21.020
+window and de-weight test windows that are
+further away from the reference window.
+
+00:07:21.020 --> 00:07:25.090
+We're going worked through a little bit of
+maths here, we can rewrite this expression
+
+00:07:25.090 --> 00:07:31.440
+in terms of a vector of delta U and delta
+V, which is the window shift, multiplied by
+
+00:07:31.440 --> 00:07:38.500
+a square matrix A. This matrix A is referred
+to as the structure tensor, 2x2 matrix and
+
+00:07:38.500 --> 00:07:42.590
+it's comprised of the image gradiance. So
+we talk about how to compute image gradiance
+
+00:07:42.590 --> 00:07:49.470
+before. IU is the horizontal gradient. IV
+is the vertical gradient. And G is a Gaussian
+
+00:07:49.470 --> 00:07:50.740
+smoothing corner.
+
+00:07:50.740 --> 00:07:55.240
+The advantage of this structure tensor is
+that it's based on image gradients. So any
+
+00:07:55.240 --> 00:08:01.250
+difference between images due to camera exposure
+change, the sun coming out from behind the
+
+00:08:01.250 --> 00:08:05.620
+cloud. Is eliminated by the intensity gradient
+operator.
+
+00:08:05.620 --> 00:08:11.009
+The image tensor is the 2x2 matrix and so
+it's got two eigenvalues. The eigenvalues
+
+00:08:11.009 --> 00:08:16.690
+in this matrix tell us a lot about that particular
+part of the image. If both the eigenvalues
+
+00:08:16.690 --> 00:08:22.430
+are small, then it's saying that that particular
+part of the image is almost constant. If the
+
+00:08:22.430 --> 00:08:27.120
+two eigenvalues are both small, then that
+part of the image is almost constant. It's
+
+00:08:27.120 --> 00:08:31.419
+like the sky that we were looking at. All
+of the pixels in that neighbourhood have got
+
+00:08:31.419 --> 00:08:32.779
+a very similar value.
+
+00:08:32.779 --> 00:08:38.490
+If either of the eigenvalues are large but
+not both then this corresponds to a point
+
+00:08:38.490 --> 00:08:43.300
+which is lined along an edge in the image.
+It doesn't tell us about the orientation of
+
+00:08:43.300 --> 00:08:49.350
+the edge, it's just says that this region
+of the image contains an edge. Now if both
+
+00:08:49.350 --> 00:08:56.320
+the eigenvalues are large, then this corresponds
+to a peak. It says that we have a local maxima
+
+00:08:56.320 --> 00:09:02.930
+or minima in pixel intensities with respect
+to the surrounds and so this is a very distinctive
+
+00:09:02.930 --> 00:09:06.640
+point that we're able to recognize in another
+image.
+
+00:09:06.640 --> 00:09:11.360
+There were a couple of algorithms based on
+this principle which determine whether a point
+
+00:09:11.360 --> 00:09:17.540
+in the image is interesting and this is referred
+to often as corner detectives but that's more
+
+00:09:17.540 --> 00:09:23.610
+appropriately referred to as interest operators.
+A very famous one is the Shi-Tomasi detector
+
+00:09:23.610 --> 00:09:28.019
+and what it does is simply for every pixel
+compute the structure tensor and take the
+
+00:09:28.019 --> 00:09:34.480
+minimum of the two eigenvalues. If both eigenvalues
+are large, then the Shi-Tomasi detector has
+
+00:09:34.480 --> 00:09:35.640
+a large value.
+
+00:09:35.640 --> 00:09:41.850
+Another very famous one is the Harris corner
+detector and it is similar in principle. It
+
+00:09:41.850 --> 00:09:47.560
+effectively determines pixels that have got
+two large eigenvalues but it does it by computing
+
+00:09:47.560 --> 00:09:52.519
+the determinant of the matrix and the trace
+of the matrix which are two things that are
+
+00:09:52.519 --> 00:09:57.760
+very very easy to compute and takes the scale
+difference between those and returns the value
+
+00:09:57.760 --> 00:10:02.200
+that is high if that particular part of the
+image is interesting.
+
+00:10:02.200 --> 00:10:08.320
+Here is an example of the output of the Harris
+corner operator. Pixels that have got a positive
+
+00:10:08.320 --> 00:10:12.519
+value are shown in blue. Pixels that have
+got a negative value are shown in red and
+
+00:10:12.519 --> 00:10:18.079
+pixels that are around zero are shown as white.
+The corresponding region of the input image
+
+00:10:18.079 --> 00:10:20.600
+is shown over here on the right.
+
+00:10:20.600 --> 00:10:26.600
+We see that the Harris detector gives a strong
+positive value when there is a distinctive
+
+00:10:26.600 --> 00:10:31.950
+local region of the image. Something that
+we may be able to find in another image. It
+
+00:10:31.950 --> 00:10:37.370
+gives a strong negative response to an edge
+in the input image. So if we were looking
+
+00:10:37.370 --> 00:10:43.470
+for points to try and locate in another image,
+we would look for those regions where the
+
+00:10:43.470 --> 00:10:47.040
+Harris corner value had the strongest positive
+value.
+
+00:10:47.040 --> 00:10:53.079
+Okay, here we are in MATLAB and I've already
+loaded two images into my workspace. I can
+
+00:10:53.079 --> 00:10:58.600
+display these two. I put them both into a
+cell array and the idisp function will
+
+00:10:58.600 --> 00:11:01.470
+display them next to each other as we can
+see here.
+
+00:11:01.470 --> 00:11:06.130
+The two images here are clearly taken from
+a different viewpoints. Now what I'm going
+
+00:11:06.130 --> 00:11:11.079
+to do is to compute the interest points, the
+feature points, the distinctive points in
+
+00:11:11.079 --> 00:11:16.100
+each of these images that we're likely to
+be able to match between one image and another.
+
+00:11:16.100 --> 00:11:20.570
+Now there are a whole lot of different sorts
+of feature detectors that have been created
+
+00:11:20.570 --> 00:11:24.589
+by computer vision researchers over the years.
+The particular detector that we're going to
+
+00:11:24.589 --> 00:11:30.709
+use here is called the surf detector and I
+invoke that using the function isurf and I
+
+00:11:30.709 --> 00:11:39.120
+parse in the image. And here's the result.
+The surf detector has found 2,667 interesting
+
+00:11:39.120 --> 00:11:45.459
+or unique corner features within the scene.
+Points that are likely to be able to be located
+
+00:11:45.459 --> 00:11:50.899
+in another image of that same scene, but taken
+from a different view point.
+
+00:11:50.899 --> 00:11:57.120
+Let's have a look at the points that is found.
+What I'm going to do is to display the image
+
+00:11:57.120 --> 00:12:01.540
+again. There it is there. And I'm just going
+to make it appear a little bit dark using
+
+00:12:01.540 --> 00:12:09.070
+the colour map menu bar. The workspace varable
+F1 is a vector of surf point feature object.
+
+00:12:09.070 --> 00:12:15.930
+It's a vector that's 2,667 long and these
+features are ordered from the most distinctive
+
+00:12:15.930 --> 00:12:20.170
+feature to the least distinctive feature.
+So what I'm going to do is to take the first
+
+00:12:20.170 --> 00:12:26.790
+200 elements. These are 200 strongest features
+and I'm going to plot them and I'm going to
+
+00:12:26.790 --> 00:12:33.550
+plot them as white diamonds. And here we can
+see the distinctive features that the surf
+
+00:12:33.550 --> 00:12:39.850
+algorithm has detected. A number of them associated
+with very obvious features in the trees but
+
+00:12:39.850 --> 00:12:44.470
+a number of them were attached to distinctive
+features on the building. The corners of balconies
+
+00:12:44.470 --> 00:12:49.399
+and other sharp edges on that building.
+
+00:12:49.399 --> 00:12:53.990
+What we are going to do now is to compute
+the surf features for the other image. I do
+
+00:12:53.990 --> 00:13:02.870
+it in a very similar way. Takes a moment to
+compute. And this time it's found 2,448 corner
+
+00:13:02.870 --> 00:13:08.339
+features in image number 2. Now some of the
+features found in image number 1 are going
+
+00:13:08.339 --> 00:13:14.200
+to match features that are found in image
+number 2. And we can find those matching features,
+
+00:13:14.200 --> 00:13:21.510
+the corresponding features by using the match
+method of the feature object.
+
+00:13:21.510 --> 00:13:28.389
+So what this does is to match all the features
+in the vector F2 with all features in the
+
+00:13:28.389 --> 00:13:37.450
+vector F1 and return a match object and the
+match object, I can display its value here,
+
+00:13:37.450 --> 00:13:43.389
+indicates that there are 841 corresponding
+points. So there is 2,000 odd corner features
+
+00:13:43.389 --> 00:13:48.149
+in one image, 2,000 odd corner features this
+in the second image. The matching process
+
+00:13:48.149 --> 00:13:52.480
+is found 841 that are believes are corresponding
+pairs.
+
+00:13:52.480 --> 00:13:59.260
+Now in is another object and one of it's methods
+is P. I'm going to scroll up to the top of
+
+00:13:59.260 --> 00:14:03.470
+this rather large display here. We can see
+that all of these numbers are multiplied by
+
+00:14:03.470 --> 00:14:04.199
+1,000.
+
+00:14:04.199 --> 00:14:12.019
+So what is this saying it's that the point
+at coordinate 1,007 and 354. It matches the
+
+00:14:12.019 --> 00:14:19.970
+point where the coordinate 791 and 383 in
+the second image. So this matrix, each column of it
+
+00:14:19.970 --> 00:14:24.649
+represents a pair of corresponding coordinates
+across the two images.
+
+00:14:24.649 --> 00:14:30.110
+Now, this is rather difficult to interpret.
+So what I'm going to do is to display again
+
+00:14:30.110 --> 00:14:36.850
+the two images. Image 1 and image 2 next to
+each other and there we have it. And once
+
+00:14:36.850 --> 00:14:41.990
+again, I'm going to make that a little bit
+darker. And now what I'm going to do is to
+
+00:14:41.990 --> 00:14:47.320
+plot a subset of all these matches. I don't
+want all of them. I'll take a hundred strongest
+
+00:14:47.320 --> 00:14:54.000
+matches between the two images and that's
+another match object and now I'm going to
+
+00:14:54.000 --> 00:14:59.260
+plot that with white lines. So what I'm going
+to do is to plot white lines that join the 100
+
+00:14:59.260 --> 00:15:05.570
+strongest features between image 1 and image
+2. Now not all these matches will be perfect
+
+00:15:05.570 --> 00:15:09.490
+but if we look at some of the lines, we can
+see that they very clearly join corresponding
+
+00:15:09.490 --> 00:15:11.860
+features in the two images.
+

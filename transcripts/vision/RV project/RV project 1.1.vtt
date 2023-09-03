@@ -1,0 +1,101 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:05.259 --> 00:00:09.490
+Welcome to week one in the Robotic Vision
+Project. My name is Liam O'Sullivan and I'll
+
+00:00:09.490 --> 00:00:13.960
+be your guide for the next seven weeks as
+to how to complete the Robotic Vision Project.
+
+00:00:13.960 --> 00:00:18.010
+The first one to six weeks, you'll be getting
+a picture of this Robotic Vision worksheet
+
+00:00:18.010 --> 00:00:22.910
+into MATLAB and then classifying the 2D objects
+which exist on this page, into a particular
+
+00:00:22.910 --> 00:00:28.189
+colour, shape and size. This forms the input
+to an optional seventh week where you can
+
+00:00:28.189 --> 00:00:32.309
+take a robotic arm that you've created, put
+it on the Robotic Vision worksheet and then
+
+00:00:32.309 --> 00:00:37.219
+actuate to a particular 2D object. Let's take
+a look now in MATLAB at what the output of
+
+00:00:37.219 --> 00:00:38.989
+the Robotic Vision Project will be.
+
+00:00:38.989 --> 00:00:44.100
+Alright, so we're in MATLAB here and we're
+looking at the output of the project through
+
+00:00:44.100 --> 00:00:49.230
+weeks one through six, so if we look at this
+image here, we can see our Robotic Vision
+
+00:00:49.230 --> 00:00:54.140
+worksheet, so you guys are going to have to
+download this worksheet, which is in PDF format
+
+00:00:54.140 --> 00:00:58.370
+and print it out, then we'll take a photo
+of it using either our mobile phone camera
+
+00:00:58.370 --> 00:01:02.910
+or a webcam and then we'll import it into
+MATLAB and then apply some image processing
+
+00:01:02.910 --> 00:01:08.080
+techniques to try and find the 2D position
+of the coloured shapes on this page.
+
+00:01:08.080 --> 00:01:12.360
+Now you might be saying to yourself, "Okay
+why do I have to bother about image processing,
+
+00:01:12.360 --> 00:01:16.740
+I could just get out a ruler and then measure
+all the 2D positions of the objects on this
+
+00:01:16.740 --> 00:01:21.479
+page." Well you could do that, there's nothing
+stopping you from doing that; however what
+
+00:01:21.479 --> 00:01:25.049
+happens if we change the configuration of
+these shapes?
+
+00:01:25.049 --> 00:01:29.020
+You know we could move these shapes into any
+position on the page and then you would have
+
+00:01:29.020 --> 00:01:32.329
+to re-measure the position of where they ended
+up.
+
+00:01:32.329 --> 00:01:37.439
+A smarter and better way would be to rely
+on image processing, so write some computer
+
+00:01:37.439 --> 00:01:42.770
+vision code that allows you to find the 2D
+position of the objects, no matter what configuration
+
+00:01:42.770 --> 00:01:47.000
+they are in. So we could change it and then
+it would take simply a click of a button and
+
+00:01:47.000 --> 00:01:49.259
+we could find the position of these objects.
+
+00:01:49.259 --> 00:01:55.319
+Okay, so that's the goal of the project and what we'll be working on through weeks one through six.
+

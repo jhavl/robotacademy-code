@@ -1,0 +1,373 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.810 --> 00:00:10.299
+A particularly important monadic operation
+is referred to as thresholding.
+
+00:00:10.299 --> 00:00:16.219
+Consider the two images here. The first one
+is a grey scale image and the second image
+
+00:00:16.219 --> 00:00:21.009
+you can see is much more contrasty; in fact,
+the pixels have only got two values—they
+
+00:00:21.009 --> 00:00:26.160
+are either black or white.
+Now what we have done here is made a logical
+
+00:00:26.160 --> 00:00:32.230
+decision on every input value. If the input
+value is less than the threshold, referred
+
+00:00:32.230 --> 00:00:38.050
+to by the symbol T, then the result is false
+and we represent that by a black pixel in
+
+00:00:38.050 --> 00:00:41.950
+the output image.
+If the input pixel is greater than and equal
+
+00:00:41.950 --> 00:00:48.880
+to T, then we say the result is true and the
+resulting pixel is displayed as white.
+
+00:00:48.880 --> 00:00:53.920
+If we display this function graphically, we
+can see that it is very, very non-linear.
+
+00:00:53.920 --> 00:01:00.280
+The output is 0 up until we reach the input
+value of T, and then the output value becomes true.
+
+00:01:00.280 --> 00:01:03.900
+In MATLAB when we display a pixel value that
+
+00:01:03.900 --> 00:01:08.009
+has got a value of false, it shows as black,
+and when we display a pixel that has a value
+
+00:01:08.009 --> 00:01:13.590
+of true it is displayed as white.
+MATLAB supports a number of what we call logical
+
+00:01:13.590 --> 00:01:18.939
+operators. That is the way to compare two
+numeric quantities. Just in the example before
+
+00:01:18.939 --> 00:01:26.499
+we looked at the &gt;= operator, and we also
+looked at the &lt; operator. MATLAB has the ability
+
+00:01:26.499 --> 00:01:32.539
+to determine whether two values are equal;
+or not equal; greater than; less than; and so on.
+
+00:01:32.540 --> 00:01:35.700
+The result of any of these logical operators
+
+00:01:35.710 --> 00:01:42.649
+is a logical value; it is either true or false.
+Now MATLAB represents the concepts of true
+
+00:01:42.649 --> 00:01:49.729
+and false as numeric values. True is represented
+by 1 and false is represented by 0.
+
+00:01:49.729 --> 00:01:55.809
+MATLAB also has some special constants that
+are built in, and they have got the names true and false.
+
+00:01:58.040 --> 00:01:59.680
+Let’s start with something really simple.
+
+00:01:59.689 --> 00:02:04.889
+We will ask the question ‘is 2 greater than
+1?’, and we know that the outcome of this
+
+00:02:04.889 --> 00:02:09.940
+must be true.
+And MATLAB has given us a value of 1. Now
+
+00:02:09.940 --> 00:02:15.099
+we will note that we have created a new variable
+in the workspace called ans. Ans is an automatic
+
+00:02:15.099 --> 00:02:20.920
+variable that MATLAB uses to hold always the
+result of the last operation or command that
+
+00:02:20.920 --> 00:02:24.230
+has been given.
+It is of logical type, which means it can
+
+00:02:24.230 --> 00:02:30.120
+only have values of true or false.
+So the answer that we got to this question
+
+00:02:30.120 --> 00:02:35.220
+is 1, and 1 is the numerical value that MATLAB
+uses to represent the concept of true.
+
+00:02:35.220 --> 00:02:39.980
+Similarly, if we ask the question ‘is 1
+greater than 2?’, and we know that this
+
+00:02:39.980 --> 00:02:45.970
+is false, MATLAB has returned as a numerical
+value of 0. It is how MATLAB represents the
+
+00:02:45.970 --> 00:02:49.510
+concept of false.
+MATLAB has got a couple of built in variables
+
+00:02:49.510 --> 00:02:55.439
+to represent these values. We can ask it the
+value of true. The equivalent numerical value
+
+00:02:55.439 --> 00:03:01.040
+is 1. And false, the equivalent numerical
+value is 0.
+
+00:03:01.040 --> 00:03:07.870
+We can also do an equality test, so we can
+say ‘is 1 equal to 2?’. It is not; it
+
+00:03:07.870 --> 00:03:12.170
+is false.
+‘Is 2 equal to 2?’ Yes that is true.
+
+00:03:12.170 --> 00:03:19.000
+We can, of course, assign logical tests to
+variables, so I can say ‘a is equal to 2
+
+00:03:19.000 --> 00:03:25.480
+equals 3?’. We created a new logical variable
+in that workspace called a, and it has a value
+
+00:03:25.480 --> 00:03:31.510
+of 0, or false.
+Earlier we looked at the concept of vectorization
+
+00:03:31.510 --> 00:03:37.680
+when we perform arithmetic between a matrix
+and a scalar. Well the logical operators can
+
+00:03:37.680 --> 00:03:44.629
+also be used in a vectorized form. What happens
+in this case is that the logical test is done
+
+00:03:44.629 --> 00:03:50.890
+between every element in the input matrix,
+and the scalar, and the result is a matrix
+
+00:03:50.890 --> 00:03:56.969
+with the same size as the input matrix in
+which every element is a logical value. The
+
+00:03:56.969 --> 00:04:01.329
+elements in the output matrix are either true
+or false.
+
+00:04:01.329 --> 00:04:06.499
+Let’s show a concrete example of this. I
+am going to create a matrix m and it is going
+
+00:04:06.499 --> 00:04:13.129
+to contain random integer elements between
+1 and 10. The matrix is going to be 4 by 4.
+
+00:04:13.129 --> 00:04:20.900
+There we have it.
+Now if I apply a logical test to this matrix,
+
+00:04:20.900 --> 00:04:26.060
+what MATLAB is going to do is to compare every
+element of the matrix with 5. It is going
+
+00:04:26.060 --> 00:04:32.490
+to apply the &gt;5 test to each element. And
+so what we can see in this result: wherever
+
+00:04:32.490 --> 00:04:36.550
+there are ones, this indicates an element
+that is greater than 5.
+
+00:04:36.550 --> 00:04:44.400
+You can also see that this result is a matrix
+of logical type; that is, every element in
+
+00:04:44.400 --> 00:04:51.430
+this matrix is a logical value which can only
+be true or false, represented by the numeric
+
+00:04:51.430 --> 00:04:58.490
+values 1 or 0 respectively.
+I can apply an equality test to this matrix
+
+00:04:58.490 --> 00:05:02.100
+as well, and I can look for all of the elements
+that are equal
+
+00:05:02.100 --> 00:05:09.130
+to 3. And what I find now is a matrix where
+the two ones indicate the elements of the
+
+00:05:09.130 --> 00:05:11.910
+original matrix that were equal to 3.
+We are going to follow on from a previous
+
+00:05:11.910 --> 00:05:16.139
+example and what we are going to do is create
+a new variable; in this case it is going to
+
+00:05:16.139 --> 00:05:22.470
+be called b. What I am going to do is to apply
+a logical test to every pixel in the image
+
+00:05:22.470 --> 00:05:27.900
+im, which is the image of the penguin sign
+you can see above. And I am going to compare
+
+00:05:27.900 --> 00:05:33.520
+all of these pixel values to the numeric value
+0.45, and it is going to create a new variable
+
+00:05:33.520 --> 00:05:36.360
+in my workspace and we can see that it is
+of type logical.
+
+00:05:36.360 --> 00:05:44.729
+We see it has the same dimensions as the original
+image im. It has got 730 rows and 1047 columns.
+
+00:05:44.729 --> 00:05:51.050
+It is of type logical. Each element in this
+new matrix has got a value of either false
+
+00:05:51.050 --> 00:05:54.860
+or true.
+Now let’s display this logical image.
+
+00:05:54.860 --> 00:06:00.710
+Here we go, and what we see now is an image
+where the pixel values are quite crisp; they
+
+00:06:00.710 --> 00:06:06.530
+are either black or white. The black values—I
+click on here—have got a value of 0, they’re
+
+00:06:06.530 --> 00:06:11.050
+false. That means that they don’t pass the
+test—they are less than 0.45. Where a pixel
+
+00:06:11.050 --> 00:06:16.590
+here has a value of 1, it does pass the test—it
+is greater than 0.45.
+
+00:06:16.590 --> 00:06:22.349
+Now, the question you might ask is where does
+this number of 0.45 come from. Well I chose
+
+00:06:22.349 --> 00:06:26.840
+it based on the histogram, because the histogram
+indicates to me quite clearly that there is
+
+00:06:26.840 --> 00:06:32.680
+a bunch of pixels with a value less then around
+0.45, which are the dark ones corresponding
+
+00:06:32.680 --> 00:06:37.819
+to the background. And then there is a set
+of bright pixels generally bigger then 0.45,
+
+00:06:37.819 --> 00:06:42.949
+which comprise the foreground or the objects
+of interest, the icons and the characters
+
+00:06:42.949 --> 00:06:47.110
+on that sign.
+Now I can choose a different value for the
+
+00:06:47.110 --> 00:06:51.949
+threshold. I can choose, for instance, I can
+choose to make the threshold a little bigger.
+
+00:06:51.949 --> 00:07:00.979
+I can maybe choose say 0.6, and I can display
+that new image and we see now that the results
+
+00:07:00.979 --> 00:07:05.830
+are somewhat similar. The small writing at
+the top of that sign has disintegrated and
+
+00:07:05.830 --> 00:07:12.009
+that often happens as you change the threshold,
+some objects will start to fragment and disappear.
+
+00:07:12.009 --> 00:07:17.220
+Rather than do this in a kind of clumsy trial
+and error fashion, we can use the toolbox
+
+00:07:17.220 --> 00:07:22.389
+function ithresh. We pass in the image that
+we are interested in—im in this case—and
+
+00:07:22.389 --> 00:07:28.069
+what we have is a slider. Up the top we see
+an indicator of the current threshold value.
+
+00:07:28.069 --> 00:07:33.819
+It defaults to 0.5. If I come down here and
+grab the slider bar I can increase the threshold,
+
+00:07:33.819 --> 00:07:39.840
+now it is 0.54. I can make it bigger, and
+we can see that progressively as I raise the
+
+00:07:39.840 --> 00:07:45.509
+threshold. Fewer and fewer pixels have a value
+greater than the threshold and the result
+
+00:07:45.509 --> 00:07:49.340
+is increasingly a black image.
+Similarly, if I reduce the threshold down
+
+00:07:49.340 --> 00:07:55.789
+here to say something like 0.41, we certainly
+see that all the letters appear there quite
+
+00:07:55.789 --> 00:08:00.479
+completely. As I reduce the threshold even
+further what we will see is some bright parts
+
+00:08:00.479 --> 00:08:07.069
+of the background starting to become true
+when we apply the threshold test and eventually
+
+00:08:07.069 --> 00:08:11.650
+the result is not quite so clear cut. So when
+you choose a threshold there is generally
+
+00:08:11.650 --> 00:08:17.289
+a sweet spot. Too low the result is all white,
+too high and the result is all black. There
+
+00:08:17.289 --> 00:08:22.750
+is a sweet spot in the middle.
+Now choosing a threshold is a difficult thing;
+
+00:08:22.750 --> 00:08:28.060
+requires a bit of skill, but primarily we
+should be informed by the histogram which
+
+00:08:28.060 --> 00:08:32.380
+tells us something about how the grey scale
+values are distributed within an image. And
+
+00:08:32.380 --> 00:08:35.740
+we use that to make an intelligent, first
+choice of the threshold.
+

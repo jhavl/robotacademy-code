@@ -1,0 +1,116 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.560 --> 00:00:10.379
+Let’s look now at what we call the edge
+problem. If I try and compute the pixel value
+
+00:00:10.379 --> 00:00:16.260
+at this particular coordinate the window of
+pixels in the input image has to look like
+
+00:00:16.260 --> 00:00:22.460
+this. And the problem is that some of the
+input window has fallen off the edge of the
+
+00:00:22.460 --> 00:00:27.429
+image. So there are pixel values that are
+undefined: the window requires pixel values
+
+00:00:27.429 --> 00:00:32.970
+that do not exist in the input image. There’s
+a couple of solutions to this: one solution
+
+00:00:32.970 --> 00:00:38.110
+is we simply don’t compute the output value
+whenever the window falls off the edge. That
+
+00:00:38.110 --> 00:00:42.760
+would be all the pixels that are indicated,
+hashed out in the right-hand image. We just
+
+00:00:42.760 --> 00:00:47.700
+wouldn’t be able to compute those.
+Another option is to assume that the image
+
+00:00:47.700 --> 00:00:52.900
+is surrounded by pixels that are all set to
+zero. If we put a layer of zero pixels all
+
+00:00:52.900 --> 00:00:58.060
+around the edge of the image then we can determine
+a valid window and from the valid window we
+
+00:00:58.060 --> 00:01:02.970
+can compute our function. The problem is that
+the zeros are somewhat artificial and they
+
+00:01:02.970 --> 00:01:09.479
+will, of course, influence the result returned
+by the function. Another technique is to replicate
+
+00:01:09.479 --> 00:01:14.890
+the edge pixels. Make copies of those pixels
+around the edge; stack them around the image
+
+00:01:14.890 --> 00:01:19.549
+so that we always have valid pixel values
+going into the window.
+
+00:01:19.549 --> 00:01:24.749
+All of these options have different advantages
+and disadvantages; just be aware of the problem
+
+00:01:24.749 --> 00:01:29.670
+when you are performing spatial operations
+on images and in some environments there may
+
+00:01:29.670 --> 00:01:35.560
+be options you can pass into the software
+to tell it how to handle this boundary condition.
+
+00:01:35.560 --> 00:01:40.119
+We can see the effect of the window falling
+off the edge of the input image as a dark
+
+00:01:40.119 --> 00:01:46.450
+border around the edge of our output image.
+Let’s have a look at this image we computed
+
+00:01:46.450 --> 00:01:55.319
+a short time ago. If we zoom in on the edge
+here, we can see quite a rapid drop off in
+
+00:01:55.319 --> 00:02:00.840
+grey level as we approach the edge of the
+image, and this is due to the neighbourhood
+
+00:02:00.840 --> 00:02:08.399
+window falling off the edge of the input image.
+Another thing to be aware of is that the window
+
+00:02:08.399 --> 00:02:14.040
+size is always odd—it is a square window
+and the width and the height are always odd
+
+00:02:14.040 --> 00:02:20.170
+numbers. The reason for this is the following:
+the window is square and it is always centred
+
+00:02:20.170 --> 00:02:26.720
+on the input pixel. Let’s say that the edge
+most pixel is H pixels away from the centre.
+
+00:02:26.720 --> 00:02:31.340
+In this particular case, H would be equal
+to 2. Move from the middle pixel, we step
+
+00:02:31.340 --> 00:02:36.900
+two pixels to the right and we are at a pixel
+which is on the edge of the window. So that
+
+00:02:36.900 --> 00:02:44.820
+means, then, that the window width is 2H +
+1. H is an integer; 2H + 1 is always an odd number.
+

@@ -1,0 +1,223 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:07.109
+Hit and miss transform
+Another variation on mathematical morphology
+
+00:00:07.109 --> 00:00:12.889
+is what's called the hit-or-miss transform.
+Now in this case, the structuring element
+
+00:00:12.889 --> 00:00:18.480
+contains pixels which have three possible
+values. The value could be zero, which means
+
+00:00:18.480 --> 00:00:24.180
+that the pixel that it sits over must be zero.
+It could be one, which means the pixel that
+
+00:00:24.180 --> 00:00:29.359
+it sits over must be equal to one or it can
+have a value of don't care, so it doesn't
+
+00:00:29.359 --> 00:00:34.329
+matter what pixel value is underneath.
+Let's illustrate this with some simple examples.
+
+00:00:34.329 --> 00:00:40.500
+Here are two input pixel patterns, and we're
+going to overlay this particular hit-and-miss
+
+00:00:40.500 --> 00:00:46.469
+transform on top of each of them. Now in the
+first case, we see that the result is true.
+
+00:00:46.469 --> 00:00:52.260
+The red pixels in the structuring element
+lay over zero pixels in the import image and
+
+00:00:52.260 --> 00:00:56.800
+blue pixels in the structuring element lay
+over input pixels which are all equal to one.
+
+00:00:56.800 --> 00:01:02.289
+So the result is true. We don't care about
+the other two pixels here, what values they
+
+00:01:02.289 --> 00:01:06.960
+have, they do not participate.
+Now let's have a look at this example.
+
+00:01:06.960 --> 00:01:12.100
+The red pixels in the structuring element
+lay over pixels, which in this case are not
+
+00:01:12.100 --> 00:01:17.450
+all equal to zero. The blue pixels in the
+structuring element lay over input pixels
+
+00:01:17.450 --> 00:01:22.680
+which are all one, so that's good. But in
+this case, the result is false because of
+
+00:01:22.680 --> 00:01:28.900
+this one valued input pixel over here.
+The hit-and-miss transform can be used for
+
+00:01:28.900 --> 00:01:35.610
+a lot of really useful and interesting applications.
+Consider this input image here, it's a synthetic
+
+00:01:35.610 --> 00:01:40.509
+image that I created using a bitmap editor,
+but we could think of it perhaps as an aerial
+
+00:01:40.509 --> 00:01:47.770
+photograph of a road network or something
+like that. Now, by applying a particular sequence
+
+00:01:47.770 --> 00:01:53.170
+of hit-and-miss transforms over and over again,
+it's possible to perform an operation called
+
+00:01:53.170 --> 00:01:59.640
+skeletonization. And what we've done is to
+convert our input image which contains a number
+
+00:01:59.640 --> 00:02:04.750
+of lines of arbitrary thickness into a skeleton
+of that image.
+
+00:02:04.750 --> 00:02:11.379
+Contains a number of lines and each line is
+guaranteed to be only one pixel wide. Now
+
+00:02:11.379 --> 00:02:17.230
+we can perform this skeletonization operation
+using the toolbox function called ithin and
+
+00:02:17.230 --> 00:02:24.200
+you pass into it a binary image. Now this
+operation is quite slow because this hit-and-miss
+
+00:02:24.200 --> 00:02:29.290
+transform is relatively expensive to compute
+in its own right and to do skeletonization
+
+00:02:29.290 --> 00:02:34.160
+we have to apply the hit-and-miss transform
+over and over again to the image in order
+
+00:02:34.160 --> 00:02:38.400
+to obtain the skeleton.
+Another really interesting application of
+
+00:02:38.400 --> 00:02:44.800
+the hit-and-miss transform is to find intersections.
+So let's assume that we have the skeletonized
+
+00:02:44.800 --> 00:02:51.239
+figure created in the previous slide and I
+want to find the intersection points. An intersection
+
+00:02:51.239 --> 00:02:56.980
+point I'm going to define as a place where
+three line segments come together at a single
+
+00:02:56.980 --> 00:03:00.519
+point.
+And in this case, there are five intersection
+
+00:03:00.519 --> 00:03:06.489
+points. So I want to find the pixel coordinates
+where these three single pixel wide lines
+
+00:03:06.489 --> 00:03:11.849
+meet. I want to find these intersections and
+again we can perform this function using the
+
+00:03:11.849 --> 00:03:17.459
+hit-and-miss transform. In the right hand
+image we see the five intersection points
+
+00:03:17.459 --> 00:03:20.970
+highlighted and each of these is just a single
+pixel.
+
+00:03:20.970 --> 00:03:26.799
+The pixel is set at the coordinate where those
+three line segments meet and we can compute
+
+00:03:26.799 --> 00:03:32.780
+this intersection using the toolbox function
+itriplepoint. The input is a binary image
+
+00:03:32.780 --> 00:03:37.830
+that contains a single pixel wide skeleton
+type image.
+
+00:03:37.830 --> 00:03:43.730
+Once again, this triple point function is
+quite slow to execute because the hit-and-miss
+
+00:03:43.730 --> 00:03:49.340
+transforms have to be executed iteratively
+until there are only these few isolated pixels
+
+00:03:49.340 --> 00:03:54.230
+remaining.
+Here's the synthetic image that I introduced
+
+00:03:54.230 --> 00:03:58.670
+to you earlier, it's loaded into the workspace.
+It’s a six hundred by eight hundred logical
+
+00:03:58.670 --> 00:04:03.939
+image so the values are either zero or one,
+so I can create a thinned version of this
+
+00:04:03.939 --> 00:04:10.159
+image using the toolbox function ithin, I
+parse in the logical image and it will compute
+
+00:04:10.159 --> 00:04:14.540
+for quite a while, almost a minute, and here
+it is.
+
+00:04:14.540 --> 00:04:21.829
+If I display this in a new window. Display
+the thinned image, we can zoom in on this
+
+00:04:21.829 --> 00:04:28.860
+image to show that it is indeed a single pixel
+wide. Zoom in again and we can see that it
+
+00:04:28.860 --> 00:04:35.810
+is just a single pixel wide line. A whole
+bunch of white blocks stacked end to end.
+
+00:04:35.810 --> 00:04:40.259
+Alright, unzoom that one.
+Now I can compute the triple points and I
+
+00:04:40.259 --> 00:04:46.990
+do that using itriplepoint function from the
+toolbox and this function and I'm going parses
+
+00:04:46.990 --> 00:04:50.470
+in the thinned image.
+This function's a lot quicker than the last
+
+00:04:50.470 --> 00:04:59.270
+one. Here's the result, so I will put that
+on figure one and display the triple points
+
+00:04:59.270 --> 00:05:07.250
+and little hard to see, there are only single
+pixels are set here and if I can zoom in there's
+
+00:05:07.250 --> 00:05:08.270
+one of the triple points.
+

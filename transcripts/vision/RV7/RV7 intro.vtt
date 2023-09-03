@@ -1,0 +1,93 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.590 --> 00:00:21.010
+So far in this lecture series, we've assumed
+the presence of an image. We've taken an image
+
+00:00:21.010 --> 00:00:25.119
+from a file. We've taken an image from a camera
+attached to our computer. We've grabbed an
+
+00:00:25.119 --> 00:00:30.410
+image from the Internet. It's time now to
+talk about how images are actually formed.
+
+00:00:30.410 --> 00:00:34.829
+Images are formed within cameras and they
+are actually formed on the retina at the back
+
+00:00:34.829 --> 00:00:41.129
+of our eye. There's a really fascinating aspect
+of image formation, we take the three dimensional
+
+00:00:41.129 --> 00:00:45.800
+world that we live in, that's very real to
+us and we project it into two dimensions.
+
+00:00:45.800 --> 00:00:49.940
+So when we have an image, a photograph or
+something like that, it's flat, it's only
+
+00:00:49.940 --> 00:00:56.280
+two-dimensional. So we've taken three-dimensional things and transformed it into two-dimensional things.
+
+00:00:56.460 --> 00:01:00.420
+We only had three dimensions to start with,
+so we've thrown away one, now we've got two.
+
+00:01:00.420 --> 00:01:04.659
+There's got to be some consequence of that.
+There are some very interesting consequences
+
+00:01:04.659 --> 00:01:08.900
+of trying to crunch three dimensions down
+into two.
+
+00:01:08.900 --> 00:01:12.869
+But there's another really interesting aspect
+of this. And that is if I look at a photograph
+
+00:01:12.869 --> 00:01:17.990
+of a landscape, it looks three dimensional
+to me, even though I know it's flat, it's
+
+00:01:17.990 --> 00:01:22.580
+a photograph, I can run my hand over it, it
+is perfectly flat. So there's some magic going
+
+00:01:22.580 --> 00:01:27.990
+on in my head, where I'm reconstructing dimensions
+that don't actually exist and that just comes
+
+00:01:27.990 --> 00:01:33.640
+from my own personal experience of the three
+dimensional nature of the world; my brain
+
+00:01:33.640 --> 00:01:35.860
+fills in this extra dimension.
+
+00:01:35.860 --> 00:01:40.720
+So these are the aspects of image formation
+that I want to talk about in this group of
+
+00:01:40.720 --> 00:01:45.200
+three lectures. In this lecture we're going
+to look out how images are formed using pinhole
+
+00:01:45.200 --> 00:01:50.850
+cameras and cameras with lenses and the treatment
+in this lecture is all going to be geometric;
+
+00:01:50.850 --> 00:01:55.600
+it's about similar triangles. We're also going
+to look at a few different types of cameras;
+
+00:01:55.600 --> 00:02:00.770
+we're going to look at fisheye cameras and
+panoramic cameras and a very new type of camera
+
+00:02:00.770 --> 00:02:02.420
+called a "Light Field Camera".
+

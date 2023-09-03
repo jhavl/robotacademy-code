@@ -1,0 +1,148 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.460 --> 00:00:08.100
+Let’s talk in detail about some of these
+monadic functions.
+
+00:00:08.100 --> 00:00:15.650
+First, changing the pixel type—quite useful
+frequently to convert an unsigned integer
+
+00:00:15.650 --> 00:00:20.380
+image into a double image. So what we are
+going to do is take input pixels in the range
+
+00:00:20.380 --> 00:00:26.259
+0 through 255, and these are integers so they
+have got value 0, 1, 2, 3 and so on, and we
+
+00:00:26.259 --> 00:00:31.720
+are going to map them into the range of real
+numbers between 0 and 1. And we can represent
+
+00:00:31.720 --> 00:00:36.489
+that mapping by a graph, which is shown there
+on the right.
+
+00:00:36.489 --> 00:00:41.579
+Conversely, we can convert double precision
+images into uint8 images. So what we want
+
+00:00:41.579 --> 00:00:46.760
+to do now is to take pixels in the range 0
+to 1 and map them into integer values, in
+
+00:00:46.760 --> 00:00:53.170
+the range of 0 to 255, and again we can represent
+this mapping graphically. Note that in both
+
+00:00:53.170 --> 00:00:59.590
+cases, the mapping is a straight line and
+it passes through the origin with a gradient of 1.
+
+00:01:01.440 --> 00:01:03.240
+We could also change the brightness of the
+
+00:01:03.249 --> 00:01:07.380
+image and there are a couple of ways that
+we can do that. One way is simply to add a
+
+00:01:07.380 --> 00:01:11.340
+constant positive value to all of the grey
+values within the scene.
+
+00:01:11.340 --> 00:01:17.369
+So f(x) is the input value x, plus the value
+of 1/4. And if we represent that graphically
+
+00:01:17.369 --> 00:01:23.250
+we see this shape here, and what happens is
+that some of the pixels are going to exceed
+
+00:01:23.250 --> 00:01:29.030
+the value of 1. So we apply what we call a
+saturation: we don’t allow them to be greater
+
+00:01:29.030 --> 00:01:34.979
+than 1, so our line has got a kink in it.
+If we apply this transformation to the Mona
+
+00:01:34.979 --> 00:01:40.719
+Lisa image we can see that indeed the image
+that has become brighter.
+
+00:01:40.719 --> 00:01:45.590
+Another way to increase the brightness of
+the image, often referred to actually as increasing
+
+00:01:45.590 --> 00:01:51.009
+the contrast of the image, is to multiply
+all the grey values by a constant, and in
+
+00:01:51.009 --> 00:01:58.180
+this case we are going to multiply all the
+grey values by the value of 2. We can see
+
+00:01:58.180 --> 00:02:03.159
+if we represent this graphically again, the
+slope of the line now is steeper than it was
+
+00:02:03.159 --> 00:02:08.479
+before. This line now has got a steepness—a
+gradient of—2, and the saturation problem
+
+00:02:08.479 --> 00:02:13.580
+is more pronounced now.
+So there are a lot of values which if we apply
+
+00:02:13.580 --> 00:02:18.330
+the function to x would have a value much
+greater than 1, and we have had to limit those
+
+00:02:18.330 --> 00:02:24.110
+or saturate those to the maximum value of
+1, which we have when we represent images
+
+00:02:24.110 --> 00:02:29.050
+in double precision numbers.
+What we can see now when we look at the image,
+
+00:02:29.050 --> 00:02:32.550
+we can see that it is indeed much more contrasty,
+
+00:02:32.550 --> 00:02:37.250
+but we can also see some areas where the pixels have become saturated.
+
+00:02:39.660 --> 00:02:42.520
+A simple function like this 1-x produces a
+
+00:02:42.520 --> 00:02:47.070
+negative image. So this is it graphically:
+a line with a slope
+
+00:02:47.070 --> 00:02:54.020
+of -1. And what happens here are bright input
+pixels become dark in the output image and
+
+00:02:54.020 --> 00:02:59.240
+vice versa. I mentioned earlier the technique
+called posterization, which you can often
+
+00:02:59.240 --> 00:03:06.170
+find in pop art. And what we do is we limit
+the number of possible output brightness values
+
+00:03:06.170 --> 00:03:12.380
+that there can be. We quantise it if you like,
+so in the image shown here what we have allowed
+
+00:03:12.380 --> 00:03:20.870
+are only four possible output grey values,
+so this staircase mapping converts a continuous
+
+00:03:20.870 --> 00:03:26.540
+range of input grey levels to one of four
+possible output values.
+

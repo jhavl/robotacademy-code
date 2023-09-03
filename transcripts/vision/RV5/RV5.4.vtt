@@ -1,0 +1,234 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.360 --> 00:00:08.800
+We talked a moment ago about the background
+blob and the fact that it has two holes in
+
+00:00:08.800 --> 00:00:10.980
+it, which represented the foreground objects.
+
+00:00:10.980 --> 00:00:14.009
+Let’s look at this more complicated example.
+
+00:00:14.009 --> 00:00:20.460
+A binary image, large number of blobs, blobs
+with holes in them, and then blobs within
+
+00:00:20.460 --> 00:00:23.210
+holes within the blobs and so on.
+
+00:00:23.210 --> 00:00:28.540
+If we apply the connectivity analysis we’re
+able to label all of these individual blobs.
+
+00:00:28.540 --> 00:00:33.840
+It doesn’t matter if the blobs are black
+or white; they are distinct, coherent regions
+
+00:00:33.840 --> 00:00:36.820
+of the same colour, and we can compute labels
+for them.
+
+00:00:36.820 --> 00:00:40.770
+And this is the value of the labels of each
+of those blobs.
+
+00:00:40.770 --> 00:00:47.210
+The background blob is number 1, and within
+the background there are three top-level objects,
+
+00:00:47.210 --> 00:00:52.020
+and they are blobs 3, 2 and 6.
+
+00:00:52.020 --> 00:00:55.410
+We can consider that these blobs are children
+of the background.
+
+00:00:55.410 --> 00:01:00.190
+The foreground objects are children of the
+background object.
+
+00:01:00.190 --> 00:01:05.549
+Now object number 3 has got two holes in it,
+and we can consider these holes as children
+
+00:01:05.549 --> 00:01:07.420
+of blob number 3.
+
+00:01:07.420 --> 00:01:10.130
+So we’re building up a bit of a family tree
+here.
+
+00:01:10.130 --> 00:01:16.830
+One is the background, it’s got children
+2, 3 and 6; 3 has got children 5 and 7; 2
+
+00:01:16.830 --> 00:01:23.050
+has got one child, which is blob number 4,
+and blob 6 has got two children, 8 and 9.
+
+00:01:23.050 --> 00:01:27.620
+Now 9 is a bit more complicated: it’s a
+hole.
+
+00:01:27.620 --> 00:01:32.900
+Within that hole are two white objects, regions
+10 and 11.
+
+00:01:32.900 --> 00:01:38.380
+So we can build up a family tree of objects—a
+blob hierarchy.
+
+00:01:38.380 --> 00:01:40.540
+Let’s try this out.
+
+00:01:40.540 --> 00:01:45.840
+I’m going to load the image that we were
+just looking at, it’s in the file multiblobs.png
+
+00:01:45.840 --> 00:01:52.420
+and we can display that just to verify the
+image that we’re looking at.
+
+00:01:52.420 --> 00:01:57.430
+Now I am going to compute a label image as
+we did a little time ago.
+
+00:01:57.430 --> 00:02:03.880
+I use the ilabel function, parse in the image.
+
+00:02:03.880 --> 00:02:09.090
+We see that nb has got a value of 11: there
+are 11 unique blobs in this particular image,
+
+00:02:09.090 --> 00:02:12.480
+and we will display the label image.
+
+00:02:12.480 --> 00:02:19.581
+Here we see the label image and we see all
+the pixels that belong to blob number 1, all
+
+00:02:19.581 --> 00:02:22.950
+the pixels here belong to blob number 3.
+
+00:02:22.950 --> 00:02:28.670
+This blob up here has been labelled 5, this
+blob down here has been labelled 10, and so
+
+00:02:28.670 --> 00:02:29.670
+on.
+
+00:02:29.670 --> 00:02:36.819
+Now we’ll use again the iblobs function
+that we used in a previous segment, and I’m
+
+00:02:36.819 --> 00:02:44.540
+going to parse in the original image, and
+the result is a vector of blob objects, or
+
+00:02:44.540 --> 00:02:45.620
+region feature objects.
+
+00:02:45.620 --> 00:02:49.209
+And we see that there are 11 objects here.
+
+00:02:49.209 --> 00:02:55.660
+There’s some pretty interesting information
+that we see in the attributes of these individual
+
+00:02:55.660 --> 00:02:56.820
+objects.
+
+00:02:56.820 --> 00:03:02.180
+In particular, we have an attribute which
+is the parent attribute.
+
+00:03:02.180 --> 00:03:08.090
+So here, for instance, we can see that blob
+number 2 has got as its parent blob number
+
+00:03:08.090 --> 00:03:09.090
+1.
+
+00:03:09.090 --> 00:03:11.690
+Blob number 1 is the large blob, which is
+the background.
+
+00:03:11.690 --> 00:03:16.940
+If we go and look at the information for blob
+number 1 we’ll see that its colour is 0,
+
+00:03:16.940 --> 00:03:21.800
+it’s a black blob, and we see that it’s
+got a massive area so it’s clearly a background
+
+00:03:21.800 --> 00:03:22.800
+blob.
+
+00:03:22.800 --> 00:03:27.940
+We also see that its touchflag is set to 1,
+and that means that it’s a blob that touches
+
+00:03:27.940 --> 00:03:32.099
+the edge of the image, and it’s the only
+blob that does so.
+
+00:03:32.099 --> 00:03:36.769
+So we can see again the blob number 2, its
+parent is blob number 1.
+
+00:03:36.769 --> 00:03:45.330
+We can also see that blob number 3 has parent
+blob number 1, and blob number 6 has as its
+
+00:03:45.330 --> 00:03:48.130
+parent blob number 1.
+
+00:03:48.130 --> 00:03:52.879
+Clearly we can see that blob number 3 has
+got two blobs within it, and we can see that
+
+00:03:52.879 --> 00:03:58.510
+blob number 5 has as a parent blob number
+3, and so does blob number 7.
+
+00:03:58.510 --> 00:04:02.180
+The situation is quite complex for blob number
+6.
+
+00:04:02.180 --> 00:04:08.239
+We can see that blob number 6 has got two
+children and they are blob number 8—its
+
+00:04:08.239 --> 00:04:13.519
+parent is blob 6—and blob number 9—its
+parent is also 6.
+
+00:04:13.519 --> 00:04:16.930
+Now
+blob 9 has got two children of its own, and
+
+00:04:16.930 --> 00:04:19.560
+they are blobs 10 and 11.
+
+00:04:19.560 --> 00:04:24.759
+So we’re able to build up, if you like,
+a family tree—a hierarchy of blobs.
+
+00:04:24.759 --> 00:04:31.439
+At the top we have the background blob, then
+we have the three white blobs, blobs 2, 3
+
+00:04:31.439 --> 00:04:34.629
+and 6, and each of those have children.
+
+00:04:34.629 --> 00:04:40.349
+We can represent this information, this relationship
+between the blobs, as a hierarchy or a family
+
+00:04:40.349 --> 00:04:46.430
+tree diagram, and we can represent it quite
+clearly and powerfully in a graphical representation.
+

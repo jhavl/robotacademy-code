@@ -1,0 +1,425 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.600 --> 00:00:08.960
+What I have here is a regular grid of dots.
+We are going to look at how those dots move
+
+00:00:08.960 --> 00:00:12.950
+in the image plane of a camera as the camera
+moves.
+
+00:00:12.950 --> 00:00:16.529
+Here we have the camera looking at that grid
+of dots; and I am going to move the camera
+
+00:00:16.529 --> 00:00:20.260
+towards the left — that's the negative X
+direction — and we can say that the dots
+
+00:00:20.260 --> 00:00:26.090
+all appear to move in the positive X direction
+in the imagine plane. Come back to the middle
+
+00:00:26.090 --> 00:00:31.140
+and now I move the camera in the positive
+Y direction. We see the dots all appear to
+
+00:00:31.140 --> 00:00:38.149
+move upward in the frame; that's in the negative
+Y direction. If I move the camera downwards
+
+00:00:38.149 --> 00:00:44.140
+towards the plane of the dots, we see that
+they all tend to be expanding outwards from
+
+00:00:44.140 --> 00:00:50.620
+the center of the image plane. And finally,
+if I rotate the camera around its Z axis — what's
+
+00:00:50.620 --> 00:00:55.090
+called the optic axis — we see that the
+dots all appear to rotate around the center
+
+00:00:55.090 --> 00:00:57.480
+of the image plane.
+
+00:00:57.480 --> 00:01:02.070
+Consider that we have a camera looking at
+an object, in this case a ball.
+
+00:01:02.070 --> 00:01:05.420
+We attach a coordinate frame to the camera
+in a way that we should be quite familiar
+
+00:01:05.420 --> 00:01:10.220
+with now. We call that coordinate frame C.
+Now we can define the position of the ball
+
+00:01:10.220 --> 00:01:16.310
+with respect to coordinate frame C.
+Now we can consider that the camera is able
+
+00:01:16.310 --> 00:01:20.970
+to move, and it's moving in three-dimensional
+space so we can have potentially a velocity
+
+00:01:20.970 --> 00:01:27.280
+in the X, Y and Z directions, and it can rotate
+about the X, Y and Z axis.
+
+00:01:27.280 --> 00:01:32.380
+We can project the three dimensional position
+of the ball into the image plane and we obtain
+
+00:01:32.380 --> 00:01:35.329
+the coordinate u,v.
+
+00:01:35.329 --> 00:01:37.900
+Let's demonstrate some of these ideas in MATLAB.
+
+00:01:37.900 --> 00:01:45.390
+We are going to create a camera object, and
+we've encountered this before. It's a pinhole
+
+00:01:45.390 --> 00:01:51.369
+camera with default parameters, and these
+are shown here. I am going to create a point
+
+00:01:51.369 --> 00:01:56.880
+in the world and it's going to be X coordinate
+of a metre, Y coordinate of a metre, Z coordinate
+
+00:01:56.880 --> 00:02:05.340
+of five metres. Transpose that so that it
+is a column vector. Now I can project that
+
+00:02:05.340 --> 00:02:12.010
+three-dimensional world point onto the image
+plane of my camera, and it is at this coordinate
+
+00:02:12.010 --> 00:02:21.400
+- 672 for u, 672 for v.
+Now I am going to project the point again,
+
+00:02:21.400 --> 00:02:26.830
+but this time I am going to shift the camera.
+I can do that with the ‘tcam’ option — the
+
+00:02:26.830 --> 00:02:33.989
+transform of the camera — and I am going
+to move the camera 0.1 metres in the X direction.
+
+00:02:33.989 --> 00:02:39.569
+So the ‘transl’ function we've encountered
+before creates a homogeneous transformation
+
+00:02:39.569 --> 00:02:45.629
+that represents a translation. There's no
+rotation in this translation: 0.1 in X direction,
+
+00:02:45.629 --> 00:02:50.890
+0 metres in the Y direction, 0 metres in the
+Z direction.
+
+00:02:50.890 --> 00:02:53.860
+Close that last bracket off, and here is the
+point.
+
+00:02:53.860 --> 00:02:59.230
+I've moved the camera a small amount in the
+positive X direction, and we can see that
+
+00:02:59.230 --> 00:03:05.140
+the u coordinate has reduced. The point has
+moved toward the left in the image.
+
+00:03:05.140 --> 00:03:11.920
+I can compute the sensitivity of this motion
+by taking the difference between the shifted
+
+00:03:11.920 --> 00:03:16.480
+point, and its original position, and dividing
+by the amount that I moved the camera. This
+
+00:03:16.480 --> 00:03:22.239
+sensitivity indicates that for every metre
+that I move the camera in the positive X direction,
+
+00:03:22.239 --> 00:03:27.150
+the projection will move -160 pixels on the
+image plane.
+
+00:03:27.150 --> 00:03:31.330
+We can repeat this process for other kinds
+of camera motion.
+
+00:03:31.330 --> 00:03:38.260
+Here is our projection function of the world
+point, and I am going to now translate the
+
+00:03:38.260 --> 00:03:48.450
+camera in the Z direction. Subtract the original
+position and divide by 0.1, and here we see
+
+00:03:48.450 --> 00:03:54.230
+that if I move the camera 1 metre in the Z
+direction, this particular point will move
+
+00:03:54.230 --> 00:04:01.680
+32 pixels in the u direction, 32 pixels in
+the v direction. I can replace that translation
+
+00:04:01.680 --> 00:04:09.500
+with a rotation. Let's rotate the camera,
+say 0.1 radians around the X axis and repeat,
+
+00:04:09.500 --> 00:04:13.700
+and in this particular case the projection
+of the point will move by 40 something pixels
+
+00:04:13.700 --> 00:04:20.579
+in the u direction and 850 pixels — a significant
+amount of motion in the v direction.
+
+00:04:20.579 --> 00:04:25.970
+What we've seen is the relationship between
+how I move the camera and how the projection
+
+00:04:25.970 --> 00:04:27.600
+varies on the image plane.
+
+00:04:27.600 --> 00:04:33.380
+A more intuitive way to visualise what's going
+on here is to display the flow field, and
+
+00:04:33.380 --> 00:04:38.110
+the flow field is defined for this particular
+camera and I parse in the velocity of the
+
+00:04:38.110 --> 00:04:42.120
+camera. So in this case I am going to parse
+in the spacial velocity of the camera, so
+
+00:04:42.120 --> 00:04:49.240
+that's a six vector and it has got unit velocity
+in the X direction. The flow field looks like
+
+00:04:49.240 --> 00:04:54.490
+this. It's saying that if the camera is moving
+in the positive X direction, then every point
+
+00:04:54.490 --> 00:05:01.810
+in the image will be shifted towards the left.
+If I change the camera velocity to be unit
+
+00:05:01.810 --> 00:05:05.860
+velocity in the Y direction, then the flow
+field looks like this. If my camera is moving
+
+00:05:05.860 --> 00:05:09.930
+in the positive Y direction, which is the
+way I defined my camera coordinate frame — the
+
+00:05:09.930 --> 00:05:15.440
+camera is moving downwards in the world — then
+every point in the image appears to move upwards.
+
+00:05:15.440 --> 00:05:20.479
+Now let's change the velocity to being unit
+velocity in the Z direction. Imagine the camera
+
+00:05:20.479 --> 00:05:25.850
+is moving towards the scene. Now the flow
+field looks like this. We have this very distinctive
+
+00:05:25.850 --> 00:05:29.340
+radiating pattern coming from the centre of
+the image plane.
+
+00:05:29.340 --> 00:05:34.340
+The final example that I want to show you
+has got zero translational motion and it has
+
+00:05:34.340 --> 00:05:40.380
+got unit rotational motion around the Z axis.
+I'm rotating the camera and in this case,
+
+00:05:40.380 --> 00:05:46.180
+every point in the scene appears to rotate
+around the center of the image plane.
+
+00:05:46.180 --> 00:05:51.280
+Let's consider that we have a regular array
+of points and the camera is moving in the
+
+00:05:51.280 --> 00:05:56.750
+positive X direction. It's got a positive
+X velocity component. What we observe is that
+
+00:05:56.750 --> 00:06:01.039
+all the points in the image move uniformly
+toward the left. Now let's consider a more
+
+00:06:01.039 --> 00:06:06.039
+interesting example where the camera is moving
+forward. And now what we see is this interesting
+
+00:06:06.039 --> 00:06:11.520
+radiating effect, a bit like the Star Trek
+warp speed effect. We see that points towards
+
+00:06:11.520 --> 00:06:16.419
+the edge of the image are moving faster than
+points in the middle of the image. The centre
+
+00:06:16.419 --> 00:06:21.910
+of the image we call the focus of expansion.
+It's the point from which all of the pixels
+
+00:06:21.910 --> 00:06:28.080
+appear to be radiating from. Consider now
+that we rotate the camera in a positive direction
+
+00:06:28.080 --> 00:06:33.150
+around the Z axis. If I’m holding the camera,
+that will correspond to me rotating the camera
+
+00:06:33.150 --> 00:06:38.470
+in a clockwise direction. The pattern of pixel
+velocities is now quite different. We see
+
+00:06:38.470 --> 00:06:44.580
+that each pixel's velocity is tangential to
+a circle centered on the middle of the image.
+
+00:06:44.580 --> 00:06:48.509
+So far, we've considered a fairly contrived
+example. We've imagined this camera moving
+
+00:06:48.509 --> 00:06:53.949
+towards a uniform array of dots. The real
+world is not like that, but we can compute
+
+00:06:53.949 --> 00:06:59.190
+this optical flow phenomena for real image
+sequences. Here we see some imagery which
+
+00:06:59.190 --> 00:07:04.380
+is captured from an unmanned aerial vehicle,
+a flying robot if you like. The robot is flying
+
+00:07:04.380 --> 00:07:10.199
+at pretty much constant altitude, and moving
+in very much a straight line. Each of these
+
+00:07:10.199 --> 00:07:16.419
+green arrows indicates the direction that
+a point in the image is moving from one frame
+
+00:07:16.419 --> 00:07:21.319
+to the next. This pixel motion has been greatly
+exaggerated from frame to frame. A point is
+
+00:07:21.319 --> 00:07:26.090
+only going to move a few pixels. Although
+the average pixel velocity is downwards within
+
+00:07:26.090 --> 00:07:30.780
+the image, we can also see that there is some
+side to side motion, and this would indicate
+
+00:07:30.780 --> 00:07:35.419
+then that the robot is not exactly flying
+a straight-line path - perhaps is being buffeted
+
+00:07:35.419 --> 00:07:39.349
+by wind gusts which is causing its hitting
+angle to change a little bit.
+
+00:07:39.349 --> 00:07:45.759
+Another example, this one which is more three-dimensional, is taken from a camera on a car moving along
+
+00:07:45.759 --> 00:07:49.500
+a road, and there are a lot of parked cars
+at the side and there are a lot of trees.
+
+00:07:49.500 --> 00:07:54.500
+What you'll notice in this particular case
+is that objects that are far away cause relatively
+
+00:07:54.500 --> 00:08:00.009
+little optical flow, where objects that are
+close by cause a large amount of optical flow,
+
+00:08:00.009 --> 00:08:02.669
+whereas objects that are close by cause a
+large amount of optical flow. We can see this
+
+00:08:02.669 --> 00:08:08.479
+radiating optical flow pattern again. We can
+see that the vectors all appear to radiate
+
+00:08:08.479 --> 00:08:13.669
+from a point in front of the car, which we
+call the focus of expansion. That's the point
+
+00:08:13.669 --> 00:08:18.680
+in the world that the car is heading towards.
+Another thing we will notice occasionally
+
+00:08:18.680 --> 00:08:24.470
+is that the optical flow vectors bounce up
+and down crazily, and that's because the car
+
+00:08:24.470 --> 00:08:29.370
+was driving over a speed bump. So the car
+is pitching up and then pitching down. That
+
+00:08:29.370 --> 00:08:35.269
+causes an additional motion component, which
+is superimposed on top of the optical flow
+
+00:08:35.269 --> 00:08:37.839
+due to just pure forward motion.
+
+00:08:50.000 --> 00:08:56.060
+This is a very very powerful illusion. I am
+inside a rotating drum and my eye can detect
+
+00:08:56.070 --> 00:09:02.380
+the motion of this drum. My eye and my brain
+are computing what we call optical flow, and
+
+00:09:02.380 --> 00:09:07.230
+this optical flow that's caused by that rotating
+drum, is the same sort of optical flow that
+
+00:09:07.230 --> 00:09:13.680
+I get if I rotate my head this way, or I rotate
+my head that way. And this particular illusion
+
+00:09:13.680 --> 00:09:18.070
+causes me to feel a little bit uneasy because
+the information that I get with my eyes — the
+
+00:09:18.070 --> 00:09:23.870
+optical flow — tells me that my head is
+moving from side to side but the gyroscopic
+
+00:09:23.870 --> 00:09:28.170
+sensors in my ears tell me that that's not
+happening. So there is a disconnect between
+
+00:09:28.170 --> 00:09:34.279
+what my ears are telling me about my attitude,
+and what my eyes are telling about my motion,
+
+00:09:34.279 --> 00:09:40.610
+and that leads to the sensation of sea sickness
+or slight nausea, which is why I am hanging
+
+00:09:40.610 --> 00:09:42.500
+on very tightly to these rails.
+

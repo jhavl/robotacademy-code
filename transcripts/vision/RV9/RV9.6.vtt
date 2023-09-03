@@ -1,0 +1,535 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:03.560
+Finding lines in images
+
+00:00:03.560 --> 00:00:08.620
+Let's talk about how we find line features.
+In this example here we've taken a picture
+
+00:00:08.620 --> 00:00:15.230
+of a church and have overlaid a number of
+lines onto that image. These lines lay along
+
+00:00:15.230 --> 00:00:16.930
+the obvious boundaries in the scene.
+
+00:00:16.930 --> 00:00:21.350
+The boundary between the sky and the roof,
+roof and the wall, edges and windows and so
+
+00:00:21.350 --> 00:00:26.449
+on. How do we go about doing this? The first
+step is we take our original input image,
+
+00:00:26.449 --> 00:00:31.859
+we convert it to a gray scale image and then
+we perform an age extraction operation.
+
+00:00:31.859 --> 00:00:37.380
+We talked about edge operators in a previous
+lecture. It involved essentially a convolutional
+
+00:00:37.380 --> 00:00:41.910
+process to determine image gradients and then
+we apply some threshold to that.
+
+00:00:41.910 --> 00:00:47.270
+This image looks very impressive in a way
+we can clearly see that all the obvious lines
+
+00:00:47.270 --> 00:00:52.000
+in the image are highlighted here. But remember
+that this is just an image. It contains a
+
+00:00:52.000 --> 00:00:56.360
+whole lot of pixels. Some pixels are black
+and some pixels are white. There is exactly
+
+00:00:56.360 --> 00:00:58.600
+no concept of line here.
+
+00:00:58.600 --> 00:01:03.039
+Our eyes are seeing lines within the scene
+and our eyes and our brain are very, very
+
+00:01:03.039 --> 00:01:08.380
+good at doing this but there is exactly no
+notion of lines here. It is simply a bunch
+
+00:01:08.380 --> 00:01:13.990
+of white pixels and black pixels and the white
+pixels highlight where there is significant
+
+00:01:13.990 --> 00:01:15.400
+grading within the scene.
+
+00:01:15.400 --> 00:01:21.530
+So how do we find the long line segments here?
+How do we group these white pixels into lines
+
+00:01:21.530 --> 00:01:28.439
+which we can describe by a simple equation.
+y=mx+b. The way we do this is with an image
+
+00:01:28.439 --> 00:01:33.369
+processing technique called the half transform
+and it's very, very ingenious and I want to try
+
+00:01:33.369 --> 00:01:35.920
+and explain it as simply as I can.
+
+00:01:35.920 --> 00:01:41.299
+Let's imagine that we have one edge point.
+So this might be a pixel that's along the
+
+00:01:41.299 --> 00:01:46.659
+roof of the church that we were just looking
+at, a single pixel which lays on an edge.
+
+00:01:46.659 --> 00:01:51.729
+Now there are infinite number of lines which
+can go through any point in space. This line
+
+00:01:51.729 --> 00:01:55.790
+for instance goes through the point, this
+line does not go through, this line does go
+
+00:01:55.790 --> 00:02:01.829
+through, this one doesn't, this one does,
+this one does, this one does and this one
+
+00:02:01.829 --> 00:02:03.340
+does.
+
+00:02:03.340 --> 00:02:08.080
+Now we could consider that the lines vote
+for the point. This line doesn't go through
+
+00:02:08.080 --> 00:02:12.700
+the point so it's not allowed to vote for
+the point. It gets zero votes. Then this line
+
+00:02:12.700 --> 00:02:17.800
+gets zero votes as well; it doesn't go through
+the point. But this line gets a vote and so
+
+00:02:17.800 --> 00:02:21.860
+does this one, this one, this one and this
+one.
+
+00:02:21.860 --> 00:02:27.239
+These lines voted for the point and the red
+lines have not voted for the point.
+
+00:02:27.239 --> 00:02:33.290
+Now, lets consider we have another point which
+lays along the edge perhaps these two black
+
+00:02:33.290 --> 00:02:38.459
+points now lay along the roof of the church
+that we were just looking at. Once again there
+
+00:02:38.459 --> 00:02:42.660
+are an infinite number of lines which could
+go through that point. Could be this line,
+
+00:02:42.660 --> 00:02:48.129
+or this line, or this line and once again,
+we are going to allow the lines to vote for
+
+00:02:48.129 --> 00:02:48.780
+a point.
+
+00:02:48.780 --> 00:02:53.349
+So this line gets one vote because it goes
+through a point, this line gets a vote as
+
+00:02:53.349 --> 00:02:58.550
+does this one and this one but this line also
+goes through that first point.
+
+00:02:58.550 --> 00:03:04.530
+That particular line now has two votes. But
+we see that there are a lot of lines in this
+
+00:03:04.530 --> 00:03:07.540
+scene and I have already drawn up a small
+number. There are a infinite number of lines
+
+00:03:07.540 --> 00:03:11.599
+that go through the points, infinite number
+of lines that don't go through the points.
+
+00:03:11.599 --> 00:03:16.459
+We can see that some of the lines that go
+through a point get one vote but one particular
+
+00:03:16.459 --> 00:03:21.420
+line, the line that goes through two points
+gets two votes. So we've used a simple voting
+
+00:03:21.420 --> 00:03:26.780
+system to try and determine the best line
+that goes through two points and we can extend
+
+00:03:26.780 --> 00:03:31.230
+this to a large number of points and that's
+what we would do when we process an image
+
+00:03:31.230 --> 00:03:35.849
+like the church. Normally when we represent
+lines, we use an equation like this. This
+
+00:03:35.849 --> 00:03:40.650
+is the very standard Cartesian representation
+of a line. U is our horizontal coordinate,
+
+00:03:40.650 --> 00:03:46.790
+V is our vertical coordinate, M is the gradient
+and C is the intercept. A problem with this
+
+00:03:46.790 --> 00:03:52.080
+particular representation of a line is for
+vertical lines. In the case where the line
+
+00:03:52.080 --> 00:03:57.000
+is vertical, it must be equal to infinity
+and that's slightly problematic.
+
+00:03:57.000 --> 00:04:02.000
+There is another way we can describe the equation
+of a line and we do it in this fashion, it's
+
+00:04:02.000 --> 00:04:06.890
+often called the polar representation of a
+line that we have a U and V coordinates but
+
+00:04:06.890 --> 00:04:13.250
+the line is described by two parameters now
+rho and theta. Theta is the angle that the
+
+00:04:13.250 --> 00:04:18.280
+line makes with the horizontal axis and rho is the perpendicular distance between the
+
+00:04:18.280 --> 00:04:25.290
+origin and a point on the line. Two parameters
+rho and theta can describe a line in a more
+
+00:04:25.290 --> 00:04:29.870
+versatile way than the traditional gradient
+and intercept formulation.
+
+00:04:29.870 --> 00:04:34.380
+One problem is when we are talking about all
+those infinite number of lines that could
+
+00:04:34.380 --> 00:04:40.509
+go through a point is its going to be difficult
+for an infinite number of lines to vote. What
+
+00:04:40.509 --> 00:04:47.310
+we need to do is to quantize the values of
+rho and theta. Instead of considering an infinite
+
+00:04:47.310 --> 00:04:51.380
+number of lines we consider a finite number
+of lines.
+
+00:04:51.380 --> 00:04:57.139
+It works like this, it's a voting scheme now
+we have a coordinate system, horizontal axis
+
+00:04:57.139 --> 00:05:02.020
+is the line parameter of theta, the vertical
+axis is the line parameter of rho. And we
+
+00:05:02.020 --> 00:05:08.600
+placed a grid on this. Every single cell represents
+a possible line in an image. A particular
+
+00:05:08.600 --> 00:05:13.960
+value of row and a particular value of theta
+and that represents a line in the image. This
+
+00:05:13.960 --> 00:05:18.900
+is a very course example in a real world example
+this grid might have hundreds of elements
+
+00:05:18.900 --> 00:05:23.470
+in both directions. The important thing to
+keep in mind is that
+
+00:05:23.470 --> 00:05:26.150
+each cell represents a particular line within the image.
+
+00:05:26.150 --> 00:05:31.380
+For any point in the input image, that lays
+along an edge, that's a pixel at coordinate U
+
+00:05:31.380 --> 00:05:37.419
+and V the parameters of the lines that go
+through that point must satisfy this particular equation.
+
+00:05:38.440 --> 00:05:45.310
+This is now an equation that relates rho to theta. For every possible value of theta,
+
+00:05:45.310 --> 00:05:50.639
+given that I know U and V, I can computer
+a value of rho. And so all these lines get
+
+00:05:50.639 --> 00:05:56.850
+to have a vote. They get to vote one for that
+particular line. For this one point, it puts
+
+00:05:56.850 --> 00:06:02.729
+these votes into what we call the voting array
+sometimes called the Hough accumulator.
+
+00:06:02.729 --> 00:06:08.139
+So for one point we have made votes for a
+large number of lines. Now let's consider
+
+00:06:08.139 --> 00:06:13.500
+what happens when we introduce a second point.
+The second point is voting for all of the
+
+00:06:13.500 --> 00:06:18.880
+possible lines that pass through it and it's introduced another curve into the voting
+
+00:06:18.880 --> 00:06:22.940
+array. We can see that there are a number
+of possible lines that got one vote and we
+
+00:06:22.940 --> 00:06:28.319
+can see that there is one line here which
+has got two votes. This is the underlying
+
+00:06:28.319 --> 00:06:30.840
+principle for the Hough transform.
+
+00:06:30.840 --> 00:06:45.319
+We will have a quick look at the scaling variant
+and feature transform.
+
+00:06:45.319 --> 00:06:56.360
+And here it is. Now to compute the sift features
+I use the toolbox function isift, I parse
+
+00:06:56.360 --> 00:07:02.349
+in the image and very similar arguments as
+we used for the Harris corner function and
+
+00:07:02.349 --> 00:07:08.919
+I am going to select 200 corner features.
+Just take a minute or two to compute and now
+
+00:07:08.919 --> 00:07:14.020
+in the workspace we have a vector of 200 sift
+point features.
+
+00:07:14.020 --> 00:07:17.490
+Let's have a look at one of these features.
+Let's have a look at the first one in the
+
+00:07:17.490 --> 00:07:24.500
+vector. It's called a coordinate of 289.9
+and 805.4 it has a number of additional attributes
+
+00:07:24.500 --> 00:07:28.960
+like the Harris corner it's got a strength
+which indicates how distinctive that feature
+
+00:07:28.960 --> 00:07:35.430
+is but unlike the Harris corner feature, it
+also has an orientation, a theta value and
+
+00:07:35.430 --> 00:07:37.729
+also a scale value.
+
+00:07:37.729 --> 00:07:42.319
+Let's have a look at this particular feature
+in the image. We do that by calling the plot
+
+00:07:42.319 --> 00:07:47.620
+method on it, we are going to plot it in yellow,
+I am going to exaggerate it's scale so it's
+
+00:07:47.620 --> 00:07:52.949
+a bit easier to see. I will exaggerate the
+scale by a factor of 16 and I am going to
+
+00:07:52.949 --> 00:07:56.789
+display it in clock format and I will explain
+that in just a moment.
+
+00:07:56.789 --> 00:08:02.819
+There we see the feature. Drawn a circle around
+it and the circle indicates something about
+
+00:08:02.819 --> 00:08:08.210
+the scale of the feature and the line which
+is the hand of the clock it's what the clock
+
+00:08:08.210 --> 00:08:13.220
+option is about says something about the orientation
+of the particular feature.
+
+00:08:13.220 --> 00:08:20.960
+Now we can display the sift features for the
+whole image. To do that, I am going to redisplay
+
+00:08:20.960 --> 00:08:28.250
+the original scene draw it a little darker
+and then I am going to plot all of the features
+
+00:08:28.250 --> 00:08:33.349
+in white and we exaggerate the scale a bit
+less this time and I am going to display them
+
+00:08:33.349 --> 00:08:36.399
+as clocks. And there we see it.
+
+00:08:36.399 --> 00:08:41.860
+Each feature has a coordinate, a point within
+the image. For each feature we draw a circle
+
+00:08:41.860 --> 00:08:47.209
+around it and the size of the circle indicates
+something about the scale of the feature.
+
+00:08:47.209 --> 00:08:53.320
+A small circle indicates a pattern of pixels
+that's quite distinct across that very small
+
+00:08:53.320 --> 00:08:55.220
+spatial scale within the image.
+
+00:08:55.220 --> 00:09:01.269
+So it might be a single leaf, it might be
+a small corner of a balcony or a window in
+
+00:09:01.269 --> 00:09:05.890
+the image. A large circle corresponds to a
+large scale feature.
+
+00:09:05.890 --> 00:09:12.330
+So that's something that is distinctive at
+a much larger spatial scale so it might be
+
+00:09:12.330 --> 00:09:18.870
+the general idea of a bright building surrounded
+by some dark trees along the bottom edge.
+
+00:09:18.870 --> 00:09:24.800
+There is a lot of information in the position
+of the feature also in its scale.
+
+00:09:24.800 --> 00:09:31.220
+Each circle has got a single radial line and
+that corresponds to the orientation of the
+
+00:09:31.220 --> 00:09:36.820
+feature that is saying something about how
+that pattern of pixels is oriented within
+
+00:09:36.820 --> 00:09:37.820
+the image.
+
+00:09:37.820 --> 00:09:40.910
+Imagine now I move my camera somewhat dramatically.
+
+00:09:40.910 --> 00:09:46.510
+Perhaps I rotated it by 90 degrees or perhaps
+I moved much further away from the building.
+
+00:09:46.510 --> 00:09:51.820
+The great advantage of the sift feature is
+that it will allow me to match features between
+
+00:09:51.820 --> 00:09:54.260
+these two very different views.
+
+00:09:54.260 --> 00:09:59.010
+Although the orientation of the pattern of
+pixels in the scene will be different although
+
+00:09:59.010 --> 00:10:04.200
+the scale of the pattern of pixels will be
+different, the sift algorithm is able to see
+
+00:10:04.200 --> 00:10:09.680
+through that. And you will find the same interesting
+point in each of the two very, very different
+
+00:10:09.680 --> 00:10:15.640
+views. But we will report that the orientation
+has changed or that the scale of the feature
+
+00:10:15.640 --> 00:10:16.660
+has changed.
+
+00:10:16.660 --> 00:10:23.170
+In addition to having a position and an orientation
+and a scale the sift feature also has a descriptor
+
+00:10:23.170 --> 00:10:26.240
+and we can have a look at the descriptor for
+feature number one.
+
+00:10:26.240 --> 00:10:36.310
+And we can see here in the workspace the new
+variable D and it is a 128 element vector.
+
+00:10:36.310 --> 00:10:41.790
+The sift algorithm describes the pattern of
+pixels within the circle, what we call the
+
+00:10:41.790 --> 00:10:48.040
+support region by 128 element vector. So that's
+quite a comprehensive description of that
+
+00:10:48.040 --> 00:10:53.490
+particular pattern of pixels. If we have 
+these two very, very diverse views of the same
+
+00:10:53.490 --> 00:10:58.060
+scene even though the orientation and the
+scale might be very, very different.
+
+00:10:58.060 --> 00:11:03.410
+The descriptors associated with the interest
+points in the two scenes will be very very
+
+00:11:03.410 --> 00:11:08.430
+similar and we can evaluate the similarity
+of points between these two scenes simply
+
+00:11:08.430 --> 00:11:12.940
+by comparing their two descriptive vectors
+and typically that's done in the Euclidian
+
+00:11:12.940 --> 00:11:16.730
+sense by the square root of the sum of the
+squares of the difference between the two
+
+00:11:16.730 --> 00:11:17.910
+descriptive vectors.
+
+00:11:17.910 --> 00:11:23.649
+Now this has been a very cursory introduction
+to the idea of sift features. They're very very
+
+00:11:23.649 --> 00:11:27.860
+important in computer vision unfortunately
+in this introductory course, it's not possible
+
+00:11:27.860 --> 00:11:31.450
+to say very much more about this. There is
+a lot of literature and you will find mention
+
+00:11:31.450 --> 00:11:33.890
+of them in many computer vision textbooks.
+

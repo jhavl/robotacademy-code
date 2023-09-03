@@ -1,0 +1,225 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.330 --> 00:00:08.050
+We might take some inspiration for how human
+beings solve this problem; we're very good
+
+00:00:08.050 --> 00:00:13.370
+at understanding and operating in the three
+dimensional world. In fact human beings use
+
+00:00:13.370 --> 00:00:19.289
+a large number of different techniques, tricks,
+sometimes called visual cues, to understand
+
+00:00:19.289 --> 00:00:21.010
+three-dimensional structure.
+
+00:00:21.010 --> 00:00:26.420
+Nine of them have been identified in this
+particular paper. Different cues operate in
+
+00:00:26.420 --> 00:00:30.929
+different distance regimes. Thought there
+are some that are effective within our arms
+
+00:00:30.929 --> 00:00:36.489
+reach, some are effective up to tens of meters
+and some are effective right out to the horizon,
+
+00:00:36.489 --> 00:00:39.379
+a distance of many kilometres.
+
+00:00:39.379 --> 00:00:44.280
+Let's have a look at some of these visual
+cues. The simplest of all is occlusion, and
+
+00:00:44.280 --> 00:00:49.250
+this information comes from what object is
+in front of another object. We can tell here
+
+00:00:49.250 --> 00:00:54.329
+that the cat is in front of the brick gatepost
+because the cat blocks out of obscures some
+
+00:00:54.329 --> 00:01:00.309
+of that gatepost and the flowers are in front
+of the cat because they block out some of the cat.
+
+00:01:00.559 --> 00:01:05.549
+Another important cue is height in the visual
+field. Looking at this we can see a tree and
+
+00:01:05.549 --> 00:01:10.450
+we know a tree's a pretty big thing. But in
+this particular image the tree does not look
+
+00:01:10.450 --> 00:01:15.170
+that big, so therefore we figure that the
+tree must be a long way away.
+
+00:01:15.170 --> 00:01:20.570
+We also have relative size. Here we have a
+number of trees. In our brain there's probably
+
+00:01:20.570 --> 00:01:24.070
+some sort of logic that says that these are
+trees, trees are all going to be the same
+
+00:01:24.070 --> 00:01:30.130
+size, so therefore, this tree which looks
+bigger than the other tree must be closest to us.
+
+00:01:31.100 --> 00:01:36.340
+In these eye catching pictures, our brain
+is momentarily confused. It takes a moment
+
+00:01:36.350 --> 00:01:40.210
+for us to figure out what are the small things
+that are close to the camera and what are
+
+00:01:40.210 --> 00:01:43.409
+the large things that are far away from the
+camera.
+
+00:01:43.409 --> 00:01:47.869
+Here's a picture of a large stone in the desert
+and just looking at it, it's rather hard for
+
+00:01:47.869 --> 00:01:53.340
+us to gauge in any sort of absolute way, how
+big this stone is and we can break the illusion
+
+00:01:53.340 --> 00:01:57.840
+by introducing something who's size we know;
+a pair of fingers and we can pick this stone
+
+00:01:57.840 --> 00:02:03.439
+up and we can compare it to its more famous
+big brother, the largest stone in the world,
+
+00:02:03.439 --> 00:02:07.619
+called Uluru in the centre of Australia.
+
+00:02:07.619 --> 00:02:14.980
+Here we see a very, very powerful illusion.
+But nothing about this room is, as it seems.
+
+00:02:14.980 --> 00:02:22.080
+For a start the floor is not flat. Now follow
+me in and see what it looks like from the
+
+00:02:22.080 --> 00:02:28.910
+inside. The clock is not actually round; if
+we look at those square floor tiles we see
+
+00:02:28.910 --> 00:02:33.980
+that they are not actually square. And the
+corners of the room are not right angles.
+
+00:02:33.980 --> 00:02:39.500
+The whole geometry of the room has been contrived,
+so that from this one particular viewpoint
+
+00:02:39.500 --> 00:02:43.640
+it looks like an ordinary room.
+
+00:02:43.640 --> 00:02:47.690
+Another technique we use to estimate distance
+is called "Texture Density" and a good example
+
+00:02:47.690 --> 00:02:53.410
+of it is seen here in this gravel path. Up
+close we can see the individual pieces of
+
+00:02:53.410 --> 00:02:59.290
+gravel and at increasing distance the pieces
+of gravel get smaller and smaller in the image.
+
+00:02:59.290 --> 00:03:04.989
+Up close the texture is quite coarse and as
+we go further away the texture becomes finer
+
+00:03:04.989 --> 00:03:11.090
+and finer, so in our eyes and our brain, we're
+looking at the size of a texture and making
+
+00:03:11.090 --> 00:03:14.269
+some assumptions about how that relates to
+distance.
+
+00:03:14.269 --> 00:03:18.980
+A technique that we use over very, very large
+distances is called aerial perspective. This
+
+00:03:18.980 --> 00:03:23.610
+exploits the fact that objects that are at
+large distances of the order of kilometres,
+
+00:03:23.610 --> 00:03:26.860
+become less distinct; more hazy.
+
+00:03:26.860 --> 00:03:31.769
+A really important cue is binocular disparity
+and we're going to talk much more about it
+
+00:03:31.769 --> 00:03:37.819
+in this lecture. This is the information that’s
+derived from two views of the scene from two
+
+00:03:37.819 --> 00:03:41.930
+different viewpoints; our left eye and our
+right eye and it's a technique that is very,
+
+00:03:41.930 --> 00:03:44.459
+very widely used in animals.
+
+00:03:44.459 --> 00:03:51.299
+Our eye contains a lens and is a fairly autonomous
+part of our brain is responsible for keeping
+
+00:03:51.299 --> 00:03:55.650
+that lens focused, so if we're looking at
+something that's up close, this part of our
+
+00:03:55.650 --> 00:03:59.629
+brain is going to adjust the shape of the
+lens so that we can focus on that object.
+
+00:03:59.629 --> 00:04:05.169
+If the object is further away, then the shape
+of the lens is going to be changed to focus on that.
+
+00:04:05.360 --> 00:04:11.159
+We can take information from this muscle and
+use that as a proxy for the distance of the
+
+00:04:11.159 --> 00:04:17.199
+object. There is another fairly autonomous
+part of our visual system, which is responsible
+
+00:04:17.199 --> 00:04:22.720
+for controlling direction in which our eyes
+point. When an object is close to our face,
+
+00:04:22.720 --> 00:04:27.979
+our eyes converge on that particular object.
+If we take information about the direction
+
+00:04:27.979 --> 00:04:34.499
+that are eyes are pointing, we can triangulate to the object and that is a way of inferring its distance.
+
+00:04:34.660 --> 00:04:39.240
+The final technique that we use is called
+"Motion Perspective" and that is as I'm moving
+
+00:04:39.250 --> 00:04:43.290
+through the world, objects that are close
+to me, appear to be moving quite quickly,
+
+00:04:43.290 --> 00:04:46.930
+whereas objects that are far away, appear
+to move much more slowly.
+

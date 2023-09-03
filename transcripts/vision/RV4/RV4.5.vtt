@@ -1,0 +1,394 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.750 --> 00:00:08.540
+Let’s investigate how image intensity varies
+along the line that I have shown here in red
+
+00:00:08.540 --> 00:00:14.330
+and, in particular, let’s focus on what
+happens here at the tail of the P. If we look
+
+00:00:14.330 --> 00:00:19.529
+at the intensity profile here and these pixel
+values, these grey scale values are double
+
+00:00:19.529 --> 00:00:25.109
+precision values that vary between zero for
+black and one for white, and we see that it
+
+00:00:25.109 --> 00:00:29.340
+starts off with a low value of around 0.2.
+Whereas on the black paint—the background
+
+00:00:29.340 --> 00:00:35.170
+of the sign—they rise up to a value of around
+0.8 and when we cross the white paint, which
+
+00:00:35.170 --> 00:00:39.930
+is the tail of the P, and then fall off again
+to low background values.
+
+00:00:39.930 --> 00:00:46.140
+Back onto the black paint: we might be interested
+in looking at the horizontal gradient and
+
+00:00:46.140 --> 00:00:51.000
+we can approximate the gradient as the difference
+between a pixel and its neighbour on the left-hand
+
+00:00:51.000 --> 00:00:56.250
+side—simple numerical approximation to the
+gradient. However, this is not a very symmetrical
+
+00:00:56.250 --> 00:01:01.289
+way to think about this. So instead we can
+represent it this way: the intensity in the
+
+00:01:01.289 --> 00:01:07.210
+horizontal direction of pixel U is the difference
+between its neighbour on the right-hand side
+
+00:01:07.210 --> 00:01:13.970
+and its neighbour on the left-hand side, divided
+by 2. This would represent the horizontal gradient.
+
+00:01:14.840 --> 00:01:17.460
+Now the gradient expressed in this form we
+
+00:01:17.470 --> 00:01:24.890
+can write as a kernel— it is a small kernel
+represented by a 1 by 3 matrix. If we apply
+
+00:01:24.890 --> 00:01:30.750
+this kernel to the input image the result
+would be an output image who’s pixels comprise
+
+00:01:30.750 --> 00:01:34.869
+the horizontal gradient at the corresponding
+point.
+
+00:01:34.869 --> 00:01:39.579
+Here is an animation similar to ones we have
+seen before; in red, we see the input window
+
+00:01:39.579 --> 00:01:44.229
+marching across the image from left to right
+and from top to bottom. As it is moving we
+
+00:01:44.229 --> 00:01:49.490
+are computing the output values and dropping
+them into the output image. Note again that
+
+00:01:49.490 --> 00:01:52.640
+we are not computing the
+left-hand edge and right-hand edge of the
+
+00:01:52.640 --> 00:01:59.310
+output image because this is where the input
+window falls off the input image. We can see
+
+00:01:59.310 --> 00:02:04.259
+the gradient being computed, we can see areas
+of gentle horizontal gradient, we can see
+
+00:02:04.259 --> 00:02:09.110
+the areas of much stronger horizontal gradient
+where we have this continuity and we can see
+
+00:02:09.110 --> 00:02:16.280
+areas where the gradient is negative.
+Let’s apply this to the image that we were
+
+00:02:16.280 --> 00:02:22.980
+looking at earlier and we can do that quite
+simply using the tool box function iconv.
+
+00:02:22.980 --> 00:02:27.950
+We pass in the first argument, which is the
+kernel, and the second argument, which is
+
+00:02:27.950 --> 00:02:31.810
+the image.
+What we can see here is that the left-hand
+
+00:02:31.810 --> 00:02:36.069
+edges of the letters are coded blue; that
+means they have positive gradient that is
+
+00:02:36.069 --> 00:02:41.450
+where the intensity is changing from the dark
+of the background to the white of the letters.
+
+00:02:41.450 --> 00:02:45.470
+On the right-hand side of the letters where
+the intensity falls from white down to the
+
+00:02:45.470 --> 00:02:50.720
+dark background it has got a negative value
+and this is shown as red. So what this kernel
+
+00:02:50.720 --> 00:02:56.760
+is doing is highlighting vertical lines within
+the scene because vertical lines have got
+
+00:02:56.760 --> 00:03:03.379
+a strong horizontal gradient.
+I denote this image as I subscript u (Iu).
+
+00:03:03.379 --> 00:03:07.790
+This is a common way to denote image gradients.
+The subscript represents the direction in
+
+00:03:07.790 --> 00:03:13.819
+which the gradient is being computed.
+Now we can do a very similar thing by rotating
+
+00:03:13.819 --> 00:03:19.670
+the kernel and now we can compute the gradient
+in the vertical direction. So the kernel now
+
+00:03:19.670 --> 00:03:24.659
+is the transpose of the kernel we used to
+compute horizontal gradient. It will allow
+
+00:03:24.659 --> 00:03:27.220
+us to compute vertical gradient.
+
+00:03:27.220 --> 00:03:32.580
+Now, we can apply that to our penguin sign,
+this is what the kernel looks like and this
+
+00:03:32.580 --> 00:03:38.180
+is what the output looks like. It has some
+similarities to what we saw before. As we
+
+00:03:38.180 --> 00:03:43.409
+move down in a column, we see that the tops
+of letters are blue and this indicates that
+
+00:03:43.409 --> 00:03:48.560
+they have got a strong positive gradient.
+Remember that in images the vertical coordinate
+
+00:03:48.560 --> 00:03:54.659
+increases downwards. So at the top of a letter
+we are moving from the dark background onto
+
+00:03:54.659 --> 00:03:59.870
+the white paint and so we have a strong positive
+gradient. On the bottom of the letters there
+
+00:03:59.870 --> 00:04:05.340
+is a strong negative gradient if you fall
+off the white paint down onto the black background.
+
+00:04:05.340 --> 00:04:10.970
+So the vertical gradient image has highlighted
+the horizontal lines within the image. We
+
+00:04:10.970 --> 00:04:16.440
+can compute this in MATLAB using almost the
+same function as before except we have transposed
+
+00:04:16.440 --> 00:04:22.410
+the kernel. The kernel is a 1 by 3 matrix
+and we use MATLAB’s transpose operator the
+
+00:04:22.410 --> 00:04:28.110
+quote symbol in order to transpose that kernel
+into a 3 by 1 matrix.
+
+00:04:28.110 --> 00:04:33.960
+A very common kernel used in image processing
+is called the sobel kernel, and it has some
+
+00:04:33.960 --> 00:04:39.030
+similarities to the simple kernel that we
+used before. I like to think of this kernel
+
+00:04:39.030 --> 00:04:44.440
+as computing the horizontal gradient on the
+current line and averaging that with the horizontal
+
+00:04:44.440 --> 00:04:50.389
+gradient on the line above and on the line
+below. We can obtain the value of this kernel
+
+00:04:50.389 --> 00:04:57.370
+using the tool box function ksobel. If I apply
+this function to our penguin image I can obtain
+
+00:04:57.370 --> 00:05:02.060
+a horizontal gradient image that is shown
+here, which looks quite similar to the horizontal
+
+00:05:02.060 --> 00:05:07.120
+gradient we just looked at. The function isobel,
+we pass it an image and it returns both a
+
+00:05:07.120 --> 00:05:10.770
+horizontal gradient image and a vertical gradient
+image.
+
+00:05:10.770 --> 00:05:15.710
+A really important feature in an image—a
+very common feature in images of man-made
+
+00:05:15.710 --> 00:05:21.800
+scenes—are what we call edges. What I am
+going to do is to load an image that we have
+
+00:05:21.800 --> 00:05:29.410
+seen before and to display that, and here
+is the sign about penguins again, and what
+
+00:05:29.410 --> 00:05:36.320
+I am going to do is to look at an intensity
+profile along roughly a horizontal line from
+
+00:05:36.320 --> 00:05:44.840
+here to there, and what we see is the intensity
+has got a low value to start with and then
+
+00:05:44.840 --> 00:05:50.479
+as we cross each of the pieces of white paint
+on the sign we see the intensity goes up.
+
+00:05:50.479 --> 00:05:56.940
+Now let’s zoom in a little bit on that … it
+is a little bit too busy. I am going to expand
+
+00:05:56.940 --> 00:06:02.630
+this region here, which is the beginning of
+the word ‘look’, and what we see quite
+
+00:06:02.630 --> 00:06:08.910
+clearly here is that the pixels have got quite
+a low value, less than 0.2 which is the background.
+
+00:06:08.910 --> 00:06:16.460
+The dark background of the sign moves up to
+around 0.6, 0.7. The white paint as we cross
+
+00:06:16.460 --> 00:06:22.949
+the letter L—down again to a value of 0.2,
+and then pixel value increases as we cross
+
+00:06:22.949 --> 00:06:29.110
+the remaining letters. What we can see is
+that as we move from the dark to the light
+
+00:06:29.110 --> 00:06:33.979
+the intensity increases quite rapidly. Then
+it falls quite rapidly on the other side of
+
+00:06:33.979 --> 00:06:39.380
+the character, so we are going to explore
+this idea of gradient or the rate of change
+
+00:06:39.380 --> 00:06:43.690
+at the grey level as we move horizontally
+across the sign.
+
+00:06:43.690 --> 00:06:47.789
+Often in image processing we are interested
+in areas of the image where there is a lot
+
+00:06:47.789 --> 00:06:51.590
+of gradient. We don’t care whether it is
+horizontal or vertical; we don’t care whether
+
+00:06:51.590 --> 00:06:55.720
+it is positive or negative. We just want to
+know where there is a lot of gradient.
+
+00:06:55.720 --> 00:06:59.849
+And this is computed quite simply by computing
+the square root of the sum of the squares
+
+00:06:59.849 --> 00:07:04.310
+of the horizontal and vertical gradients and
+results in an image like this.
+
+00:07:04.310 --> 00:07:08.319
+Most of it is black because there isn’t
+much gradient over the background. Where there
+
+00:07:08.319 --> 00:07:12.669
+is a lot of gradient around the edges of letters
+this function has got a very high value. So
+
+00:07:12.669 --> 00:07:17.509
+this is a great operator for highlighting
+the edges of objects within a scene. And we
+
+00:07:17.509 --> 00:07:22.830
+can obtain an image like this using the function
+isobel with no output arguments.
+
+00:07:22.830 --> 00:07:28.229
+We might also be interested in the direction
+of maximum gradient; in this image pixels
+
+00:07:28.229 --> 00:07:33.380
+are increasing by a value of 10 every pixel
+in the horizontal direction and by 5 every
+
+00:07:33.380 --> 00:07:39.710
+pixel vertically. So the direction of maximum
+gradient change is in this direction, 26°
+
+00:07:39.710 --> 00:07:45.860
+with respect to horizontal.
+Now we can apply that same technique to the
+
+00:07:45.860 --> 00:07:50.530
+sobel image that we computed before. We can
+compute a gradient image and that is the arc
+
+00:07:50.530 --> 00:07:57.319
+tangent of the vertical gradient image element
+wise divided by the horizontal gradient image.
+
+00:07:57.319 --> 00:08:01.669
+It looks a little bit too busy, so let’s
+zoom in on the letter P.
+
+00:08:01.669 --> 00:08:07.389
+And if we look at the gradient direction on
+the left-hand edge of the P, we see that it
+
+00:08:07.389 --> 00:08:12.539
+has got a gradient direction value of 0. It’s
+coded as white.
+
+00:08:12.539 --> 00:08:17.310
+So if we look at the colour bar over here,
+we can see that 0 corresponds to zero radiant
+
+00:08:17.310 --> 00:08:23.430
+angle and we expect this on this side of the
+letter; the gradient is increasing in the
+
+00:08:23.430 --> 00:08:29.430
+horizontal direction from left to right. On
+the other side of the letter the gradient
+
+00:08:29.430 --> 00:08:34.380
+is, in fact, increasing from right to left
+because it is at this point that we are following
+
+00:08:34.380 --> 00:08:40.310
+from the high white value down to the dark
+value. So the gradient is right to left and
+
+00:08:40.310 --> 00:08:44.390
+we can see on this side of the letter the
+gradient angles are either plus π, which
+
+00:08:44.390 --> 00:08:49.490
+are shown as dark blue or negative π, which
+is shown as dark red.
+

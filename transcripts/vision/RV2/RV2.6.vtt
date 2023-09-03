@@ -1,0 +1,96 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.409 --> 00:00:08.459
+We have just seen how we can load images from
+files stored on our computer into the MATLAB
+
+00:00:08.459 --> 00:00:13.910
+environment where we can begin to look at
+them and manipulate them, but for a robot
+
+00:00:13.910 --> 00:00:18.930
+it is really important that it is sensing
+the world as it is now. So information that
+
+00:00:18.930 --> 00:00:23.900
+is stored in a file may not be sufficiently
+up to date. We need to see the world as it
+
+00:00:23.900 --> 00:00:28.160
+is now: we need to be able to bring images
+in from a camera.
+
+00:00:28.160 --> 00:00:34.220
+Now it is really fortunate today that almost
+all computers have one or more cameras attached
+
+00:00:34.220 --> 00:00:38.809
+to them. So what we are going to look at now
+is how we get information from a camera on
+
+00:00:38.809 --> 00:00:46.050
+my computer into the MATLAB environment.
+So here we are in the MATLAB desktop workspace
+
+00:00:46.050 --> 00:00:51.480
+again and in order to grab an image from a
+camera we first create an object, a MATLAB
+
+00:00:51.480 --> 00:00:57.469
+object that is attached to the camera and
+in this case, it is the zeroth camera—that
+
+00:00:57.469 --> 00:01:04.339
+is the first camera that my computer has.
+And it creates a new object in the MATLAB
+
+00:01:04.339 --> 00:01:09.521
+workspace, an object of type VideoCamera.
+As soon as this object has been created, the
+
+00:01:09.521 --> 00:01:13.580
+camera attached to my computer has become
+live; a little red recording light has come
+
+00:01:13.580 --> 00:01:18.380
+on. This object supports a number of methods,
+and the most important method for our purposes
+
+00:01:18.380 --> 00:01:22.831
+is the grab method, which grabs an image from
+the camera, the most recent image from the
+
+00:01:22.831 --> 00:01:28.400
+camera, and displays it.
+We might be interested in actually putting
+
+00:01:28.400 --> 00:01:33.850
+the image into a workspace variable and we
+do it in this way. We assign the output of
+
+00:01:33.850 --> 00:01:39.040
+the grab method to a workspace variable and
+in this case, the variable im, and the image
+
+00:01:39.040 --> 00:01:44.080
+is grabbed from the camera and placed into
+that workspace variable. If I call the function
+
+00:01:44.080 --> 00:01:50.979
+again it will take another picture and display
+it with my head in a different pose.
+
+00:01:50.979 --> 00:01:57.229
+The camera is running continuously. In order
+to turn the camera off I need to destroy the
+
+00:01:57.229 --> 00:02:01.560
+camera object. You do that with a MATLAB clear
+command, so if I clear the object from the
+
+00:02:01.560 --> 00:02:06.389
+workspace the object is destroyed and the
+camera is turned off. The red light disappears.
+

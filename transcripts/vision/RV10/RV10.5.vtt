@@ -1,0 +1,297 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.340 --> 00:00:09.139
+Let's talk now about how we compute stereo
+disparity. We have a pair of images taken
+
+00:00:09.139 --> 00:00:14.190
+by a stereo camera. We have a left image and
+a right image, and our goal is to compute
+
+00:00:14.190 --> 00:00:19.699
+what we call a disparity image. In the disparity
+image, the brightness of a pixel corresponds
+
+00:00:19.699 --> 00:00:23.430
+to the stereo disparity at that particular
+point.
+
+00:00:23.430 --> 00:00:28.090
+A point that's bright has got a large stereo
+disparity and that occurs when an object is
+
+00:00:28.090 --> 00:00:33.610
+close to us, and a darker pixel has got a
+smaller disparity and corresponds to an object
+
+00:00:33.610 --> 00:00:38.879
+that is further away. We want to understand
+how we can take that original left and right
+
+00:00:38.879 --> 00:00:44.860
+image, process it and turn it into this disparity
+image. The fundamental principle of this computational
+
+00:00:44.860 --> 00:00:47.180
+stereo can be described quite simply.
+
+00:00:47.180 --> 00:00:51.879
+Here are two pictures that I took of the Eiffel
+Tower from slightly different viewpoints.
+
+00:00:51.879 --> 00:00:57.210
+Let's consider a single point on the top of
+the tower. I'm going to select a window of
+
+00:00:57.210 --> 00:01:01.609
+pixels around that, and I'm going to make
+a copy of that window of pixels and there
+
+00:01:01.609 --> 00:01:03.149
+it is at the top.
+
+00:01:03.149 --> 00:01:11.170
+Now I'm going to transfer the distance U to
+the right hand image and do a little bit of
+
+00:01:11.170 --> 00:01:16.890
+construction. I am going to say that the disparity
+that I am looking for has got a maximum value
+
+00:01:16.890 --> 00:01:22.759
+that I'm going to call D-max. Now, the stereo
+process involves looking for that little template
+
+00:01:22.759 --> 00:01:28.580
+of the top of the Eiffel Tower at every possible
+position along that search line and the best
+
+00:01:28.580 --> 00:01:34.450
+fit is clearly at this particular location,
+which is a distance D away from the vertical
+
+00:01:34.450 --> 00:01:36.299
+reference line that I drew.
+
+00:01:36.299 --> 00:01:42.150
+D is the value of the disparity at this point.
+Clearly this is quite a computationally intensive
+
+00:01:42.150 --> 00:01:48.710
+process. I have to do a template match at
+a number of different possible disparity values
+
+00:01:48.710 --> 00:01:55.140
+from zero up to D-max. And this is just to
+determine the disparity at the coordinate U, V.
+
+00:01:55.140 --> 00:01:59.740
+I actually need to do this for every single
+pixel in the input image. It is certainly
+
+00:01:59.740 --> 00:02:04.159
+a lot of computation, but with today's computers
+it can be done very, very quickly even for
+
+00:02:04.159 --> 00:02:08.330
+very high resolution stereo image pairs.
+
+00:02:08.330 --> 00:02:14.410
+Let's load a stereo pair into our workspace.
+I'm going to load the left image from the
+
+00:02:14.410 --> 00:02:26.000
+file ROX2-L and I'm going to load the right
+image from ROX2-R. I've used the reduce option
+
+00:02:26.000 --> 00:02:31.349
+to iread the resolution in the horizontal
+and vertical direction because these are very,
+
+00:02:31.349 --> 00:02:36.720
+very high-resolution images and the stereo
+computation is a little slow under MATLAB.
+
+00:02:36.720 --> 00:02:44.890
+The first thing I’m going to do is to display
+the images as an anaglyph. Parse the left
+
+00:02:44.890 --> 00:02:49.569
+and right images to the anaglyph function
+and here we see an anaglyph representation
+
+00:02:49.569 --> 00:02:54.760
+of this stereo scene of a pile of rocks. If
+I had my red and blue glasses on, this would
+
+00:02:54.760 --> 00:02:57.300
+look very powerfully three-dimensional.
+
+00:02:57.300 --> 00:03:02.170
+Let’s have a look at the left and right
+images in a bit more detail. I’m going to
+
+00:03:02.170 --> 00:03:07.900
+use the toolbox function, stdisp, stereo display
+and it gives a window that looks something
+
+00:03:07.900 --> 00:03:11.599
+like this and I’m just going to make that
+a little bit wider.
+
+00:03:11.599 --> 00:03:16.970
+Now, here we see the left image and the right
+image. Let me just click on a particular point
+
+00:03:16.970 --> 00:03:20.260
+in the image. I’m going to click on this
+rock in the foreground. I’m going to click
+
+00:03:20.260 --> 00:03:27.890
+on that particular blotch there and if I go
+to the other image and that’s the same blotch;
+
+00:03:27.890 --> 00:03:28.739
+it’s just there,
+
+00:03:28.739 --> 00:03:35.019
+I’m going to click on it and up the top
+we see the disparity that is the left ward
+
+00:03:35.019 --> 00:03:41.220
+shift in the right image and it’s 79.29
+pixels. Now let’s have a look at a point
+
+00:03:41.220 --> 00:03:47.030
+on the back. Let’s have a look at this very
+distinctive valley between these two rocks
+
+00:03:47.030 --> 00:03:48.280
+and click on that point.
+
+00:03:48.280 --> 00:03:53.060
+I’m going to find the same point in the
+other image and it’s just there and now
+
+00:03:53.060 --> 00:03:59.670
+we see that the disparity, the left ward shift
+has been reduced. It’s only 43.45 pixels.
+
+00:03:59.670 --> 00:04:02.950
+Let’s find a point that’s somewhere in
+between those things. Let’s have a look
+
+00:04:02.950 --> 00:04:09.950
+at this white dot here and we find it in the
+right image. It’s just there. In this case,
+
+00:04:09.950 --> 00:04:12.720
+the disparity is 52 pixels.
+
+00:04:12.720 --> 00:04:17.019
+So we can see very clearly the relationship
+between depth and disparity. Points in the
+
+00:04:17.019 --> 00:04:23.299
+foreground have got a large disparity. Points in the background have got a much smaller disparity.
+
+00:04:23.300 --> 00:04:28.070
+Now let’s compute disparity for every single
+pixel in this pair of images. I’m going
+
+00:04:28.070 --> 00:04:33.910
+to put the disparity into the workspace variable
+D. I’m going to use the toolbox function
+
+00:04:33.910 --> 00:04:39.820
+istereo and the parse in the left image and
+the right image.
+
+00:04:39.820 --> 00:04:44.130
+The range of disparity is to search over and
+for this particular pair, I've worked out
+
+00:04:44.130 --> 00:04:49.830
+that the smallest disparity is 40 pixels and
+the largest disparity is 90 pixels and I’m
+
+00:04:49.830 --> 00:04:54.440
+parsing the half width of the matching window.
+The matching window will be three times two
+
+00:04:54.440 --> 00:04:58.410
+plus one. That’s a seven by seven window.
+
+00:04:58.410 --> 00:05:04.440
+Computation takes a moment or two and now
+I can display the disparity image and here
+
+00:05:04.440 --> 00:05:08.750
+we see it. If I can click on some pixels here
+we see in the foreground this rock here has
+
+00:05:08.750 --> 00:05:15.530
+got disparities starting off around 83 falling
+away as the cross-binding points in the world
+
+00:05:15.530 --> 00:05:19.639
+get further away from the camera, falls off
+to 70 something. These rocks up the back here
+
+00:05:19.639 --> 00:05:25.120
+have got a much smaller disparity, the order
+of 50. This rock’s something like 40 and
+
+00:05:25.120 --> 00:05:29.430
+these really dark ones up the back have a
+disparity of 45 or 46.
+
+00:05:29.430 --> 00:05:34.639
+We can see that this image is far from perfect.
+There are some points that just don’t look
+
+00:05:34.639 --> 00:05:39.620
+right. There are some very anomalous bright
+points around the edges of the rocks and that’s
+
+00:05:39.620 --> 00:05:44.389
+because those parts of the rock are visible
+from one camera view but not visible from
+
+00:05:44.389 --> 00:05:48.750
+the other camera view and that means that
+the stereo matching can’t be completed properly.
+
+00:05:48.750 --> 00:05:52.479
+You also note that there’s a black region
+down the side of the image and that’s where
+
+00:05:52.479 --> 00:05:58.610
+the fields of view of a camera don’t fully
+overlap. This is a very simplistic stereovision
+
+00:05:58.610 --> 00:06:04.350
+algorithm. There are much more sophisticated techniques available but it demonstrates the principle.
+
+00:06:04.350 --> 00:06:10.780
+The toolbox function that draws 3D coordinate
+frames has an anaglyph mode. If we call the
+
+00:06:10.780 --> 00:06:18.410
+trplot function which we've seen before, it
+will parse in a rotation of 90 degrees around
+
+00:06:18.410 --> 00:06:24.960
+the X axis so that’s the coordinate frame
+that we want to display. We parse the 3D plot
+
+00:06:24.960 --> 00:06:30.990
+option and if I view this through my anaglyph
+glasses, I get a very realistic 3D impression.
+
+00:06:30.990 --> 00:06:34.490
+I actually see that Z axis coming out of the
+screen somewhat.
+

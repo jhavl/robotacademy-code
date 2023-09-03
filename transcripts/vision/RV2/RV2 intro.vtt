@@ -1,0 +1,89 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.500 --> 00:00:20.340
+In this lecture we're going to learn about
+how we get a digital image into a computer.
+
+00:00:20.340 --> 00:00:24.869
+For robotic vision, this is the essential
+first step; we have to have the visual information
+
+00:00:24.869 --> 00:00:29.750
+inside the computer, so that we can manipulate
+it and eventually extract meaning from it,
+
+00:00:29.750 --> 00:00:31.810
+so this is the essential first step.
+
+00:00:31.810 --> 00:00:36.930
+Digital images today are really common, they're
+everywhere. Through billions and billions
+
+00:00:36.930 --> 00:00:41.730
+of images on Facebook and Flickr and shared
+through applications like Instagram. There
+
+00:00:41.730 --> 00:00:46.039
+are a few reasons why digital images are so
+common today.
+
+00:00:46.039 --> 00:00:50.770
+The first is that cameras are everywhere so
+the opportunities to take pictures are enormous.
+
+00:00:50.770 --> 00:00:56.829
+We have cameras in our phones, in our tablet
+computers, in our laptops. A large number
+
+00:00:56.829 --> 00:01:00.550
+of people are now starting to wear cameras
+on their heads photographing everything that
+
+00:01:00.550 --> 00:01:07.010
+they're seeing and experiencing, 24 by 7 perhaps.
+The second reason why is that storage has
+
+00:01:07.010 --> 00:01:12.670
+become so cheap. Low cost flash memory in
+our phones and in our laptop computers and
+
+00:01:12.670 --> 00:01:18.330
+terabytes of hard disk storage that you can
+buy for relatively little money today. It
+
+00:01:18.330 --> 00:01:24.280
+wasn't always this way. Ten years ago we were
+making the transition from chemistry to digital
+
+00:01:24.280 --> 00:01:26.439
+technology for picture taking.
+
+00:01:26.439 --> 00:01:32.990
+In the bad old days of chemical imaging, we
+had to expose a number of frames on our film;
+
+00:01:32.990 --> 00:01:37.530
+we could never delete an image. Once the film
+was full, we'd take it to the shop, we'd get
+
+00:01:37.530 --> 00:01:43.399
+it developed and we'd get our pictures back
+on paper. It was way less flexible. So what
+
+00:01:43.399 --> 00:01:49.320
+we're going to do in this lecture is work
+out and discuss how we get images from many,
+
+00:01:49.320 --> 00:01:55.049
+many digital sources, images from perhaps
+your photo library, perhaps from the web camera
+
+00:01:55.049 --> 00:02:01.049
+on your computer, perhaps from the web and
+getting those images into an environment where
+
+00:02:01.049 --> 00:02:02.909
+we can begin to manipulate them.
+

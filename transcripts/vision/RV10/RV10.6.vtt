@@ -1,0 +1,231 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.260 --> 00:00:07.910
+Stereo is not the only technique that a robot
+can use to determine the 3D structure of its
+
+00:00:07.910 --> 00:00:13.679
+world. This is a very familiar device; it's
+the Microsoft Connect Sensor. This is sometimes
+
+00:00:13.679 --> 00:00:20.109
+called an RGBD camera that is it's a sensor
+that returns you at each pixel, the red value,
+
+00:00:20.109 --> 00:00:26.050
+the green value, the blue value and the depth.
+So, we talked earlier about color planes in
+
+00:00:26.050 --> 00:00:32.349
+an image. The Connect Sensor returns an image
+with 4 planes, R, G, B and D. The Connect
+
+00:00:32.349 --> 00:00:37.559
+contains 2 quite separate subsystems.
+The first is a fairly conventional color or
+
+00:00:37.559 --> 00:00:44.390
+RGB camera. The second component is a laser
+pattern projector. So, this is actually omitting,
+
+00:00:44.390 --> 00:00:49.340
+a pattern of infrared light onto the scene
+and then, there is an infrared camera which
+
+00:00:49.340 --> 00:00:55.039
+is observing that pattern and from the observation
+of the pattern, it can determine 3-dimensional
+
+00:00:55.039 --> 00:00:58.059
+structure.
+What does this pattern looks like? It's looks
+
+00:00:58.059 --> 00:01:02.840
+pretty speckly, It’s pretty close to a random
+pattern of dots.
+
+00:01:02.840 --> 00:01:07.850
+What the Connect Sensor does is exploit a
+very classical principle called structured
+
+00:01:07.850 --> 00:01:13.010
+light. What I want to do here is to illustrate
+the principles of a classical structured light
+
+00:01:13.010 --> 00:01:16.990
+sensor.
+The gray box here represents the Connect Sensor
+
+00:01:16.990 --> 00:01:22.299
+and we have an object at some distance away
+from the sensor. We have a camera which is
+
+00:01:22.299 --> 00:01:27.229
+represented here by a pin hole camera model
+with an image plane behind it and we have
+
+00:01:27.229 --> 00:01:33.509
+a laser projector which emits a fan of rays.
+Those rays intersect the object and forms
+
+00:01:33.509 --> 00:01:38.240
+spots of light on the object. The camera observes
+those spots of light and forms an image which
+
+00:01:38.240 --> 00:01:43.189
+is a projection of those spots on the object.
+Let's just make a temporary copy of where
+
+00:01:43.189 --> 00:01:47.670
+those spots are on the image plane. Now, we're
+going to consider that the object has moved
+
+00:01:47.670 --> 00:01:52.210
+further away from the camera and we repeat
+the process. The laser projector emits the
+
+00:01:52.210 --> 00:01:57.850
+same fan of laser beams. Spots are formed
+on the object. Pinhole camera observes that
+
+00:01:57.850 --> 00:02:04.560
+and we see a projection on the image plane.
+If we add back the previous image plane projection
+
+00:02:04.560 --> 00:02:11.379
+which we say before, we can see that the pattern
+of dots has moved. There is a vertical displacement
+
+00:02:11.379 --> 00:02:15.250
+or a disparity that is proportional to the
+object distance.
+
+00:02:15.250 --> 00:02:21.660
+So, this is the fundamental principle of structured
+light. Now, we can add some additional measurements
+
+00:02:21.660 --> 00:02:26.410
+here. We have a base line which is the distance
+between the center of laser projector and
+
+00:02:26.410 --> 00:02:29.550
+the center of the camera.
+The camera's got a focal length and the object
+
+00:02:29.550 --> 00:02:35.160
+is at a distance z. Now, we can write a relationship
+between all of these quantities and the disparity
+
+00:02:35.160 --> 00:02:38.420
+is inversely proportional to the object distance
+z.
+
+00:02:38.420 --> 00:02:43.379
+So, this is not exactly how the Connect works
+but it's a very similar principle. On the
+
+00:02:43.379 --> 00:02:46.970
+Connect Sensor itself, the base line then
+is the distance between the center of the
+
+00:02:46.970 --> 00:02:51.819
+laser pattern projector and the center of
+the infrared camera. Another principle is
+
+00:02:51.819 --> 00:02:55.950
+what's called the time of flight camera and
+what we can see here is a camera lens in the
+
+00:02:55.950 --> 00:03:01.300
+middle and on the either side of that, there
+are 2 arrays of quite high power light-emitting
+
+00:03:01.300 --> 00:03:06.430
+diodes. These diodes don't project a speckle
+pattern onto the scene. They provide general
+
+00:03:06.430 --> 00:03:10.690
+overall illumination of the scene.
+The principle works something like this. The
+
+00:03:10.690 --> 00:03:15.530
+light that's being emitted is modulated at
+some quite high frequency and is reflected
+
+00:03:15.530 --> 00:03:20.440
+off the object and picked up by the camera.
+So, the modulation frequency of light might
+
+00:03:20.440 --> 00:03:26.659
+be something like 10 or 20 megahertz. If we
+plot the intensity of a light against time,
+
+00:03:26.659 --> 00:03:32.659
+the outgoing light in red and incoming light
+in blue, we see that the incoming light is
+
+00:03:32.659 --> 00:03:36.379
+slightly delayed with respect to the outgoing
+light.
+
+00:03:36.379 --> 00:03:42.780
+There is a phase shift. So, there's a delay
+of T. The distance is proportional to the
+
+00:03:42.780 --> 00:03:47.340
+phase difference between the outgoing and
+the incoming light. The relationship between
+
+00:03:47.340 --> 00:03:53.629
+distance and the time delay T is given here
+where C is the speed of light. Speed of light
+
+00:03:53.629 --> 00:03:57.120
+is a very big number that means that the time
+shift is very small.
+
+00:03:57.120 --> 00:04:02.670
+Typically, it's of the order of nano seconds.
+This process is replicated at every single
+
+00:04:02.670 --> 00:04:08.090
+pixel in the scene. So, we need a very special
+sort of imaging sensor. One that's not just
+
+00:04:08.090 --> 00:04:13.629
+responsive to the intensity of the incoming
+light but a pixel that is responsive to phase
+
+00:04:13.629 --> 00:04:16.780
+shift.
+So, these cameras require very special sensing
+
+00:04:16.780 --> 00:04:22.620
+chips and typically, don't have particularly
+high resolution, maybe 64 by 64 pixels or
+
+00:04:22.620 --> 00:04:29.060
+128 by 128. A generic disadvantage of this
+kind of sensor and also the Connect Sensor
+
+00:04:29.060 --> 00:04:34.210
+is that they rely on projecting light onto
+the scene. This means that they don't work
+
+00:04:34.210 --> 00:04:39.440
+particularly well outdoors where you've got
+a very bright sun completely overwhelms the
+
+00:04:39.440 --> 00:04:42.600
+light that the sensor is trying to project
+onto the scene.
+
+00:04:42.600 --> 00:04:47.070
+They do, however, work very very well indoors
+and they work very very well at night where
+
+00:04:47.070 --> 00:04:49.740
+a traditional camera will return nothing.
+

@@ -1,0 +1,399 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.959 --> 00:00:09.019
+We talked before about different data types
+in particular this uint8 or unsigned integer
+
+00:00:09.019 --> 00:00:13.740
+eight bit quantity. Let’s just have a little
+bit of a look at numeric values and I am going
+
+00:00:13.740 --> 00:00:20.909
+to do a really trivial example here.
+I am going to create a variable called A which
+
+00:00:20.909 --> 00:00:23.159
+is equal to 100, variable called B which is
+equal to 200. You can do some really simple
+
+00:00:23.159 --> 00:00:25.849
+arithmetic and you can work out what the answers
+are going to be.
+
+00:00:25.849 --> 00:00:36.160
+A plus B is 300. A minus B is -100. A divided
+by B is equal to 0.5, all exactly as we would
+
+00:00:36.160 --> 00:00:41.719
+expect. These numeric quantities within MATLAB
+are double precision numbers.
+
+00:00:41.719 --> 00:00:47.190
+Let’s remove these variables from the workspace.
+They are all gone, and I am going to create
+
+00:00:47.190 --> 00:00:53.559
+variables now of uint8 type. So this variable
+A; we can see it is of the uint8 type and
+
+00:00:53.559 --> 00:01:00.899
+it has got a value of 100 just like before,
+but the type is different. We create the variable
+
+00:01:00.899 --> 00:01:06.820
+B, it has got a value of 200 and it is of
+the uint8 type. So now let’s do some arithmetic.
+
+00:01:06.820 --> 00:01:12.100
+Lets add A and B together. It has got a value
+of 255.
+
+00:01:12.100 --> 00:01:19.909
+Subtract them and we see that the value is
+0. Now let’s do a division. So these answers
+
+00:01:19.909 --> 00:01:25.409
+are a little bit surprising and the reason
+for this is that the unsigned integer eight
+
+00:01:25.409 --> 00:01:30.009
+bit numbers have got a very limited dynamic
+range.
+
+00:01:30.009 --> 00:01:35.110
+So the results that we see here on our screen
+make perfect sense. I add the two numbers
+
+00:01:35.110 --> 00:01:39.930
+together and although the results should be
+300, the maximum possible value that it can
+
+00:01:39.930 --> 00:01:45.229
+have as a uint8 type is 255 and that is what
+MATLAB has set it to.
+
+00:01:45.229 --> 00:01:49.680
+Similarly, the smallest possible value it
+can have is 0, so although the correct result
+
+00:01:49.680 --> 00:01:56.789
+was -100, MATLAB has set the answer to 0.
+Well we call it clipping. So the results have
+
+00:01:56.789 --> 00:02:02.090
+been clipped. They can not go below 0 and
+they cannot go above 255.
+
+00:02:02.090 --> 00:02:07.109
+The division result is also a little bit surprising.
+What has happened here is that A divided by
+
+00:02:07.109 --> 00:02:13.940
+B, the result is 0.5 and MATLAB has rounded
+that up to the value of 1. In many programming
+
+00:02:13.940 --> 00:02:20.190
+languages, if I divide a small integer by
+a larger integer the result will be 0. MATLAB
+
+00:02:20.190 --> 00:02:25.170
+has done a rounding operation and given a
+value of 1.
+
+00:02:25.170 --> 00:02:30.000
+In terms of the actual computer hardware,
+the uint8 type is stored in a single byte
+
+00:02:30.000 --> 00:02:35.160
+of the computer’s memory. The smallest value
+is when all of the eight bits have got a value
+
+00:02:35.160 --> 00:02:41.060
+of 0, equivalent to a decimal value of 0.
+And the largest value is when all of the bits
+
+00:02:41.060 --> 00:02:47.410
+have got a value of 1, which is the equivalent
+to the decimal value of 255.
+
+00:02:47.410 --> 00:02:54.790
+For an arbitrary n bit integer, the maximum
+value is 2n -1. MATLAB supports a number of
+
+00:02:54.790 --> 00:03:02.450
+additional unsigned integer types; it supports
+uint16 which has got 16 bits, and uint32 which
+
+00:03:02.450 --> 00:03:10.590
+has got 32 bits, and these are able to represent
+numbers with much larger maximum values.
+
+00:03:10.590 --> 00:03:15.140
+Now we have displayed this image before and
+as previously discussed, the pixels in this
+
+00:03:15.140 --> 00:03:19.870
+image are of a type unsigned integer. Click
+around and here we have the integer values
+
+00:03:19.870 --> 00:03:25.560
+of the pixels. The brightest one will be 255;
+the smallest one will be 0.
+
+00:03:25.560 --> 00:03:29.970
+Now there is another way that we can represent
+the pixels in an image and I am going to create
+
+00:03:29.970 --> 00:03:34.360
+a new variable, I am going to call it imd,
+image double. And what we are going to do
+
+00:03:34.360 --> 00:03:39.650
+is read the image again, but into a different
+variable this time. We are going to pass the
+
+00:03:39.650 --> 00:03:47.720
+option double, and what this will do is convert
+all of the pixels into double precision numbers,
+
+00:03:47.720 --> 00:03:55.690
+instead of unsigned integer numbers.
+Now let’s display this new image and I will
+
+00:03:55.690 --> 00:04:04.310
+create a new figure. And I will display my
+new image in this new figure. Now we see it
+
+00:04:04.310 --> 00:04:08.260
+looks exactly the same as the other one, but
+if I click around on the pixel values here
+
+00:04:08.260 --> 00:04:13.830
+we will see that they are floating point numbers
+now. And in this convention, 0 represents
+
+00:04:13.830 --> 00:04:18.850
+black and 1 represents white. So this is a
+reasonably bright number; in the dark of this
+
+00:04:18.850 --> 00:04:25.750
+door way, the pixel values are only 0.03.
+So this is another way of representing an
+
+00:04:25.750 --> 00:04:31.919
+image, each pixel, each element in this matrix
+is a double precision number. So we have a
+
+00:04:31.919 --> 00:04:37.699
+lot of precision with each of the pixel values
+in this representation of the image. The disadvantage
+
+00:04:37.699 --> 00:04:41.379
+is that such an image requires much, much,
+more memory.
+
+00:04:41.379 --> 00:04:47.689
+The double precision numbers occupy eight
+bytes of storage; the uint8 occupies only
+
+00:04:47.689 --> 00:04:53.280
+one byte of storage, so this image on the
+right-hand side occupies eight times more
+
+00:04:53.280 --> 00:04:58.550
+memory than the image on the left. And we
+can see that quite easily, using the about
+
+00:04:58.550 --> 00:05:04.569
+function; tell me about the variable im. We
+can see it occupies 1.1 megabytes of memory
+
+00:05:04.569 --> 00:05:08.599
+in the computer. Let’s have a look at the
+other image and you can see that it occupies
+
+00:05:08.599 --> 00:05:13.180
+8.7 megabytes.
+But sometimes there are advantages in having
+
+00:05:13.180 --> 00:05:17.889
+the pixels represented by double precision
+numbers.
+
+00:05:17.889 --> 00:05:22.550
+In terms of the actual computer hardware,
+the double precision number is organised in
+
+00:05:22.550 --> 00:05:29.939
+memory like this. It occupies 8 bytes of computer
+memory or a total of 64 bits.
+
+00:05:29.939 --> 00:05:35.689
+And the first bit is the sign bit and that
+has got a 0 for a positive number, 1 for a
+
+00:05:35.689 --> 00:05:41.939
+negative number. That is followed by 11 exponent
+bits and 52 fraction bits and I’ll talk
+
+00:05:41.939 --> 00:05:47.520
+about those in a moment.
+This particular layout is defined by the IEEE
+
+00:05:47.520 --> 00:05:53.289
+754 standard, so floating point numbers on
+almost all computers today are represented
+
+00:05:53.289 --> 00:05:59.169
+in this particular fashion.
+Now if we denote the fraction part by F and
+
+00:05:59.169 --> 00:06:07.949
+the exponent part by E, the actual value that
+is represented is Fx2E. So the E is the exponent
+
+00:06:07.949 --> 00:06:14.539
+part and F is what we call the fraction part—sometimes
+also called the mantissa.
+
+00:06:14.539 --> 00:06:24.360
+Now, the exponent has got a range of -1022
+to 1021. If we do the conversion from binary
+
+00:06:24.360 --> 00:06:30.279
+into decimal, we see that this gives us a
+range of this multiplication factor which
+
+00:06:30.279 --> 00:06:39.819
+goes from 10-308, to almost 10307. So this
+kind of number has got an enormous dynamic
+
+00:06:39.819 --> 00:06:44.539
+range. Now the exponent is represented by 11 bits
+
+00:06:44.539 --> 00:06:52.340
+that has got 2048 possible different values.
+Four of those values are reserved, they are
+
+00:06:52.340 --> 00:06:57.849
+special and one of them is used to represent
+an infinite number, another is used to represent
+
+00:06:57.849 --> 00:07:03.479
+a negative infinite number. One is used to
+represent what is called not a number, so
+
+00:07:03.479 --> 00:07:10.469
+that is something that is numerically invalid.
+And another value is used to represent the
+
+00:07:10.469 --> 00:07:16.379
+precise value of zero.
+The fraction is organised so that it is always
+
+00:07:16.379 --> 00:07:26.199
+in the range from 0.5 to 1. So the most significant
+bit in a fraction represents 2-2 or 1/4.
+
+00:07:26.199 --> 00:07:32.870
+The least significant bit has got an equivalent
+value of about 10-16, so that means that this
+
+00:07:32.870 --> 00:07:39.840
+double precision representation has got effectively
+16 significant digits. So a lot of numeric
+
+00:07:39.840 --> 00:07:44.930
+precision and a very, very, large dynamic
+range; that is the advantage of this double
+
+00:07:44.930 --> 00:07:49.479
+precision floating point representation of
+numbers within a computer.
+
+00:07:49.479 --> 00:07:55.289
+Now there’s some limits to the precision
+and if we consider a number like this, 0.1,
+
+00:07:55.289 --> 00:08:03.620
+that is a tenth in decimal, it doesn’t have
+a precise representation as a binary fraction.
+
+00:08:03.620 --> 00:08:08.330
+It is a repeating fraction in binary, so we
+can’t represent it precisely.
+
+00:08:08.330 --> 00:08:15.879
+An example of this is, for instance, I want
+to look at the decimal value 90.1. And I tell
+
+00:08:15.879 --> 00:08:21.860
+MATLAB to display this in its long format,
+so that is showing a lot of decimal digits
+
+00:08:21.860 --> 00:08:30.460
+and what we see is that 90.1 is actually represented
+internally by 90.09999... and the last digit
+
+00:08:30.460 --> 00:08:36.580
+is shown as 4. So it is wrong in the seventeenth
+significant digit, but as we just talked about
+
+00:08:36.580 --> 00:08:41.940
+a moment ago, double precision guarantees
+you around sixteen significant figures, so
+
+00:08:41.940 --> 00:08:47.760
+this is to be expected.
+So, to recap the numeric ranges of these different
+
+00:08:47.760 --> 00:08:53.500
+representations that we use for pixels.
+We can represent pixels as either unsigned
+
+00:08:53.500 --> 00:08:58.090
+eight bit integers which would occupy a single
+byte of computer memory each, and they have
+
+00:08:58.090 --> 00:09:05.690
+a numeric range of 0 and 255. Or we can represent
+them as double precision floating point numbers—they
+
+00:09:05.690 --> 00:09:10.630
+occupy eight bytes of computer storage each.
+And we typically map pixel intensities into
+
+00:09:10.630 --> 00:09:18.940
+the range 0 to 1, 0 being dark, 1 being bright.
+There are also some difficulties when we use
+
+00:09:18.940 --> 00:09:23.540
+integer arithmetic. One of the problems is
+saturation, so if the result of our arithmetic
+
+00:09:23.540 --> 00:09:29.810
+operation exceeds the maximum possible value
+for that representation, it is clipped or
+
+00:09:29.810 --> 00:09:34.260
+limited to the maximum possible value for
+the representation.
+
+00:09:34.260 --> 00:09:39.290
+So in this case, the result of the arithmetic
+should be 300. But it is clipped to 255, which
+
+00:09:39.290 --> 00:09:46.100
+is the maximum possible value of a uint8 type.
+Another problem is quantisation, so if we
+
+00:09:46.100 --> 00:09:53.380
+look at these two divisions—49 divided by
+100 gives a result of 0—it is effectively
+
+00:09:53.380 --> 00:09:58.760
+rounded down to 0, whereas
+50 divided by 100 is rounded up to 1.
+

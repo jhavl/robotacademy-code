@@ -1,0 +1,143 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.320 --> 00:00:08.510
+Let's summarize the main points from the lecture.
+When we take an image of a scene, it's a perspective
+
+00:00:08.510 --> 00:00:11.940
+projection, and the depth information has
+been lost.
+
+00:00:11.940 --> 00:00:19.039
+Human beings use a number of tricks or visual
+cues to reinstate that missing depth information.
+
+00:00:19.039 --> 00:00:23.830
+The cue that we use depend on the circumstance
+and also on the distance. Is it within our
+
+00:00:23.830 --> 00:00:27.550
+personal space or is it out towards the horizon?
+
+00:00:27.550 --> 00:00:31.620
+A particularly important technique that we
+use, and so do many other animals, also it
+
+00:00:31.620 --> 00:00:37.100
+will be used by robots is a technique called
+binocular disparity. And that relies on the
+
+00:00:37.100 --> 00:00:44.210
+small subtle changes between images of the
+same scene taken from different vantage point.
+
+00:00:44.210 --> 00:00:49.350
+Here's an example of a stereo image pair and
+we can see between the left hand image and
+
+00:00:49.350 --> 00:00:53.629
+the right hand image to correspond to what
+we would see with our left eye and our right
+
+00:00:53.629 --> 00:00:58.359
+eye. In general these two scenes look very
+similar, but if we look more carefully there
+
+00:00:58.359 --> 00:01:03.680
+is some subtle but important differences between
+them, and it's these small subtle differences
+
+00:01:03.680 --> 00:01:08.930
+that allows to extract information about this
+three dimensional structure of the world.
+
+00:01:08.930 --> 00:01:13.100
+Just as we have two eyes, we can build this
+stereo camera which is a compact assembly
+
+00:01:13.100 --> 00:01:19.250
+that contains effectively two independent
+cameras and known distance of pi. An important
+
+00:01:19.250 --> 00:01:25.890
+concept in stereovision is disparity. If we
+identify a point in the left image and find
+
+00:01:25.890 --> 00:01:30.610
+the same point in the right image it will
+appear to have shifted somewhat to the left,
+
+00:01:30.610 --> 00:01:33.869
+and that leftward shift we refer to as disparity.
+
+00:01:33.869 --> 00:01:39.290
+Importantly, disparity is a function of distance.
+So for an object that's close to us, there
+
+00:01:39.290 --> 00:01:44.210
+is a large leftward shift, a large disparity,
+where something that's far away has got a
+
+00:01:44.210 --> 00:01:45.799
+smaller disparity.
+
+00:01:45.799 --> 00:01:51.759
+So if we can make the disparity, then using
+the geometry of stereovision, we can relate
+
+00:01:51.759 --> 00:01:57.250
+the disparity to the distance to the object.
+Use the two images to compute disparity, and
+
+00:01:57.250 --> 00:01:59.619
+from that, then I can compute Z.
+
+00:01:59.619 --> 00:02:05.250
+Computing disparity is not trivial. For every
+pixel in the left hand image, I take a square
+
+00:02:05.250 --> 00:02:10.599
+window of pixels surrounding it within search
+for that same pattern of pixels in the right
+
+00:02:10.599 --> 00:02:15.790
+hand image, and that involves making a lot
+of image comparisons. It's the template-matching
+
+00:02:15.790 --> 00:02:17.459
+problem that we looked at earlier.
+
+00:02:17.459 --> 00:02:22.160
+So given a left image and a right image of
+a scene, I can compute at every single pixel,
+
+00:02:22.160 --> 00:02:27.569
+the disparity, and I can display that as a
+disparity image or a disparity map, and in
+
+00:02:27.569 --> 00:02:32.510
+a disparity map, things are bright if they're
+near and they are darker if they are further
+
+00:02:32.510 --> 00:02:37.690
+away. The converse is that if I have a stereo
+pair, two images taken from slightly different
+
+00:02:37.690 --> 00:02:43.340
+viewpoints, if I could present those images
+to my left and right eye, I will have a very
+
+00:02:43.340 --> 00:02:49.360
+vivid sense of the three dimensionality of
+the scene, a very, very strong sense of depth.
+
+00:02:49.360 --> 00:02:53.550
+Human beings have been fascinated with the
+idea of 3D vision for a long, long time, and
+
+00:02:53.550 --> 00:02:58.000
+we discussed an array of technologies, which
+can perform this function.
+

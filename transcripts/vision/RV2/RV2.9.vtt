@@ -1,0 +1,247 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.730 --> 00:00:09.420
+We are going to talk now a little bit more
+about how we access the elements of the matrix
+
+00:00:09.420 --> 00:00:13.860
+which represents an image from inside the
+MATLAB environment. And we are going to do
+
+00:00:13.860 --> 00:00:20.390
+this interactively from the command line tool.
+We will start by loading an image, one that
+
+00:00:20.390 --> 00:00:26.849
+we have seen a few times before. It is the
+Mona Lisa image, has a PNG extension, and
+
+00:00:26.849 --> 00:00:31.019
+we are going to convert it from colour to
+grey scale because we have not really talked
+
+00:00:31.019 --> 00:00:38.039
+about colour yet. And we have loaded the image
+into our workspace, and I can use the toolbox
+
+00:00:38.039 --> 00:00:41.890
+command about, to tell us a bit more about
+that particular image.
+
+00:00:41.890 --> 00:00:47.530
+It tells us that the image variable is of
+the type uint8, that it is 700 pixels wide
+
+00:00:47.530 --> 00:00:52.829
+and 677 pixels tall, and occupies 470 kilobytes
+of memory.
+
+00:00:52.829 --> 00:00:57.309
+What I am going to do now is to display the
+image and again these commands should be pretty
+
+00:00:57.309 --> 00:01:02.339
+familiar to you. And there is the Mona Lisa
+image. And as we discussed before, we can
+
+00:01:02.339 --> 00:01:06.110
+move around, we can click pixels and we can
+look at the grey scale value. And we can click
+
+00:01:06.110 --> 00:01:10.750
+a pixel there, in the middle of her eye. And
+it has got quite a low value. It is in that
+
+00:01:10.750 --> 00:01:16.500
+dark part of her eye.
+Now, we access that variable directly from
+
+00:01:16.500 --> 00:01:24.470
+the MATLAB environment, and I am going to
+choose the row coordinate which is the vertical
+
+00:01:24.470 --> 00:01:29.600
+coordinate in the image, that is 194 and the
+column coordinate which is a horizontal coordinate
+
+00:01:29.600 --> 00:01:36.160
+276. So remember we talked about this before:
+we have to reverse the coordinates from the
+
+00:01:36.160 --> 00:01:42.580
+u,v notation, horizontal and vertical coordinate
+system to MATLAB’s row and column index
+
+00:01:42.580 --> 00:01:49.340
+for matrices, and there we see that same value,
+26, that is a low grey scale value, a dark
+
+00:01:49.340 --> 00:01:54.050
+value which represents the intensity of that
+pixel within her eye.
+
+00:01:54.050 --> 00:01:58.170
+Another thing we can do with MATLAB is to
+access not just a single pixel, but in fact
+
+00:01:58.170 --> 00:02:05.560
+a block of pixels, and we do that using MATLAB’s
+colon operator. So let’s choose all rows
+
+00:02:05.560 --> 00:02:15.709
+between 180 and 210, and all columns starting
+at 260, up to 290. When I hit enter, we are
+
+00:02:15.709 --> 00:02:19.840
+going to see a large number of pixel values
+scroll past. So I can roll back up and look
+
+00:02:19.840 --> 00:02:24.319
+at all of them there.
+So it has returned, in this case a matrix.
+
+00:02:24.319 --> 00:02:29.180
+A small matrix; a sub-matrix of the original
+image.
+
+00:02:29.180 --> 00:02:34.689
+Let’s actually put that into a workspace
+variable, and I will do that by coming back
+
+00:02:34.689 --> 00:02:39.430
+and editing that command line.
+There we go. So I have created a new variable
+
+00:02:39.430 --> 00:02:49.120
+workspace called im2 and it is a 31 by 31
+pixel image. And I can display that. And we
+
+00:02:49.120 --> 00:02:54.379
+see an image, which is actually the eye of
+the Mona Lisa.
+
+00:02:54.379 --> 00:02:58.590
+This time instead of selecting a block of
+pixels, I am going to choose a line of pixels.
+
+00:02:58.590 --> 00:03:04.569
+I am going to do that by putting the result
+into a variable called lin, and this is the
+
+00:03:04.569 --> 00:03:13.889
+MATLAB variable that contains the original
+image. I am going to select row 190 and all
+
+00:03:13.889 --> 00:03:22.180
+pixels in columns between 260 and 290. And
+here they are, these are the pixel values
+
+00:03:22.180 --> 00:03:27.849
+along a short horizontal segment of the Mona
+Lisa image. And I can plot that.
+
+00:03:27.849 --> 00:03:35.980
+And here we see an intensity profile. Starts
+off quite light, falls down the middle as
+
+00:03:35.980 --> 00:03:40.719
+we go through the dark part of the Mona Lisa’s
+eye, and then go to larger greyscale values
+
+00:03:40.719 --> 00:03:45.639
+as we move back onto the pixels that comprise
+her face.
+
+00:03:45.639 --> 00:03:49.529
+There are a number of other interesting and
+useful tricks we can do with a colon operator.
+
+00:03:49.529 --> 00:03:54.420
+I am going to create another output image.
+This time I am going to call it im3 and what
+
+00:03:54.420 --> 00:04:00.439
+I am going to do is select again the Mona
+Lisa image and I am going to choose all the
+
+00:04:00.439 --> 00:04:07.409
+rows starting at 1 in steps of 4 up to end,
+which is a special MATLAB variable which represents
+
+00:04:07.409 --> 00:04:14.029
+the largest row number in the matrix. And
+select all the columns again, starting at
+
+00:04:14.029 --> 00:04:20.570
+1 in steps of 4 up to the largest column number
+and create a new workspace variable called
+
+00:04:20.570 --> 00:04:26.180
+im3 and I am going to display that image.
+Here we go.
+
+00:04:26.180 --> 00:04:31.470
+And what we can see now is that this image
+has much lower resolution, we can see the
+
+00:04:31.470 --> 00:04:37.600
+blockiness of the pixels, we can see in the
+horizontal and vertical directions that there
+
+00:04:37.600 --> 00:04:42.930
+are far fewer pixels in this image than there
+are in the original and that is because what
+
+00:04:42.930 --> 00:04:47.710
+we have done is chosen every fourth pixel
+from both the horizontal direction and in
+
+00:04:47.710 --> 00:04:52.540
+the vertical direction. We have reduced the
+resolution of the image. So that is a quick
+
+00:04:52.540 --> 00:04:57.750
+trick you can do with MATLAB, using the colon
+operator.
+
+00:04:57.750 --> 00:05:00.750
+The final thing that is useful to know about
+the colon operator—I am going to create
+
+00:05:00.750 --> 00:05:05.190
+yet another image, and this time what I am
+going to do is I am going to choose the rows
+
+00:05:05.190 --> 00:05:11.910
+starting at end, starting at the biggest possible
+row number, going in steps of -1 working downwards,
+
+00:05:11.910 --> 00:05:17.160
+until I get to row 1, and then I am going
+to choose all of the columns from one up to
+
+00:05:17.160 --> 00:05:21.770
+end.
+You can probably imagine what this is going
+
+00:05:21.770 --> 00:05:25.090
+to do. And there we go—we have flipped the Mona
+
+00:05:25.090 --> 00:05:33.120
+Lisa upside down. One final quick tip is that
+the last command that we typed; we can actually
+
+00:05:33.120 --> 00:05:40.210
+make it a bit more concise. We need to write
+that last part where we say all of the columns
+
+00:05:40.210 --> 00:05:45.440
+from 1 to end, we can write that down very
+simply just as colon. So where ever you have
+
+00:05:45.440 --> 00:05:54.340
+colon to represent a column or row of a matrix,
+it means all. We can think of it as a wild card operator.
+

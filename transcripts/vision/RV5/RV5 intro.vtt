@@ -1,0 +1,56 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.500 --> 00:00:21.119
+Today we're going to talk about a problem,
+which is really at the heart of robotic vision.
+
+00:00:21.119 --> 00:00:26.560
+Robots are relatively simple machines. If
+we consider the case of an industrial robot,
+
+00:00:26.560 --> 00:00:31.929
+one that's got six joints, we can control
+that by simply specifying six velocities or
+
+00:00:31.929 --> 00:00:38.260
+speeds. We specify the speed of each of its
+motors and the robot can do any kind of action.
+
+00:00:38.260 --> 00:00:43.460
+A wheeled mobile robot, we control by specifying
+simply two velocities; that's the velocity
+
+00:00:43.460 --> 00:00:48.920
+at which it drives forward and the velocity
+at which is turns. So we've got a problem
+
+00:00:48.920 --> 00:00:53.890
+because the amount of data that comes out
+of a camera is of the order of 10's of millions
+
+00:00:53.890 --> 00:00:59.320
+of pixels per second; 10's of millions of
+numbers per second. But we need only two or
+
+00:00:59.320 --> 00:01:03.850
+six, a very small number, in order to actually
+control the robot. It's like trying to drink
+
+00:01:03.850 --> 00:01:07.850
+out of a fire hose; massive amount of data
+coming out of the camera, small amount of
+
+00:01:07.850 --> 00:01:13.150
+data needed to control the robot. So to get
+around this problem we perform a technique
+
+00:01:13.150 --> 00:01:18.670
+called "Feature Extraction" and what we're
+trying to do is find the essence of the image;
+
+00:01:18.670 --> 00:01:22.960
+the most important information in the image,
+we can feed directly to our robot.
+

@@ -1,0 +1,331 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.510 --> 00:00:07.729
+Let’s look at this simple example.
+When you and I look at that we can see an
+
+00:00:07.729 --> 00:00:13.050
+image of the shark. But as far as a computer
+vision system is concerned, it is just a matrix
+
+00:00:13.050 --> 00:00:20.440
+full of numbers. In fact this 500 by 500 pixel
+image contains a quarter of a million numbers.
+
+00:00:20.440 --> 00:00:25.640
+But human beings looking at this see a distinct
+object. So the challenge is how do we find
+
+00:00:25.640 --> 00:00:30.210
+the object in this scene.
+All we want to be able to do is find a region
+
+00:00:30.210 --> 00:00:35.530
+within this scene. We’re going to define
+a region as a group of pixels that are connected
+
+00:00:35.530 --> 00:00:40.269
+to each other (that is, they are next to each
+other) that have all got the same colour.
+
+00:00:40.269 --> 00:00:44.710
+So if we could do that, if for all of the
+white pixels in this scene we could somehow
+
+00:00:44.710 --> 00:00:50.219
+clump them together, then we would be able
+to find this coherent region; this object.
+
+00:00:50.219 --> 00:00:56.459
+And then we could begin the process of describing
+what it looks like and where it is within
+
+00:00:56.459 --> 00:01:00.659
+the image.
+Let’s put this into practice. We will load
+
+00:01:00.659 --> 00:01:09.140
+an image; the shark image. Put it into the
+workspace im, and we will display it. These
+
+00:01:09.140 --> 00:01:13.540
+are all very familiar commands to us by now.
+And we’ll have a look at some pixel values
+
+00:01:13.540 --> 00:01:18.500
+in here. The black ones have got a value of
+0, and the white ones have got a value of
+
+00:01:18.500 --> 00:01:24.010
+1. We call this a binary image or a logical
+image. These are black pixels with a value
+
+00:01:24.010 --> 00:01:28.390
+of naught; could be considered by MATLAB as
+false. These could be considered by MATLAB
+
+00:01:28.390 --> 00:01:33.530
+as true. This image has got only two possible
+pixel values.
+
+00:01:33.530 --> 00:01:38.430
+Now the first thing that we’re going to
+do is to make a list of all of the pixels
+
+00:01:38.430 --> 00:01:44.600
+within the image, and we’re going to do
+that using MATLAB’s built-in ‘find’
+
+00:01:44.600 --> 00:01:49.570
+function. And what we’re going to do is
+find all of the pixels who’ve got a value
+
+00:01:49.570 --> 00:01:56.530
+greater than 0; that will be the white ones.
+For every pixel that it finds, every element
+
+00:01:56.530 --> 00:02:03.810
+of the matrix that it finds, it will return
+the row coordinate and the column coordinate
+
+00:02:03.810 --> 00:02:11.260
+into those two vectors v and u.
+So we see that those vectors have got 7827
+
+00:02:11.260 --> 00:02:19.790
+rows in them, so there are 7827 pixels in
+this image that are greater than 0. So let’s
+
+00:02:19.790 --> 00:02:26.920
+have a look at what these coordinates are.
+I’m going to display them and a very large
+
+00:02:26.920 --> 00:02:31.090
+number of numbers rolls past. So let’s have
+a look at some of these numbers. What it’s
+
+00:02:31.090 --> 00:02:38.670
+saying is, for instance, a pixel at coordinate
+243, 170 is a white pixel that belongs to
+
+00:02:38.670 --> 00:02:45.659
+the shark. The pixel at coordinate 244, 169
+is a white pixel that belongs to the shark.
+
+00:02:45.659 --> 00:02:50.400
+We have a long list of the coordinates of
+the white pixels. What can we do with these?
+
+00:02:50.400 --> 00:02:55.799
+Well one thing we can do is find what is the
+smallest value of the u coordinate, that’s
+
+00:02:55.799 --> 00:03:02.749
+the smallest u coordinate in that set of white
+pixels, and this will be the largest u coordinate;
+
+00:03:02.749 --> 00:03:09.359
+it’s 245. So this is saying something about
+the smallest u coordinate of that set of white
+
+00:03:09.359 --> 00:03:14.480
+pixels, and the largest. We can do the same
+in the vertical direction; say the smallest
+
+00:03:14.480 --> 00:03:21.450
+vertical coordinate and the largest vertical
+coordinate. So these four numbers essentially
+
+00:03:21.450 --> 00:03:28.669
+bound that shark-shaped object.
+So let’s plot a box on the scene, and it’s
+
+00:03:28.669 --> 00:03:36.249
+a box whose top left corner is u min and v
+min, and its bottom right corner is u max
+
+00:03:36.249 --> 00:03:42.499
+and v max, and we’ll plot it in the colour
+green. What we’ve done now is to place what
+
+00:03:42.499 --> 00:03:46.569
+we call a bounding box around that set of
+white pixels.
+
+00:03:46.569 --> 00:03:51.669
+So we’re able now to say something about
+this set of pixels. We’re able to say something
+
+00:03:51.669 --> 00:03:57.719
+about where these pixels are within the image.
+Another thing that we can do is to say where
+
+00:03:57.719 --> 00:04:03.079
+is the centre of this group of pixels. And
+a simple way of doing this is to say the centre
+
+00:04:03.079 --> 00:04:09.449
+we could think of as being the average of
+the minimum and maximum coordinates. So in
+
+00:04:09.449 --> 00:04:16.359
+the horizontal direction it’s that number.
+In the vertical direction it will be this
+
+00:04:16.359 --> 00:04:20.840
+number.
+Now what we can do is plot a point at that
+
+00:04:20.840 --> 00:04:24.980
+particular coordinate using the plotpoint
+function: parse in the u coordinate, the v
+
+00:04:24.980 --> 00:04:32.220
+coordinate … and it expects the column vector,
+and we’ll put an asterisk at that location.
+
+00:04:32.220 --> 00:04:37.230
+And now we have drawn a point, which in some
+ways is the centre of that object. Actually,
+
+00:04:37.230 --> 00:04:42.660
+it’s the centre of the box and is roughly
+the centre of that set of white pixels. We’ll
+
+00:04:42.660 --> 00:04:47.050
+be able to do better than that shortly.
+A technique that’s going to be really helpful
+
+00:04:47.050 --> 00:04:52.490
+for us in this endeavour is to compute what
+are called moments of the image. The moments
+
+00:04:52.490 --> 00:04:57.600
+are given by this equation, and there are
+two parameters to the moment, p and q. So
+
+00:04:57.600 --> 00:05:04.740
+we refer to the ‘p-qth moment’ of an image.
+So the moment is simply the sum of all of
+
+00:05:04.740 --> 00:05:10.480
+the pixels in the image, of the u coordinate
+of that pixel to the power of p, the v coordinate
+
+00:05:10.480 --> 00:05:17.480
+to the power of q, multiplied by the value
+of the pixel at that particular coordinate.
+
+00:05:17.480 --> 00:05:22.090
+At the moment we’re dealing with binary
+images, so the pixel value is either 0 or 1.
+
+00:05:22.090 --> 00:05:24.680
+A particularly interesting moment is when
+
+00:05:24.680 --> 00:05:31.590
+p equals q equals 0. We call this the zeroth
+moment of the image, and because p and q are
+
+00:05:31.590 --> 00:05:38.980
+zero, we simply remove them from the summation.
+The moment 0,0 is simply the sum of the pixel
+
+00:05:38.980 --> 00:05:46.880
+values. Now if pixels are either 0 for background
+or 1 for the object, then the sum pixel values
+
+00:05:46.880 --> 00:05:51.900
+is going to be the area of the region. It’s
+going to be the number of bright pixels within
+
+00:05:51.900 --> 00:05:56.920
+the shark that we were just looking at.
+Another set of very useful moments are the
+
+00:05:56.920 --> 00:06:03.060
+first moments. And these are the moments 1,0
+and the moment 0,1. And their equations are
+
+00:06:03.060 --> 00:06:09.230
+shown here. We can think of these as weighted
+averages of the u and v coordinates, weighted
+
+00:06:09.230 --> 00:06:16.240
+by the colour of the pixels. So if we take
+the ratio of the moment 1,0 by the moment
+
+00:06:16.240 --> 00:06:21.620
+0,0—that’s the first moment divided by
+the area—this gives us the coordinates of
+
+00:06:21.620 --> 00:06:27.470
+the centroid of the object, and this is really
+useful. Now we’ve found the geometric centre
+
+00:06:27.470 --> 00:06:31.030
+of this
+shark-shaped object. We’re beginning to
+
+00:06:31.030 --> 00:06:35.900
+be able to describe it.
+Let’s continue the session that we had earlier.
+
+00:06:35.900 --> 00:06:42.620
+First, we’ll computer the zeroth of the
+scene using the mpq function. We’ll parse
+
+00:06:42.620 --> 00:06:49.030
+in the image: we want the 0, zeroth moment.
+The zeroth moment is the area or the total
+
+00:06:49.030 --> 00:06:55.300
+number of 1 pixels in the image. And it’s
+the value that we obtained previously. We
+
+00:06:55.300 --> 00:07:01.520
+compute the moment 1,0, and we do that again
+using the mpq function; parse in the image,
+
+00:07:01.520 --> 00:07:10.509
+1 and 0. So we have this rather large number
+as a result. Compute the moment 0,1 … mpq
+
+00:07:10.509 --> 00:07:18.200
+… image … 0 and 1. Again we have a very
+large number. Now what we’ll do is compute
+
+00:07:18.200 --> 00:07:28.460
+the centroid of the region. So the u coordinate
+we’ll use, ucen, is equal to m,1,0 divided
+
+00:07:28.460 --> 00:07:38.230
+by m,0,0. And the v coordinate of the centroid
+is the moment 0, 1 divided by the zeroth moment,
+
+00:07:38.230 --> 00:07:42.290
+and that is the vertical coordinate of the
+centroid.
+
+00:07:42.290 --> 00:07:49.400
+Let’s plot that on the image; we use the
+plotpoint function. Parse in the u coordinate
+
+00:07:49.400 --> 00:07:53.810
+and the vertical coordinate, turn it into
+a column vector, and we’ll indicate this
+
+00:07:53.810 --> 00:08:02.280
+one with a circular marker. And here we have
+the centroid of all of the white pixels within
+
+00:08:02.280 --> 00:08:06.520
+the shark-shaped object. You can see that
+it’s very, very close to the centre of the
+
+00:08:06.520 --> 00:08:11.700
+box, and that says something about the fact
+that this shark object is fairly symmetrical.
+
