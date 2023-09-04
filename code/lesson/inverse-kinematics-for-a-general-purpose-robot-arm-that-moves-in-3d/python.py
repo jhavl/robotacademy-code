@@ -17,31 +17,34 @@ smb.trplot(T.A)
 
 # 2:57
 q = p560.ikine_a(T)
-print(q)
+print(q.q)
 
 # 3:11
-p560.plot(q)
+p560.plot(q.q)
 
 # 4:05
-p560.plot3d(q)
+# Python robotics toolbox does not have plot3d functionality
 
 # 4:42
 q = p560.ikine_a(T, config = 'r')
-print(q)
+print(q.q)
 
 # 4:47
-p560.plot3d(q)
+# Python robotics toolbox does not have plot3d functionality, instead using plot
+p560.plot(q.q)
 
 # 5:03
 q = p560.ikine_a(T, config = 'rd')
-print(q)
+print(q.q)
 
 # 5:10
-p560.plot3d(q)
+# Python robotics toolbox does not have plot3d functionality, instead using plot
+p560.plot(q.q)
 
 # 5:28
 q = p560.ikine_a(T, config = 'ld')
-print(q)
+print(q.q)
 
 # 5:32
-p560.plot3d(q)
+# Python robotics toolbox does not have plot3d functionality, instead using plot
+p560.plot(q.q)

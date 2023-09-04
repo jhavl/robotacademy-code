@@ -12,16 +12,16 @@ TB = sm.SE3.Trans(0.4, -0.2, 0) * sm.SE3.Rx(np.pi/2)
 print(TB, "\n")
 
 qA = p560.ikine_a(TA)
-print(qA, "\n")
+print(qA.q, "\n")
 
 qB = p560.ikine_a(TB)
-print(qB, "\n")
+print(qB.q, "\n")
 
-tg = rtb.jtraj(qA, qB, 50)
+tg = rtb.jtraj(qA.q, qB.q, 50)
 
-p560.plot(tg)
+p560.plot(tg.q)
 
-rtb.qplot(tg)
+# qplot function currently not working
 
 # 1:28
 Ts = rtb.ctraj(TA, TB, 50)
@@ -39,7 +39,7 @@ print(Ts[2], "\n")
 qs = p560.ikine_a(Ts)
 
 # 2:51
-p560.plot(qs)
+p560.plot(qs.q)
 
 # 3:04
-rtb.qplot(qs)
+# IKsolution object does not support qplot

@@ -3,17 +3,10 @@ import sympy as sym
 import numpy as np
 
 # 0:40
-twolink = rtb.models.DH.Planar2(symbolic = True)
-
-q1 = sym.Symbol('q1')
-q2 = sym.Symbol('q2')
-q1d = sym.Symbol('q1d')
-q2d = sym.Symbol('q2d')
-q1dd = sym.Symbol('q1dd')
-q2dd = sym.Symbol('q2dd')
+# Python Robotics toolbox does not support symbolics for use in these functions
 
 # 1:00
-print(twolink.gravload([q1, q2]), "\n")
+# Python Robotics toolbox does not support symbolics for use in these functions
 
 # 3:04
 twolink = rtb.models.DH.Planar2()

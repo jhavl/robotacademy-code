@@ -1,0 +1,1 @@
+% No planar 3 arm functionality for mathworks robotics toolbox
