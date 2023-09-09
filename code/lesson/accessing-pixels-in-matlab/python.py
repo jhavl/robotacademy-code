@@ -11,13 +11,13 @@ print(im)
 im.disp()
 
 # 1:43
-print(im.image[193][275], "\n")
+print(im.image[193, 275], "\n")
 
 # 2:17
-print(im.image[179:209,259:289], "\n")
+print(im.image[179:209, 259:289], "\n")
 
 # 2:36
-im2 = mv.convert(im.image[179:209,259:289])
+im2 = mv.convert(im.image[179:209, 259:289])
 print(im2, "\n")
 
 # 2:48

@@ -1,7 +1,7 @@
 import machinevisiontoolbox as mv
 
 # 0:36
-im = mv.Image.Zeros(200, dtype = 'float32')
+im = mv.Image.Zeros(200, dtype = 'float64')
 
 # 0:47
 im.draw_box(lt=(0, 0), rb=(1, 1), color=255, thickness = -1)

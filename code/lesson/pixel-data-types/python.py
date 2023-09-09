@@ -41,7 +41,7 @@ im = mv.Image.Read('street.png')
 im.disp()
 
 # 3:43
-imd = mv.Image.Read('street.png', dtype = "double")
+imd = mv.Image.Read('street.png', dtype = "float64")
 
 # 4:02
 imd.disp()
