@@ -19,9 +19,9 @@ im[2].disp()
 im = mv.Image.Read('flowers8.png')
 
 # 5:52
-print(im.image[99, 99][0],"\n")
-print(im.image[99, 99][1],"\n")
-print(im.image[99, 99][2],"\n")
+print(im.image[99, 99, 0],"\n")
+print(im.image[99, 99, 1],"\n")
+print(im.image[99, 99, 2],"\n")
 
 # 6:11
 print(im.image[99, 99],"\n")
