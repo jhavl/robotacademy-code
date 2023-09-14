@@ -1,13 +1,15 @@
 import machinevisiontoolbox as mv
 
 # 2:22
-#im.ncc([-0.5, 0, 0.5])
+#K = [-0.5, 0, 0.5]
+#im.convolve(K).disp(colormap="signed")
 
 # 3:35
-#im.ncc(np.transpose([-0.5, 0, 0.5]))
+#K = np.transpose([-0.5, 0, 0.5])
+#im.convolve(K).disp(colormap="signed")
 
 # 4:33
-#mv.Kernel.Sobel()
+#Du = mv.Kernel.Sobel()
 
 # 4:55
 # Currently no isobel equivalent functionality for the machine vision toolbox

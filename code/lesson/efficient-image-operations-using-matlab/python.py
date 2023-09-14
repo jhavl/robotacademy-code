@@ -15,7 +15,7 @@ print(m*2, "\n")
 print(np.sqrt(m), "\n")
 
 # 2:43
-print(np.power(m,np.ones((4,4))*2), "\n")
+print(m**2, "\n")
 
 # 2:52
 print(np.linalg.matrix_power(m, 2), "\n")
