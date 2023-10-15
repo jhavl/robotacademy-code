@@ -2,7 +2,7 @@ import machinevisiontoolbox as mv
 import numpy as np
 
 # 3:36
-im = mv.Image.Read('monalisa.png', grey = True, dtype = 'float32')
+im = mv.Image.Read('monalisa.png', grey = True, dtype = 'float64')
 
 # 4:36
 s7 = im.convolve(K = np.ones((7,7)))

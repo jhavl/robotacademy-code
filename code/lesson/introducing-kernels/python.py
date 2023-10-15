@@ -19,7 +19,7 @@ surf = ax.plot_surface(X, Y, K)
 plt.show()
 
 # 8:56
-im = mv.Image.Read('monalisa.png', dtype = "double", mono=True)
+im = mv.Image.Read('monalisa.png', dtype = "float64", mono=True)
 
 # 9:04
 s = im.convolve(K)

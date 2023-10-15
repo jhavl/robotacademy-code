@@ -1,4 +1,6 @@
 import machinevisiontoolbox as mv
+from spatialmath.base import *
+import numpy as np
 
 # 4:03
 im = mv.Image.Read('shark2a.png')
@@ -11,11 +13,13 @@ b = mv.Blobs(im)
 print(b)
 
 # 6:32
-im.draw_circle((int(b.centroid[0][0]),int(b.centroid[0][1])), 85, color = 255)
-im.draw_circle((int(b.centroid[1][0]),int(b.centroid[1][1])), 85, color = 255)
-im.disp()
+im.disp(block=None)
+E = np.array([[b[0].moments.mu20, b[0].moments.mu11],[b[0].moments.mu11, b[0].moments.mu02]])
+plot_ellipse(4 * E/b[0].moments.m00, centre=(b[0].centroid[0], b[0].centroid[1]), inverted=True, color="green")
+E = np.array([[b[1].moments.mu20, b[1].moments.mu11],[b[1].moments.mu11, b[1].moments.mu02]])
+plot_ellipse(4 * E/b[1].moments.m00, centre=(b[1].centroid[0], b[1].centroid[1]), inverted=True, color="green")
 
 # 6:42
-im.draw_circle((int(b.centroid[0][0]),int(b.centroid[0][1])), 3, color = 0, thickness = -1)
-im.draw_circle((int(b.centroid[1][0]),int(b.centroid[1][1])), 3, color = 0, thickness = -1)
-im.disp()
+im.disp(block=None)
+plot_point((b[0].centroid[0], b[0].centroid[1]), color = "blue")
+plot_point((b[1].centroid[0], b[1].centroid[1]), color = "blue")

@@ -22,4 +22,4 @@ im = mv.Image.Read("street.png")
 im.disp()
 
 # 6:07
-print(im.image[652][561])
+print(im.image[652, 561])

@@ -1,5 +1,4 @@
 import machinevisiontoolbox as mv
-import matplotlib.pyplot as plt
 
 # 5:16
 im = mv.Image.Read('shark2.png')

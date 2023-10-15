@@ -35,7 +35,7 @@ print(m > 5, "\n")
 print(m == 3, "\n")
 
 # 5:12
-im = mv.Image.Read('penguins.png', grey = True, dtype = 'float32')
+im = mv.Image.Read('penguins.png', grey = True, dtype = 'float64')
 
 im.disp()
 
