@@ -28,4 +28,4 @@ tg = rtb.jtraj(qA.q, qB.q, 50)
 p560.plot(tg.q)
 
 # 2:43
-# qplot function currently not working
+rtb.xplot(np.arange(0, 50, 1), tg.q)

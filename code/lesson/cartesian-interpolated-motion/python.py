@@ -21,7 +21,7 @@ tg = rtb.jtraj(qA.q, qB.q, 50)
 
 p560.plot(tg.q)
 
-# qplot function currently not working
+rtb.xplot(np.arange(0, 50, 1), tg.q)
 
 # 1:28
 Ts = rtb.ctraj(TA, TB, 50)
@@ -42,4 +42,4 @@ qs = p560.ikine_a(Ts)
 p560.plot(qs.q)
 
 # 3:04
-# IKsolution object does not support qplot
+rtb.xplot(np.arange(0, 50, 1), qs.q)

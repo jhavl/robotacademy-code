@@ -1,5 +1,6 @@
 import roboticstoolbox as rtb
 import numpy as np
+import matplotlib.pyplot as plt
 
 # 1:11
 p560 = rtb.models.Puma560()

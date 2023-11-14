@@ -1,5 +1,4 @@
 import machinevisiontoolbox as mv
-import matplotlib.pyplot as plt
 import numpy as np
 
 # 0:21

@@ -5,7 +5,8 @@ import numpy as np
 im = mv.Image.Read('monalisa.png', grey = True, dtype = 'float64')
 
 # 4:36
-s7 = im.convolve(K = np.ones((7,7)))
+K = np.ones((7,7))
+s7 = im.convolve(K)
 
 # 4:42
 im.disp()
@@ -14,7 +15,8 @@ im.disp()
 s7.disp()
 
 # 5:16
-s21 = im.convolve(K = np.ones((21,21)))
+K = np.ones((21,21))
+s21 = im.convolve(K)
 
 # 5:22
 s21.disp()

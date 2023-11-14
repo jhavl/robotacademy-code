@@ -1,7 +1,5 @@
 import spatialmath.base as smb
 import numpy as np
-import matplotlib.pyplot as plt
-
 
 def qqdiv(q1, q2):
     q1 = smb.getvector(q1, 4)
@@ -17,7 +15,6 @@ def qqdiv(q1, q2):
 
     return quat
 
-
 # 3:46 - 6:20
 R = smb.eul2r(0.1, 0.2, 0.3)
 print(R, "\n")
@@ -30,7 +27,6 @@ smb.qprint(q)
 print("\n")
 
 smb.trplot(R)
-plt.show()
 
 smb.qprint(smb.qconj(q))
 print("\n")
