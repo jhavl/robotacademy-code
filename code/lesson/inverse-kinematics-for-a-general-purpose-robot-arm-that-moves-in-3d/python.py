@@ -9,7 +9,7 @@ p560 = rtb.models.DH.Puma560()
 p560.plot(p560.qz)
 
 # 1:49
-T = sm.SE3.Trans(0.6, 0.1, 0) * sm.SE3(smb.rpy2tr(0, 180, 0, 'deg'))
+T = sm.SE3.Trans(0.4, 0.1, 0) * sm.SE3(smb.rpy2tr(0, 180, 0, 'deg'))
 print(T, "\n")
 
 # 2:08

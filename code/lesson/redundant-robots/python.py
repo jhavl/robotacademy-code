@@ -1,1 +1,1 @@
-# Hyper3d robot functionality currently not working correctly
+## The robot Hyper3d is not currently implemented fully in the robotics systems toolbox for python
