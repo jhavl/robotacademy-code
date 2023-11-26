@@ -12,7 +12,7 @@ import machinevisiontoolbox as mv
 #Du = mv.Kernel.Sobel()
 
 # 4:55
-# Currently no isobel equivalent functionality for the machine vision toolbox
+#im = im.convolve(Du)
 
 # 5:22
 im = mv.Image.Read('penguins.png', rgb = False, dtype = "float32")
@@ -21,4 +21,4 @@ im = mv.Image.Read('penguins.png', rgb = False, dtype = "float32")
 im.disp()
 
 # 6:58
-# Currently no isobel equivalent functionality for the machine vision toolbox
+#im.convolve(Du).disp(colormap="signed")

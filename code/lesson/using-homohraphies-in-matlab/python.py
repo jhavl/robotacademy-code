@@ -1,4 +1,3 @@
-# The machine vision toolbox for python does not have the same functionality for homographies
 import numpy as np
 import spatialmath as sm
 import machinevisiontoolbox as mv
