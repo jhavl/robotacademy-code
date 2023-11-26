@@ -1,5 +1,4 @@
 import machinevisiontoolbox as mv
-import matplotlib.pyplot as plt
 import numpy as np
 
 # 0:21
@@ -63,4 +62,6 @@ b = tom.blobs()
 im.disp()
 
 # 7:16
-im.draw_box(ltrb=[b.bbox[0], b.bbox[2], b.bbox[1], b.bbox[3]], color=[0, 255, 0])
+for box in b:
+    im.draw_box(ltrb=[box.bbox[0], box.bbox[2], box.bbox[1], box.bbox[3]], color=[0, 255, 0])
+im.disp()

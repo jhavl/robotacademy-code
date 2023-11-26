@@ -2,8 +2,7 @@ import machinevisiontoolbox as mv
 import numpy as np
 
 # 3:42
-im = mv.Image.Read("tomato_124.png", gamma = 2.2)
-im = im/255 # image was not between 0-1 but 0-255 so adjusting it
+im = mv.Image.Read("tomato_124.png", gamma = 2.2, dtype = 'float32')
 
 # 3:45
 im.disp()

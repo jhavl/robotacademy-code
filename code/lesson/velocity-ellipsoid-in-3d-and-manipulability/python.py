@@ -1,5 +1,6 @@
 import roboticstoolbox as rtb
 import numpy as np
+import matplotlib.pyplot as plt
 
 # 1:11
 p560 = rtb.models.Puma560()
@@ -36,3 +37,5 @@ p560.plot(p560.qs)
 
 # 6:16
 # Ellipse plotting of ERobot's is not currently implemented yet
+
+input("test")

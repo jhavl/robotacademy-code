@@ -8,8 +8,8 @@ camera = mv.VideoCamera()
 im = camera.grab()
 
 #
-camera = mv.WebCam('http://wc2.dartmouth.edu');
-im = camera.grab();
+camera = mv.WebCam('http://wc2.dartmouth.edu')
+im = camera.grab()
 
 #
 camera = mv.VideoFile('traffic_sequence.mpg')
@@ -18,5 +18,5 @@ im = next(images, None)
 
 
 #
-camera = mv.EarthView();
-im = camera.grab((latitude, longitude)), 14)
+camera = mv.EarthView()
+im = camera.grab((latitude, longitude), 14)
