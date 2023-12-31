@@ -6,7 +6,7 @@ last = [30;10]
 
 %% 2:17
 vellim = [-1 1; -1 1];
-acclim = [-.1 .1; -.1 .1];
+acclim = [-.033 .033; -.033 .033];
 [q,qd,qdd,t] = contopptraj([first,last],vellim, acclim);
 
 %% 2:34

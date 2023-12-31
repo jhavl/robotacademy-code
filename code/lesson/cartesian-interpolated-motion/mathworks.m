@@ -1,5 +1,6 @@
 %% 1:05
 p560 = loadrobot("puma560");
+p560.DataFormat = "row";
 
 TA = tform(se3([0.4,0.2,0],"trvec"))*eul2tform([0,0,pi])
 
@@ -27,12 +28,6 @@ qs = robotIK(Ts(:,:,end))
 figure(1)
 
 %% 2:51
-config = homeConfiguration(p560)
-config(1).JointPosition = qs(1);
-config(2).JointPosition = qs(2);
-config(3).JointPosition = qs(3);
-config(4).JointPosition = qs(4);
-config(5).JointPosition = qs(5);
-config(6).JointPosition = qs(6);
+config = qs
 
 show(p560,config);

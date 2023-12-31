@@ -11,11 +11,11 @@ qB = p560.ikine6s(TB)
 
 tg = jtraj(qA, qB, 50);
 
-p560.plot(tg)
+%p560.plot(tg)
 
-figure
+%figure
 
-qplot(tg)
+%qplot(tg)
 
 %% 1:28
 Ts = ctraj(TA, TB, 50);
@@ -33,13 +33,13 @@ Ts(:, :, 3)
 qs = p560.ikine6s(Ts);
 
 %% 2:44
-figure(1)
+%figure(1)
 
 %% 2:51
-p560.plot(qs)
+%p560.plot(qs)
 
 %% 2:59
-figure(2)
+%figure(2)
 
 %% 3:04
-qplot(qs)
+%qplot(qs)
