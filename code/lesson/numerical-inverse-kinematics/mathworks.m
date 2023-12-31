@@ -1,15 +1,10 @@
 %% 0:17
 p560 = loadrobot("puma560");
+p560.DataFormat = "row";
 
 %% 0:33
 qz = [0, 0, 0, 0, 0, 0];
-config = homeConfiguration(p560)
-config(1).JointPosition = qz(1);
-config(2).JointPosition = qz(2);
-config(3).JointPosition = qz(3);
-config(4).JointPosition = qz(4);
-config(5).JointPosition = qz(5);
-config(6).JointPosition = qz(6);
+config = qz
 
 show(p560,config);
 %% 1:10
@@ -22,13 +17,7 @@ generateIKFunction(aik,'robotIK');
 q = robotIK(T)
 
 %% 2:43
-config = homeConfiguration(p560)
-config(1).JointPosition = q(1);
-config(2).JointPosition = q(2);
-config(3).JointPosition = q(3);
-config(4).JointPosition = q(4);
-config(5).JointPosition = q(5);
-config(6).JointPosition = q(6);
+config = q
 show(p560,config);
 
 %% 4:29
@@ -36,13 +25,7 @@ p560 = loadrobot("puma560");
 
 %% 4:39
 qz = [0, 0, 0, 0, 0, 0];
-config = homeConfiguration(p560)
-config(1).JointPosition = qz(1);
-config(2).JointPosition = qz(2);
-config(3).JointPosition = qz(3);
-config(4).JointPosition = qz(4);
-config(5).JointPosition = qz(5);
-config(6).JointPosition = qz(6);
+config = qz
 
 show(p560,config);
 
@@ -62,11 +45,5 @@ generateIKFunction(aik,'robotIK');
 q = robotIK(T2)
 
 %% 6:01
-config = homeConfiguration(p560)
-config(1).JointPosition = q(1);
-config(2).JointPosition = q(2);
-config(3).JointPosition = q(3);
-config(4).JointPosition = q(4);
-config(5).JointPosition = q(5);
-config(6).JointPosition = q(6);
+config = q
 show(p560,config);

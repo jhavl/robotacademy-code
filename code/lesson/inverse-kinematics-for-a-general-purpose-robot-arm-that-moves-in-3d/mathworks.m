@@ -1,15 +1,11 @@
 %% 0:15
 p560 = loadrobot("puma560");
+p560.DataFormat = "row";
+
 
 %% 0:47
 qz = [0, 0, 0, 0, 0, 0];
-config = homeConfiguration(p560)
-config(1).JointPosition = qz(1);
-config(2).JointPosition = qz(2);
-config(3).JointPosition = qz(3);
-config(4).JointPosition = qz(4);
-config(5).JointPosition = qz(5);
-config(6).JointPosition = qz(6);
+config = qz
 
 show(p560,config);
 
