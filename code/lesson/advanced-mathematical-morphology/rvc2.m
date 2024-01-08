@@ -1,3 +1,7 @@
+% Currently the function colorkmeans and match are producing errors, due to
+% this those sections of the code and parts requiring the outputs will not
+% work correctly.
+
 %% 3:42
 im = iread('tomato_124.jpg', 'gamma', 2.2);
 
