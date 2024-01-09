@@ -1,3 +1,7 @@
+% The geometric jacaobian and transform function currently do not produce
+% the same coordinates and values as those from the robotics vision
+% toolbox. This issue is being investigated currently.
+
 %% 3:19
 p560 = loadrobot("puma560");
 p560.DataFormat = "row";

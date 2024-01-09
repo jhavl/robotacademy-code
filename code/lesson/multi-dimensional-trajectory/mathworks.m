@@ -1,3 +1,6 @@
+% Due to the contopptraj function behaving slightly differently to the one
+% in the robotics vision toolbox the graphs will not line up identically 
+
 %% 1:58
 first = [10;20]
 

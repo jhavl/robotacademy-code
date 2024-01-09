@@ -1,7 +1,10 @@
+% Currently the inverse kinematics solver is producing different values or
+% not working compared to the one implemented in the robotic vision
+% toolbox, this issue is being investigated.
+
 %% 1:12
 p560 = loadrobot("puma560");
 p560.DataFormat = "row";
-
 
 %% 1:26
 T1 = tform(se3([0.6,0.1,0],"trvec"))*eul2tform([0,pi,0])
