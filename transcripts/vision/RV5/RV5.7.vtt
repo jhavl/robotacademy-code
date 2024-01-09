@@ -1,0 +1,120 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.379 --> 00:00:09.160
+We can find additional information to describe
+the shape of an object by looking at its perimeter,
+
+00:00:09.160 --> 00:00:12.950
+by looking at its boundary.
+Here we have a very simple scene with a dark
+
+00:00:12.950 --> 00:00:18.560
+object against a white background. The simplest
+way to compute the length of the perimeter
+
+00:00:18.560 --> 00:00:24.259
+of the object is to simply trace around the
+outside of the object. So the lines are either
+
+00:00:24.259 --> 00:00:29.859
+vertical or horizontal, and this is a technique
+called crack coding. We measure the length
+
+00:00:29.859 --> 00:00:36.360
+of this blue path. It tells us something about
+the length of the perimeter of the object.
+
+00:00:36.360 --> 00:00:40.270
+Another way of measuring the perimeter of
+the object is to first of all consider all
+
+00:00:40.270 --> 00:00:45.250
+of the pixels that sit on the edge of the
+object, and those pixels are all marked with
+
+00:00:45.250 --> 00:00:50.080
+a red dot. Those red dots are the centres
+of the pixels that are on the edge of the
+
+00:00:50.080 --> 00:00:55.950
+object. And an alternative technique is to
+join the centres of the dots. This is called
+
+00:00:55.950 --> 00:01:02.350
+an 8-neighbor chain code. So the length of
+this path can be considered to be the length
+
+00:01:02.350 --> 00:01:05.829
+of the boundary of the object.
+We can see that there are going to be some
+
+00:01:05.829 --> 00:01:11.859
+differences here. The crack code is perhaps
+going to overestimate the boundary of the
+
+00:01:11.859 --> 00:01:17.530
+object. The chain code is going to perhaps
+underestimate the boundary of the object,
+
+00:01:17.530 --> 00:01:23.630
+but the chain code does a much better job
+when the object has got sides that are neither
+
+00:01:23.630 --> 00:01:28.770
+vertical nor horizontal. When there are sloped
+segments on the object, chain code can perhaps
+
+00:01:28.770 --> 00:01:33.850
+give a slightly more realistic estimate.
+In this case with very small objects the difference
+
+00:01:33.850 --> 00:01:38.229
+between the two approaches is going to be
+quite significant. When objects are very large
+
+00:01:38.229 --> 00:01:42.729
+with hundreds or thousands of pixels, the
+difference is much less significant.
+
+00:01:42.729 --> 00:01:47.789
+Now if we compute the perimeter using either
+of the techniques just mentioned, and we call
+
+00:01:47.789 --> 00:01:53.679
+that the perimeter length p, we can compute
+a measure that we call circularity and this
+
+00:01:53.679 --> 00:02:00.459
+is a measure that is related to compactness.
+So we take 4x π, multiplied by the area of
+
+00:02:00.459 --> 00:02:06.149
+the object, which comes from the zeroth moment,
+and we divide it by the perimeter squared.
+
+00:02:06.149 --> 00:02:10.590
+So this is a non-dimensional quantity. The
+numerator contains the area, which has got
+
+00:02:10.590 --> 00:02:16.620
+units of pixels squared. We divided by the
+length, which has got units of pixels squared.
+
+00:02:16.620 --> 00:02:20.530
+So this non-dimensional quantity has got no
+units.
+
+00:02:20.530 --> 00:02:25.860
+For the case of the circle, circularity has
+got a value of 1 … 1 means it’s a circle.
+
+00:02:25.860 --> 00:02:31.440
+For less than 1 it means that it’s not a
+circle, and for a long line it approaches
+
+00:02:31.440 --> 00:02:37.040
+0, so it cannot be bigger than 1, it can be
+less than 1. 1 if it’s a circle.
+

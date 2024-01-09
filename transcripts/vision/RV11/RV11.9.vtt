@@ -1,0 +1,141 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.409 --> 00:00:08.389
+These image based visual control strategies
+have got two important requirements.
+
+00:00:08.389 --> 00:00:13.780
+One is to reliably find the points on the
+target object, and by reliably means every
+
+00:00:13.780 --> 00:00:18.440
+single frame: as the object is moving or the
+camera is moving, we need to be able to identify
+
+00:00:18.440 --> 00:00:21.010
+the same points on the target object.
+
+00:00:21.010 --> 00:00:26.570
+The second problem is to determine which point
+is which. This is what we call the correspondence
+
+00:00:26.570 --> 00:00:31.939
+problem. So, in the case of our triangular
+target before, we need to determine which
+
+00:00:31.939 --> 00:00:37.070
+point in the current view corresponds to which
+point in the desired view.
+
+00:00:37.070 --> 00:00:42.110
+Considering now the first problem: how do
+we reliably find points on the target object.
+
+00:00:42.110 --> 00:00:46.399
+Once upon a time this was done by creating
+artificial scenes that have got very high
+
+00:00:46.399 --> 00:00:51.890
+contrasts. So here are two examples from my
+PhD research back in the 1990s, and what I
+
+00:00:51.890 --> 00:00:57.399
+had was very much a black background and a
+white object. So we could use very simple
+
+00:00:57.399 --> 00:01:01.390
+thresholding techniques and binary vision
+processing techniques, which were very very
+
+00:01:01.390 --> 00:01:07.909
+fast, in order to identify the object. But
+this is, clearly, very unrealistic.
+
+00:01:07.909 --> 00:01:11.080
+Another approach is to introduce something
+into the scene which has got a distinctive
+
+00:01:11.080 --> 00:01:16.030
+color. We have talked before about how this
+mobile robot could navigate with respect to
+
+00:01:16.030 --> 00:01:22.110
+an orange traffic cone. The image on the right
+shows our landing target for an indoor flying
+
+00:01:22.110 --> 00:01:26.670
+robot. It could see this configuration of
+four yellow targets, identify the centroid
+
+00:01:26.670 --> 00:01:28.790
+of those, and land on them.
+
+00:01:28.790 --> 00:01:33.350
+Another way we can make the problem easy is
+to make the target something that's very bright;
+
+00:01:33.350 --> 00:01:38.829
+something that actually emits light. So perhaps
+we could put a colored LED on the object in
+
+00:01:38.829 --> 00:01:43.899
+the scene, and the robot's vision system can
+identify that particular patch of very bright
+
+00:01:43.899 --> 00:01:48.030
+color. By using the bright color it makes
+it easier to segment.
+
+00:01:48.030 --> 00:01:52.970
+Another approach is to put some kind of pattern
+on the object, and here we see a number of
+
+00:01:52.970 --> 00:01:58.210
+patterns that are used for localisation. In
+the middle we have what we call a self-similar
+
+00:01:58.210 --> 00:02:04.020
+landmark, and you can see that the computer
+vision algorithm is able to very, very robustly
+
+00:02:04.020 --> 00:02:09.590
+determine the position of the centres of those
+three landmarks, almost irrespective of the
+
+00:02:09.590 --> 00:02:16.980
+pose of the sheet, even if the targets are
+somewhat obscured. On the left we see some
+
+00:02:16.980 --> 00:02:23.170
+related landmarks, this time using vertical
+lines rather than circles, which are used
+
+00:02:23.170 --> 00:02:29.150
+in that particular robot to identify the location of the crucible to the robot so it can pick it up.
+
+00:02:29.150 --> 00:02:34.910
+We can also use QR code as shown here on the
+right. We can compute centroid of the QR code,
+
+00:02:34.910 --> 00:02:41.019
+it’s a very unique pattern, but the QR code
+also contains a number of bytes of information.
+
+00:02:41.019 --> 00:02:46.209
+Often times these are used to encode URLs
+in advertising. So this QR code has got a
+
+00:02:46.209 --> 00:02:50.920
+position but it's also got some information
+associated with it.
+
+00:02:50.920 --> 00:02:56.849
+Related to QR codes is another type of code
+called an AR code or an augmented reality
+
+00:02:56.849 --> 00:03:01.780
+code, and they can be used to label objects
+in a three-dimensional world.
+

@@ -1,0 +1,66 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.360 --> 00:00:20.540
+In the last lecture we learned how to import
+a digital image into a computer and we learned
+
+00:00:20.550 --> 00:00:24.769
+that an image inside a computer is just a
+big bunch of numbers. More precisely it's
+
+00:00:24.769 --> 00:00:30.650
+a rectangular array of numbers which we can
+consider to be a matrix. Now getting the image
+
+00:00:30.650 --> 00:00:35.070
+into the computer is just the first step.
+We need to manipulate this image in various
+
+00:00:35.070 --> 00:00:40.550
+ways so that we can extract the information
+from that image which is sufficient to hand
+
+00:00:40.550 --> 00:00:46.870
+across to a robot to allow it to do its job.
+So in this lecture and the next one, we're
+
+00:00:46.870 --> 00:00:51.969
+going to learn about some fundamental ways
+to transform images so as to help us in the
+
+00:00:51.969 --> 00:00:54.670
+process of extracting meaning.
+
+00:00:54.670 --> 00:01:00.480
+These techniques fall into a category which
+is called image processing, which is how we
+
+00:01:00.480 --> 00:01:06.310
+take one image and transform it into a different
+image which helps us in our task of extracting
+
+00:01:06.310 --> 00:01:10.850
+that meaning. So the sorts of transformations
+that we would be interested in considering
+
+00:01:10.850 --> 00:01:15.500
+are; how do we enhance the contrast of an
+image? How do we reduce the resolution of
+
+00:01:15.500 --> 00:01:20.979
+an image? How do we highlight horizontal lines
+in an image or how do we highlight vertical
+
+00:01:20.979 --> 00:01:25.770
+lines in an image? Or how do we highlight
+things that are red or that are green or that
+
+00:01:25.770 --> 00:01:31.380
+are blue. So these are some fundamental techniques
+that will help us in our journey of equipping
+
+00:01:31.380 --> 00:01:32.790
+robots with vision.
+

@@ -1,0 +1,362 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.440 --> 00:00:09.340
+Modern robots are very precise machines. They
+can be used for example to place chips onto
+
+00:00:09.340 --> 00:00:14.660
+circuit boards with great precision and at very great speed. But how do they actually do that?
+
+00:00:15.520 --> 00:00:20.520
+The position of the robot’s end effector
+is never directly measured. What we do instead
+
+00:00:20.529 --> 00:00:26.039
+is measure the various joint angles and we
+use a forward kinematic model to determine
+
+00:00:26.039 --> 00:00:29.789
+the position of the robot’s end effector.
+
+00:00:29.789 --> 00:00:35.500
+We assume that we know the position in Cartesian
+coordinates of where the robot’s tool tip
+
+00:00:35.500 --> 00:00:40.950
+needs to go and then it’s a simple matter
+of designing a controller that takes the tool
+
+00:00:40.950 --> 00:00:46.300
+tip from where it is to where it needs to
+go. And this is the fundamental principle
+
+00:00:46.300 --> 00:00:52.649
+underpinning all modern robots today. They
+are incredibly precise, they have got very
+
+00:00:52.649 --> 00:00:56.289
+accurate sensors, they’ve got very good
+kinematic models, and they are able to move
+
+00:00:56.289 --> 00:01:00.090
+the tool tip where it needs to go in the workplace.
+
+00:01:00.090 --> 00:01:04.589
+Lets consider now what can go wrong with this
+approach to robot tool positioning.
+
+00:01:04.589 --> 00:01:08.700
+Firstly; because the position of the tool
+is computed from joint sensors and kinematic
+
+00:01:08.700 --> 00:01:12.700
+models, if there are errors in any of the
+sensors, if there’s an error in the kinematic
+
+00:01:12.700 --> 00:01:17.950
+model, or perhaps there is an error in where
+we think the base of the robot is, then the
+
+00:01:17.950 --> 00:01:22.119
+position of the robot tool tip is going to
+be in error.
+
+00:01:22.119 --> 00:01:26.970
+Perhaps there is an error in the location
+of the chip relative to the board, or perhaps
+
+00:01:26.970 --> 00:01:33.070
+there is an error in the position of the board
+with respect to the robot’s coordinate frame.
+
+00:01:33.070 --> 00:01:37.880
+Finally there could be an error in the motion
+control system. It’s not able to drive the
+
+00:01:37.880 --> 00:01:40.689
+robot tool tip to where it needs to go to.
+
+00:01:40.689 --> 00:01:47.869
+Nevertheless, over the long history of manufacturing robots theses problems have largely been ironed out.
+
+00:01:47.909 --> 00:01:53.369
+There is a consequence for this traditional
+approach to robot positioning. For a start
+
+00:01:53.369 --> 00:01:58.170
+we need to have very very accurate sensors
+on each of the joints. The robot links need
+
+00:01:58.170 --> 00:02:03.119
+to be very very accurately machined so they
+reflect the kinematic model embedded in the
+
+00:02:03.119 --> 00:02:07.640
+software. The robot links also need to be
+very stiff so that as the robot changes its
+
+00:02:07.640 --> 00:02:13.090
+configuration the links don’t bend and deform
+under the influence of gravity. To make them
+
+00:02:13.090 --> 00:02:17.290
+stiff we have to use a lot of metal, which
+makes them heavy. In order for the robot then
+
+00:02:17.290 --> 00:02:21.200
+to move quickly we need to have much more
+powerful motors.
+
+00:02:21.200 --> 00:02:26.680
+All of these issues drive up the cost of the
+modern precise industrial robot.
+
+00:02:26.680 --> 00:02:31.720
+So lets assume we have a robot and that it is really precise. How do we actually put it to use?
+
+00:02:31.720 --> 00:02:36.680
+For the robot to do useful things the object that it’s working with — its work piece
+
+00:02:36.680 --> 00:02:43.209
+— must also be precisely positioned. If
+the robot is able to go to position x,y,z
+
+00:02:43.209 --> 00:02:47.769
+within a small fraction of a millimetre, then
+the object that it’s working with also needs
+
+00:02:47.769 --> 00:02:54.489
+to be positioned with that same level of accuracy.
+When a robot is installed in a factory a large
+
+00:02:54.489 --> 00:02:58.440
+amount of engineering is involved in creating
+what we call jigs and fixtures. These are
+
+00:02:58.440 --> 00:03:03.290
+pieces of equipment that hold the robot’s
+work piece at a very precise location in the
+
+00:03:03.290 --> 00:03:08.060
+robot’s workspace. So when the robot uses
+its precision to reach to a particular coordinate
+
+00:03:08.060 --> 00:03:11.080
+the thing that it needs to work with is there.
+
+00:03:11.080 --> 00:03:17.040
+Next issue is that the robot needs to know
+the position of the object within its workspace.
+
+00:03:17.040 --> 00:03:21.209
+We need to measure that very very accurately.
+In practice what happens is the work piece
+
+00:03:21.209 --> 00:03:26.760
+is held at a very consistent location in the
+workspace and we manually adjust the robot’s
+
+00:03:26.760 --> 00:03:32.450
+tool tip position to achieve the task. In
+this particular picture the operator doing
+
+00:03:32.450 --> 00:03:36.019
+this. The operator is holding in his hand
+what’s called a teach pendant. It’s a
+
+00:03:36.019 --> 00:03:40.959
+large box covered in buttons, and by pushing
+these buttons he is able to drive the robot’s
+
+00:03:40.959 --> 00:03:45.120
+tool tip to the required location within the
+workspace.
+
+00:03:45.120 --> 00:03:51.760
+An alternative to this approach which relies
+totally on the inherent precision of the robot,
+
+00:03:51.760 --> 00:03:56.120
+is to have the robot use its sensors — for
+instance cameras which mimic the function
+
+00:03:56.120 --> 00:04:01.680
+of our eyes — in order to guide it to perform
+the task. And that’s exactly what we do;
+
+00:04:01.680 --> 00:04:07.629
+if I want to pick up this stapler I use my
+eyes to guide my hand so that the distance
+
+00:04:07.629 --> 00:04:13.069
+between my fingertips and the stapler become
+zero. Similarly if I want to perform a task
+
+00:04:13.069 --> 00:04:18.440
+like putting a key into a lock, I again use
+my eyes to guide my hand so that the tip of
+
+00:04:18.440 --> 00:04:21.040
+the key enters the barrel of the lock.
+
+00:04:21.040 --> 00:04:26.419
+Here’s an example of this in practice. This
+is some work from my own PHD research way
+
+00:04:26.419 --> 00:04:32.610
+back in 1993. Here the robot arm is programmed
+to move upwards and downwards at constant
+
+00:04:32.610 --> 00:04:38.180
+velocity, but the horizontal motion of the
+robot is controlled by the shape of the line
+
+00:04:38.180 --> 00:04:44.520
+that it is observing. So in this sense the
+robot is reacting to what is in the world.
+
+00:04:44.520 --> 00:04:49.820
+So I can put any shaped line in front of the
+robot, and the robot arm would move and trace
+
+00:04:49.820 --> 00:04:52.509
+a path along that line.
+
+00:04:52.509 --> 00:04:57.280
+In this more complex example, the robot is
+carrying a camera, and it’s trying to keep
+
+00:04:57.280 --> 00:05:02.090
+an object in the centre of its field of view.
+Now the object is on a turntable so it’s
+
+00:05:02.090 --> 00:05:06.880
+moving in quite a complex way. In fact it’s
+not moving at a constant velocity, it is accelerating,
+
+00:05:06.880 --> 00:05:12.509
+and here we see the robot capturing the object,
+locking onto it, and holding it in the centre
+
+00:05:12.509 --> 00:05:15.600
+of its field of view.
+
+00:05:15.600 --> 00:05:19.979
+The same technique was then applied to tracking
+a ping-pong ball, which has been thrown in
+
+00:05:19.979 --> 00:05:24.910
+from one side of the scene, and this is in
+slow motion. Eventually the robot notices
+
+00:05:24.910 --> 00:05:29.490
+the ping-pong ball, locks onto it, and starts
+to move the camera in such a way as to keep
+
+00:05:29.490 --> 00:05:34.600
+the ping-pong ball closer to the centre of
+the scene. So it’s tracking the ping-pong
+
+00:05:34.600 --> 00:05:39.570
+ball as it is moving through space. And here
+it is in real time. We see the ping-pong ball
+
+00:05:39.570 --> 00:05:41.380
+moves very very quickly.
+
+00:05:41.380 --> 00:05:47.250
+Here is some more old work when I was looking
+at controlling a mobile robot using the sense
+
+00:05:47.250 --> 00:05:53.220
+of vision. So this particular robot has got
+an omni-directional camera on the top, and
+
+00:05:53.220 --> 00:05:58.160
+in that omni-directional camera view we can
+find the edges of the roadway. It’s a very
+
+00:05:58.160 --> 00:06:03.410
+distinct boundary between the bright concrete
+road and the green grass and the brown dirt
+
+00:06:03.410 --> 00:06:08.789
+on either side of the road. What we want to
+do then is to keep the robot so it’s moving
+
+00:06:08.789 --> 00:06:14.310
+midway between the two boundaries of the road
+that we are able to observe visually.
+
+00:06:14.310 --> 00:06:19.400
+Here is another example involving a mobile
+robot. In this case the robot is using its
+
+00:06:19.400 --> 00:06:25.460
+visual information — again from an omni-directional
+camera — to position itself with a fixed
+
+00:06:25.460 --> 00:06:30.430
+pose offset with respect to the traffic cone.
+So if I pick the traffic cone up and moved
+
+00:06:30.430 --> 00:06:36.150
+it to another place, the robot would move
+in order to maintain that fixed pose with
+
+00:06:36.150 --> 00:06:41.100
+respect to the traffic cone. So the robot
+is not navigating with respect to a coordinate
+
+00:06:41.100 --> 00:06:48.340
+frame attached to this location, it is navigating with respect to an object or a feature in its environment.
+
+00:06:48.640 --> 00:06:52.840
+This is a vehicle, a forklift truck, and it’s
+got a hook on the front, and it’s trying
+
+00:06:52.840 --> 00:06:57.389
+to put that hook through the handle of the
+crucible. There is a camera on the forklift
+
+00:06:57.389 --> 00:07:03.800
+truck and it is looking down and using that
+to identify where the handle is, and controlling
+
+00:07:03.800 --> 00:07:08.410
+the position — the path of the vehicle — as
+it approaches the crucible. In this particular
+
+00:07:08.410 --> 00:07:14.120
+case we had to add some markers to the crucible
+to help the robot vehicle achieve the reliable
+
+00:07:14.120 --> 00:07:17.620
+pickup.
+What you see now is a time-lapse movie. We
+
+00:07:17.620 --> 00:07:23.030
+ran this experiment over a whole day. Over
+the course of the day the lighting conditions
+
+00:07:23.030 --> 00:07:28.840
+changed: clouds came and went; shadows came
+and went. It showed the overall robustness
+
+00:07:28.840 --> 00:07:34.740
+and reliability of this vision-based strategy.
+The robot didn’t have any knowledge of where
+
+00:07:34.740 --> 00:07:40.840
+the crucible was; it just moved to reduce the area between the tip of the hook and the handle.
+
+00:07:40.849 --> 00:07:45.520
+Here’s a very similar technique, in this
+case applied underwater. So this underwater
+
+00:07:45.520 --> 00:07:51.069
+robot has got a stereo camera pair and it’s
+maintaining a constant height above the seabed.
+

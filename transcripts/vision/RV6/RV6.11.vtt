@@ -1,0 +1,244 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.370 --> 00:00:07.950
+Let’s recap some of the main concepts we
+have covered in this particular lecture. We
+
+00:00:07.950 --> 00:00:13.190
+want to explain where the idea of color comes
+from and it’s a multi-step process.
+
+00:00:13.190 --> 00:00:17.950
+The first step in the process is the illuminant;
+that is the object that emits light which
+
+00:00:17.950 --> 00:00:23.380
+falls onto the scene. That incoming light
+we refer to as illuminance and it’s kind
+
+00:00:23.380 --> 00:00:29.550
+of a spectrum; it is a function of the wavelength
+and we refer to it by the letter E. That light
+
+00:00:29.550 --> 00:00:35.180
+falls onto an object, and the object has got
+a reflectance which is also a functional wavelength,
+
+00:00:35.180 --> 00:00:40.109
+so a red object reflects more red light and
+other sorts of light. A blue object would
+
+00:00:40.109 --> 00:00:45.030
+reflect more blue light then other kinds of
+light. The light that leaves the object we
+
+00:00:45.030 --> 00:00:51.190
+refer to as the luminance, the luminance of
+the object, and the spectrum of the luminance
+
+00:00:51.190 --> 00:00:56.469
+is a function of the spectrum of the illuminance,
+the incoming light and the reflectance of
+
+00:00:56.469 --> 00:01:00.469
+the object.
+That light enters the eye of an observer,
+
+00:01:00.469 --> 00:01:05.630
+and within the observer at the back of the
+observer’s eye are a number of different
+
+00:01:05.630 --> 00:01:11.580
+light sensitive cells—they have different
+responses and they respond to different parts
+
+00:01:11.580 --> 00:01:17.450
+of the spectrum. The response of theses cone
+cells is denoted by N and it is a function
+
+00:01:17.450 --> 00:01:23.680
+of lambda. The different cone cells have got
+different Ns. The overall response of the
+
+00:01:23.680 --> 00:01:29.220
+cone cell is the integral over the wavelength
+of the spectrum of the incoming light, the
+
+00:01:29.220 --> 00:01:35.760
+reflectance of the object, and the response
+of the individual cone cell. Within the cone
+
+00:01:35.760 --> 00:01:40.790
+cell the photons are converted via a chemical
+reaction to electrical impulses which travel
+
+00:01:40.790 --> 00:01:46.870
+through to visual cortex of the observer,
+and they result in a sensation that we have
+
+00:01:46.870 --> 00:01:52.050
+learned to associate with the word red.
+There are many sources of light and we have
+
+00:01:52.050 --> 00:01:57.360
+touched on some of these. Incandescence is
+the light admitted by hot objects that could
+
+00:01:57.360 --> 00:02:02.550
+be the white hot filament of a tungsten light
+bulb or it could be the sun. Other sources
+
+00:02:02.550 --> 00:02:09.200
+of light are electron stimulation as occurs
+in old fashion cathode ray tubes, light admitting
+
+00:02:09.200 --> 00:02:15.640
+diodes, compact fluorescent tubes and other
+gas discharged tubes and lasers. Each of these
+
+00:02:15.640 --> 00:02:22.260
+has a different luminance spectrum. Light
+is a form of electromagnetic radiation and
+
+00:02:22.260 --> 00:02:28.629
+this radiation varies in terms of its wavelength.
+With our eyes we are only able to see that
+
+00:02:28.629 --> 00:02:35.170
+part of the electromagnetic spectrum, but
+with wavelengths between 400 and 700 nanometers
+
+00:02:35.170 --> 00:02:41.310
+a lot of light omitted by common light sources—particularly
+the sun and incandescent light bulbs—is
+
+00:02:41.310 --> 00:02:44.459
+in the infra-red part of the spectrum, and
+although we can’t see
+
+00:02:44.459 --> 00:02:48.819
+infra-red we can feel it. We can sense it
+as heat.
+
+00:02:48.819 --> 00:02:53.799
+In the retina of our eyes we have a large
+number of light sensitive cells: there are
+
+00:02:53.799 --> 00:02:59.299
+rod cells and cone cells. Now it is the cone
+cells that give us our sense of color vision.
+
+00:02:59.299 --> 00:03:04.389
+There are three different types of cone cells:
+those that are sensitive to red, those that
+
+00:03:04.389 --> 00:03:08.999
+are sensitive to green and those that are
+sensitive to blue. Often times they are referred
+
+00:03:08.999 --> 00:03:16.120
+to as the short, medium and long wavelength
+cones. The cones have somewhat overlapping
+
+00:03:16.120 --> 00:03:21.230
+response functions; in particular, the red
+and green cones are significantly overlapped.
+
+00:03:21.230 --> 00:03:25.779
+The fact that we have three types of cones
+means that we are called trichromats—we
+
+00:03:25.779 --> 00:03:32.019
+have three-color vision. Not all animals have
+three-color vision; most mammals only have
+
+00:03:32.019 --> 00:03:37.219
+two-color vision. We call them dichromats.
+Many other animals have four-color vision.
+
+00:03:37.219 --> 00:03:42.120
+We call them tetrachromats and birds are a
+typical example of that.
+
+00:03:42.120 --> 00:03:47.540
+When we create cameras, we borrow a lot of
+these principles; we have an underlying array
+
+00:03:47.540 --> 00:03:52.419
+of silicone photo sensors and each of those
+are sensitive to a wide range of colors.
+
+00:03:52.419 --> 00:03:57.029
+To make them color sensitive we print color
+filters on top of them and generally in a
+
+00:03:57.029 --> 00:04:02.269
+2 by 2 array which we refer to as the Bayer
+pattern, so each 2 by 2 array contains two
+
+00:04:02.269 --> 00:04:07.930
+green filters and a red filter and a blue
+filter. So we create in silicone an analogue
+
+00:04:07.930 --> 00:04:11.799
+of the color sensing mechanism in the human
+eye.
+
+00:04:11.799 --> 00:04:17.609
+If I look at an object with a particular color
+and I change the intensity of the illumination
+
+00:04:17.609 --> 00:04:23.220
+the appearance of the object will change,
+and here we see examples of the object at
+
+00:04:23.220 --> 00:04:30.560
+100%, 75%, 50% and 0% brightness. The RGB
+values are changing, but the color of the
+
+00:04:30.560 --> 00:04:37.780
+object itself does not change, so we want
+to find a way to disentangle color from intensity.
+
+00:04:37.780 --> 00:04:41.770
+To map the three what we call tristimulus
+values—that is, the red, green and blue
+
+00:04:41.770 --> 00:04:47.229
+value into a brightness value and two color
+values—now we can do this very simply by
+
+00:04:47.229 --> 00:04:52.400
+converting the RGB values to what we call
+chromaticity coordinates, indicated by the
+
+00:04:52.400 --> 00:04:58.440
+lower case r, g and b. Now these three numbers
+are actually redundant. I can compute any
+
+00:04:58.440 --> 00:05:03.310
+one of them given the other two, so we only
+need to use two of them and typically we keep
+
+00:05:03.310 --> 00:05:08.379
+only R and G, these numbers vary between zero
+and one.
+
+00:05:08.379 --> 00:05:13.680
+So if we make a graph where on the horizontal
+axis we have the r coordinate, on the vertical
+
+00:05:13.680 --> 00:05:19.380
+axis we have the g coordinate, then every
+possible color appears within this triangle
+
+00:05:19.380 --> 00:05:26.080
+… pure red appears here, pure green appears
+here, pure blue appears here, and it is not
+
+00:05:26.080 --> 00:05:29.780
+possible for any colors to exist above the
+blue line.
+

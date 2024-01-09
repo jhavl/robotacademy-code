@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.359 --> 00:00:21.340
+Welcome to the last lecture in the Robotic
+Vision course and thanks for hanging in there.
+
+00:00:21.340 --> 00:00:25.869
+We've talked a lot about the way that images
+are formed, how we transform the three-dimensional
+
+00:00:25.869 --> 00:00:32.219
+world into a two dimensional image. And an
+underlying assumption in all of that has been
+
+00:00:32.219 --> 00:00:36.200
+that the camera is stationary and the object
+is stationary.
+
+00:00:36.200 --> 00:00:40.980
+Well now we're going to consider the case
+where the camera is moving. The first thing
+
+00:00:40.980 --> 00:00:46.930
+we're going to look at then is how does the
+image change as the camera moves through space.
+
+00:00:46.930 --> 00:00:51.149
+And then we're going to flip it around and
+say, let's say that I've got an image of something
+
+00:00:51.149 --> 00:00:56.350
+that looks like this in the image and I want
+it to look like this in the image. What we're
+
+00:00:56.350 --> 00:01:01.539
+going to try to work out is how should the
+camera move in order to change the image from
+
+00:01:01.539 --> 00:01:02.859
+this to this.
+
+00:01:02.859 --> 00:01:07.830
+The camera has to change its viewpoint and
+so we want to work out directly how the camera
+
+00:01:07.830 --> 00:01:12.909
+should move in order to make that happen.
+This is a technique called "Vision Based Control"
+
+00:01:12.909 --> 00:01:16.900
+sometimes called "Visual Servoing" and is
+a topic that I've spent a good deal of my
+
+00:01:16.900 --> 00:01:18.180
+life thinking about.
+

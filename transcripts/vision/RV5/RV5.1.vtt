@@ -1,0 +1,152 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.159 --> 00:00:06.990
+I’d like to make a distinction between the
+techniques known as image processing, and
+
+00:00:06.990 --> 00:00:12.500
+the techniques known as computer vision.
+Image processing is a technique that takes
+
+00:00:12.500 --> 00:00:17.480
+an image and produces another image. It’s
+often used for image enhancement. In this
+
+00:00:17.480 --> 00:00:23.570
+example we see a medical image where features
+within the body are rather indistinct, and
+
+00:00:23.570 --> 00:00:27.380
+by applying an image processing technique
+to it, they have been enhanced. They have
+
+00:00:27.380 --> 00:00:33.440
+higher contrast and it is easier to see the
+wires and other structures inside the body.
+
+00:00:33.440 --> 00:00:37.309
+Computer vision, on the other hand, or machine
+vision as it’s sometimes called, takes an
+
+00:00:37.309 --> 00:00:43.789
+image and produces features. What we see here
+is an input image with a large number of coloured
+
+00:00:43.789 --> 00:00:47.280
+pixels. Some are yellow, some are grey, some
+are blue. And what it’s producing on the
+
+00:00:47.280 --> 00:00:52.920
+right-hand side are features which describe
+just the yellow objects. And we can see here
+
+00:00:52.920 --> 00:00:57.690
+that we’ve highlighted the centres of those
+objects, and we’ve also put red boxes around
+
+00:00:57.690 --> 00:01:03.129
+them that show their spatial extent. So we’ve
+reduced the amount of information from a whole
+
+00:01:03.129 --> 00:01:10.660
+lot of colour pixels to a bunch of quite succinct
+information for coordinates of centres and
+
+00:01:10.660 --> 00:01:14.670
+the coordinates of the corners of four bounding
+boxes.
+
+00:01:14.670 --> 00:01:18.860
+That pertinent information we refer to as
+image features and there are really three
+
+00:01:18.860 --> 00:01:24.050
+different kinds of image features that are
+in common use. The first one is regions; the
+
+00:01:24.050 --> 00:01:28.670
+example that I just gave. For each of these
+yellow objects, I might be interested in knowing
+
+00:01:28.670 --> 00:01:32.810
+where’s their centre, how big are they,
+what shape are they, what’s the orientation.
+
+00:01:32.810 --> 00:01:38.220
+Are they pointing sideways, are they pointing
+vertically. And there are other features that
+
+00:01:38.220 --> 00:01:43.209
+we could use to describe the shape of these
+yellow objects.
+
+00:01:43.209 --> 00:01:48.310
+Another kind of very common feature are lines.
+And lines are everywhere. certainly in the
+
+00:01:48.310 --> 00:01:53.030
+built environment. So we might be interested
+in what are the equations of these dominant
+
+00:01:53.030 --> 00:01:58.440
+lines in the image. We might be interested
+in the start and end points of these lines,
+
+00:01:58.440 --> 00:02:04.860
+the line segments that perhaps might delineate
+an area of a roof or the edge of a building.
+
+00:02:04.860 --> 00:02:10.810
+The last kind of feature that we use in computer
+vision are points. Here what I’ve done is
+
+00:02:10.810 --> 00:02:15.910
+overlaid onto a picture of a building what
+are called interest points. These are points
+
+00:02:15.910 --> 00:02:23.050
+that contain a lot of information and would
+be easy to find in another view of that same
+
+00:02:23.050 --> 00:02:28.500
+building. So the circles indicate the centre
+of these interest points and the size of the
+
+00:02:28.500 --> 00:02:34.550
+circle says something about the scale of those
+interest points. Now, interest points and
+
+00:02:34.550 --> 00:02:38.570
+the scale of points is not something we’re
+going to cover in this lecture series, but
+
+00:02:38.570 --> 00:02:42.750
+certainly it’s a topic about which there
+is a lot of literature, and they are a very
+
+00:02:42.750 --> 00:02:47.730
+important concept in modern computer vision.
+Let’s go back again and consider region
+
+00:02:47.730 --> 00:02:52.400
+features, which is what we are going to talk
+about in this lecture. A question you might
+
+00:02:52.400 --> 00:02:57.080
+like to ask is where are the symbols on this
+sign; where are the letters and the other
+
+00:02:57.080 --> 00:03:02.290
+graphical elements. Well if we find region
+features we are able to solve this problem.
+
+00:03:02.290 --> 00:03:08.010
+And what I’ve done here with a bit of quite
+simple code, is to put a bounding box around
+
+00:03:08.010 --> 00:03:13.610
+each of the distinct white symbols on this
+otherwise black sign.
+

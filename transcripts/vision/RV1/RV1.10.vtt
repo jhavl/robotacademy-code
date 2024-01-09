@@ -1,0 +1,429 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.470 --> 00:00:07.140
+We have covered a lot of topics. We have talked
+about how the sense of vision evolved. We
+
+00:00:07.140 --> 00:00:12.220
+have talked about the details of human vision.
+We have looked at some of the variety of animal
+
+00:00:12.220 --> 00:00:18.019
+vision. We have talked about how vision is
+a process where the eye is actively steered
+
+00:00:18.019 --> 00:00:22.880
+around the scene in order to maximise our
+understanding of that particular scene.
+
+00:00:22.880 --> 00:00:28.999
+So now it is appropriate to talk about robots
+and vision, and look at how robots have used
+
+00:00:28.999 --> 00:00:34.260
+the sense of vision in order to be able to
+perform tasks, in a similar way to which humans
+
+00:00:34.260 --> 00:00:40.150
+and animals use vision to perform tasks.
+The robot on the left is a very famous robot
+
+00:00:40.150 --> 00:00:45.760
+called Shakey. Developed at SRI International
+in the 1960s. And it has a television camera
+
+00:00:45.760 --> 00:00:51.640
+on the top, which it uses for navigation.
+The robot on the right is one that I built
+
+00:00:51.640 --> 00:00:56.880
+in the early 2000s, and it has got quite a
+number of cameras on board, and they are a
+
+00:00:56.880 --> 00:01:01.660
+little bit interesting to look at. In the
+front is a stereo camera pair and it is a
+
+00:01:01.660 --> 00:01:06.659
+bit like our own two eyes. It allows the robot
+to determine three dimensional structure of
+
+00:01:06.659 --> 00:01:12.640
+the world in front of it. On the top, it has
+a very shiny mirror object and that is part
+
+00:01:12.640 --> 00:01:18.080
+of what we call a panoramic camera assembly.
+There is a camera looking up at that mirror
+
+00:01:18.080 --> 00:01:23.490
+and that allows the robot to see 360 degrees—it
+can see forwards, backwards and side ways.
+
+00:01:23.490 --> 00:01:27.890
+It’s sometimes called an omni-cam or a panoramic
+camera.
+
+00:01:27.890 --> 00:01:34.280
+The last camera on this robot is a wide-angle
+camera on the side. It has a fish eye lens,
+
+00:01:34.280 --> 00:01:39.030
+so it almost has a hemispherical field of
+view. And that can look at what is happening
+
+00:01:39.030 --> 00:01:45.650
+to the side of the robot.
+The current Mars Rover, the Curiosity Rover,
+
+00:01:45.650 --> 00:01:52.220
+has got a large number of cameras on board
+that it uses for a variety of functions.
+
+00:01:52.220 --> 00:01:57.000
+Now the business of teaching machines to see
+is the field of computer vision, and that
+
+00:01:57.000 --> 00:02:03.080
+is an activity that has been going on since
+perhaps the 1960s. Some important early work
+
+00:02:03.080 --> 00:02:08.239
+was carried out by Larry Roberts at MIT as
+part of his PhD project. Larry went on to
+
+00:02:08.239 --> 00:02:13.410
+do other very important things and was very
+instrumental in creating the internet. So
+
+00:02:13.410 --> 00:02:17.110
+in his thesis work what he was doing was taking
+a picture of an object, and this is a very
+
+00:02:17.110 --> 00:02:23.300
+simple wooden block object, took a picture
+with a TV camera and was trying to work out
+
+00:02:23.300 --> 00:02:28.310
+what shape it was. So he went through a number
+of vision processing steps and these are the
+
+00:02:28.310 --> 00:02:31.060
+sorts of things we will cover in following
+lectures.
+
+00:02:31.060 --> 00:02:37.959
+One of the first steps was to find the edges
+of this object and once he had found the edges
+
+00:02:37.959 --> 00:02:42.980
+of the object he would try to fit line segments
+to those edges and once he knew those line
+
+00:02:42.980 --> 00:02:47.690
+segments, he knew something about the way
+images are formed. He could then say something
+
+00:02:47.690 --> 00:02:53.050
+about the three dimensional shape of this
+particular object. So what we have here is
+
+00:02:53.050 --> 00:02:58.290
+a system that can take an image and process
+it and come up with a three dimensional model
+
+00:02:58.290 --> 00:03:04.330
+of that shape. So it is a very simple form
+of object recognition. The computers take
+
+00:03:04.330 --> 00:03:09.800
+an image and made a discussion about what
+sort of object that it was looking at. That’s
+
+00:03:09.800 --> 00:03:14.810
+sufficient information then for a robot to
+make a move, go and pick that object up and
+
+00:03:14.810 --> 00:03:20.319
+perhaps manipulate it in some way.
+So why is vision a good sensor for a robot
+
+00:03:20.319 --> 00:03:24.879
+to have? There are a few reasons why I believe
+vision is an important and very practical
+
+00:03:24.879 --> 00:03:29.489
+sensor for a robot.
+Firstly, the cameras themselves are now very
+
+00:03:29.489 --> 00:03:34.099
+cheap and the reason for this is because cameras
+are built into everything; built into cell
+
+00:03:34.099 --> 00:03:40.519
+phones, built into laptops, and so on. So
+the actual sensor the equivalent of a retina
+
+00:03:40.519 --> 00:03:45.150
+is now a device that perhaps costs less then
+a dollar. Lenses are smaller, cameras are
+
+00:03:45.150 --> 00:03:47.709
+small and cheap.
+The other reason that is really important
+
+00:03:47.709 --> 00:03:52.580
+is that computation is now really cheap; we
+have very powerful computer chips and lots
+
+00:03:52.580 --> 00:03:57.440
+and lots of memory, and so this enables us
+to run algorithms to process the data that
+
+00:03:57.440 --> 00:04:02.720
+comes out of the sensor chip.
+So this combination of very effective, high
+
+00:04:02.720 --> 00:04:09.290
+resolution, colour, cheap sensors, with abundant
+computation are the foundations on which we
+
+00:04:09.290 --> 00:04:13.569
+can build robot vision systems.
+Here is a really interesting graph from Ray
+
+00:04:13.569 --> 00:04:20.880
+Kurzweil, and he talks a lot about the way
+computation power has changed over time, and
+
+00:04:20.880 --> 00:04:27.470
+this is a logarithmic vertical scale and he’s
+plotting a number of data points that represent
+
+00:04:27.470 --> 00:04:33.479
+a number of calculations per second you can
+buy for a thousand dollars over time. And
+
+00:04:33.479 --> 00:04:39.290
+we can see that this is an exponential plot
+on a logarithmic vertical scale. So what it
+
+00:04:39.290 --> 00:04:44.639
+is showing is computation is really increasing,
+increasingly rapidly with time. And this is
+
+00:04:44.639 --> 00:04:50.290
+fundamentally Ray Kurzweil's thesis.
+So if we extrapolate this into the future,
+
+00:04:50.290 --> 00:04:57.360
+we can see that we are about here, and we
+have computational power of effectively one
+
+00:04:57.360 --> 00:05:02.639
+mouse brain.
+By the early 2020s we should have, for a thousand
+
+00:05:02.639 --> 00:05:09.759
+dollars, the computational power of a human
+brain. And by 2050 when many of you will be
+
+00:05:09.759 --> 00:05:14.810
+alive, perhaps at the ends of your working
+careers, for a thousand dollars you will be
+
+00:05:14.810 --> 00:05:20.710
+able to buy enough computing power to the
+equivalent of all human brains on the planet.
+
+00:05:20.710 --> 00:05:26.430
+That is a pretty amazing prediction and so
+clearly very, very exciting times ahead.
+
+00:05:26.430 --> 00:05:31.470
+So what practical things have roboticists
+been doing with sensor vision?
+
+00:05:31.470 --> 00:05:37.370
+We hear a lot in recent times about self-driving
+cars, Google cars and so on, but the actual
+
+00:05:37.370 --> 00:05:43.070
+history of self-driving cars goes back a long
+way. There was some very significant research
+
+00:05:43.070 --> 00:05:49.040
+program in Europe in the 1980s called Prometheus,
+and a lot of very fundamental work was done
+
+00:05:49.040 --> 00:05:56.320
+by a scientist called Ernst Dickmanns. He
+automated this van. It had a number of cameras
+
+00:05:56.320 --> 00:06:01.530
+in the front looking outwards, and it was
+able to drive along autobahns at high speed.
+
+00:06:01.530 --> 00:06:06.430
+A number of significant landmark achievements
+were made by this particular van and some
+
+00:06:06.430 --> 00:06:11.740
+of it immediate descendants.
+Another landmark achievement was from some
+
+00:06:11.740 --> 00:06:17.180
+researchers from Carnegie Mellon University,
+who automated a car primarily using the sensor
+
+00:06:17.180 --> 00:06:22.740
+vision, and drove it across America. The journey
+took a few days, around four thousand kilometres,
+
+00:06:22.740 --> 00:06:29.600
+and there were relatively few human interventions.
+This video shows a humanoid robot catching a ball.
+
+00:06:30.900 --> 00:06:33.360
+Here we see it again in slow motion.
+
+00:06:36.860 --> 00:06:39.540
+Now the robot has a pair of cameras in its head,
+
+00:06:39.540 --> 00:06:43.740
+which allows it to estimate the distance
+to the ball; uses that information to model
+
+00:06:43.750 --> 00:06:48.900
+how a ball moves through space in order to
+plan the motion that the arm should take to
+
+00:06:48.900 --> 00:06:53.580
+intercept the ball. So the robot’s head
+has a number of sensors: pair of cameras as
+
+00:06:53.580 --> 00:06:58.370
+I mentioned, but also some tilt sensors, so
+it can work out where the head is pointing
+
+00:06:58.370 --> 00:07:04.470
+in space. Now you can see the positions of
+the ball as seen by its left and right eye
+
+00:07:04.470 --> 00:07:10.389
+as a function of time, and here you can see
+an animation of the robot’s hand moving
+
+00:07:10.389 --> 00:07:16.660
+to intercept the path of the ball.
+Here is a flying robot which we actually looked
+
+00:07:16.660 --> 00:07:22.310
+at up close in the Out and About with Robots
+video, in the Robotics course some of you
+
+00:07:22.310 --> 00:07:27.380
+might have seen earlier. This robot is equipped
+with a stereo pair of cameras again. So again
+
+00:07:27.380 --> 00:07:33.030
+like our own two eyes, this enables the robot
+to sense an obstacle in front of it, by working
+
+00:07:33.030 --> 00:07:37.620
+out the three dimensional structure of the
+world in front using information from two
+
+00:07:37.620 --> 00:07:41.060
+cameras and a fair amount of processing on
+board.
+
+00:07:43.360 --> 00:07:49.099
+Another robot developed by myself and some
+colleagues at CSIRO, and this underwater robot
+
+00:07:49.099 --> 00:07:53.599
+has also got a stereo pair of cameras. It
+has got two cameras that look downwards and
+
+00:07:53.599 --> 00:07:58.889
+two cameras which look frontwards. The downward
+looking cameras are estimating the distance
+
+00:07:58.889 --> 00:08:03.370
+of the seabed from the robot, and this robot
+is trying to maintain a constant altitude
+
+00:08:03.370 --> 00:08:07.810
+above the sea bed. And it does that using
+the three dimensional information from the
+
+00:08:07.810 --> 00:08:13.470
+downward looking stereo cameras. The frontward
+looking stereo cameras are used to detect obstacles.
+
+00:08:16.720 --> 00:08:18.460
+Here we see what the world looks like through
+
+00:08:18.470 --> 00:08:24.380
+the eyes of a mobile robot. This particular
+robot has got a stereo camera pair which allows
+
+00:08:24.380 --> 00:08:30.009
+it to create a three dimensional model of
+the world through which it is moving. And
+
+00:08:30.009 --> 00:08:34.500
+that is really useful in order to determine
+what is a flat surface that it could drive
+
+00:08:34.500 --> 00:08:40.560
+over, and what is a wall, or human being,
+or some other kind of obstacle.
+
+00:08:43.220 --> 00:08:47.340
+Here we have something a bit different. Here
+we have a single camera looking downwards
+
+00:08:47.350 --> 00:08:52.389
+at a coral reef, and the camera is being carried
+by a robot. Now we are able to use a number
+
+00:08:52.389 --> 00:08:57.189
+of mathematical techniques to combine the
+information from these multiple camera videos
+
+00:08:57.189 --> 00:09:03.279
+to create a three dimensional model of the
+coral reef. We do this from a number of single
+
+00:09:03.279 --> 00:09:09.040
+camera views. Now we smooth that three dimensional
+mesh; we drape the original imagery over it
+
+00:09:09.040 --> 00:09:14.649
+to create a texture map surface. So now we
+have a very realistic looking three dimensional
+
+00:09:14.649 --> 00:09:22.499
+model of a coral reef obtained just from a
+whole sequence of single camera views.
+
+00:09:22.499 --> 00:09:28.199
+So I hope that I have convinced you that vision
+is a really, really important sensor for all
+
+00:09:28.199 --> 00:09:34.529
+sorts of animals, for ourselves and also for
+robots. So in the rest of the course we are
+
+00:09:34.529 --> 00:09:40.189
+going to learn something about how we do robot
+vision; how do we take information from camera
+
+00:09:40.189 --> 00:09:45.449
+sensors and process it and generate information
+that a robot can take some action on.
+

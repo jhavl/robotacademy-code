@@ -1,0 +1,150 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.959 --> 00:00:08.580
+To properly classify these 2D objects, we
+need to look at the blob properties. Now there
+
+00:00:08.580 --> 00:00:14.059
+are many blob properties that exist, for example
+the area, the centroid or the eccentricity.
+
+00:00:14.059 --> 00:00:17.390
+I've put together some examples in MATLAB
+of some of these properties, so let's take
+
+00:00:17.390 --> 00:00:19.619
+a look at that now.
+
+00:00:19.619 --> 00:00:24.869
+So in MATLAB here I have four different variables.
+The first is my robotic vision worksheet image
+
+00:00:24.869 --> 00:00:30.029
+and the other three are the binary outputs
+from my 'getColor' from my different colour
+
+00:00:30.029 --> 00:00:35.710
+channels. So the red binary output, the green
+binary output and the blue one as well. So
+
+00:00:35.710 --> 00:00:41.390
+when you're writing your own getShape function,
+you're going to have to rely on using the
+
+00:00:41.390 --> 00:00:44.110
+iblobs function of the toolbox.
+
+00:00:44.110 --> 00:00:48.309
+So in this video I'm going to show you how
+the iblobs works and the different properties
+
+00:00:48.309 --> 00:00:51.270
+of the blobs that can be returned.
+
+00:00:51.270 --> 00:00:58.120
+So let's say we want to extract the red blobs.
+So we'll make a new variable called red blobs,
+
+00:00:58.120 --> 00:01:03.789
+and the actual function to extract blobs out
+of an image is iblobs, so that's a toolbox
+
+00:01:03.789 --> 00:01:09.720
+function and how iblobs works is that the
+primary input in the binary image that you
+
+00:01:09.720 --> 00:01:13.880
+want to extract the blobs from. So for us
+it's just going to be our 2D.
+
+00:01:13.880 --> 00:01:20.840
+Now there are many other inputs you can put
+for iblobs, and I strongly encourage you to
+
+00:01:20.840 --> 00:01:25.479
+research about what they are because they
+can be used to improve the output of your
+
+00:01:25.479 --> 00:01:28.100
+own getShape function.
+
+00:01:28.100 --> 00:01:34.320
+So if we run that, that will extract the red
+blobs for us and you can see that it is returned
+
+00:01:34.320 --> 00:01:42.979
+this list of blobs here. And then we can visualize
+this by using idisp, in r2d and then I can
+
+00:01:42.979 --> 00:01:50.140
+go back to my red blobs and then call plot_box
+and then that has highlighted all the red
+
+00:01:50.140 --> 00:01:55.479
+blobs in this image. And you can see that
+it's a binary image, there are the black pixels
+
+00:01:55.479 --> 00:02:00.229
+and there are white pixels only. And all of
+the white shapes in this particular image
+
+00:02:00.229 --> 00:02:05.369
+have been highlighted with a blue square.
+But you might be thinking, "Hold on, there
+
+00:02:05.369 --> 00:02:11.440
+are six red 2D objects in this image, but
+there are seven red blobs that have been returned.
+
+00:02:11.440 --> 00:02:12.750
+Where's the seventh blob?"
+
+00:02:12.750 --> 00:02:18.180
+Well if you go back into the image and pay
+close attention, you can see that the border
+
+00:02:18.180 --> 00:02:24.200
+of this image has been highlighted as a blob
+as well. And that particular blob has an extremely
+
+00:02:24.200 --> 00:02:29.319
+large area. You can see its blob number seven
+here. So this is how you’re going to have
+
+00:02:29.319 --> 00:02:34.599
+to classify each of the 2D objects, in particular
+shape and size. You're going to have to look
+
+00:02:34.599 --> 00:02:39.410
+at the blob properties that are returned and
+then classify it in terms of these properties.
+
+00:02:39.410 --> 00:02:46.310
+So you can look at the blob area, it's centroid,
+the eccentricity, the perimeter, all those
+
+00:02:46.310 --> 00:02:51.629
+particular properties combined together can
+then enable you to build a hierarchical tree,
+
+00:02:51.629 --> 00:02:59.969
+such that you can identify something as being a square, circle or a triangle, and what particular size it is.
+
+00:02:59.969 --> 00:03:04.900
+Last think got note is that anything in image
+processing will be affected by the image quality
+
+00:03:04.900 --> 00:03:09.930
+and noise. So you can't be 100 percent sure
+if something is definitely going to be a square.
+
+00:03:09.930 --> 00:03:16.349
+That's why we're trying to build a classifier
+as a tree, such that if something is not a
+
+00:03:16.349 --> 00:03:21.519
+square and it's not a triangle, then it's
+most likely to be a circle.
+

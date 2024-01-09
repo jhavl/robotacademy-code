@@ -1,0 +1,208 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:05.940
+Finding the same point in 2 views
+Now that we found the coordinates of some
+
+00:00:05.940 --> 00:00:11.030
+interesting points in both the left image
+and the right image, we now need to determine
+
+00:00:11.030 --> 00:00:16.760
+the correspondents, which interesting point
+in the first image corresponds to which interesting
+
+00:00:16.760 --> 00:00:22.300
+point in the second image. And, we have talked
+before how the pixel values themselves are
+
+00:00:22.300 --> 00:00:26.849
+not sufficiently unique.
+Note the notation that I’m using here, a
+
+00:00:26.849 --> 00:00:33.059
+leading digit, the 1 or the 2, indicates which
+particular frame we are talking about. So,
+
+00:00:33.059 --> 00:00:38.370
+this indicates the first image and this one
+indicates the second image. To get around
+
+00:00:38.370 --> 00:00:44.760
+the problem of the non-uniqueness of individual
+pixel values across images, we are going to
+
+00:00:44.760 --> 00:00:50.390
+look at W by W window of pixels centered around
+each corner point.
+
+00:00:50.390 --> 00:00:56.129
+These are group of pixels with W squared values
+in it is likely to be much more unique than
+
+00:00:56.129 --> 00:01:01.410
+a single pixel centered at the interest point.
+What we’re going to do then is to compute
+
+00:01:01.410 --> 00:01:07.229
+this window of pixels around the interest
+points in the first image and around all the
+
+00:01:07.229 --> 00:01:11.760
+interest points in the second image.
+We talked previously about image similarity
+
+00:01:11.760 --> 00:01:17.810
+measures and we are going to use them again
+here to compare these windows centered on
+
+00:01:17.810 --> 00:01:24.430
+the interest points. Let’s recap very briefly
+on the utility of these features, in particular
+
+00:01:24.430 --> 00:01:29.900
+the harris corner feature that we have just
+been describing. It leads to a very concise
+
+00:01:29.900 --> 00:01:35.390
+description of an image. Instead of an image
+with millions of pixels in it, we now have
+
+00:01:35.390 --> 00:01:40.979
+hundreds of features. The feature is a distinct
+point within the scene. It’s something we
+
+00:01:40.979 --> 00:01:46.409
+can find from one frame to the next, just
+useful if that camera is moving. We only have
+
+00:01:46.409 --> 00:01:50.600
+hundreds of these features now instead of
+millions of pixels. So, the Harris algorithm
+
+00:01:50.600 --> 00:01:55.280
+tells us the coordinates of each of these
+distinct features within the image.
+
+00:01:55.280 --> 00:02:01.740
+Now, we need to describe those features and
+we do that with a W by W window of pixels
+
+00:02:01.740 --> 00:02:07.119
+around each of those features and we use image
+similarity measures to compare them across
+
+00:02:07.119 --> 00:02:12.280
+frames. Another way of thinking about this
+is we have eliminated a lot of the irrelevant
+
+00:02:12.280 --> 00:02:18.739
+or not useful information from the image and
+concentrated just on the very high value information
+
+00:02:18.739 --> 00:02:23.129
+within the image.
+This technique of finding corner features
+
+00:02:23.129 --> 00:02:28.870
+and matching them across frames is really
+useful for real time tracking as we just showed.
+
+00:02:28.870 --> 00:02:34.300
+Of course, there are some problems with this
+simple approach to feature matching. In particular,
+
+00:02:34.300 --> 00:02:39.269
+if I have two views of the same scene but
+there is a very large change in the viewpoint,
+
+00:02:39.269 --> 00:02:44.519
+a very large change in either the position
+or orientation of my camera, then the pattern
+
+00:02:44.519 --> 00:02:50.599
+of pixels that surrounds each of these interest
+points will be different. For instance, if
+
+00:02:50.599 --> 00:02:56.090
+the pattern of pixels around a corner feature
+in one image looks like this and in the case
+
+00:02:56.090 --> 00:03:02.000
+where my second view looks more obliquely
+at that particular part of the world, then
+
+00:03:02.000 --> 00:03:07.620
+that will introduce some perspective distortion
+to that particular part of the image and those
+
+00:03:07.620 --> 00:03:12.930
+two windows will not match particularly well.
+Similarly, if my camera moves a long way away
+
+00:03:12.930 --> 00:03:19.120
+from the scene, then the image will change
+in scale and the simple image matching techniques
+
+00:03:19.120 --> 00:03:25.480
+that we used will also fail. And also, if
+I rotate the camera, again the image similarity
+
+00:03:25.480 --> 00:03:31.370
+measures will fail. So, what we need is some
+way to match the region around an interest
+
+00:03:31.370 --> 00:03:38.430
+point that is invariant to scale and to rotation.
+Now, this is a huge area of research and there
+
+00:03:38.430 --> 00:03:43.340
+is some wonderful algorithms available today
+that provide this functionality. Perhaps,
+
+00:03:43.340 --> 00:03:50.720
+one of the best known is the SIFT Detector
+by David Lowe bended back in 2004. And, it
+
+00:03:50.720 --> 00:03:55.450
+provides output something like this. Here
+is the image of the building that we looked
+
+00:03:55.450 --> 00:04:02.299
+at before and overlaid on that are a number
+of what are referred to as SIFT features.
+
+00:04:02.299 --> 00:04:06.700
+Centre of each circle represents an interest
+point, a point that’s distinct enough to
+
+00:04:06.700 --> 00:04:12.069
+find in another image.
+The size of the circle sitting on top of each
+
+00:04:12.069 --> 00:04:16.829
+of those interest points indicates something
+about the scale of the feature. So, all of
+
+00:04:16.829 --> 00:04:22.330
+the pixels that are in the circle around the
+feature are used to describe that feature.
+
+00:04:22.330 --> 00:04:26.240
+So, we can see that some features are very
+small. They contain a lot of dense texture
+
+00:04:26.240 --> 00:04:30.960
+spread over a small number of pixels. While,
+some other features are very large, they encompass
+
+00:04:30.960 --> 00:04:35.830
+the whole corner of a building. These features
+also encode something about the orientation
+
+00:04:35.830 --> 00:04:40.820
+of the feature in the image and that’s indicated
+by the radial line.
+

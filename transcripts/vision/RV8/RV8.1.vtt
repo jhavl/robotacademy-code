@@ -1,0 +1,245 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:02.419
+Homogeneous coordinates
+
+00:00:02.419 --> 00:00:08.940
+We’ll start by recapping some fundamentals
+of two-dimensional geometry. To start with,
+
+00:00:08.940 --> 00:00:15.299
+we’re going to talk about a Euclidian plane.
+A Euclidian plane is a non-curved surface
+
+00:00:15.299 --> 00:00:19.840
+where the rules of Euclidian geometry apply.
+We normally take this for granted.
+
+00:00:19.840 --> 00:00:24.880
+We’re just going to be explicit about the
+fact that we’re working with flat surfaces.
+
+00:00:24.880 --> 00:00:29.699
+The second concept is Cartesian coordinates.
+Again, this is a concept you should be well
+
+00:00:29.699 --> 00:00:34.980
+familiar with. We have a set of orthogonal
+axes typically labeled X and Y. We have a
+
+00:00:34.980 --> 00:00:40.780
+point P and we describe its position with
+respect to the origin in terms of distances
+
+00:00:40.780 --> 00:00:47.420
+along the X and Y axes. A concept that is
+perhaps less familiar to you will be homogenous
+
+00:00:47.420 --> 00:00:52.360
+coordinates and we’re going to be using
+them a lot in this lecture. Those of you who’ve
+
+00:00:52.360 --> 00:00:57.399
+done the introduction to robotics course will
+have already encountered homogenous coordinates.
+
+00:00:57.399 --> 00:01:02.190
+To represent a point in a two-dimensional
+Cartesian space, we describe it by a pair
+
+00:01:02.190 --> 00:01:09.200
+of numbers written as tuple X, Y and we say
+that this point lives in the space of two-dimensional
+
+00:01:09.200 --> 00:01:13.740
+real numbers, which we denote by the symbol
+R2 (R squared).
+
+00:01:13.740 --> 00:01:19.070
+In homogenous coordinates, we represent the
+same point with three numbers. In this case,
+
+00:01:19.070 --> 00:01:24.500
+we’ve represent it as X, Y and the number
+one. In fact, the number one is somewhat arbitrary;
+
+00:01:24.500 --> 00:01:31.200
+it could be any non-zero constant. We say
+now that this point belongs to the two-dimensional
+
+00:01:31.200 --> 00:01:36.799
+projective space, which we denote by the symbol
+P2 (P squared). So it’s the same point,
+
+00:01:36.799 --> 00:01:42.320
+just two different ways to represent it. The
+homogenous representation, the representation
+
+00:01:42.320 --> 00:01:46.820
+in projective space is going to be very, very
+handy to us in this lecture.
+
+00:01:46.820 --> 00:01:51.140
+Now to convert from homogenous coordinate
+to a Cartesian coordinate, I’m going to
+
+00:01:51.140 --> 00:01:57.439
+start with the very general homogenous coordinate
+denoted here as X tilde, Y tilde and Z tilde.
+
+00:01:57.439 --> 00:02:01.990
+To convert it through a Cartesian coordinate
+what I do is take the first two numbers and
+
+00:02:01.990 --> 00:02:08.989
+divide by the third. So X and Y Cartesian
+coordinates are given by X tilde on Z tilde
+
+00:02:08.989 --> 00:02:12.379
+and Y tilde on Z tilde respectively.
+
+00:02:12.379 --> 00:02:18.560
+Now a mathematician would say that in projective
+space, lines and points have duals. They have
+
+00:02:18.560 --> 00:02:24.720
+equivalent representations. Some very interesting
+and very useful things flow from this duality.
+
+00:02:24.720 --> 00:02:29.480
+We can write a line in homogenous form a little
+bit different to what we’re used to but
+
+00:02:29.480 --> 00:02:35.989
+we can write a line as three numbers denoted
+here as L1, L2 and L3. Imagine that I’ve
+
+00:02:35.989 --> 00:02:41.540
+got a point which moves along that line. So
+the line is really the set of all possible
+
+00:02:41.540 --> 00:02:47.010
+points that lie along it. I can express the
+fact that the point lies on the line by the
+
+00:02:47.010 --> 00:02:52.959
+dot product of the line and the point being
+equal to zero. We refer to this as the point
+
+00:02:52.959 --> 00:02:58.730
+equation of a line. A line is defined in terms
+of all the points that could possibly lie
+
+00:02:58.730 --> 00:02:59.560
+along it.
+
+00:02:59.560 --> 00:03:05.409
+Now I can expand that out and we can see that
+that looks a little bit different to the conventional
+
+00:03:05.409 --> 00:03:11.959
+Cartesian representation of a line. But if
+we do the transformation from homogenous coordinates
+
+00:03:11.959 --> 00:03:17.629
+to Cartesian coordinates, we can show that
+these two representations of a line are equivalent.
+
+00:03:17.629 --> 00:03:22.810
+An advantage of using the homogenous form
+is that it’s very easy to represent a line
+
+00:03:22.810 --> 00:03:27.400
+that is vertical where in Cartesian coordinates,
+that means that the grading of the line is
+
+00:03:27.400 --> 00:03:34.129
+equal to infinity. In homogenous form, we
+treat that situation very simply and conveniently.
+
+00:03:34.129 --> 00:03:39.080
+We don’t need to introduce any infinities.
+We also might be interested in how to describe
+
+00:03:39.080 --> 00:03:44.150
+a line that joins two points. So here we have
+two points and here’s a line that passes
+
+00:03:44.150 --> 00:03:49.530
+through those two points. Then the homogenous
+representation of the line which remember
+
+00:03:49.530 --> 00:03:55.420
+is the three vector is given simply by the
+cross-product of the two points that lie on
+
+00:03:55.420 --> 00:04:01.030
+the line. So a very, very simple way of finding
+the equation of a line that joins two points
+
+00:04:01.030 --> 00:04:05.040
+much, much more conveniently than it is for
+Cartesian coordinates.
+
+00:04:05.040 --> 00:04:09.330
+We might also be interested in the problem
+of the coordinate of the point at the intersection
+
+00:04:09.330 --> 00:04:14.560
+of two lines. So here we have two lines and
+this is the intersection point and the intersection
+
+00:04:14.560 --> 00:04:20.199
+point is given by the cross-product of the
+two lines. We call this the line equation
+
+00:04:20.199 --> 00:04:24.990
+of a point. The point is defined in terms
+of two lines.
+
+00:04:24.990 --> 00:04:32.340
+So let’s create a point. A horizontal coordinate of
+100. A vertical coordinate of 200. And points
+
+00:04:32.340 --> 00:04:36.940
+are represented as Coulomb vectors. So that’s
+a row vector that I’ve written just there,
+
+00:04:36.940 --> 00:04:43.680
+so I will transpose it. So that will display
+as a Coulomb vector. So this is a Euclidean
+
+00:04:43.680 --> 00:04:46.520
+or Cartesian coordinate for a point.
+
+00:04:46.520 --> 00:04:51.240
+Now we can convert the Euclidean coordinate
+into a homogeneous coordinate using the function
+
+00:04:51.240 --> 00:04:57.979
+e2h, and we can see that all it has done is
+appended a 1 to it. So now instead of a vector
+
+00:04:57.979 --> 00:05:02.120
+with two elements, its now a Coulomb vector
+with three elements. The last element is a
+
+00:05:02.120 --> 00:05:03.060
+one.
+
+00:05:03.060 --> 00:05:07.979
+Now we can convert the homogeneous coordinate
+back to a Euclidean coordinate by using the
+
+00:05:07.979 --> 00:05:14.180
+inverse function h2e, for homogeneous to Euclidean, and I apply that to the answer
+
+00:05:14.180 --> 00:05:18.780
+for the last operation and we see that it
+is back now to a vector with two elements.
+
+00:05:18.780 --> 00:05:21.389
+The result is the vector that we started with.
+

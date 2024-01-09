@@ -1,0 +1,162 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:03.520
+Image features revisited
+
+00:00:03.520 --> 00:00:08.809
+In a much earlier lecture, we talked about
+the data mismatch problem. That's the fact
+
+00:00:08.809 --> 00:00:14.440
+that a sensor like a camera emits a large
+number of pixels, perhaps 1 million pixels
+
+00:00:14.440 --> 00:00:21.020
+in every image and it's going to be anything
+from 10 to 50 images per second that is an
+
+00:00:21.020 --> 00:00:22.890
+enormous amount of data.
+
+00:00:22.890 --> 00:00:27.550
+A machine like a robot requires relatively
+little information in order to tell it where
+
+00:00:27.550 --> 00:00:34.110
+to go an arm type manipulator like shown here
+requires simply 6 numbers which described
+
+00:00:34.110 --> 00:00:36.730
+the angles of the joints of the robot.
+
+00:00:36.730 --> 00:00:41.710
+A mobile robot like the vacuum cleaner shows
+here really only requires 2 numbers to control
+
+00:00:41.710 --> 00:00:46.760
+its motion, that's its forward velocity V
+and its rotational velocity omega.
+
+00:00:46.760 --> 00:00:51.620
+So, we have the problem with a huge amount
+of data coming from a camera sensor, relatively
+
+00:00:51.620 --> 00:00:56.350
+little data required by the robot. The way
+we get around that then is to extract what
+
+00:00:56.350 --> 00:01:01.579
+we call features from the image and we've
+talked a bit in previous lectures about region
+
+00:01:01.579 --> 00:01:07.390
+features. We've talked about how we can take
+an import image. We can find regions which
+
+00:01:07.390 --> 00:01:14.340
+are sets of pixels with either similar intensity
+or with similar color and we can then describe
+
+00:01:14.340 --> 00:01:19.670
+those regions in terms of their centroid,
+their bounding box, moment’s perimeter,
+
+00:01:19.670 --> 00:01:21.250
+circularity and so on.
+
+00:01:21.250 --> 00:01:25.619
+We've talked a lot about regions but there
+are number of other types of features that
+
+00:01:25.619 --> 00:01:29.700
+are really useful and interesting and that
+I'd like to talk a little bit about.
+
+00:01:29.700 --> 00:01:35.270
+Most real world scenes contain a lot of lines.
+This particular picture of a church, I've
+
+00:01:35.270 --> 00:01:40.140
+highlighted a number of lines. Some of these
+lines come from the contrast between the roof
+
+00:01:40.140 --> 00:01:46.000
+and the sky, between the roof and the wall,
+the edges of windows, the edges of doors and
+
+00:01:46.000 --> 00:01:50.799
+so on. Certainly, in any man-made environment,
+there are enormous number of lines but even
+
+00:01:50.799 --> 00:01:54.820
+in many natural environments there are lines
+as well, perhaps the vertical edges of tree
+
+00:01:54.820 --> 00:01:56.070
+trunks and so on.
+
+00:01:56.070 --> 00:02:02.369
+So, lines are very prevalent in the environment
+and lines are very simple and compact to describe.
+
+00:02:02.369 --> 00:02:07.290
+A line might contain a large number of pixels
+but is really described by just 2 parameters,
+
+00:02:07.290 --> 00:02:09.020
+its intercept and its slope.
+
+00:02:09.020 --> 00:02:14.080
+Now, an interesting question then is: How
+do we extract lines in an image, the important,
+
+00:02:14.080 --> 00:02:16.319
+the dominant lines within an image?
+
+00:02:16.319 --> 00:02:21.190
+Another class of features what we call point
+features and what's overlaid on this picture
+
+00:02:21.190 --> 00:02:27.930
+of a building here are points in the image
+that are interesting, that is they describe
+
+00:02:27.930 --> 00:02:32.459
+points that are quite distinctive and if I
+took another picture of this building, I'd
+
+00:02:32.459 --> 00:02:37.459
+have a pretty good chance of finding those same points in a different view of the same building.
+
+00:02:38.040 --> 00:02:43.040
+So, if I'd move my camera, if the sun's come
+out, the sun's going behind the cloud, I would
+
+00:02:43.040 --> 00:02:47.750
+still be able to locate these points. The
+overlaid graphical information entails a lot
+
+00:02:47.750 --> 00:02:53.950
+about these feature points. The center of
+the circle indicates the center of this distinctive
+
+00:02:53.950 --> 00:02:58.959
+pattern that is a pattern that we are very
+likely to be able to find in another view
+
+00:02:58.959 --> 00:03:00.530
+of the same scene.
+
+00:03:00.530 --> 00:03:04.830
+The size of the circle indicates something
+about the scale of the pattern. Is it a very
+
+00:03:04.830 --> 00:03:10.239
+small distinct pattern or a large distinct
+pattern? The radio lines say something about
+
+00:03:10.239 --> 00:03:12.379
+the orientation of that pattern.
+

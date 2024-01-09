@@ -1,0 +1,266 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.409 --> 00:00:08.360
+In this section we are going to consider another
+spatial image processing operation, goes by
+
+00:00:08.360 --> 00:00:14.110
+the rather confronting title of mathematical
+morphology. Now the word morphology means
+
+00:00:14.110 --> 00:00:19.939
+shape, so this is a type of spatial image
+processing operation that is sensitive to
+
+00:00:19.939 --> 00:00:25.460
+shape. The output image contains shapes that
+are compatible with a structuring element
+
+00:00:25.460 --> 00:00:32.540
+S. Now the structuring element is a pattern
+which represents a subset of pixels within
+
+00:00:32.540 --> 00:00:38.680
+the input window that we wish to consider.
+An example will make that clear: we have a
+
+00:00:38.680 --> 00:00:45.700
+contrived example here, simple binary scene,
+black pixels and white pixels that contain
+
+00:00:45.700 --> 00:00:51.770
+squares and rectangles of different sizes.
+As in previous animations, we see the input
+
+00:00:51.770 --> 00:00:56.730
+window shown here in red marching across the
+image left to right and top to bottom. What
+
+00:00:56.730 --> 00:01:01.800
+is different in this case is that the output
+is only true if all of the pixels underneath
+
+00:01:01.800 --> 00:01:06.940
+the red window are true. So far none have
+been. In a moment we will see… this one
+
+00:01:06.940 --> 00:01:13.410
+particular case now… where the output image
+contains one pixel. That is where all of the
+
+00:01:13.410 --> 00:01:20.179
+pixels underneath the red marching window
+were all set. You will notice that most of
+
+00:01:20.179 --> 00:01:24.929
+the shapes that were in the input image have
+disappeared, the rectangles have all disappeared,
+
+00:01:24.929 --> 00:01:30.539
+the little square has disappeared; the only
+shape that was retained was the big square.
+
+00:01:30.539 --> 00:01:37.080
+Note that the big square was the same shape
+as the red marching window. We say that only
+
+00:01:37.080 --> 00:01:42.720
+shapes that are compatible with the structuring
+element—a 3 by 3 square—are retained.
+
+00:01:42.720 --> 00:01:47.300
+This operation is also referred to as erosion,
+because what has happened here is that our
+
+00:01:47.300 --> 00:01:51.890
+3 by 3 square, even though it is compatible,
+has been eroded away … pixels have been
+
+00:01:51.890 --> 00:01:57.069
+chewed off its edges until only the centre
+pixel is left. This operation is often called
+
+00:01:57.069 --> 00:02:03.720
+erosion and this function can be computed
+using the tool box function ierode; the first
+
+00:02:03.720 --> 00:02:09.200
+argument is the image and the second argument
+is the structuring element. In this case it
+
+00:02:09.200 --> 00:02:15.920
+is a 3 by 3 matrix containing ones.
+So we can perform the converse operation,
+
+00:02:15.920 --> 00:02:20.750
+which is called dilation, and again we show
+this in animation. Here is the 3 by 3 marching
+
+00:02:20.750 --> 00:02:27.580
+window, but now for dilation, the output is
+true if any pixel underneath the red square
+
+00:02:27.580 --> 00:02:33.100
+is true. So far none have been. Now we see
+that there are a bunch of pixels are going
+
+00:02:33.100 --> 00:02:38.180
+to be set as the red window marches across
+them and encounters a one pixel.
+
+00:02:41.440 --> 00:02:46.860
+This operation is called dilation for the obvious reason
+that it has taken a single pixel, dilated
+
+00:02:46.860 --> 00:02:53.050
+it, grown it into a 3 by 3 shape; in fact,
+it is back to the shape that it was originally.
+
+00:02:53.050 --> 00:02:58.810
+This function, this dilation function, can
+be computed using tool box function idilate;
+
+00:02:58.810 --> 00:03:05.220
+the first argument is the input image and
+the second argument is the structuring element.
+
+00:03:05.220 --> 00:03:11.970
+So this was the original image that we had
+and we eroded it to a single pixel and then
+
+00:03:11.970 --> 00:03:18.220
+we dilated it so that the single pixel became
+a block of 3 by 3 pixels. So you can see what
+
+00:03:18.220 --> 00:03:23.130
+has happened here, we have taken an original
+image, we have eroded it, dilated it and the
+
+00:03:23.130 --> 00:03:28.530
+only shape that made it all the way through
+was the 3 by 3 square. The rectangles have
+
+00:03:28.530 --> 00:03:33.560
+disappeared and the little square has disappeared
+and that is because only the shapes that are
+
+00:03:33.560 --> 00:03:39.120
+compatible with the structuring element have
+been maintained. Now this operation, this
+
+00:03:39.120 --> 00:03:45.280
+sequence of erosion followed by dilation,
+is often called opening. Only the compatible
+
+00:03:45.280 --> 00:03:51.030
+shapes have remained and we can do this in
+the tool box using the function iopen.
+
+00:03:51.030 --> 00:03:54.850
+Let’s try doing things in the opposite order.
+
+00:03:54.850 --> 00:04:00.720
+Let’s dilate first and then erode, so in
+the dilation step we can animate this, and
+
+00:04:00.720 --> 00:04:07.020
+for dilation output pixels are true if any
+pixel underneath the marching window is true
+
+00:04:07.020 --> 00:04:15.920
+and as we would expect for dilation the shape
+is going to get bigger. But another interesting
+
+00:04:15.920 --> 00:04:21.540
+benefit of this dilation step is that holes
+within the shape are going to be filled in
+
+00:04:21.540 --> 00:04:25.620
+and it has got bigger and holes within it
+have been closed up.
+
+00:04:29.420 --> 00:04:36.260
+Now we have the dilated image, now we can
+erode it. So erosion is going to chew off
+
+00:04:36.270 --> 00:04:41.680
+a strip of one pixels all around the outside
+of this particular object; it is going to
+
+00:04:41.680 --> 00:04:45.740
+restore it to something like its original
+size and shape.
+
+00:04:51.480 --> 00:05:01.340
+Now let’s look at the original image. Then
+its dilated version. And then its eroded version.
+
+00:05:01.340 --> 00:05:07.050
+And we can see we have something that looks
+like the original shape, except the hole within
+
+00:05:07.050 --> 00:05:13.380
+it has been filled in. This operation is called
+a closing operation. It tends to close those
+
+00:05:13.380 --> 00:05:19.320
+holes within an object. So any hole that is
+smaller than the size of the structuring element—which
+
+00:05:19.320 --> 00:05:25.930
+is a 3 by 3 pixel block—will be filled in.
+This closing operation can be computed using
+
+00:05:25.930 --> 00:05:32.230
+the tool box function iclose. So this brings
+us to the notion of compatibility between
+
+00:05:32.230 --> 00:05:37.340
+a structuring element and a shape. So here
+a structuring element is a red square and
+
+00:05:37.340 --> 00:05:43.290
+I am going to test it against a large square
+and a thin rectangle.
+
+00:05:43.290 --> 00:05:48.160
+So first of all we are going to test the large
+square and basically it is saying that if
+
+00:05:48.160 --> 00:05:55.780
+I can fit the structuring element within that
+shape it will survive in an erosion operation
+
+00:05:55.780 --> 00:06:01.479
+or an opening operation, but for the tall
+thin rectangle there is nowhere within that
+
+00:06:01.479 --> 00:06:05.780
+shape that the structuring element will fit.
+So this shape will not survive, it will be
+
+00:06:05.780 --> 00:06:11.620
+eliminated in the erosion step.
+Conversely, if my structuring element is a
+
+00:06:11.620 --> 00:06:16.750
+tall thin rectangle we will find that there
+is actually nowhere that this tall thin rectangle
+
+00:06:16.750 --> 00:06:21.930
+can fit inside the large square. So if my
+structuring element is a tall thin rectangle,
+
+00:06:21.930 --> 00:06:28.210
+this square will disappear. However, that
+tall thin rectangle will survive, so the shape
+
+00:06:28.210 --> 00:06:33.699
+of the structuring element controls the shapes
+that will be retained in the output image;
+
+00:06:33.699 --> 00:06:36.079
+it is a filter that is sensitive to shape.
+

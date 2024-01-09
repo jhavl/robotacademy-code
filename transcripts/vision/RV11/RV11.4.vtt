@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.360 --> 00:00:08.260
+Let's consider again the situation where we
+have a camera looking at an object. Once again
+
+00:00:08.260 --> 00:00:13.719
+it's a ball. We attach a co-ordinate C to
+the camera and we have the co-ordinate of
+
+00:00:13.719 --> 00:00:17.830
+the ball expressed with respect to the camera
+co-ordinate frame.
+
+00:00:17.830 --> 00:00:21.920
+We're going to introduce a new symbol, which
+is F hat, and it is the focal length of a
+
+00:00:21.920 --> 00:00:27.320
+lens, which is in units of meters, divided
+by the dimensions of the pixel given by the
+
+00:00:27.320 --> 00:00:34.550
+Greek letter Rho. Now Rho has units of meters
+per pixel, so the ratio has got units of pixels.
+
+00:00:34.550 --> 00:00:40.059
+F hat then is another way of representing
+the focal length of a lens instead of expressing
+
+00:00:40.059 --> 00:00:45.899
+it in units of meters, we express it in units of pixels and this can be very useful to us shortly.
+
+00:00:45.899 --> 00:00:50.280
+We can project the position of the ball into
+the image plane, and we represent that by
+
+00:00:50.280 --> 00:00:56.250
+co-ordinate U, V, there is nothing new in
+any of this. I'm going to simplify the notation
+
+00:00:56.250 --> 00:01:01.800
+and refer to the position of the ball in 3D
+space as capital X, capital Y, capital Z and
+
+00:01:01.800 --> 00:01:07.590
+now we can write the co-ordinates of the projection
+of the ball in the image plane in this fashion,
+
+00:01:07.590 --> 00:01:13.680
+using the symbols X, Y and Z and F hat, which
+remember is the focal length of the lens expressed
+
+00:01:13.680 --> 00:01:15.960
+in units of pixels.
+
+00:01:15.960 --> 00:01:20.729
+Now let's consider that the camera is moving.
+We're going to strap it to a rabbit. The camera
+
+00:01:20.729 --> 00:01:26.840
+now is able to move with a velocity, which
+we can express by a three vector Vx, Vy and
+
+00:01:26.840 --> 00:01:33.450
+Vz and it's also able to rotate. And we can
+express its rotational velocity, as it's angular
+
+00:01:33.450 --> 00:01:38.640
+velocity with components Omega X, Omega Y
+and Omega Z.
+
+00:01:38.640 --> 00:01:44.770
+Well what happens now? Well we now need to
+think about the projection of the ball in
+
+00:01:44.770 --> 00:01:50.630
+the image plane having not just a location
+U, V but it's also got a velocity in the image
+
+00:01:50.630 --> 00:01:54.310
+plane, which we'll represent by U dot and
+V dot.
+
+00:01:54.310 --> 00:02:00.100
+Now there's a very well known expression that
+relates the velocity of the camera to the
+
+00:02:00.100 --> 00:02:06.030
+pixel velocity in the image plane and these
+two quantities are related by a Jacobian matrix
+
+00:02:06.030 --> 00:02:10.440
+and we have come across Jacobian Matrices
+before in the robotics MOOC.
+
+00:02:10.440 --> 00:02:16.440
+The Jacobian matrix here is a two by six matrix,
+which relates the camera velocity and this
+
+00:02:16.440 --> 00:02:21.010
+is the cameras spatial velocity which has
+got a translational component and a rotational
+
+00:02:21.010 --> 00:02:27.739
+component. Multiplied by this two by six matrix,
+to give us the velocity in the image plane.
+
+00:02:27.739 --> 00:02:31.480
+The velocity at which that point in the image
+appears to move.
+
+00:02:31.480 --> 00:02:36.680
+Here's our MATLAB workspace and we have already
+created a camera object. I'm going to compute
+
+00:02:36.680 --> 00:02:42.650
+the image Jacobian into the workspace variable
+J and to do that I am going to use the visjack_p
+
+00:02:42.650 --> 00:02:48.620
+method, that's short for visual Jacobian for
+a point feature, it's a method of the camera
+
+00:02:48.620 --> 00:02:53.129
+object and I'm going to parse in the co-ordinate
+of the image plane point that I'm interested
+
+00:02:53.129 --> 00:02:59.010
+in and that's at 600, 600, it's got to be
+convector, so I put an apostrophe there and
+
+00:02:59.010 --> 00:03:03.470
+it corresponds to a world point that's five
+meters away from the camera.
+
+00:03:03.470 --> 00:03:10.190
+So here's the visual Jacobian; it is a 2 by
+6 matrix. If I multiply the image Jacobian
+
+00:03:10.190 --> 00:03:16.300
+by a spatial velocity vector, let's consider
+a unit velocity in the X direction, no velocity
+
+00:03:16.300 --> 00:03:22.370
+in Y or Z and no rotation and it's a column
+vector, then the image plane point is going
+
+00:03:22.370 --> 00:03:28.250
+to move at 160 pixels per second in the negative
+U direction and it's not going to move at
+
+00:03:28.250 --> 00:03:31.060
+all in the V direction.
+
+00:03:31.060 --> 00:03:37.420
+Let's try a different spatial velocity. Let's
+look at what happens if it moves in the world
+
+00:03:37.420 --> 00:03:45.160
+Y direction, we see that it moves at 160 pixels per second in the negative V direction on the image plane.
+
+00:03:45.340 --> 00:03:50.799
+Let's just look at one more example and we
+will move the camera at unit velocity in the
+
+00:03:50.799 --> 00:03:56.530
+Z direction; that's along the optical axis
+and we see that now the image plane point
+
+00:03:56.530 --> 00:04:04.650
+is moving at 17.6 pixels per second in the U direction and 17.6 pixels per second in the V direction.
+

@@ -1,0 +1,92 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.740 --> 00:00:07.680
+Before we start talking about robotic vision,
+it’s going to be very useful just to revisit
+
+00:00:07.680 --> 00:00:13.259
+some fundamentals of robots, and in particular,
+definitions of what a robot is.
+
+00:00:13.259 --> 00:00:18.720
+For those of you who participated in the first
+online course, we presented this definition
+
+00:00:18.720 --> 00:00:24.029
+of what a robot is: It’s a goal-oriented
+machine that can sense, plan and act. And
+
+00:00:24.029 --> 00:00:28.210
+the important keywords are highlighted here
+in red.
+
+00:00:28.210 --> 00:00:32.619
+A more casual definition that we introduced
+for a robot is that it’s a machine that
+
+00:00:32.619 --> 00:00:40.340
+can move—either itself or perhaps its hand—from
+place A to place B. So we might move its hand
+
+00:00:40.340 --> 00:00:45.330
+to pick up an object at place A, and put it
+down at place B; or it might move its entire
+
+00:00:45.330 --> 00:00:50.180
+body. It might move along a corridor from
+place A in the corridor to place B in the
+
+00:00:50.180 --> 00:00:54.040
+corridor.
+Let’s now look at some of the keywords in
+
+00:00:54.040 --> 00:00:59.850
+the first, more detailed definition, and one
+of the key concepts is sensing.
+
+00:00:59.850 --> 00:01:04.580
+A robot fundamentally is a machine that can
+sense its environment. The sorts of things
+
+00:01:04.580 --> 00:01:09.119
+that it might want to sense is: where is the
+object that it needs to manipulate—where
+
+00:01:09.119 --> 00:01:13.659
+is the thing that it needs to pick up. Another
+thing that it might want to sense is where
+
+00:01:13.659 --> 00:01:18.840
+is the robot itself. A mobile robot in a corridor
+situation; whereabouts in the corridor is
+
+00:01:18.840 --> 00:01:23.930
+the robot? This is the classical ‘where
+am I?’ problem of mobile robotics.
+
+00:01:23.930 --> 00:01:28.890
+Another thing a robot needs to do is to plan.
+So from its sensors it knows where it is;
+
+00:01:28.890 --> 00:01:33.081
+it knows where the things that it needs to
+work with are; it has got a goal, a thing
+
+00:01:33.081 --> 00:01:37.909
+that it wants to achieve. So it makes a plan
+of where to move from its current state to
+
+00:01:37.909 --> 00:01:42.140
+its goal state.
+And the final part of the process is to carry
+
+00:01:42.140 --> 00:01:47.659
+out some action. Given that I’ve got a plan,
+now I have to carry out the step of the plan.
+
+00:01:47.659 --> 00:01:52.459
+I grab the object or I move myself from place
+A to place B.
+

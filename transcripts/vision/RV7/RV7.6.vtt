@@ -1,0 +1,194 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:03.419
+ 
+
+00:00:03.419 --> 00:00:07.700
+At the beginning of this lecture, we consider
+the problem of why if I hold a sheet of paper
+
+00:00:07.700 --> 00:00:12.769
+up in front of the scene, I do not see an
+image on that sheet of paper. And the reason
+
+00:00:12.769 --> 00:00:18.300
+for that as we talked about was that at any
+particular point on the paper, we record the
+
+00:00:18.300 --> 00:00:23.220
+total amount of light that's falling on that
+particular point and that light has come from
+
+00:00:23.220 --> 00:00:28.990
+very, very many points in the real world itself.
+We've recorded the total amount of light there.
+
+00:00:28.990 --> 00:00:32.739
+We didn't say anything about the direction
+that the light rays came from.
+
+00:00:32.739 --> 00:00:37.219
+So, what if we could actually record at each
+point not just the amount of light but the
+
+00:00:37.219 --> 00:00:41.480
+direction that the light came from? This gets
+us into the area of what's called a light
+
+00:00:41.480 --> 00:00:47.890
+field. Now, a light field is, mathematically,
+it's a function that describes the light that's
+
+00:00:47.890 --> 00:00:52.120
+travelling in every single direction at every
+single point in space.
+
+00:00:52.120 --> 00:00:56.930
+Think about the room that you're in at the
+moment. Consider any particular point in that
+
+00:00:56.930 --> 00:01:01.730
+room and there'll be a large number of light
+rays passing through that point and they will
+
+00:01:01.730 --> 00:01:05.019
+have come from many many other points within
+the room.
+
+00:01:05.019 --> 00:01:10.680
+So, very, very complex lots of light rays,
+all going different directions and coming
+
+00:01:10.680 --> 00:01:12.159
+from different places.
+
+00:01:12.159 --> 00:01:18.729
+So, a light field sensor attempts to capture
+some of that, to capture the color, the intensity
+
+00:01:18.729 --> 00:01:25.000
+and the vector direction of all these rays
+of light. Traditional camera simply adds up
+
+00:01:25.000 --> 00:01:30.479
+all the rays of light and records the sum
+total. Light field cameras try to record the
+
+00:01:30.479 --> 00:01:36.619
+directions as well and the direction is really
+important. Consider this example again of
+
+00:01:36.619 --> 00:01:41.259
+the thin lens model. We have an object in
+the world. It's a whole bunch of light rays
+
+00:01:41.259 --> 00:01:46.579
+leaving the object passing through the lens
+and passing through the focal plane.
+
+00:01:46.579 --> 00:01:51.520
+I've shown here a pixel and the light rays
+that are entering that pixel are coming from
+
+00:01:51.520 --> 00:01:58.479
+a large number of different directions. Let’s
+animate this, you can see that the object
+
+00:01:58.479 --> 00:02:04.740
+is moving and we can see the light rays from the tip of that object moving across the array of pixels.
+
+00:02:04.740 --> 00:02:05.540
+ 
+
+00:02:05.540 --> 00:02:10.479
+So, the object when it's really close to the
+lens would be well out of focus in the traditional
+
+00:02:10.479 --> 00:02:15.540
+camera. What's happening though is that those
+light rays are now following across a range
+
+00:02:15.540 --> 00:02:20.150
+of pixels and that each pixel, those light
+rays are entering at a different angle.
+
+00:02:20.150 --> 00:02:24.670
+So, if those pixels were able to record not
+just the amount of light but the direction
+
+00:02:24.670 --> 00:02:30.060
+at which they are coming from as well, it
+would be possible to compute the image even
+
+00:02:30.060 --> 00:02:35.410
+though it is very, very out of focus and this
+is a technology that's starting to emerge
+
+00:02:35.410 --> 00:02:38.500
+now in what's called light field cameras.
+
+00:02:38.500 --> 00:02:43.580
+Now, one of the first on the market, the consumer
+level of light field cameras, this one produced
+
+00:02:43.580 --> 00:02:49.620
+by Light Row and in the right hand side of
+this slide, what we can see is the light field
+
+00:02:49.620 --> 00:02:56.370
+image being post-processed to bring a particular part of the image into focus. So, the person
+
+00:02:56.370 --> 00:03:02.069
+is clicking on a particular point in the image
+and using all the raw information from the
+
+00:03:02.069 --> 00:03:09.190
+light field, the amount of light and its direction,
+we can compute the appropriate in focus image.
+
+00:03:09.190 --> 00:03:14.750
+We cant let every point in the image in focus
+at all the time but we can now select after
+
+00:03:14.750 --> 00:03:20.260
+we took the picture which part we would like
+to have in focus and that's a big step forward.
+
+00:03:20.260 --> 00:03:24.590
+Early versions of light field cameras, the
+research versions of these were very very
+
+00:03:24.590 --> 00:03:30.420
+massive arrays of cameras, very expensive
+and far from portable. Here's an example of
+
+00:03:30.420 --> 00:03:36.409
+an early portable light field camera. Again,
+an array of cameras, which are trying to capture
+
+00:03:36.409 --> 00:03:41.409
+the light rays coming from the world and the
+various directions at which they've come from.
+
+00:03:41.409 --> 00:03:45.709
+This is a technology now, which is becoming
+quite accessible as the cost of phones is
+
+00:03:45.709 --> 00:03:50.640
+being reduced. It's now possible to create
+enormous arrays of cameras and these videos
+
+00:03:50.640 --> 00:03:57.420
+show some work that's being done using commodity
+mobile phone cameras, cheap digital cameras
+
+00:03:57.420 --> 00:04:01.409
+in order to be able to capture light fields
+and once you have a captured light field then,
+
+00:04:01.409 --> 00:04:07.099
+you can perform some very amazing visual effects,
+stop motion effects and so on.
+

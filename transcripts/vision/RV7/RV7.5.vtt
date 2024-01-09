@@ -1,0 +1,109 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:03.439
+Different types of camera
+
+00:00:03.439 --> 00:00:09.990
+So far we've just considered the case of perspective
+projection. It's the sort of image that is formed
+
+00:00:09.990 --> 00:00:16.070
+by a simple lens and the same sort of optics
+as we have in our own eyes. But there are
+
+00:00:16.070 --> 00:00:19.840
+many many different sorts of cameras and different
+sorts of lenses.
+
+00:00:19.840 --> 00:00:24.529
+They don't necessarily perform perspective
+projection. In this particular case, we're
+
+00:00:24.529 --> 00:00:30.099
+looking at a fish eye lens image. A fish eye
+lens here has got a very very wide field of
+
+00:00:30.099 --> 00:00:35.899
+view. If we look at the image captured by
+the fish eye lens, we notice a few things.
+
+00:00:35.899 --> 00:00:41.410
+Most importantly we note that the straightness
+of line is not preserved. So we see on top
+
+00:00:41.410 --> 00:00:45.910
+of the laptop on the side of the coke can,
+these are no longer straight lines. They appear
+
+00:00:45.910 --> 00:00:52.570
+to be curves because this is not a perspective
+projection. Lenses work by refraction.
+
+00:00:52.570 --> 00:00:56.050
+That is they bend the rays of light that are passing through them.
+
+00:00:56.050 --> 00:01:01.280
+Another way we can do this is by reflection.
+We use curved mirrors instead of lenses in
+
+00:01:01.280 --> 00:01:06.470
+order to bend the light rays. Here is an
+example again from the drawings of Isaac
+
+00:01:06.470 --> 00:01:12.150
+Newton of his early reflecting telescope.
+Sometimes very very big lenses are actually
+
+00:01:12.150 --> 00:01:16.759
+made by combinations of shaped mirrors and
+lenses.
+
+00:01:16.759 --> 00:01:23.549
+These sort of hybrid imaging systems are referred
+to as catadioptrics. This is derived from
+
+00:01:23.549 --> 00:01:29.750
+the Greek word dioptrics for refraction and
+catoptrics for reflection.
+
+00:01:29.750 --> 00:01:35.570
+Another type of imaging system again on this
+catadioptric model is a panoramic lens. You
+
+00:01:35.570 --> 00:01:40.950
+can see it quite clearly here. What we have
+down the bottom is a fairly standard camera
+
+00:01:40.950 --> 00:01:46.829
+with a lens in front of it. And then there
+is a stalk which holds a parabolic mirror.
+
+00:01:46.829 --> 00:01:50.369
+So the camera is actually looking at the parabolic
+mirror.
+
+00:01:50.369 --> 00:01:55.340
+This arrangement allows us to create panoramas.
+So the raw panorama, what the camera actually
+
+00:01:55.340 --> 00:02:02.490
+sees, is shown here on the bottom right. We
+see a very very distorted view of the world.
+
+00:02:02.490 --> 00:02:08.069
+Because we know the mathematics of this image
+formation process we can unwrap the image
+
+00:02:08.069 --> 00:02:12.330
+and that is what we use to create the panorama
+shown at the top.
+
+00:02:12.330 --> 00:02:17.890
+What we note with this panoramic image once
+again is that straight lines are not preserved.
+
+00:02:17.890 --> 00:02:21.260
+They appear to be very very seriously distorted.
+

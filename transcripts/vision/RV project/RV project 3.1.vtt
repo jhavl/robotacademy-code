@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.279 --> 00:00:08.990
+Welcome to week 3 in the Robotic Vision Project.
+The objective for this week is to get our
+
+00:00:08.990 --> 00:00:13.150
+image of our robot vision worksheet in MATLAB
+and then, segment the particular 2D shapes
+
+00:00:13.150 --> 00:00:17.390
+into a color that being either red, green
+or blue. I've written a function in MATLAB
+
+00:00:17.390 --> 00:00:21.699
+that allows me to do this so let's take a
+look at the outputs of this week in our MATLAB.
+
+00:00:21.699 --> 00:00:28.939
+Okay, so in MATLAB here, I already have the
+robotic vision worksheet loaded so let's take
+
+00:00:28.939 --> 00:00:29.939
+a look at that quickly.
+
+00:00:29.939 --> 00:00:34.739
+Okay, so the robotic vision worksheet is here
+as you can see and the task this week is to
+
+00:00:34.739 --> 00:00:40.770
+take the image I have here and then, segment
+it according to the particular color channel
+
+00:00:40.770 --> 00:00:41.850
+that you're interested in.
+
+00:00:41.850 --> 00:00:47.980
+So, that will allow you to specify what 2D
+objects they want to appear in your image.
+
+00:00:47.980 --> 00:00:54.129
+So, you either want to get the red 2D objects
+or the green 2D objects or the blue 2D objects.
+
+00:00:54.129 --> 00:01:00.670
+So, the output is going to be a thresholded
+or binary image of what you started with.
+
+00:01:00.670 --> 00:01:05.220
+Now, I've written a function that allows me
+to do that and I've called it getColor. So,
+
+00:01:05.220 --> 00:01:07.810
+let's see how my getColor function works.
+
+00:01:07.810 --> 00:01:14.000
+So, let's say I wanted to segment the red
+2D objects using my function. How would I
+
+00:01:14.000 --> 00:01:15.000
+do that?
+
+00:01:15.000 --> 00:01:20.390
+Well, I need to make a new variable and I'll
+call it R2D and then, I'll call my function
+
+00:01:20.390 --> 00:01:24.600
+which is getColor and my particular function
+takes in 2 variables.
+
+00:01:24.600 --> 00:01:30.720
+The first is the robotic vision worksheet
+which is img and the second parameter is a
+
+00:01:30.720 --> 00:01:36.860
+color so I can specify either red, green or
+blue to segment the particular 2D objects
+
+00:01:36.860 --> 00:01:45.640
+of that I'm interested in and you can see
+that that is produced a R2D variable on the
+
+00:01:45.640 --> 00:01:47.479
+side here and it is logical.
+
+00:01:47.479 --> 00:01:54.869
+So, it's a binary or logical image. So, let's
+take a look at what that looks like. So I
+
+00:01:54.869 --> 00:02:01.890
+will call, idisp(r2d) and then, I can have
+both of these images up the same time.
+
+00:02:01.890 --> 00:02:06.540
+So, you can see on the left hand side, we
+have our original robotic vision worksheet
+
+00:02:06.540 --> 00:02:15.140
+and on the right, this is my segmented image
+and you can see that only the red 2D objects
+
+00:02:15.140 --> 00:02:16.140
+are highlighted.
+
+00:02:16.140 --> 00:02:22.170
+Okay, so it's a binary image. We either only
+have black or white on here and the white
+
+00:02:22.170 --> 00:02:24.290
+are the red 2D objects.
+
+00:02:24.290 --> 00:02:30.050
+So, this is a task for you guys to do this
+week: Create a function similar to my getColor
+
+00:02:30.050 --> 00:02:36.680
+function that allows you to produce a segmented
+binary image of a particular color channel
+
+00:02:36.680 --> 00:02:37.680
+that you're interested in.
+

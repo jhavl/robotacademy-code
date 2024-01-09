@@ -1,0 +1,260 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.679 --> 00:00:08.370
+Welcome to week five in the Robot Vision Project.
+Just to remind you all, the objective of this
+
+00:00:08.370 --> 00:00:13.280
+project is to find the 2D position of the
+objects on the Robotic Vision worksheet.
+
+00:00:13.280 --> 00:00:17.630
+The first step in dong this is to construct
+what we call a homography. I've written a
+
+00:00:17.630 --> 00:00:21.380
+function that allows me to do this, so let's
+take a look now in MATLAB at what the output
+
+00:00:21.380 --> 00:00:27.060
+looks like. Alright so the task this week
+is to write two different MATLAB functions.
+
+00:00:27.060 --> 00:00:32.730
+The first function is called "getCalibration."
+So if we pull up the Robotic Vision worksheet,
+
+00:00:32.730 --> 00:00:40.000
+as you can see here, there are nine blue circles
+on the Robotic Vision worksheet. Okay?
+
+00:00:40.000 --> 00:00:44.210
+Now the position of these circles is going
+to allow us to rectify this image such that
+
+00:00:44.210 --> 00:00:50.250
+we can identify the X and Y Cartesian co-ordinates
+of the other coloured shapes on this page.
+
+00:00:50.250 --> 00:00:54.649
+So what my getCalibration function is going
+to do, is it's going to find the nine blue
+
+00:00:54.649 --> 00:01:02.309
+circled blobs in this image. So how my getCalibration
+function works is that it returns the blue
+
+00:01:02.309 --> 00:01:08.140
+circle blobs as an object, which is called
+"Circles" in this case and we call my function
+
+00:01:08.140 --> 00:01:14.500
+called "getCalibration" and the input to this
+function is the binary image from the blue
+
+00:01:14.500 --> 00:01:20.659
+color channel, which I've called "b2d" and
+b2d was generated from my getColor function.
+
+00:01:20.659 --> 00:01:30.970
+So if I execute that, then that extracts out
+the nine blue circles as you can see here.
+
+00:01:30.970 --> 00:01:36.890
+And then we can use the plot function which
+will mark the centroids on my Robotic Vision
+
+00:01:36.890 --> 00:01:42.470
+worksheet and this allows us to check to make
+sure that the nine circles that I've identified
+
+00:01:42.470 --> 00:01:46.200
+are actually the nine blue circles within
+the Robotic Vision worksheet.
+
+00:01:46.200 --> 00:01:54.860
+Okay, so this function allows us to locate the blue circled blobs on the Robotic Vision worksheet page.
+
+00:01:55.820 --> 00:02:01.310
+Second function that you need to write is
+called "getHomography." So from the Robotic
+
+00:02:01.310 --> 00:02:05.640
+Vision worksheet we've extracted the position
+of the blue circles in the pixel co-ordinate
+
+00:02:05.640 --> 00:02:10.229
+frame because we've done that with the circle
+blobs and the other piece of information that
+
+00:02:10.229 --> 00:02:15.429
+we know is that we can measure the X and Y
+Cartesian co-ordinates of the circles with a ruler.
+
+00:02:15.720 --> 00:02:20.480
+So using these two pieces of information,
+the position of the pixel co-ordinates and
+
+00:02:20.480 --> 00:02:24.860
+also the position of the circles in X and
+Y Cartesian co-ordinates, we can then generate
+
+00:02:24.860 --> 00:02:29.010
+what we call a homography between these two
+pieces of information.
+
+00:02:29.010 --> 00:02:35.090
+So how does my getHomography function work?
+Okay, so my getHomography function returns
+
+00:02:35.090 --> 00:02:40.730
+two variables; the first is H, which is the
+homography matrix and it also returns the
+
+00:02:40.730 --> 00:02:46.140
+position of the circles in a particular order
+and I'll talk about that in a second.
+
+00:02:46.140 --> 00:02:53.120
+So I can call my getHomography function and
+my function itself has two inputs. The first
+
+00:02:53.120 --> 00:02:58.760
+are the circle blobs, which I've generated
+with getCalibration and the second piece of
+
+00:02:58.760 --> 00:03:04.700
+information is called P1. Now P1 is the X
+and Y Cartesian co-ordinates of the circles
+
+00:03:04.700 --> 00:03:11.550
+on the Robotic Vision worksheet that you can
+measure. So after I run that, I get back my
+
+00:03:11.550 --> 00:03:17.739
+H matrix, which is my homography and if we
+look at the difference between P2 and P1,
+
+00:03:17.739 --> 00:03:22.349
+P1 is the X and Y Cartesian co-ordinate positions
+that I've measured with a ruler and these
+
+00:03:22.349 --> 00:03:28.120
+are in millimeters and P2 is the ordered list
+of points that I've gotten back with respect
+
+00:03:28.120 --> 00:03:30.480
+to P1 and they're in pixel co-ordinates.
+
+00:03:30.480 --> 00:03:34.650
+Now the reason why the ordering is important
+is that if you go back to the Robotic Vision
+
+00:03:34.650 --> 00:03:39.110
+worksheet, you can see that there is one circle
+which is larger than the others. And this
+
+00:03:39.110 --> 00:03:45.750
+circles here, you will need to use to identify
+where the X axis is on this image. Because
+
+00:03:45.750 --> 00:03:50.230
+if your Robotic Vision worksheet image was
+rotated, you wouldn't know where exactly the
+
+00:03:50.230 --> 00:03:56.720
+X axis was, so you need to also locate where
+this large circle is, such that you can order
+
+00:03:56.720 --> 00:04:03.680
+the groups of points of P1 and P2 in the correct
+order that they need to be in. Now I've combined
+
+00:04:03.680 --> 00:04:08.360
+both of these functions in a script, which
+I've called "prac_mark". So let's take a look at that now.
+
+00:04:08.450 --> 00:04:15.110
+Okay, so this is the output from my prac_mark
+script. So I've two figures here as you can
+
+00:04:15.110 --> 00:04:21.560
+see and the left hand sided figure is the
+rectified image of the original Robotic Vision
+
+00:04:21.560 --> 00:04:26.020
+worksheet image. And you can see that it's
+been rectified such that it's been rotated
+
+00:04:26.020 --> 00:04:32.680
+90 degrees. And that came about through my
+getHomography function. And why I did that
+
+00:04:32.680 --> 00:04:39.090
+was because I wanted to align the X and Y
+Cartesian co-ordinate axis with the pixel
+
+00:04:39.090 --> 00:04:45.530
+co-ordinate axis of the rectified image as
+you can see here. So this is why the ordering
+
+00:04:45.530 --> 00:04:47.960
+of the points is important.
+
+00:04:47.960 --> 00:04:53.699
+So you can see on the left, the ordering of
+these circles is vertical, so one, two, three,
+
+00:04:53.699 --> 00:05:00.520
+four, five, six, seven, eight, nine. But on
+the right hand side, because it's rotated
+
+00:05:00.520 --> 00:05:06.979
+90 degrees, the order is horizontal. So when
+you getHomography function, you need to take
+
+00:05:06.979 --> 00:05:12.240
+into account two things; you need to find
+the position of the large blue circle and
+
+00:05:12.240 --> 00:05:17.350
+once you know the position of the circle,
+then you can order the points from the inputs,
+
+00:05:17.350 --> 00:05:20.370
+such that you can rectify in the way that
+you like.
+
+00:05:20.370 --> 00:05:25.020
+So in my case I rectify it such that the X
+and Y Cartesian co-ordinate is in the upper
+
+00:05:25.020 --> 00:05:29.340
+left hand corner, but you can do something
+different if you like, however if you do it
+
+00:05:29.340 --> 00:05:35.509
+like this it makes it very easy to determine
+all of the 2D position of the coloured shapes
+
+00:05:35.509 --> 00:05:37.560
+in the image.
+
+00:05:37.560 --> 00:05:41.729
+Okay so those are the two tasks that you have
+to do this week. It's quite a complicated
+
+00:05:41.729 --> 00:05:46.110
+week comparative to the last ones, but you
+need to do the getCalibration function to
+
+00:05:46.110 --> 00:05:50.960
+find the blue circles and you also need to
+make a getHomography function to generate
+
+00:05:50.960 --> 00:05:54.560
+a H matrix, such that you can get an image
+that looks like this.
+

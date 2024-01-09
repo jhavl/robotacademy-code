@@ -1,0 +1,409 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:03.870
+Morphology with complex SEs
+
+00:00:03.870 --> 00:00:08.800
+Previously we have looked at using mathematical
+morphology and the structuring in the elements
+
+00:00:08.800 --> 00:00:14.620
+that we used were either squares or rectangles
+and we showed how we could use morphological
+
+00:00:14.620 --> 00:00:20.710
+processing technique to select particular
+shapes out of an input image. We could use
+
+00:00:20.710 --> 00:00:25.519
+a square structuring element and we would
+select only the squares from the input image
+
+00:00:25.519 --> 00:00:29.150
+when we can eliminate rectangles and vice
+versa.
+
+00:00:29.150 --> 00:00:34.550
+Let's now consider the problem where we want
+to find shapes that are not just squares or
+
+00:00:34.550 --> 00:00:40.570
+rectangles. Mathematical morphology allows
+us to do this but we need to make some small
+
+00:00:40.570 --> 00:00:43.570
+adjustments to the technique that we talked
+about previously.
+
+00:00:43.570 --> 00:00:48.950
+Let's consider now the problem of trying to
+find the diagonal line segments in this particular
+
+00:00:48.950 --> 00:00:54.649
+image. So we want a structuring element that
+will select these shapes here shown in red
+
+00:00:54.649 --> 00:01:00.120
+or alternatively we might want to find all
+the shapes that are a diagonal line but in
+
+00:01:00.120 --> 00:01:01.800
+the opposite direction.
+
+00:01:01.800 --> 00:01:08.270
+In the most general case, we should be able
+to select a line at any particular angle.
+
+00:01:08.270 --> 00:01:13.210
+In order to be able to do this, we need to
+change a definition of the structuring element.
+
+00:01:13.210 --> 00:01:18.689
+We are going to allow the cells within the
+structuring element to have the possible value
+
+00:01:18.689 --> 00:01:20.479
+which is don't care.
+
+00:01:20.479 --> 00:01:26.729
+That means they are not taken into account
+when we perform the morphological processing.
+
+00:01:26.729 --> 00:01:33.369
+We consider that those cell elements can have
+a value of zero which means they are not considered
+
+00:01:33.369 --> 00:01:38.340
+to be part of the structuring element or they
+can have the value of one which means they
+
+00:01:38.340 --> 00:01:42.899
+are considered to be part of the structuring
+element.
+
+00:01:42.899 --> 00:01:48.909
+Let's consider a simple example. Here we have
+a low resolution example image which contains
+
+00:01:48.909 --> 00:01:54.170
+two lines which slope upwards from left to
+right, another diagonal line which slopes
+
+00:01:54.170 --> 00:01:59.310
+downward from left to right and a vertical
+line. We are going to choose a three by three
+
+00:01:59.310 --> 00:02:04.530
+structuring element which will select the
+diagonal lines which slope upwards looked
+
+00:02:04.530 --> 00:02:06.509
+at from left to right.
+
+00:02:06.509 --> 00:02:10.679
+I am going to show another one of the animations
+that we have looked at previously and it's
+
+00:02:10.679 --> 00:02:15.720
+going to show the mathematical morphology
+process in practice.
+
+00:02:15.720 --> 00:02:20.260
+Once again we see the active elements in our
+structuring element are coloured red and as
+
+00:02:20.260 --> 00:02:25.540
+they move across the image, the result will
+only be true if the three red elements in
+
+00:02:25.540 --> 00:02:31.349
+the structuring element lay across pixels
+which are all set or have a value of true.
+
+00:02:31.349 --> 00:02:37.480
+As the structuring element moves across we
+see that our output image contains line segments
+
+00:02:37.480 --> 00:02:43.250
+which slope upwards from left to right. Clearly
+I can flip that structuring element around
+
+00:02:43.250 --> 00:02:50.340
+and I will be able to select lines which slope
+downwards when looked at from left to right.
+
+00:02:50.340 --> 00:02:56.450
+Once again we have this notion of keeping
+or retaining only those elements of the image
+
+00:02:56.450 --> 00:03:01.739
+which are compatible with the structuring
+element. Here is our original image, the input
+
+00:03:01.739 --> 00:03:07.340
+image. This is the result of the mathematical
+erosion process.
+
+00:03:07.340 --> 00:03:12.569
+In this example, the structuring element was
+a three by three matrix but only the elements
+
+00:03:12.569 --> 00:03:17.930
+on the diagonal of that three by three matrix
+took part in the morphological processing.
+
+00:03:17.930 --> 00:03:24.680
+The rest of them were set to the don't care
+value and they did not participate.
+
+00:03:24.680 --> 00:03:31.629
+Let's introduce a real example here. I am
+going to load an image of a tomato and this
+
+00:03:31.629 --> 00:03:36.950
+is an image that we have seen previously and
+on the way in I am going to gamma correct
+
+00:03:36.950 --> 00:03:43.159
+the image. And I am assuming that the image
+was gamma encoded with a gamma value of 2.2.
+
+00:03:43.159 --> 00:03:49.209
+Let's just display the image, see what it
+looks like and there we have it. Now I want
+
+00:03:49.209 --> 00:03:54.819
+to find just the red pixels. I want to identify
+just the tomato fruit and to do that I am
+
+00:03:54.819 --> 00:04:01.400
+going to use a toolbox function, which performs
+a kmeans classification, I will explain that in a moment.
+
+00:04:01.400 --> 00:04:02.170
+ 
+
+00:04:02.170 --> 00:04:10.310
+It has three output arguments and the function
+colorkmeans and I parse in the image and the
+
+00:04:10.310 --> 00:04:15.480
+next argument that I pass in are the number
+of different colors that I want the scene
+
+00:04:15.480 --> 00:04:20.759
+classified into. And I am going to tell that
+there are four colors in this particular image.
+
+00:04:20.759 --> 00:04:24.550
+This looks to me that clearly a bunch of red
+pixels, there is a bunch of green pixels,
+
+00:04:24.550 --> 00:04:29.500
+there is a bunch of quite dark background
+pixels and then there is also some lightish
+
+00:04:29.500 --> 00:04:35.699
+pixels, So I am going to tell it to do it's
+best effort at trying to segment those pixels
+
+00:04:35.699 --> 00:04:38.540
+into four unique classes.
+
+00:04:38.540 --> 00:04:49.139
+The result then is our three matrices. One
+of the matrices is the variable CLS or class
+
+00:04:49.139 --> 00:04:54.620
+and it is a double position image just the
+same size as the input image. It's 238 pixels
+
+00:04:54.620 --> 00:04:57.370
+high by 318 pixels wide.
+
+00:04:57.370 --> 00:05:03.419
+Then we can have a look at the class image.
+Create a new figure and I will display the
+
+00:05:03.419 --> 00:05:10.900
+matrix CLS class and here it is. And what
+we see is it looks quite posturized.
+
+00:05:10.900 --> 00:05:17.310
+If I click on some values here we see that
+the red tomato fruit pixels have been classified
+
+00:05:17.310 --> 00:05:19.210
+with a value of three.
+
+00:05:19.210 --> 00:05:24.729
+So all of the red pixels have been assigned
+to belong to class 3. This dark background
+
+00:05:24.729 --> 00:05:30.410
+has been assigned class 4, which appears quite
+bright actually. This background down here
+
+00:05:30.410 --> 00:05:35.840
+has been classified as belonging to class
+one and a lot of the green material has been
+
+00:05:35.840 --> 00:05:39.610
+classified as belonging to class two.
+
+00:05:39.610 --> 00:05:46.020
+This algorithm has got a random initialization
+in it so every time you run it you get a different
+
+00:05:46.020 --> 00:05:50.820
+class assignment but in this particular run
+the important thing to remember is that the
+
+00:05:50.820 --> 00:05:57.240
+tomato colored pixels have all been assigned
+to class number 3. I can create now a binary
+
+00:05:57.240 --> 00:06:02.770
+image all pixels that belong to class 3 and
+I can display that image.
+
+00:06:02.770 --> 00:06:10.310
+This is a binary image the pixels with a zero
+for the background on that tomato and 1 if
+
+00:06:10.310 --> 00:06:16.100
+the do belong to the tomato. We can clearly
+see here that the fruit are not complete.
+
+00:06:16.100 --> 00:06:20.410
+The bottom fruit has got a couple of holes
+in it and this is because we are seeing a
+
+00:06:20.410 --> 00:06:26.500
+reflection of an overhead light is being reflected
+off the shiny skin of the fruit.
+
+00:06:26.500 --> 00:06:32.400
+The other fruit has got reflections but it's
+also partly obscured by some leaves.
+
+00:06:32.400 --> 00:06:36.229
+One of them looks like a round object which
+is what we would expect if for instance we
+
+00:06:36.229 --> 00:06:41.520
+were building a tomato harvesting robot we
+would for round red things the second fruit
+
+00:06:41.520 --> 00:06:48.590
+isn't very round at all. So we can use some
+morphological processing operations to patch
+
+00:06:48.590 --> 00:06:51.569
+the holes in these fruit.
+
+00:06:51.569 --> 00:06:56.479
+Let's get some idea about how big the holes
+are. I am going to zoom in on this part of
+
+00:06:56.479 --> 00:07:04.750
+the fruit here. Now we can see that they go
+from about 80 to 105 so there almost 25 pixels
+
+00:07:04.750 --> 00:07:07.900
+wide this particular hole in the fruit.
+
+00:07:07.900 --> 00:07:12.910
+If I am going to have a structuring element,
+I am going to perform a morphological closing
+
+00:07:12.910 --> 00:07:16.870
+operation, it needs to be a very large kernal.
+
+00:07:16.870 --> 00:07:23.930
+Let's perform a morphological closing operation
+on this binary image. I will call the result
+
+00:07:23.930 --> 00:07:31.340
+closed and I will use the iclose function
+I am going to parse in the binary image of
+
+00:07:31.340 --> 00:07:38.080
+the tomato and I am going to pass in a square
+structuring element that's 15 pixels by 15
+
+00:07:38.080 --> 00:07:41.000
+pixels. And I am going to compute that.
+
+00:07:41.000 --> 00:07:46.330
+Now let me display that particular image.
+Here we see that it has certainly it has patched
+
+00:07:46.330 --> 00:07:51.879
+the holes in the bottom fruit and it's done
+something to the top fruit. But we see it's
+
+00:07:51.879 --> 00:07:59.020
+introduced quite a lot of jagged edges let's
+have a look in here and we can see that it's
+
+00:07:59.020 --> 00:08:03.470
+introduced some quite big steps into the shape
+of the fruit.
+
+00:08:03.470 --> 00:08:08.669
+The reason for this is we use the structuring
+element that was a square 15 by 15 pixels
+
+00:08:08.669 --> 00:08:14.139
+square. The fruit that we are interested in
+we know is round so we could use an alternative
+
+00:08:14.139 --> 00:08:19.840
+structuring element which is a circle and
+I can use the toolbox function kcircle and
+
+00:08:19.840 --> 00:08:28.840
+I am going to create a circle with a radius
+of 15 pixels and I can display that. And here
+
+00:08:28.840 --> 00:08:33.959
+is a structuring element that is a disk that
+has got a radius of 15 and it sits within
+
+00:08:33.959 --> 00:08:36.330
+a 31 by 31 matrix.
+
+00:08:36.330 --> 00:08:43.169
+If I consider this matrix as the structuring
+element, then the white pixels that are shown
+
+00:08:43.169 --> 00:08:49.240
+here are part of the structuring element itself
+and the black or zero value pixels are not
+
+00:08:49.240 --> 00:08:50.769
+part of the structuring element.
+
+00:08:50.769 --> 00:08:55.980
+What I have done now is created a structuring
+element which is a circle or disk. It sits
+
+00:08:55.980 --> 00:09:03.690
+within a square matrix. Let's apply this circular
+structuring element to our image. So I am
+
+00:09:03.690 --> 00:09:11.370
+going to compute the closure and parse in
+the tomato image; the binary tomato image
+
+00:09:11.370 --> 00:09:17.980
+and I parse in the round structuring element
+and I will display that and we see now has
+
+00:09:17.980 --> 00:09:22.899
+turned a slightly better job of patching up
+the hole in a fruit.
+

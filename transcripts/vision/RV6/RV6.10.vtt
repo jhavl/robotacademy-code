@@ -1,0 +1,395 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.419 --> 00:00:06.769
+Let’s put some of this into practice with
+a real world image.
+
+00:00:06.769 --> 00:00:15.700
+I am going to load an image of a scene that
+comprises some tomatoes on a bush in a lab,
+
+00:00:15.700 --> 00:00:21.020
+and I am going to convert the image so that
+the pixels are stored inside MATLAB as double
+
+00:00:21.020 --> 00:00:22.390
+precision numbers.
+
+00:00:22.390 --> 00:00:30.720
+So we can have a look at the image as advertised:
+it contains some tomatoes on a bush inside
+
+00:00:30.720 --> 00:00:32.050
+a lab—at MIT, actually.
+
+00:00:32.050 --> 00:00:38.149
+If I click around on the image we can see
+that the pixels in the tomato have got quite
+
+00:00:38.149 --> 00:00:42.809
+a large amount of red, 65 per cent red, not
+much green, not much blue.
+
+00:00:42.809 --> 00:00:48.829
+Now the leaves, the stems for instance, contain
+more green than they do red or blue.
+
+00:00:48.829 --> 00:00:53.920
+The tomato images are interesting; the tomatoes
+are actually quite shiny and if I click around
+
+00:00:53.920 --> 00:00:58.949
+here we see that the value is actually closer
+to white than it is to red.
+
+00:00:58.949 --> 00:01:03.170
+This region here we refer to as a specular
+highlight.
+
+00:01:03.170 --> 00:01:08.409
+What has happened is that bright light within
+the room is reflecting off the surface of
+
+00:01:08.409 --> 00:01:14.659
+the tomato in a specular rather than a defuse
+fashion and in this case the light has not
+
+00:01:14.659 --> 00:01:18.140
+picked up the color of the fruit, it is basically
+what we are seeing here is the color of the
+
+00:01:18.140 --> 00:01:19.659
+light source itself.
+
+00:01:19.659 --> 00:01:26.619
+We have talked a couple of times already about
+the process of gamma encoding the information
+
+00:01:26.619 --> 00:01:28.579
+within an image in a file.
+
+00:01:28.579 --> 00:01:34.359
+But what I would like to do is to undo that
+gamma encoding; I would like to apply a gamma
+
+00:01:34.359 --> 00:01:39.229
+correction or gamma decoding and I can do
+that with the iread function by parsing in
+
+00:01:39.229 --> 00:01:44.390
+an extra argument and parsing in the gamma
+value that I would like to have applied to
+
+00:01:44.390 --> 00:01:45.929
+every pixel.
+
+00:01:45.929 --> 00:01:52.569
+So this will eliminate the non-linearity between
+the luminance that the camera observed and
+
+00:01:52.569 --> 00:01:57.380
+the pixel values that
+I have in my MATLAB workspace.
+
+00:01:57.380 --> 00:02:02.170
+If I display this gamma corrected image we
+will see that it looks rather unusual, it
+
+00:02:02.170 --> 00:02:06.970
+looks actually quite dark and as explained
+before what has happened here is that the
+
+00:02:06.970 --> 00:02:09.790
+gamma correction has now been applied twice.
+
+00:02:09.790 --> 00:02:14.790
+I have applied it once in software and the
+monitor that I am looking at the image on
+
+00:02:14.790 --> 00:02:17.370
+is also applying the gamma correction.
+
+00:02:17.370 --> 00:02:21.709
+So it doesn’t look right that the values
+that I have in my workspace are now linearly
+
+00:02:21.709 --> 00:02:25.709
+related to the light that went into the lens
+of the camera.
+
+00:02:25.709 --> 00:02:30.530
+So the next thing that I would like to do
+is just to display one of the color planes
+
+00:02:30.530 --> 00:02:31.530
+in this image.
+
+00:02:31.530 --> 00:02:38.070
+So let’s display the red plane and here
+it is here, and we can see that the tomato
+
+00:02:38.070 --> 00:02:42.760
+fruits are looking quite bright here because
+they reflect a lot of red light, whereas in
+
+00:02:42.760 --> 00:02:46.870
+the green plane we see that the fruit looks
+very, very, dark.
+
+00:02:46.870 --> 00:02:49.000
+Let’s separate out the color values.
+
+00:02:49.000 --> 00:02:55.629
+I am going to create a new workspace variable
+called R which contains pixels in every row
+
+00:02:55.629 --> 00:02:58.599
+and every column that belong to plane one.
+
+00:02:58.599 --> 00:03:04.060
+I am going to do a similar thing for the green
+plane and I am going to do a similar thing
+
+00:03:04.060 --> 00:03:08.810
+for the blue plane, which is plane
+number 3.
+
+00:03:08.810 --> 00:03:14.640
+So, for instance, I can just display again
+the green plane that I just computed.
+
+00:03:14.640 --> 00:03:18.909
+Now the next thing that I want to do is to
+compute the chromaticity coordinates and to
+
+00:03:18.909 --> 00:03:23.819
+do that I need to compute the sum of the red
+and the green and the blue and I am going
+
+00:03:23.819 --> 00:03:27.870
+to put that into the local variable
+called Y.
+
+00:03:27.870 --> 00:03:33.400
+Y is a common symbol used for what is called
+the luminance image; it’s a monochrome image
+
+00:03:33.400 --> 00:03:34.400
+actually.
+
+00:03:34.400 --> 00:03:38.719
+If we look at this now it will look something
+like a monochrome or black and white picture
+
+00:03:38.719 --> 00:03:39.719
+of the scene.
+
+00:03:39.719 --> 00:03:42.650
+It is the average of all of the color channels.
+
+00:03:42.650 --> 00:03:48.900
+Now the chromaticity coordinates computes
+the ratio between all of the pixels in the
+
+00:03:48.900 --> 00:03:54.849
+red plane and the sum and I can compute this
+element wise division by using the MATLAB
+
+00:03:54.849 --> 00:03:59.660
+operator dot slash, so what it is going to
+do is to compute a new image, call it little
+
+00:03:59.660 --> 00:04:05.719
+R, and its dimensions will be the same as
+the dimensions of capital R and capital Y.
+
+00:04:05.719 --> 00:04:12.219
+Each element of the image little R is the
+corresponding pixel in capital R divided by
+
+00:04:12.219 --> 00:04:14.469
+the corresponding pixel in capital Y.
+
+00:04:14.469 --> 00:04:19.440
+And let me do the same thing for the green
+chromaticity channel; let’s have a look
+
+00:04:19.440 --> 00:04:20.510
+at these.
+
+00:04:20.510 --> 00:04:25.100
+These are stored in the MATLAB workspaces
+matrices, but of course I can display a matrix
+
+00:04:25.100 --> 00:04:32.500
+as an image and an image is represented as
+a matrix, so here is little R and I can create
+
+00:04:32.500 --> 00:04:39.670
+another figure, figure two, and in figure
+two I am going to display little G.
+
+00:04:39.670 --> 00:04:45.390
+So these are the chromaticity values, and
+if we poke around some of the values here
+
+00:04:45.390 --> 00:04:51.530
+we can see that where the fruit is, it has
+got quite a large value of R, it has a very
+
+00:04:51.530 --> 00:04:54.000
+small value of little G.
+
+00:04:54.000 --> 00:04:58.560
+If we look at where some of the leaves are
+we see that they have got a modest value of
+
+00:04:58.560 --> 00:05:07.030
+little R—about 0.39—and little G has got
+a slightly bigger value, so these two images
+
+00:05:07.030 --> 00:05:10.860
+represent the color in this scene: we have
+factored out the intensity.
+
+00:05:10.860 --> 00:05:16.721
+So let’s say now that we wanted to make
+a rule that would select a pixel that belonged
+
+00:05:16.721 --> 00:05:19.890
+to the fruit and didn’t belong to anything
+else.
+
+00:05:19.890 --> 00:05:25.600
+Well clearly we want a rule that said something
+about the fact that R is quite big, it seems
+
+00:05:25.600 --> 00:05:33.080
+to be at least greater than 0.8 and mostly
+it is above 0.9, but let’s say, conservatively,
+
+00:05:33.080 --> 00:05:40.160
+it has to be above 0.8 and in this case we
+want the G value has to be quite small.
+
+00:05:40.160 --> 00:05:43.100
+Has to be sort of, you know, less than 0.1
+even.
+
+00:05:43.100 --> 00:05:46.340
+But to be conservative, let’s say it has
+to be less than 0.2.
+
+00:05:46.340 --> 00:05:52.340
+So I could create a new variable, it is going
+to be a logical variable, so I am going to
+
+00:05:52.340 --> 00:06:03.380
+say anywhere that R is greater than 0.8 and
+G is less than 0.2 it will be true.
+
+00:06:03.380 --> 00:06:08.790
+So let’s display this image I just created
+called Tom and there we have it.
+
+00:06:08.790 --> 00:06:12.870
+The background here, these values are all
+zero, they are all false and in here they
+
+00:06:12.870 --> 00:06:17.880
+all have values of one, which is MATLAB’s
+way of representing the concept of true.
+
+00:06:17.880 --> 00:06:23.590
+We have created now a binary image where the
+pixels are one if they are the tomato fruit
+
+00:06:23.590 --> 00:06:29.420
+and they are zero if it is not the fruit,
+background, people and leaves.
+
+00:06:29.420 --> 00:06:34.090
+Now that we have a binary image we can do
+a lot of the things that we demonstrated earlier
+
+00:06:34.090 --> 00:06:36.960
+when we were talking about binary vision.
+
+00:06:36.960 --> 00:06:42.960
+So I could look for all of the blobs that
+are within this image so I apply the iblobs
+
+00:06:42.960 --> 00:06:47.930
+function to the binary image we just computed
+and here it is, that there are ten blobs in
+
+00:06:47.930 --> 00:06:48.930
+here.
+
+00:06:48.930 --> 00:06:52.500
+Now, there are clearly a couple of big blobs
+and we can see there, there are some blobs
+
+00:06:52.500 --> 00:06:56.940
+with quite a large area and there is also
+a lot of very, very small blobs around the
+
+00:06:56.940 --> 00:06:59.180
+edge of one of the fruit.
+
+00:06:59.180 --> 00:07:05.010
+Now we can go back to the original image,
+let’s have a look at figure one and there
+
+00:07:05.010 --> 00:07:12.870
+I am going to display the original image and
+then I am going to overlay some bounding boxes
+
+00:07:12.870 --> 00:07:16.340
+and I will overlay them in the color green.
+
+00:07:16.340 --> 00:07:20.720
+So there we have it; quite simply, we have
+taken a color image, we have computed the
+
+00:07:20.720 --> 00:07:24.780
+essential color at each of the pixels in terms
+of chromaticity coordinates.
+
+00:07:24.780 --> 00:07:28.960
+We have made a very simple rule to choose
+pixels that belong to the fruit and not to
+
+00:07:28.960 --> 00:07:31.940
+anything else; that led us to a binary image.
+
+00:07:31.940 --> 00:07:35.430
+Once we have a binary image, then we can apply
+all of the techniques that we have already
+
+00:07:35.430 --> 00:07:40.140
+learnt and in very quick fashion I can outline
+the particular fruit.
+
+00:07:40.140 --> 00:07:45.210
+Now the problem with this is that the fruit
+are kind of misshapen, part of that is because
+
+00:07:45.210 --> 00:07:49.900
+of the specular reflection that I mentioned
+earlier and also some of the fruit is obscured
+
+00:07:49.900 --> 00:07:55.210
+by leaves and whatever, still the bounding
+box is a good place to start, we could look
+
+00:07:55.210 --> 00:08:00.360
+at some of the mathematical morphology techniques
+that we used before, we could apply the techniques
+
+00:08:00.360 --> 00:08:05.740
+of dilation and erosion perhaps to fill in
+some of the missing part of those fruit.
+

@@ -1,0 +1,184 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.029 --> 00:00:08.780
+Consider that we are viewing this object.
+It is being illuminated by a white light source
+
+00:00:08.780 --> 00:00:16.289
+and the camera is returning these RGB values
+or tristimulus values. Imagine now that the
+
+00:00:16.289 --> 00:00:22.029
+intensity of the white light source is being
+reduced. What we observe is that the appearance
+
+00:00:22.029 --> 00:00:27.340
+of the object changes but clearly the color
+of the object itself cannot change because
+
+00:00:27.340 --> 00:00:33.540
+the color is a material property of the object—an
+apple is still red, even if it is in a dark
+
+00:00:33.540 --> 00:00:40.519
+room—and what we observe is that as the
+lighting level has been reduced the tristimulus
+
+00:00:40.519 --> 00:00:45.890
+values have changed; they have all become
+smaller, but the ratio between the tristimulus
+
+00:00:45.890 --> 00:00:51.269
+values remains the same and what we would
+like to do is to find some way to transform
+
+00:00:51.269 --> 00:00:58.129
+the three tristimulus values to one brightness
+value and perhaps two color values.
+
+00:00:58.129 --> 00:01:03.960
+One way to do this is to transform the RGB
+values into chromaticity coordinates and we
+
+00:01:03.960 --> 00:01:10.990
+divide the RGB values by the sum, by the total
+tristimulus, we end up with these variables,
+
+00:01:10.990 --> 00:01:16.890
+little R, little G and little B. And it is
+easy to show that these vary between zero
+
+00:01:16.890 --> 00:01:22.869
+and one. It is also easy to show that they
+sum to one. Therefore, one of the coordinates
+
+00:01:22.869 --> 00:01:27.860
+is redundant and typically we consider just
+the little R and little G values.
+
+00:01:27.860 --> 00:01:32.649
+Consider this worked example, similar to things
+we have looked at before: white light falling
+
+00:01:32.649 --> 00:01:37.960
+on to a red apple and producing this tristimulus
+value. Now consider that there is a cloud
+
+00:01:37.960 --> 00:01:42.930
+in front of the light source, the overall
+illumination level has been reduced and the
+
+00:01:42.930 --> 00:01:49.009
+tristimulus value now has a different value,
+smaller tristimulus value then we had before.
+
+00:01:49.009 --> 00:01:53.799
+Let’s consider a worked example: in the
+first case we can compute the chromaticity
+
+00:01:53.799 --> 00:01:58.460
+coordinates of little R and little G. For
+the second case where there was a cloud in
+
+00:01:58.460 --> 00:02:03.710
+front of the light source, lower overall illumination,
+we can compute the chromaticity coordinates
+
+00:02:03.710 --> 00:02:07.719
+and we can see that they are the same and
+what we have been able to do then is to factor
+
+00:02:07.719 --> 00:02:14.489
+out the effect of intensity and retain just
+two numbers which provide some representation
+
+00:02:14.489 --> 00:02:17.319
+of color.
+Let’s consider a two dimensional coordinate
+
+00:02:17.319 --> 00:02:23.500
+system with the axis little R and little G.
+This point where R equals one and G equals
+
+00:02:23.500 --> 00:02:29.840
+nought corresponds to pure red. Where R equals
+nought and G equals one corresponds to pure
+
+00:02:29.840 --> 00:02:35.750
+green and this point at the origin where R
+and G are both equal to zero corresponds to
+
+00:02:35.750 --> 00:02:39.560
+pure blue.
+It is not possible for a chromaticity coordinate
+
+00:02:39.560 --> 00:02:44.430
+to exist in the space above the blue line
+and this comes from the constraint that little
+
+00:02:44.430 --> 00:02:48.269
+R, plus little G, plus little B has to equal
+one.
+
+00:02:48.269 --> 00:02:54.480
+In an earlier lecture we discussed the concept
+of gamma encoding this is where there is a
+
+00:02:54.480 --> 00:03:00.360
+non-linear transformation between the brightness
+of the light entering the camera and the magnitude
+
+00:03:00.360 --> 00:03:06.080
+of the signal leaving the camera. Almost all
+cameras today have gamma encoding in them
+
+00:03:06.080 --> 00:03:14.340
+and the gamma value is typically around 2.2.
+What effect does gamma encoding have on chromaticity
+
+00:03:14.340 --> 00:03:17.959
+coordinates? We will illustrate this with
+another worked example.
+
+00:03:17.959 --> 00:03:24.159
+We will use the tristimulus or RGB values
+from the earlier example with the full sun
+
+00:03:24.159 --> 00:03:30.549
+and the clouded sun illumination and the first
+step is to compute the gamma encoded RGB values,
+
+00:03:30.549 --> 00:03:35.640
+and they are shown here, and we can do this
+very easily and conveniently using MATLAB.
+
+00:03:35.640 --> 00:03:40.819
+Now let’s compute the chromaticity coordinates
+and in the first case it is for the full illumination
+
+00:03:40.819 --> 00:03:47.680
+condition and here are the R and G values.
+For the second case with lower illumination,
+
+00:03:47.680 --> 00:03:51.709
+we compute the chromaticity coordinates and
+we see they are the same as for the first
+
+00:03:51.709 --> 00:03:57.780
+case. So once again we have factored out the
+effect of illumination and we are left with
+
+00:03:57.780 --> 00:04:03.530
+two numbers which represent the color. For
+this case with gamma encoding, we have factored
+
+00:04:03.530 --> 00:04:08.860
+out the effect illumination and that is a
+good thing. But the actual chromaticity coordinates
+
+00:04:08.860 --> 00:04:13.760
+have a different value to the case we computed
+earlier without gamma encoding.
+

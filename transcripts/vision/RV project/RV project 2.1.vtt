@@ -1,0 +1,131 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.460 --> 00:00:08.660
+Welcome to week two in the robotic vision
+project. The objective for this week is to
+
+00:00:08.660 --> 00:00:12.550
+capture an image of our Robot Vision worksheet
+and get it into MATLAB.
+
+00:00:12.550 --> 00:00:16.059
+The choice is really up to you whether or
+not you want to use a local camera, such as
+
+00:00:16.059 --> 00:00:21.170
+a compact camera or a mobile phone camera
+or you could use a web camera if you like.
+
+00:00:21.170 --> 00:00:24.340
+I've already written a function in MATLAB
+that allows me to do this, so let's go into
+
+00:00:24.340 --> 00:00:29.240
+MATLAB now and take a look at what this looks
+like in the MATLAB workspace.
+
+00:00:29.240 --> 00:00:33.980
+Okay so I've taken a photo of the Robotic
+Vision worksheet using my mobile phone camera,
+
+00:00:33.980 --> 00:00:39.860
+I've saved it onto this computer and I named
+the image RV.JPEG.
+
+00:00:39.860 --> 00:00:44.320
+So how we actually get this image into the
+MATLAB work space? So currently it's just
+
+00:00:44.320 --> 00:00:49.789
+a file, so how do we actually access the image?
+Well the robotics toolbox has a function called
+
+00:00:49.789 --> 00:00:53.170
+"iread" so we're going to use that function
+to load in the image.
+
+00:00:53.170 --> 00:01:00.469
+So we'll create a variable called img, call
+our iread function and we can just simply
+
+00:01:00.469 --> 00:01:06.280
+supply the file name that we want to read
+in. Again as you can see on the right, we've
+
+00:01:06.280 --> 00:01:13.320
+created a new variable called img, these are the pixel dimensions of the image and it has three channels.
+
+00:01:13.330 --> 00:01:16.860
+Any time you read in an image, it's always
+a good idea to actually visualize it, just
+
+00:01:16.860 --> 00:01:22.900
+to make sure that nothing funny has happened
+and the robotic vision toolbox has another
+
+00:01:22.900 --> 00:01:29.710
+function called idisp, which allows you to
+actually visualize the image and see what's
+
+00:01:29.710 --> 00:01:31.840
+come into the MATLAB work space.
+
+00:01:31.840 --> 00:01:37.680
+So as you can see here, this is out Robotic
+Vision worksheet. Now when you guys take a
+
+00:01:37.680 --> 00:01:42.930
+photo of your worksheet, there is just three
+things that you should keep in mind; the first
+
+00:01:42.930 --> 00:01:47.750
+thing is that make sure that all of the shapes
+are actually visible, so don’t, you know,
+
+00:01:47.750 --> 00:01:54.009
+only photograph half of the worksheet and
+make sure it's not too far away. Just make
+
+00:01:54.009 --> 00:02:00.430
+sure that the worksheet comprises the majority
+of the image. That way it's easy for you to
+
+00:02:00.430 --> 00:02:04.420
+identify the 2D objects later on in the project.
+
+00:02:04.420 --> 00:02:08.709
+The next thing is that when you take the photo,
+just make sure that you're not, you take it
+
+00:02:08.709 --> 00:02:13.890
+with a steady hand. So that will reduce any
+blurring because we're trying to find and
+
+00:02:13.890 --> 00:02:18.920
+identify the 2D objects, any blurring will
+make that process a lot more difficult. And
+
+00:02:18.920 --> 00:02:25.220
+finally because the 2D objects are colorized,
+we're relying on colour segmentation, so there
+
+00:02:25.220 --> 00:02:30.760
+must be an appropriate amount of illumination
+when you take your photo, so just make sure
+
+00:02:30.760 --> 00:02:35.349
+that you can actually distinguish between
+the different colours, so you have enough
+
+00:02:35.349 --> 00:02:37.649
+level of light, such that is possible.
+
+00:02:37.680 --> 00:02:42.940
+So if you follow those three tips and you
+get something that looks something like this,
+
+00:02:42.940 --> 00:02:46.540
+then you're all good to go onto the next part of the project.
+

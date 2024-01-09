@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:04.000 --> 00:00:09.320
+Instead of just displaying values of individual
+pixels I can display the values of the pixels
+
+00:00:09.320 --> 00:00:13.130
+along a line in the scene. Let’s have a
+look at this.
+
+00:00:13.130 --> 00:00:17.041
+To do that I use the line button here and
+I click the first point here and I am going
+
+00:00:17.041 --> 00:00:22.520
+to click a second point over here. Draws a
+line on the original image and in the other
+
+00:00:22.520 --> 00:00:28.030
+window we see what we call an intensity profile.
+So we can see that the intensity is initially
+
+00:00:28.030 --> 00:00:34.230
+quite bright—we’re on the wall—then
+as we move further towards the right along
+
+00:00:34.230 --> 00:00:39.640
+that line the intensity drops, gets quite
+dark in the doorway. If you come out of the
+
+00:00:39.640 --> 00:00:44.030
+doorway and cross a section of wall again
+the pixel values have got a large value, it
+
+00:00:44.030 --> 00:00:49.090
+is a bright wall, and then they fall down
+to a lower value as we go through the next
+
+00:00:49.090 --> 00:00:53.090
+window.
+So, this is the pattern of pixel values as
+
+00:00:53.090 --> 00:01:02.480
+we move along a line within the original scene.
+Another thing we can do is to create what
+
+00:01:02.480 --> 00:01:08.040
+is called a region of interest, effectively
+to zoom in onto a rectangular region within
+
+00:01:08.040 --> 00:01:12.300
+the image. So let’s have a look at that.
+What I will do is I will remove this profile
+
+00:01:12.300 --> 00:01:19.799
+image and I will click the zoom button, and
+I will lasso an area of the image interactively
+
+00:01:19.799 --> 00:01:25.290
+and the result is a smaller image which contains
+a sub region of the original image.
+

@@ -1,0 +1,33 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.150 --> 00:00:08.269
+Welcome to week seven in the robotic vision
+project. This is the optional week where you
+
+00:00:08.269 --> 00:00:12.480
+can take your complete vision system and the
+outputs from this can form the inputs to a
+
+00:00:12.480 --> 00:00:14.410
+robotic arm that you've built.
+
+00:00:14.410 --> 00:00:19.439
+For this demonstration my robotic arm will
+be moving from the coordinate axis here to
+
+00:00:19.439 --> 00:00:24.199
+the large green triangle followed by the large
+green square and will finish on the smaller
+
+00:00:24.199 --> 00:00:25.689
+triangle over here.
+
+00:00:25.689 --> 00:00:27.489
+Let's take a look now at this robot in action.
+
+00:00:41.160 --> 00:00:46.180
+So as you can see it performed the desired
+trajectory. Hopefully yours look something similar.
+

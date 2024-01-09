@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.440 --> 00:00:20.220
+In the last lecture we talked about image
+formation for pinhole cameras and cameras
+
+00:00:20.220 --> 00:00:23.220
+with lenses and we treated it geometrically.
+
+00:00:23.220 --> 00:00:27.769
+In this lecture we're going to look at image
+formation again but this time we're going
+
+00:00:27.769 --> 00:00:32.590
+to treat it more formally, more mathematically.
+We're going to use two mathematical tools
+
+00:00:32.590 --> 00:00:37.800
+to help us do this. The first is linear algebra
+and that's all about matrices and vectors,
+
+00:00:37.800 --> 00:00:43.579
+a topic you should be quite familiar with.
+The second topic is one you are perhaps less
+
+00:00:43.579 --> 00:00:46.550
+familiar with and it's homogeneous coordinates.
+
+00:00:46.550 --> 00:00:51.250
+So we'll introduce homogeneous coordinates
+and then we'll use it to help us with a mathematical
+
+00:00:51.250 --> 00:00:53.500
+formalism of image formation.
+

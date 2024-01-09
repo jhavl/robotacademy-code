@@ -1,0 +1,403 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.800 --> 00:00:09.019
+Let’s look again at the averaging process
+that we introduced a segment or two ago. Here
+
+00:00:09.019 --> 00:00:14.100
+we have our original image of the Mona Lisa
+and here we have the version of the Mona Lisa
+
+00:00:14.100 --> 00:00:20.470
+where we have applied an averaging over a
+21 by 21 pixel input window. What can happen
+
+00:00:20.470 --> 00:00:25.419
+when we perform the average over a square
+window it leads to an artefact in the image
+
+00:00:25.419 --> 00:00:31.710
+called ringing. It introduces very faint vertical
+and horizontal lines and we can see a few
+
+00:00:31.710 --> 00:00:38.670
+above her lips and above and below her eyes.
+This problem arises because the pixels in
+
+00:00:38.670 --> 00:00:44.989
+the input window are different distances away
+from the centre of the window. In particular,
+
+00:00:44.989 --> 00:00:49.579
+this pixel here is the distance of 2 away
+from the centre of the window where this pixel
+
+00:00:49.579 --> 00:00:55.760
+here is a distance 2√2 away from the centre.
+That is a value of almost 3 pixels away from
+
+00:00:55.760 --> 00:01:01.320
+the centre. And the result is that the average
+is unduly influenced by pixel values that
+
+00:01:01.320 --> 00:01:06.320
+are a long way from the centre. And we say
+that this operation is not isotropic; that
+
+00:01:06.320 --> 00:01:12.320
+means that it has different results in different
+directions. It is not symmetrical.
+
+00:01:12.320 --> 00:01:17.690
+Ideally what we would like to do is to extract
+a circular region of pixels; we would like
+
+00:01:17.690 --> 00:01:23.000
+to take all of the pixels that fall underneath
+this circular disk. But the problem with this
+
+00:01:23.000 --> 00:01:27.470
+is that the disk doesn’t fully cover all
+of the pixels; some of the pixels around the
+
+00:01:27.470 --> 00:01:32.270
+edge—particularly the ones in the corner—are
+only partially covered by the disk. So that
+
+00:01:32.270 --> 00:01:37.520
+involves us taking a fraction of a pixel.
+Let’s look at a way we can do this.
+
+00:01:37.520 --> 00:01:43.710
+And the way we do it is to apply a weighting.
+Let’s zoom in on this circular region that
+
+00:01:43.710 --> 00:01:49.320
+we have created and it’s a circle with a
+diameter of 2.5 pixels. And we want to take
+
+00:01:49.320 --> 00:01:58.560
+all of this pixel because it is fully covered
+by the disk. But we only want to take a fraction
+
+00:01:58.560 --> 00:02:04.310
+of this pixel; we want it to have less significance
+or less weight in the average that we are
+
+00:02:04.310 --> 00:02:08.629
+going to compute.
+So what we can do is to compute a set of weights.
+
+00:02:08.629 --> 00:02:13.140
+For pixels that are fully covered by the disk,
+the weight is equal to 1. But if the disk
+
+00:02:13.140 --> 00:02:17.670
+only partly covers the pixel then the weight
+is less than one and we can see that there
+
+00:02:17.670 --> 00:02:23.230
+are some pixels 98% covered by the disk and
+in the corners we can see that some pixels
+
+00:02:23.230 --> 00:02:30.310
+are only 14% covered by the disk. This matrix
+then represents the influence that the different
+
+00:02:30.310 --> 00:02:36.560
+pixels within the square window should have
+on the resulting average. How do we use this
+
+00:02:36.560 --> 00:02:40.780
+weighting matrix?
+What we are going to do is to take all of
+
+00:02:40.780 --> 00:02:45.960
+the pixels from the input image and here is
+an example of a set of pixel values. And we
+
+00:02:45.960 --> 00:02:51.890
+are going to multiply all of the pixels within
+the window by the weighting matrix. And this
+
+00:02:51.890 --> 00:02:57.180
+is an element wise multiplication, sometimes
+called a Hilbert multiplication. So we take
+
+00:02:57.180 --> 00:03:02.709
+corresponding elements from these two matrices,
+multiply them together, put the result into
+
+00:03:02.709 --> 00:03:08.990
+the corresponding element in the output matrix.
+So over here we have the pixel value from
+
+00:03:08.990 --> 00:03:12.990
+the original image, but we have multiplied
+them by the weighting matrix so that the ones
+
+00:03:12.990 --> 00:03:18.630
+in the corners have got a lower value, less
+able to influence the resulting average. Now
+
+00:03:18.630 --> 00:03:23.630
+we will compute the sum over this product
+and that is the product of all of the pixels
+
+00:03:23.630 --> 00:03:29.630
+in the input window which we denote by W and
+all of the values in the weighting matrix.
+
+00:03:29.630 --> 00:03:33.470
+And I am going to now refer to that weighting
+matrix as a kernel.
+
+00:03:33.470 --> 00:03:38.310
+Kernel is a term that is commonly used in
+image processing. And we are going to compute
+
+00:03:38.310 --> 00:03:46.880
+the sum of the element wise multiplication
+of these two small square images and the result
+
+00:03:46.880 --> 00:03:53.790
+is what we place into the output image. So
+our function f(W) is equal to the sum of the
+
+00:03:53.790 --> 00:03:58.290
+element wise multiplication of the input window
+and the kernel.
+
+00:03:58.290 --> 00:04:02.930
+Consider now that I have an input image where
+all of the pixels are uniform and equal to
+
+00:04:02.930 --> 00:04:08.410
+1. If I applied this kernel to that image,
+the result will be that every pixel in the
+
+00:04:08.410 --> 00:04:15.569
+output image would have a value of 19.6. Input
+image, the values are all 1, output image
+
+00:04:15.569 --> 00:04:22.370
+are all 19.6. And we can get around this by
+applying a scale factor, and a scale factor
+
+00:04:22.370 --> 00:04:27.939
+is determined from the sum of all of the elements
+within the kernel; if we divide the kernel
+
+00:04:27.939 --> 00:04:33.520
+by the sum of all of its elements we have
+a normalised kernel and if we apply this to
+
+00:04:33.520 --> 00:04:38.229
+an image, where all of the input pixels have
+got a value of 1, the output image will have
+
+00:04:38.229 --> 00:04:44.370
+all of its pixels equal to one. This is a
+normalised kernel, so typically we try and
+
+00:04:44.370 --> 00:04:49.240
+compute a kernel that has got a scale factor
+of 1.
+
+00:04:49.240 --> 00:04:53.180
+So the simple averaging that we looked at
+right at the beginning of this lecture we
+
+00:04:53.180 --> 00:04:58.729
+can also think of it as a kernel. In fact,
+it is a very simple kernel where all of the
+
+00:04:58.729 --> 00:05:03.069
+elements in the window are equal to 1. So
+here is the example for a 7 by 7 window. The
+
+00:05:03.069 --> 00:05:10.039
+7 by 7 matrix of ones, we divide it by 49
+so that the overall scale factor is equal
+
+00:05:10.039 --> 00:05:17.050
+to 1. So this is a fairly uniform way of dealing
+with spatial operations—they can all be
+
+00:05:17.050 --> 00:05:23.449
+represented by a kernel matrix. And in the
+MATLAB tool box we use a function called iconv.
+
+00:05:23.449 --> 00:05:28.210
+We parse in the image and in this case the
+Mona Lisa image. The second argument is the
+
+00:05:28.210 --> 00:05:33.680
+kernel matrix in this case it is a 7 by 7
+matrix full of ones, divided by 49. The function
+
+00:05:33.680 --> 00:05:38.650
+ones is a built-in MATLAB function.
+Another kernel that is commonly used in image
+
+00:05:38.650 --> 00:05:44.089
+processing is the Gaussian kernel, named after
+the very famous German mathematician Carl-Friedrich
+
+00:05:44.089 --> 00:05:49.309
+Gauss. You have perhaps encountered the one
+dimensional version of this function before;
+
+00:05:49.309 --> 00:05:54.249
+it is the normal distribution that we see
+in statistics. This function has got a simple
+
+00:05:54.249 --> 00:05:59.479
+and elegant analytic form and if we plot it
+in three dimensions it has the appearance
+
+00:05:59.479 --> 00:06:05.300
+of a gentle hill. If, instead, we represent
+this function as an image where brightness
+
+00:06:05.300 --> 00:06:09.539
+is proportional to height of the function
+shown over on the left, we have an image that
+
+00:06:09.539 --> 00:06:13.659
+looks something like this. It is bright in
+the middle and we can see that the intensity
+
+00:06:13.659 --> 00:06:20.069
+falls off uniformly in all directions. This
+is an isotropic function and the weight decreases
+
+00:06:20.069 --> 00:06:26.039
+as we move away from the centre. In the MATLAB
+tool box, we can compute this kernel using
+
+00:06:26.039 --> 00:06:31.509
+the function kgauss. The first argument is
+the standard deviation, the symbol σ on the
+
+00:06:31.509 --> 00:06:36.520
+left, and the second argument is the half
+width of the kernel. In this case, the half
+
+00:06:36.520 --> 00:06:42.409
+width is 15 so therefore the full width is
+2x15 + 1; that is, a kernel that is 31 by
+
+00:06:42.409 --> 00:06:47.779
+31 pixels.
+An important parameter of the kernel is the
+
+00:06:47.779 --> 00:06:54.129
+standard deviation, the symbol σ, which appears
+twice in the analytic expression. It controls
+
+00:06:54.129 --> 00:06:59.759
+the width of the kernels, so for a σ of 2
+we see that there is a very tall, pointy peak;
+
+00:06:59.759 --> 00:07:06.809
+for a σ of 5 it is much broader; for σ 10
+it is broader still. The area under the Gaussian
+
+00:07:06.809 --> 00:07:13.349
+function is always one. So as it gets wider
+it becomes less tall. An important consideration
+
+00:07:13.349 --> 00:07:19.159
+when we use the Gaussian for image processing
+is what size should the kernel be. The kernel
+
+00:07:19.159 --> 00:07:24.399
+needs to be big enough to hold the bulk of
+the Gaussian so, and that clearly is going
+
+00:07:24.399 --> 00:07:29.309
+to depend on the standard deviation. So a
+pretty good rule of thumb is to make the half
+
+00:07:29.309 --> 00:07:33.789
+width of the kernel equal to three times the
+standard deviation.
+
+00:07:33.789 --> 00:07:38.129
+Let’s create one of these Gaussian kernels;
+I am going to put it into a variable called
+
+00:07:38.129 --> 00:07:45.389
+K. It is the kgauss function and I want it
+to have a standard deviation of 5 and I wanted
+
+00:07:45.389 --> 00:07:52.669
+to be in a window with a half width of 15.
+So that will actually be 31 by 31 kernel.
+
+00:07:52.669 --> 00:07:59.500
+There we go. We have created a 31 by 31 matrix
+in the workspace which contains the Gaussian kernel.
+
+00:07:59.509 --> 00:08:02.429
+Now I can display this as an image.
+
+00:08:05.600 --> 00:08:08.900
+And there we see it is essentially a disk,
+
+00:08:08.909 --> 00:08:13.129
+it is bright in the middle, it has got a high
+weighting to values in the centre of the window
+
+00:08:13.129 --> 00:08:19.439
+and lower weighting for pixels that are further
+away from the centre of the window.
+
+00:08:19.439 --> 00:08:23.659
+Now I can create in a new figure. And I can
+look at it in a different way; I can look
+
+00:08:23.659 --> 00:08:29.219
+at it in a three dimensional way by creating
+a MATLAB surface plot. And there we see the
+
+00:08:29.219 --> 00:08:35.870
+Gaussian window, very distinctive shape. Tall
+in the middle and with the decreasing values
+
+00:08:35.870 --> 00:08:42.920
+as we go away from the centre.
+Let’s apply this kernel to a standard test image,
+
+00:08:42.920 --> 00:08:46.940
+so we will load the Mona Lisa image.
+
+00:08:55.740 --> 00:09:03.400
+I will create a new image called S for smooth and I will correlate it with the kernel.
+
+00:09:03.700 --> 00:09:08.200
+There we have created the output image. I can display
+
+00:09:08.209 --> 00:09:13.680
+that and we can see that the image has been
+smoothed; we might also say it looks a bit
+
+00:09:13.680 --> 00:09:17.850
+blurry. Looks like it has lost some of its
+resolution. What we’ve done is smooth out
+
+00:09:17.850 --> 00:09:24.670
+the very fine scale detail and left just the
+coarse detail in the image.
+
+00:09:24.670 --> 00:09:30.120
+And you can see that for the Kσ equals 2,
+we have a relatively small kernel size; for
+
+00:09:30.120 --> 00:09:33.079
+σ equals 5, we have to use a much larger
+kernel.
+

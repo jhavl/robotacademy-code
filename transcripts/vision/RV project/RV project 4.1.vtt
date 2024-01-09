@@ -1,0 +1,146 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.259 --> 00:00:09.210
+Welcome to week four in the robot vision project.
+Just to summarize so far, we've taken an image
+
+00:00:09.210 --> 00:00:14.509
+of our robotic vision worksheet and we've
+segmented the objects into their particular colours.
+
+00:00:14.509 --> 00:00:19.320
+The object for this week is to now classify
+these 2D objects in their shape and size;
+
+00:00:19.320 --> 00:00:23.990
+so we have circles, squares and triangles.
+I've written a function in MATLAB that allows
+
+00:00:23.990 --> 00:00:28.480
+me to do this, so let's take a look at the
+output of this week.
+
+00:00:28.480 --> 00:00:33.780
+So in MATLAB here I have four different variables;
+the first is img, which is my R robotic vision
+
+00:00:33.780 --> 00:00:39.770
+worksheet image, and the remaining three variables
+are the outputs of what I showed you last
+
+00:00:39.770 --> 00:00:40.360
+week.
+
+00:00:40.360 --> 00:00:47.680
+So I have r2d, g2d and b2d. And these are
+the thresholded binary images, which contain
+
+00:00:47.680 --> 00:00:54.149
+the 2D objects, shapes in either the red channel,
+green channel or the blue channel. So for
+
+00:00:54.149 --> 00:01:00.129
+this week, what I'd like you to do is make
+a function called "getShape".
+
+00:01:00.129 --> 00:01:05.170
+Now how getShape works is that you parse it
+some parameters and then it will return a
+
+00:01:05.170 --> 00:01:11.290
+toolbox blob object, which is associated to
+the 2D object that you're trying to find.
+
+00:01:11.290 --> 00:01:16.280
+So let's go through some examples of how to
+use this function. So say I'd like to find
+
+00:01:16.280 --> 00:01:24.729
+the small red square, then I can call a function
+that I've made, called getShape and my function
+
+00:01:24.729 --> 00:01:30.570
+here takes in three inputs; the first is the
+binary or logical image that I got from my
+
+00:01:30.570 --> 00:01:33.000
+getColour function from last week.
+
+00:01:33.000 --> 00:01:40.610
+So because I'm trying to find a red square,
+I'm going to parse in my red binary image.
+
+00:01:40.610 --> 00:01:45.200
+The next input is the particular shape I'm
+trying to find, so either a square, circle
+
+00:01:45.200 --> 00:01:50.689
+or a triangle, so I'm trying to find a square,
+and then the final input is the size that
+
+00:01:50.689 --> 00:01:55.189
+I'm after, or the bulk. So if I'm trying to
+find a small or a large square.
+
+00:01:59.100 --> 00:02:03.860
+Okay, so that function is then going to go
+into the image and try and find a small square.
+
+00:02:03.869 --> 00:02:10.239
+And then if I look at the toolbox blob object
+that it's returned, you can see that it's
+
+00:02:10.239 --> 00:02:17.360
+returned one blob and that will be the small
+red square. And to check that you can use
+
+00:02:17.360 --> 00:02:27.620
+another toolbox function, which is the plot_box
+associated with the toolbox blob.
+
+00:02:27.620 --> 00:02:35.569
+And then if we execute that and we go back
+to our image, you can see that a blue square
+
+00:02:35.569 --> 00:02:41.489
+has been drawn over my red square, so there's
+two red squares in the robotic vision worksheet,
+
+00:02:41.489 --> 00:02:45.599
+as you can see here and the small one has
+been highlighted.
+
+00:02:45.599 --> 00:02:52.569
+Okay, so let's do another example; let's say
+we're trying to find a small green circle.
+
+00:02:52.569 --> 00:02:57.680
+So small, green, circle.
+
+00:02:57.680 --> 00:03:02.349
+So I call my function getShape again, but
+this time because I'm trying to find a green,
+
+00:03:02.349 --> 00:03:11.010
+I parse in my green thresholded image and
+I'm trying to find a circle and we're trying
+
+00:03:11.010 --> 00:03:15.349
+to find the small one.
+
+00:03:15.349 --> 00:03:24.510
+Okay and then I can use plot_box again, and
+then if I go back to the image you can see
+
+00:03:24.510 --> 00:03:30.430
+that there are two green circles on the robotic vision worksheet and the small one has been highlighted.
+
+00:03:30.430 --> 00:03:34.640
+So that's the goal for you guys to do this
+week; is to make a function similar to what
+
+00:03:34.640 --> 00:03:41.700
+I've done with getShape, that allows you to classify the 2D objects, in terms of a shape and a size.
+

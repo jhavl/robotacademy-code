@@ -1,0 +1,120 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.770 --> 00:00:07.880
+Let’s summarise some of the key things that
+we have learned about getting images from
+
+00:00:07.880 --> 00:00:12.789
+the world into a computer where we can manipulate
+them with MATLAB.
+
+00:00:12.789 --> 00:00:19.010
+We have looked at a number of examples about
+how we can load images from a file; load images
+
+00:00:19.010 --> 00:00:24.890
+live from a camera; load images from somebody
+else’s camera, a web camera attached to
+
+00:00:24.890 --> 00:00:30.130
+the internet somewhere on the planet; how
+to load frames from a movie file and we can
+
+00:00:30.130 --> 00:00:34.890
+even load frames from an online internet service
+like Google Earth.
+
+00:00:34.890 --> 00:00:40.750
+What you will notice about all of these different
+approaches is that there’s some common patterns
+
+00:00:40.750 --> 00:00:47.079
+here. We create an image source object that
+might be a video camera object or an access
+
+00:00:47.079 --> 00:00:52.420
+web camera object or movie object and then
+we use one of the methods of that object,
+
+00:00:52.420 --> 00:00:59.079
+the grab method, to obtain the next image
+from that image source. So we are able to
+
+00:00:59.079 --> 00:01:05.080
+grab images a diversity of image sources,
+using software which varies only very, very
+
+00:01:05.080 --> 00:01:09.329
+little.
+Now once we have the image into the MATLAB
+
+00:01:09.329 --> 00:01:17.249
+environment it is represented by a matrix;
+by a rectangular array of numbers. Every element
+
+00:01:17.249 --> 00:01:23.119
+within that array represents the intensity
+of light at the corresponding point in the
+
+00:01:23.119 --> 00:01:27.529
+real world.
+We refer to these elements as picture elements,
+
+00:01:27.529 --> 00:01:34.140
+which is often contracted to pixel. The position
+of a pixel is defined by two coordinates.
+
+00:01:34.140 --> 00:01:40.340
+The horizontal coordinate which I denote by
+the symbol u, is the distance from the left-hand
+
+00:01:40.340 --> 00:01:45.000
+edge, and the vertical coordinate which I
+define by the symbol v, is defined as the
+
+00:01:45.000 --> 00:01:51.679
+distance from the top left-hand corner.
+MATLAB is a computational environment for
+
+00:01:51.679 --> 00:01:56.130
+dealing with matrices, and the convention
+for matrices is that we index them using the
+
+00:01:56.130 --> 00:02:03.859
+row index first followed by the column index.
+Now the row is the vertical coordinate and
+
+00:02:03.859 --> 00:02:09.550
+the column is the horizontal coordinate. So
+there is a flip here between the normal way
+
+00:02:09.550 --> 00:02:15.910
+that we represent the coordinates in a rectangular
+frame or in a graph. Normally we would reference
+
+00:02:15.910 --> 00:02:21.580
+the horizontal coordinate followed by the
+vertical coordinate—we would write u,v as
+
+00:02:21.580 --> 00:02:27.040
+the coordinate of a pixel. In MATLAB, because
+we are indexing into a matrix we have to reverse
+
+00:02:27.040 --> 00:02:33.000
+that so we would write v,u.
+Now this is confusing and it is a bit of a
+
+00:02:33.000 --> 00:02:37.760
+trap for people who are just starting out.
+It is really important to remember that the
+
+00:02:37.760 --> 00:02:43.091
+coordinates when you are indexing a matrix
+are reversed compared to the coordinates that
+
+00:02:43.091 --> 00:02:46.910
+you would use when you think about a two dimensional
+plane.
+

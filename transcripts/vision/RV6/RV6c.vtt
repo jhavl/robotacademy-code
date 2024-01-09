@@ -1,0 +1,238 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.250 --> 00:00:07.950
+Let’s use MATLAB to simulate this whole
+color imaging process.
+
+00:00:07.950 --> 00:00:14.770
+To start with I am going to create again a
+short hand for the units of nanometers.
+
+00:00:14.770 --> 00:00:19.230
+I am going to create a spectral region of
+interest and I am going to pick a range from
+
+00:00:19.230 --> 00:00:25.090
+350 nanometers, just above what we can see
+at the blue end of the spectrum.
+
+00:00:25.090 --> 00:00:29.300
+In steps of five nanometers and I am going
+to go all the way up to 800 nanometers.
+
+00:00:29.300 --> 00:00:35.640
+It is just a little bit beyond the visible
+end of the spectrum at the red end.
+
+00:00:35.640 --> 00:00:43.780
+Now I am going to load some data which is
+the spectrum of sunlight measured at the surface
+
+00:00:43.780 --> 00:00:48.649
+of the earth and we use the load spectrum
+function I am going to parse in the range
+
+00:00:48.649 --> 00:00:53.780
+of wavelengths I am interested in and I am
+going to ask for data from the file solar
+
+00:00:53.780 --> 00:00:55.670
+dot dat.
+
+00:00:55.670 --> 00:01:01.219
+So this has loaded the illumination spectrum
+of sunlight into the MATLAB workspace variable
+
+00:01:01.219 --> 00:01:08.950
+called E and I can plot E against lambda and
+have a look at that and there we have the
+
+00:01:08.950 --> 00:01:14.410
+spectrum wavelength across the bottom and
+intensity on the vertical axis.
+
+00:01:14.410 --> 00:01:19.610
+Now I am going to load the reflectance information
+for the famous red brick.
+
+00:01:19.610 --> 00:01:26.970
+Going to use the load spectrum function again,
+parsing the same range of wavelengths and
+
+00:01:26.970 --> 00:01:31.390
+the data comes from the file called red brick
+dot dat.
+
+00:01:31.390 --> 00:01:40.380
+Now I can display that in another figure,
+create figure two and now I am going to plot
+
+00:01:40.380 --> 00:01:45.830
+R against lambda and here we see the reflectance
+profile of the red brick and we can see that
+
+00:01:45.830 --> 00:01:49.540
+it reflects more red light then it does blue
+light.
+
+00:01:49.540 --> 00:01:56.170
+Now I can compute the luminance of the red
+brick, and luminance is the product of the
+
+00:01:56.170 --> 00:02:02.180
+illuminance E and the reflectance and I use
+the dot star operator because what I am going
+
+00:02:02.180 --> 00:02:09.900
+to do is to multiply every element in E by
+the corresponding element in R. E and R we
+
+00:02:09.900 --> 00:02:16.920
+can see are both 91 by 1 element vectors,
+and the product L we can see is also 91 by
+
+00:02:16.920 --> 00:02:18.970
+1 vector.
+
+00:02:18.970 --> 00:02:26.170
+Now I can plot illuminance and we can see
+it looks like this; so we have the incoming
+
+00:02:26.170 --> 00:02:27.900
+light, has got this spectrum.
+
+00:02:27.900 --> 00:02:31.569
+The light that has been reflected off the
+red brick has got a different spectrum, it
+
+00:02:31.569 --> 00:02:35.640
+has reflected more red and it has absorbed
+more blue and green.
+
+00:02:35.640 --> 00:02:42.730
+Now, we are going to load the response of
+the human cones, I have also got that information
+
+00:02:42.730 --> 00:02:45.480
+in a file that is shipped with the toolbox.
+
+00:02:45.480 --> 00:02:49.650
+Again we parse in the spectral range we are
+interested in and we ask for data from the
+
+00:02:49.650 --> 00:02:51.680
+file cones dot dat.
+
+00:02:51.680 --> 00:02:58.120
+Now there are three cones, so the cones data
+is a matrix that has got 91 rows and three
+
+00:02:58.120 --> 00:03:01.930
+columns, each column corresponds to one of
+the cones.
+
+00:03:01.930 --> 00:03:05.440
+Column one is the red cone, column two is
+the green cone and so on.
+
+00:03:05.440 --> 00:03:11.300
+I can plot the cone responses; again, I am
+going to plot them against lambda and here
+
+00:03:11.300 --> 00:03:18.230
+we see the three cone responses, see the blue
+cone, the green cone and the red cone.
+
+00:03:18.230 --> 00:03:25.610
+Now what I am going to do is plot the response
+of the red cone to this incoming light.
+
+00:03:25.610 --> 00:03:32.830
+Now what I am going to do is to take the luminance
+and I am going to multiply it by the red channel
+
+00:03:32.830 --> 00:03:37.760
+of the cones response, so I am going to take
+all rows in the cone response in column one.
+
+00:03:37.760 --> 00:03:43.459
+That is the column that contains information
+about the red cone and here I have it, this
+
+00:03:43.459 --> 00:03:50.890
+is the response of the red cone to the incoming
+light from the red brick.
+
+00:03:50.890 --> 00:03:57.130
+The cone responds to the integral of this
+function, the area underneath this curve,
+
+00:03:57.130 --> 00:04:00.310
+and we can see that this curve peaks up to
+about 0.18.
+
+00:04:00.310 --> 00:04:06.120
+Let’s look at what it would be for the green
+cone, so I change that number there and now
+
+00:04:06.120 --> 00:04:10.070
+we see this is the response of the green cone.
+
+00:04:10.070 --> 00:04:14.690
+The peak is a little bit less, the peak is
+now about 0.11; it is not quite high.
+
+00:04:14.690 --> 00:04:19.780
+It is the area underneath; this curve is the
+response of the green cone when looking at
+
+00:04:19.780 --> 00:04:20.780
+the red brick.
+
+00:04:20.780 --> 00:04:26.540
+Finally, the response of the blue cone is
+given by this and we can see that this is
+
+00:04:26.540 --> 00:04:32.910
+a fairly low response, the peak value is only
+0.005.
+
+00:04:32.910 --> 00:04:39.290
+Now I can compute a simple numerical approximation
+to the area underneath the curve using some
+
+00:04:39.290 --> 00:04:41.000
+rectangular integration.
+
+00:04:41.000 --> 00:04:49.600
+Use the MATLAB sum function and I am going
+to sum the luminance multiplied by the response
+
+00:04:49.600 --> 00:04:50.600
+in the first instance.
+
+00:04:50.600 --> 00:04:55.169
+I am going to do the response of the red cone
+and because it is a rectangular integration
+
+00:04:55.169 --> 00:05:01.630
+I should properly multiply by the wavelength
+step size, which is
+
+00:05:01.630 --> 00:05:06.630
+5 nanometers, and this is the response of
+the red cone.
+
+00:05:06.630 --> 00:05:11.610
+The response of the green cone would be this.
+
+00:05:11.610 --> 00:05:17.490
+Almost half the value and the response of
+the blue cone is this much smaller value,
+
+00:05:17.490 --> 00:05:22.970
+about one eighth the response of the red cone
+to this luminance response.
+

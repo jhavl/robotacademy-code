@@ -1,0 +1,83 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.380 --> 00:00:21.300
+Welcome, this is introduction to Robot Vision.
+In this course we're going to talk about how
+
+00:00:21.310 --> 00:00:26.460
+we give robots the sense of sight. Clearly
+vision is a really important sense for us
+
+00:00:26.460 --> 00:00:31.550
+in almost everything we do in our daily life.
+And it plays a critically important role in
+
+00:00:31.550 --> 00:00:37.239
+the life of almost all life forms on the planet.
+So what I hope to do during this course is
+
+00:00:37.239 --> 00:00:41.450
+convince you that vision is a really important
+sense for robotics and we're going to talk
+
+00:00:41.450 --> 00:00:47.230
+about how you actually get robots to understand
+visual information. So this gets us into a
+
+00:00:47.230 --> 00:00:52.120
+field that's called "Computer Vision" so we
+can consider this course as the first few
+
+00:00:52.120 --> 00:00:55.870
+steps into this big field of computer vision.
+
+00:00:55.870 --> 00:01:01.090
+Computer vision is all about how you can use
+cameras connected to computers to understand
+
+00:01:01.090 --> 00:01:05.659
+the state of the world. It's a big field,
+growing very, very quickly and it's massive
+
+00:01:05.659 --> 00:01:12.250
+progress. But in this course, the first simple
+steps into computer vision. So what we will
+
+00:01:12.250 --> 00:01:18.600
+learn through the course is how we can take
+images from a camera and use them to understand,
+
+00:01:18.600 --> 00:01:26.299
+to find, to recognize objects of different
+size or shape or colour. So very simple information,
+
+00:01:26.299 --> 00:01:31.240
+but this is enough information that can be
+given to a robot to enable it to carry out
+
+00:01:31.240 --> 00:01:35.990
+some simple tasks. So we're going to take
+an image with millions of pixels of information
+
+00:01:35.990 --> 00:01:40.110
+in it and turn that into information that
+a robot can act on.
+
+00:01:40.110 --> 00:01:45.170
+I've spent almost my entire career working
+on equipping robots with vision, the field
+
+00:01:45.170 --> 00:01:49.189
+of robotic vision, so I hope in this course,
+that I can convince you that vision is a really
+
+00:01:49.189 --> 00:01:54.689
+important way for robots to sense the world
+around them and that you will enjoy learning
+
+00:01:54.689 --> 00:01:58.270
+some fundamentals of how it is we go about
+making robots see.
+

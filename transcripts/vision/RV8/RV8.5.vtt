@@ -1,0 +1,93 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:02.260
+Using homographies in MATLAB
+
+00:00:02.260 --> 00:00:07.149
+Let's use the previous MATLAB example to illustrate
+some principles around homographies. First
+
+00:00:07.149 --> 00:00:12.870
+thing I'm going to do is to close these 2
+windows and create a new variable called Little
+
+00:00:12.870 --> 00:00:18.500
+P, which contains the projection of those
+world points. Here we go.
+
+00:00:18.500 --> 00:00:23.019
+So, this is the image plane coordinates of
+the points as viewed by that camera up in
+
+00:00:23.019 --> 00:00:30.330
+the air. The world points P are a set of 3
+dimensional coordinates. Note that the Z coordinate
+
+00:00:30.330 --> 00:00:34.910
+of all of these points is equal to 0. So,
+I'm going to create a new vector, just P and
+
+00:00:34.910 --> 00:00:41.940
+it's just the first 2 rows and it contains
+all of the columns. So, this is Q. So, Q are
+
+00:00:41.940 --> 00:00:47.879
+a set of coordinates of points on the ground
+plane that the camera is looking at and P
+
+00:00:47.879 --> 00:00:53.120
+is a set of pixel coordinates in the view
+from that camera up in the air and now that
+
+00:00:53.120 --> 00:01:00.000
+I have these 2 sets of corresponding 2-D points,
+I can compute an homography. I'll just use
+
+00:01:00.000 --> 00:01:06.030
+the homography function and I parse in the
+first set of points, little P and the second
+
+00:01:06.030 --> 00:01:11.310
+set of points, Q and here is the homography
+matrix that's been computed.
+
+00:01:11.310 --> 00:01:16.450
+Now that I have the homography H, I can apply
+it to a single point or 2 multiple points.
+
+00:01:16.450 --> 00:01:21.189
+To help me with that, there is a toolbox helper
+function called 'homtrans' which applies the
+
+00:01:21.189 --> 00:01:28.340
+homography-H to the set of pixels P. This
+is our image plane coordinates and the result
+
+00:01:28.340 --> 00:01:32.590
+is the set of coordinates of points on the
+ground.
+
+00:01:32.590 --> 00:01:37.030
+We have mapped a set of points in the image
+whose coordinates are measured in units of
+
+00:01:37.030 --> 00:01:41.670
+pixels into a set of points on the ground
+plane and there coordinates are described
+
+00:01:41.670 --> 00:01:47.399
+in units of metres. Similarly, I can use the
+inverse of the homography matrix to go the other way.
+
+00:01:48.079 --> 00:01:54.070
+So now, I pass in the coordinates of the points on the ground and the result is the set of
+
+00:01:54.070 --> 00:01:59.469
+image plane coordinates. So, the homography is a really useful tool if I want to map the
+
+00:01:59.469 --> 00:02:04.020
+coordinates of points between one plane and
+another.
+

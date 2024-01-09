@@ -1,0 +1,286 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.399 --> 00:00:08.590
+The first stage in the process is the illuminant;
+that is, what creates the light that falls
+
+00:00:08.590 --> 00:00:13.690
+on the scene that is ultimately reflected
+into our eyes. So where does the light come
+
+00:00:13.690 --> 00:00:18.330
+from? Well there are many, many different
+sources of light; incandescence’s is emitted
+
+00:00:18.330 --> 00:00:24.850
+by hot objects, that could be the white hot
+filament of a tungsten light bulb or it could be the sun.
+
+00:00:24.850 --> 00:00:30.280
+Old fashion cathode ray tubes—as found in
+televisions and old computer monitors—generate
+
+00:00:30.289 --> 00:00:35.930
+light by firing very energetic electrons at
+phosphors and these are chemicals that accept
+
+00:00:35.930 --> 00:00:41.110
+that high energy electron and convert that
+into photons or light.
+
+00:00:41.110 --> 00:00:47.500
+We also have light emitting diodes, gas discharge
+tubes and lasers.
+
+00:00:47.500 --> 00:00:53.830
+Way back in 1672, Isaac Newton developed what
+he called the spectral theory of light and
+
+00:00:53.830 --> 00:00:59.830
+he did a very famous experiment, light entered
+the room through a hole in a covering over
+
+00:00:59.830 --> 00:01:06.470
+the window and entered a prism where he saw
+that it was split into many different colors.
+
+00:01:06.470 --> 00:01:10.760
+And then he was able to show that he could
+recombine the multiple colors of light back
+
+00:01:10.760 --> 00:01:16.600
+into a single beam of white light.
+What you see here is an image of Isaac Newton’s
+
+00:01:16.600 --> 00:01:19.960
+notebook that records this experiment that
+he did.
+
+00:01:19.960 --> 00:01:25.310
+A very iconic image is of a beam of white
+light entering a prism and being split into
+
+00:01:25.310 --> 00:01:33.020
+all of the colors of the rainbow. These different
+colors represent light of different frequencies
+
+00:01:33.020 --> 00:01:39.020
+and we tend to describe the frequency of a
+particular color of light in terms of its
+
+00:01:39.020 --> 00:01:44.380
+wavelength. It is a length and it is measured
+in units of nanometers; ten to the minus nine
+
+00:01:44.380 --> 00:01:50.229
+meters. Now, not all light is visible, human
+beings are able to see light between about
+
+00:01:50.229 --> 00:01:56.479
+400 nanometers and 700 nanometers. Light with
+wavelengths shorter than 400 nanometers we
+
+00:01:56.479 --> 00:02:03.140
+refer to as ultra-violet and light with wavelengths
+greater than 700 nanometers we refer to as
+
+00:02:03.140 --> 00:02:09.000
+infra-red.
+Light is an electromagnetic wave and if we
+
+00:02:09.000 --> 00:02:11.639
+look at this graphically we see that there
+are two
+
+00:02:11.639 --> 00:02:18.319
+self-reinforcing waves, moving through space
+in this direction along the x axis. One of
+
+00:02:18.319 --> 00:02:24.739
+those waves is an electric field; the other
+wave is a magnetic field. The length of a
+
+00:02:24.739 --> 00:02:29.939
+single cycle of either of these waves we refer
+to as the wavelength and very commonly give
+
+00:02:29.939 --> 00:02:34.819
+it the symbol lambda.
+So the wavelength is the length of a single
+
+00:02:34.819 --> 00:02:42.450
+cycle of this electromagnetic wave and for
+light it is between 400 and 700 nanometers.
+
+00:02:42.450 --> 00:02:48.359
+Let’s now consider black body radiators
+and the two most common black body sources
+
+00:02:48.359 --> 00:02:54.310
+of light that we use are the traditional incandescent
+tungsten light bulb, though these are now
+
+00:02:54.310 --> 00:02:59.909
+going out of fashion, and the sun. The sun
+is a very hot object in the sky that omits
+
+00:02:59.909 --> 00:03:03.959
+visible light.
+The amount of light that a black body radiator
+
+00:03:03.959 --> 00:03:11.029
+omits as a function of its wavelength is given
+by this curve here. The visible range of light
+
+00:03:11.029 --> 00:03:17.930
+is shown here. This curve is described by
+Planck’s law and it contains a large number
+
+00:03:17.930 --> 00:03:22.840
+of constance, and one of the terms in this
+expression is T, that is the temperature of
+
+00:03:22.840 --> 00:03:28.389
+the black body radiator. That is the temperature
+of the tungsten filament or it is the temperature
+
+00:03:28.389 --> 00:03:32.260
+of the surface of the sun.
+Typically, these are in the order of thousands
+
+00:03:32.260 --> 00:03:37.819
+of degrees kelvin. The curve has got a very
+clear peak, and the wavelength of this peak
+
+00:03:37.819 --> 00:03:43.989
+is given by the Wien displacement law, and
+what this shows is that the wavelength associated
+
+00:03:43.989 --> 00:03:48.519
+with the maximum of this peak is inversely
+related to the temperature.
+
+00:03:48.519 --> 00:03:54.590
+So low temperatures have a large lambda associated
+with the peak and as the temperature increases
+
+00:03:54.590 --> 00:04:00.299
+this lambda acts, decreases. It moves to a
+shorter wavelength. And we actually have an
+
+00:04:00.299 --> 00:04:06.730
+intuitive feel for this: what I have plotted
+here are the black body emission curves for
+
+00:04:06.730 --> 00:04:13.529
+black bodies at a range of different temperatures — from 1000 kelvin up to 6000 kelvin — and as we
+
+00:04:13.529 --> 00:04:19.120
+can see, as the temperature increases, the
+wavelength associated with the maximum is
+
+00:04:19.120 --> 00:04:24.400
+moving towards a smaller wavelength … it
+is becoming more blue. So as its temperature
+
+00:04:24.400 --> 00:04:31.050
+increases, the wavelength associated with
+the maximum emission moves to lower wavelengths,
+
+00:04:31.050 --> 00:04:34.740
+to bluer colors.
+In our language we use colors to describe
+
+00:04:34.740 --> 00:04:38.400
+temperatures. Something that is pretty hot,
+metal that is just about to begin be able
+
+00:04:38.400 --> 00:04:42.639
+to be worked, we describe as being red hot.
+As we increase the temperature it becomes
+
+00:04:42.639 --> 00:04:47.009
+yellow hot, it is glowing a different color,
+it is more yellow now and as the temperature
+
+00:04:47.009 --> 00:04:52.069
+goes up it starts to omit white light. And
+we refer to that as being white hot.
+
+00:04:52.069 --> 00:04:57.080
+Let’s have a go at plotting one of these
+black body curves. To get started with, just
+
+00:04:57.080 --> 00:05:01.759
+to make life a little bit easier for myself
+I am going to define a symbol NM, stands for
+
+00:05:01.759 --> 00:05:06.889
+nanometer and is equal to one by ten to the
+minus nine. Make life a little bit easier.
+
+00:05:06.889 --> 00:05:12.360
+And I am going to create a vector of wavelengths.
+I am going to call it lambda and it is going
+
+00:05:12.360 --> 00:05:19.169
+to vary from three hundred nanometers in steps
+of ten nanometers all the way up to a thousand
+
+00:05:19.169 --> 00:05:26.990
+nanometers, this is going from the near ultra-violet
+through into the infra-red part of the spectrum.
+
+00:05:26.990 --> 00:05:33.050
+Now I can compute a black body radiator emission
+curve, using the black body function. I parse
+
+00:05:33.050 --> 00:05:37.780
+in the range of wavelengths that I am interested
+in and I parse in the temperature. And I am
+
+00:05:37.780 --> 00:05:45.759
+going to put in 6500 kelvin, which is the
+temperature of the sun. I can plot this curve,
+
+00:05:45.759 --> 00:05:50.259
+one axis is going to be lambda and the other
+axis is going to be E. And here we have a
+
+00:05:50.259 --> 00:05:55.750
+plot of the response of the black body radiator.
+I am going to put a grid on there.
+
+00:05:55.750 --> 00:06:00.939
+Let’s look at the case now for a black body
+radiator, but at a lower color temperature
+
+00:06:00.939 --> 00:06:03.900
+and I am going to reduce the color temperature
+a little bit.
+
+00:06:03.900 --> 00:06:08.969
+So let’s come back here and I am going to
+reduce the color by 500 degrees. Put that
+
+00:06:08.969 --> 00:06:17.969
+into the variable E. I am going to overlay
+that plot and now I am going to plot E against
+
+00:06:17.969 --> 00:06:23.759
+lambda and I am going to do it with dashline
+so we can see what’s the difference. And
+
+00:06:23.759 --> 00:06:30.719
+what we can see is that the curve is lower;
+this slightly cooler body is emitting less
+
+00:06:30.719 --> 00:06:38.330
+energy overall. The peak of its omission has
+moved from around 450 nanometers to closer
+
+00:06:38.330 --> 00:06:46.510
+to 480 nanometers. So it has got a little bit cooler and it is a little bit more red in its appearance.
+

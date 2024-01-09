@@ -1,0 +1,38 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:16.420 --> 00:00:21.300
+In the last lecture we looked at image processing
+operations, where each pixel in the output
+
+00:00:21.300 --> 00:00:26.730
+image is computed from the corresponding pixel
+in the input image; or from two input images
+
+00:00:26.730 --> 00:00:31.109
+in what we called "The Diadic Case". In this
+lecture we're going to consider what we call
+
+00:00:31.109 --> 00:00:36.380
+"Spatial Imaging Processing Operations" and
+here the output pixel is a function of the
+
+00:00:36.380 --> 00:00:42.690
+corresponding pixel in the input image and
+a region of pixels around that input pixel.
+
+00:00:42.690 --> 00:00:47.960
+And this enables us to do some pretty interesting
+things. It allows us to smooth an image, it
+
+00:00:47.960 --> 00:00:54.780
+allows us to find edges with an image and edges are a very useful structure to use for robotic vision.
+
+00:00:55.240 --> 00:00:59.520
+The other sort of filter we're going to talk
+about in this lecture is what we call "Morphological
+
+00:00:59.520 --> 00:01:05.220
+Filtering" and these are filters that are sensitive to particular shapes within the input image.
+

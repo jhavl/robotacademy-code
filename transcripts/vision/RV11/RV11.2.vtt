@@ -1,0 +1,299 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.220 --> 00:00:07.060
+The task that we want the robot to do is to
+position the end of this rod to the tip of
+
+00:00:07.069 --> 00:00:11.639
+this rod, and that’s a relatively easy thing
+for me to do. I’m using both my eyes to
+
+00:00:11.639 --> 00:00:16.840
+guide my hand in order to achieve that particular
+motion. However, if I’m only using one eye
+
+00:00:16.840 --> 00:00:22.300
+there is a potential for some ambiguity. Using
+just a single eye, it’s actually quite difficult
+
+00:00:22.300 --> 00:00:28.130
+for me to determine the distance along the
+axis away from my eye. In order to achieve
+
+00:00:28.130 --> 00:00:32.710
+this positioning task in three dimensions,
+I actually need to use two camera views and
+
+00:00:32.710 --> 00:00:35.430
+the cameras need to be at different viewpoints.
+
+00:00:35.430 --> 00:00:40.730
+Here is a simple graphical representation
+of the problem that we just looked at. We
+
+00:00:40.730 --> 00:00:45.750
+have the blue object which is fixed, and we
+have the red object which is moving, and we
+
+00:00:45.750 --> 00:00:50.680
+want to bring the tip of the red object to
+the tip of the blue object. And this is clearly
+
+00:00:50.680 --> 00:00:56.629
+a task that occurs in three-dimensional space.
+Now, consider that we have a camera observing
+
+00:00:56.629 --> 00:01:02.020
+the task and we see here the camera’s view.
+We see the blue object and the red object.
+
+00:01:02.020 --> 00:01:07.310
+So when the task is accomplished, we see what
+it looks like in the camera’s eye view,
+
+00:01:07.310 --> 00:01:12.619
+and we see that in this two-dimensional projection
+of the task occurring that the tip of the
+
+00:01:12.619 --> 00:01:18.180
+red object is brought to the tip of the blue
+object. So the task is being achieved in the
+
+00:01:18.180 --> 00:01:22.000
+image as well as being achieved in three-dimensional
+space.
+
+00:01:22.000 --> 00:01:24.710
+It’s not quite that simple.
+
+00:01:24.710 --> 00:01:31.659
+Consider now that I perform the task incorrectly.
+I bring the red object to this position. Now,
+
+00:01:31.659 --> 00:01:36.180
+the task has not been achieved: the tip of
+the red object has not met the tip of the
+
+00:01:36.180 --> 00:01:42.820
+blue object in three-dimensional space. But
+in the image plane, the task looks like it
+
+00:01:42.820 --> 00:01:49.799
+has been achieved. We can say that in this
+horizontal direction, we can observe the motion
+
+00:01:49.799 --> 00:01:56.259
+of the red object. But in this direction away
+from the camera, we are unable to observe
+
+00:01:56.259 --> 00:01:57.840
+the motion of the object.
+
+00:01:57.840 --> 00:02:03.600
+So we have an observable degree of freedom
+and we have an un-observable degree of freedom.
+
+00:02:03.600 --> 00:02:07.759
+Another way we can think about this problem
+is that with the camera, we are making a measurement.
+
+00:02:07.759 --> 00:02:14.150
+It’s a measurement u,v: the coordinate of
+the red object in the image plane. So we’ve
+
+00:02:14.150 --> 00:02:19.690
+got two measurements. We are measuring two
+numbers, u and v. Then our task occurs in
+
+00:02:19.690 --> 00:02:25.220
+three-dimensional space: our task has got
+three degrees of freedom. So two measurements
+
+00:02:25.220 --> 00:02:29.410
+is insufficient to achieve a task with three
+degrees of freedom.
+
+00:02:29.410 --> 00:02:34.860
+Now, let’s consider that we perform this
+with two cameras having a look at the task
+
+00:02:34.860 --> 00:02:39.780
+that’s being accomplished. These cameras
+have got different viewpoints. So if we perform
+
+00:02:39.780 --> 00:02:45.290
+a task, we can now see how it looks in each
+camera view. This time, the task is being
+
+00:02:45.290 --> 00:02:49.739
+achieved correctly. Now, we are making four
+measurements about what’s going on. We are
+
+00:02:49.739 --> 00:02:54.590
+measuring u and v in one camera. We are measuring
+u and v with another camera. Now, we’ve
+
+00:02:54.590 --> 00:03:00.790
+got four measurements, and that is sufficient
+to achieve a task with three degrees of freedom.
+
+00:03:00.790 --> 00:03:04.780
+So in order to achieve a task, the number
+of measurements must be greater than or equal
+
+00:03:04.780 --> 00:03:08.080
+to the number of degrees of freedom.
+
+00:03:08.080 --> 00:03:12.730
+A long time ago, we actually built a real
+robot system to do this. Now, the task was
+
+00:03:12.730 --> 00:03:18.950
+to insert a tool, which is shown here, in
+to a hole in the roof of an underground mining
+
+00:03:18.950 --> 00:03:24.370
+tunnel. There is a camera on each side of
+the robot’s tool tip and it’s observing
+
+00:03:24.370 --> 00:03:28.799
+the hole in the roof; and you can see that
+shown here as the green region. And what the
+
+00:03:28.799 --> 00:03:33.890
+control system is doing is to bring the tip
+of the tool to the center of the green region
+
+00:03:33.890 --> 00:03:40.750
+simultaneously in both camera views. And if
+it does that, then it means that implicitly
+
+00:03:40.750 --> 00:03:45.849
+the tool has been put in to the hole in the
+roof of the mining tunnel.
+
+00:03:45.849 --> 00:03:51.970
+Let’s recap on the difference between vision-based
+control and conventional robot control.
+
+00:03:51.970 --> 00:03:57.819
+In conventional robot control, the observation
+of the pose of the robot’s end effector
+
+00:03:57.819 --> 00:04:03.040
+is indirect. We use sensors that measure the
+angles of the joints, and we use a kinematic
+
+00:04:03.040 --> 00:04:08.900
+model to compute where the end of the robot
+is. So it is just inferred.
+
+00:04:08.900 --> 00:04:14.310
+We also need to be told the position of the
+object in Cartesian space and then the task
+
+00:04:14.310 --> 00:04:19.250
+of the controller is to bring the inferred
+position of the robot’s end effector to
+
+00:04:19.250 --> 00:04:22.430
+the position of the object which we know in
+advance.
+
+00:04:22.430 --> 00:04:28.030
+Vision-based control by contrast is direct
+observation of the tool, and of the object,
+
+00:04:28.030 --> 00:04:32.970
+and of the error between those two things.
+In vision-based control, we try and drive
+
+00:04:32.970 --> 00:04:38.310
+that error to zero. We don’t actually know
+the pose of the object. We don’t actually
+
+00:04:38.310 --> 00:04:43.550
+know the pose of the robot’s tool. We simply
+observe the error and drive that to zero.
+
+00:04:43.550 --> 00:04:47.060
+This is a technique that’s commonly called
+visual servoing.
+
+00:04:47.060 --> 00:04:52.160
+There are many potential uses of visual servoing.
+For instance, in a manufacturing operation,
+
+00:04:52.160 --> 00:04:56.940
+we may need to pick up objects that are randomly
+placed on a conveyor belt. Visual servoing
+
+00:04:56.940 --> 00:05:01.490
+could guide the tip of a robot to pick up
+these objects as they are moving past. It
+
+00:05:01.490 --> 00:05:06.330
+could also be used to grab objects which are
+swinging on an overhead transfer line for
+
+00:05:06.330 --> 00:05:11.550
+example. It could be used for a mating task,
+perhaps to put fueling nozzle in to a car,
+
+00:05:11.550 --> 00:05:14.440
+into a spacecraft, or an aircraft.
+
+00:05:14.440 --> 00:05:19.639
+Consider a problem like fruit picking. We
+don’t know the x, y, and z location of every
+
+00:05:19.639 --> 00:05:24.080
+apple in the orchard. Perhaps, we don’t
+even know the location of the robot within
+
+00:05:24.080 --> 00:05:28.919
+the orchard. But using this visual control
+strategy, a robot can reach out and reduce
+
+00:05:28.919 --> 00:05:34.000
+the error between its tool tip and an apple
+to zero. In which case, then it has achieved
+
+00:05:34.000 --> 00:05:37.440
+a grasp of that fruit and can remove it from
+the tree.
+
+00:05:37.440 --> 00:05:42.080
+We could consider the problem of landing an
+aircraft on a runway. We observe the runway.
+
+00:05:42.080 --> 00:05:47.050
+We can see some very obvious visual features
+there: some nice white lines, some nice white
+
+00:05:47.050 --> 00:05:52.940
+rectangles, and we could use those to control
+the aircraft so that its height above the
+
+00:05:52.940 --> 00:05:56.940
+runway becomes zero while being aligned with
+that runway.
+
+00:05:56.940 --> 00:06:02.610
+It could be used for keeping an underwater
+robot at a fixed location despite an ocean
+
+00:06:02.610 --> 00:06:06.550
+current trying to push it away from where
+it wants to be. It could be used to guide
+
+00:06:06.550 --> 00:06:11.630
+an underwater robot following an underwater
+pipeline. It could be used for tasks like
+
+00:06:11.630 --> 00:06:16.600
+juggling and so on. The applications of vision-based
+control are almost limitless.
+

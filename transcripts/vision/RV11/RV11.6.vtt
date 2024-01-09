@@ -1,0 +1,446 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:03.240 --> 00:00:06.839
+Let’s imagine we have a robot and we want
+to position its gripper with respect to this
+
+00:00:06.839 --> 00:00:10.740
+purple triangle and imagine that we want to
+have the gripper directly above the centre
+
+00:00:10.740 --> 00:00:12.990
+of the triangle and at a height something
+like this.
+
+00:00:12.990 --> 00:00:18.119
+So if we had a camera on the robot’s gripper,
+it would see a view something like this. In
+
+00:00:18.119 --> 00:00:22.590
+the particular view that the robot is seeing
+from here, the pose of the gripper with respect
+
+00:00:22.590 --> 00:00:27.250
+to the object is implicit. For instance, if
+the robot gripper was initially in a position
+
+00:00:27.250 --> 00:00:32.000
+like this, we can see that the image acquired
+by the camera is quite different. So if we
+
+00:00:32.000 --> 00:00:37.450
+could come up with a control algorithm that
+would change the view from this to this, then
+
+00:00:37.450 --> 00:00:42.760
+implicitly the robot is going to perform the
+desired motion in the world coordinate frame.
+
+00:00:42.760 --> 00:00:47.270
+Here’s a graphical representation of the
+problem that we just discussed. We have the
+
+00:00:47.270 --> 00:00:52.260
+initial view of the object. In this case,
+our object is a triangle and it’s well-defined
+
+00:00:52.260 --> 00:00:57.500
+by the coordinates of its three corners. This
+is what the object looks like initially. But
+
+00:00:57.500 --> 00:01:00.320
+I want the triangle to look like this in my
+image.
+
+00:01:00.320 --> 00:01:05.830
+It’s also well-defined by the coordinates
+of its three corners. So we can define our
+
+00:01:05.830 --> 00:01:12.810
+problem as changing the view of the object
+from this to this. What we want to do is to
+
+00:01:12.810 --> 00:01:19.030
+move the yellow circles to where the red circles
+are. Just like this.
+
+00:01:19.030 --> 00:01:23.790
+In order to move, these yellow circles need
+to have some velocity. They need to have a
+
+00:01:23.790 --> 00:01:29.670
+velocity towards the corresponding red circle.
+So here is the coordinate of one of the yellow
+
+00:01:29.670 --> 00:01:34.850
+circles and here is its velocity. It needs
+to have this velocity, which would make it
+
+00:01:34.850 --> 00:01:37.350
+move from where it is to where it needs to
+go.
+
+00:01:37.350 --> 00:01:42.829
+We’ve already discussed a relationship between
+pixel velocity and camera velocity. It’s
+
+00:01:42.829 --> 00:01:48.780
+given by the image Jacobian Matrix. We can
+write the matrix as a function. I call it
+
+00:01:48.780 --> 00:01:55.470
+Jp and that stands for Jacobian for a point
+feature and it’s a function of the pixel
+
+00:01:55.470 --> 00:02:02.299
+coordinate, u and v, also how far the point is away in the world, which is given by capital Z.
+
+00:02:02.299 --> 00:02:08.099
+We refer to that as the depth of the point.
+For three points, remember we have a point
+
+00:02:08.099 --> 00:02:13.940
+on each corner of the triangle, we can describe
+the velocity that we want point one to have,
+
+00:02:13.940 --> 00:02:18.560
+point two to have and point three to have.
+All that we’re doing is just stacking three
+
+00:02:18.560 --> 00:02:24.239
+sets of equations, one above the other and
+as a common factor, which is the camera velocity.
+
+00:02:24.239 --> 00:02:31.480
+In the middle, we have a stack of these image
+Jacobians. So for three points, the relationship
+
+00:02:31.480 --> 00:02:37.430
+between the pixel velocities, camera velocity,
+looks like this. This middle matrix, the stack
+
+00:02:37.430 --> 00:02:40.730
+of image Jacobians, is now a six by six matrix.
+
+00:02:40.730 --> 00:02:44.890
+Each of them is two by six. Stack three of
+them on top of each other. The result is a
+
+00:02:44.890 --> 00:02:50.930
+six by six matrix. Because this matrix is
+square, we can invert it. We have a relationship
+
+00:02:50.930 --> 00:02:56.310
+that looks like this. This is the desired
+camera velocity. If the camera moved like
+
+00:02:56.310 --> 00:03:02.580
+this, then all the points would have the desired
+pixel velocity. They would move from where
+
+00:03:02.580 --> 00:03:07.700
+they are, shown by the yellow circle, to where
+you want them to be indicated by the red circle.
+
+00:03:07.700 --> 00:03:12.159
+So this is a relationship between the velocity
+that we want and the velocity that the camera
+
+00:03:12.159 --> 00:03:17.670
+needs to have in order to make the change
+in the image look like this. It’s computed
+
+00:03:17.670 --> 00:03:22.180
+via the inverse of the stack of image Jacobian
+matrices.
+
+00:03:22.180 --> 00:03:27.180
+Let’s look now at how we might compute the
+desired pixel velocity. We’re going to introduce
+
+00:03:27.180 --> 00:03:32.920
+some extra notation. I’m going to use the
+asterisk or star to indicate the desired value
+
+00:03:32.920 --> 00:03:38.340
+of a quantity. So where we want the pixel
+to be is indicated by U* and V* and where
+
+00:03:38.340 --> 00:03:44.209
+it currently is, is indicated by the coordinate
+U, V. So if I simply take the difference between
+
+00:03:44.209 --> 00:03:49.590
+where I want it to be and where it is now
+and multiply that by some arbitrary scale
+
+00:03:49.590 --> 00:03:55.480
+factor lambda, I have an equation, which describes
+the desired pixel velocity.
+
+00:03:55.480 --> 00:04:01.299
+It’s a vector parallel to a line between
+where I am and where I want to be. I use the
+
+00:04:01.299 --> 00:04:06.030
+subscript “I” because this is a general
+relationship that we can apply to any of the
+
+00:04:06.030 --> 00:04:10.930
+corner points of our object. In this case,
+it’s a triangular object so “I” varies
+
+00:04:10.930 --> 00:04:13.099
+from one to three.
+
+00:04:13.099 --> 00:04:17.870
+I introduce a bit more notation. I use the
+symbol “P” which is a vector to represent
+
+00:04:17.870 --> 00:04:22.889
+the coordinate of a point and substituting
+that into the previous relationship, now I
+
+00:04:22.889 --> 00:04:27.610
+have an expression that tells me the desired
+velocity of the camera as indicated by this
+
+00:04:27.610 --> 00:04:34.130
+star subscript is equal to lambda, an arbitrary
+game, multiplied by the inverse of the stack
+
+00:04:34.130 --> 00:04:39.710
+of image Jacobians, multiplied by another
+vector which is made up of a difference between
+
+00:04:39.710 --> 00:04:42.690
+where the point is and where I’d like the
+point to be.
+
+00:04:42.690 --> 00:04:50.030
+Let’s have a look at a simulation of this.
+On the left, we have a simulated image plane.
+
+00:04:50.030 --> 00:04:56.310
+So the circles indicate where the object is
+currently projected and the asterisks indicate
+
+00:04:56.310 --> 00:05:01.400
+where it is that I would like those points
+to be projected to. The asterisks are the
+
+00:05:01.400 --> 00:05:06.770
+destination coordinates. On the right hand
+side, we have a 3D view of what’s going
+
+00:05:06.770 --> 00:05:12.550
+on. The three red spheres indicate the points
+in three-dimensional space, the corners of
+
+00:05:12.550 --> 00:05:19.210
+the triangle. In blue, we have a simple 3D
+representation of a camera with an attached
+
+00:05:19.210 --> 00:05:21.199
+camera coordinate frame.
+
+00:05:21.199 --> 00:05:25.910
+When I start the simulation, we can see that
+the camera is moving towards the three points
+
+00:05:25.910 --> 00:05:29.729
+in the world and initially it moves quite
+quickly and then slows down.
+
+00:05:29.729 --> 00:05:34.350
+This is a characteristic of the proportional
+controller that we’re using demonstrates
+
+00:05:34.350 --> 00:05:40.160
+asymptotic convergence and we can see that
+the circles, the current view of those world
+
+00:05:40.160 --> 00:05:45.580
+points on the image plane moving slowly but
+surely towards the desired goals.
+
+00:05:45.580 --> 00:05:50.759
+What’s happened is by simply specifying
+what needs to happen on the image plane that
+
+00:05:50.759 --> 00:05:55.259
+this coordinate needs to move to this coordinate,
+in the real world, in the three-dimensional
+
+00:05:55.259 --> 00:05:59.919
+world, the task has been completed. The camera
+has moved to a desired pose.
+
+00:05:59.919 --> 00:06:04.620
+But notice in achieving that task, we haven’t
+had to say anything about the pose of the
+
+00:06:04.620 --> 00:06:10.680
+camera or the pose of the objects in the real
+world. This whole task has been completed
+
+00:06:10.680 --> 00:06:15.729
+simply by driving to zero the error on the
+image plane.
+
+00:06:15.729 --> 00:06:20.060
+This is an important characteristic of what
+we call image-based visual servoing.
+
+00:06:20.060 --> 00:06:24.690
+Let’s look at a concrete example here. This
+is my MATLAB workspace which I've initialized
+
+00:06:24.690 --> 00:06:26.030
+with a few variables.
+
+00:06:26.030 --> 00:06:30.630
+I've created a camera object with the default
+settings we've seen before. I've defined the
+
+00:06:30.630 --> 00:06:36.530
+vertices of a triangle in world coordinates
+and they’re represented by the columns of
+
+00:06:36.530 --> 00:06:41.340
+the matrix “P” and I have created a homogeneous
+transformation which represents the pose of
+
+00:06:41.340 --> 00:06:47.449
+the camera within the world space and I've
+done that by defining a position and rotation
+
+00:06:47.449 --> 00:06:52.910
+around the X, Y and Z axes given by this homogeneous
+transformation here.
+
+00:06:52.910 --> 00:06:58.360
+So I can plot the projection of the world
+points on to the image plane, using the plot
+
+00:06:58.360 --> 00:07:03.650
+method of the camera object, parse in the
+coordinates of the three world points, the
+
+00:07:03.650 --> 00:07:10.669
+columns of the matrix P and I’m going to
+tell the object that the camera pose is at
+
+00:07:10.669 --> 00:07:18.210
+this variable here, T-cam. Now we see the
+projection of those three points on the image
+
+00:07:18.210 --> 00:07:22.710
+plane. We can see that the camera is some
+distance away from the triangle and it’s
+
+00:07:22.710 --> 00:07:25.479
+looking at the triangle somewhat obliquely.
+
+00:07:25.479 --> 00:07:29.930
+The plot method has returned the projections
+on the image plane and they’re given by
+
+00:07:29.930 --> 00:07:35.930
+the columns of the matrix little b. Now I
+can compute an image Jacobian from these three
+
+00:07:35.930 --> 00:07:44.710
+points. I do that by again using the visjac_p
+method, visual Jacobian for point features
+
+00:07:44.710 --> 00:07:50.930
+and I’m going to parse in the point features,
+little p and this contains three points and
+
+00:07:50.930 --> 00:07:55.360
+I’m going to specify that all the points
+are five meters away from the camera.
+
+00:07:55.360 --> 00:07:59.550
+This is not strictly true. I don’t actually
+know how far away the points are but for the
+
+00:07:59.550 --> 00:08:03.039
+moment bare with me and we’ll just put in
+the number five.
+
+00:08:03.039 --> 00:08:08.300
+Now we have the visual Jacobian’s for each
+of the three points. Each point has a two
+
+00:08:08.300 --> 00:08:14.199
+by six image Jacobian and now they’re all
+stacked up so the result is a six by six matrix
+
+00:08:14.199 --> 00:08:19.970
+in the workspace. This is a matrix that I
+could invert. It’s a square matrix. If I
+
+00:08:19.970 --> 00:08:26.780
+use this matrix to multiply a vector of desired
+image plane velocities, the result will be
+
+00:08:26.780 --> 00:08:32.700
+the spatial velocity that the camera needs
+in order to achieve that.
+
+00:08:32.700 --> 00:08:38.390
+So in summary, image-based visual servoing
+is all about describing a task in terms of
+
+00:08:38.390 --> 00:08:44.169
+how we want points to move in the image. We
+then construct a simple controller that moves
+
+00:08:44.169 --> 00:08:49.019
+the camera so as to create the point motion
+that we require.
+
+00:08:49.019 --> 00:08:52.990
+As the points move from where they are now
+to where we’d like them to be, the useful
+
+00:08:52.990 --> 00:08:59.709
+task is achieved in the 3D world. But the
+task is not described in terms of pose of
+
+00:08:59.709 --> 00:09:07.019
+objects or of the robot. The task is in fact implicit in the motion that we require on the image plane.
+
+00:09:07.019 --> 00:09:11.430
+In some ways, we’re talking about relative
+motion of the camera. We’re steering the
+
+00:09:11.430 --> 00:09:16.480
+camera towards the goal location. It’s not
+defined in terms of absolutes. We don’t
+
+00:09:16.480 --> 00:09:21.430
+need to know the pose of the camera or the
+pose of the objects with respect to any kind
+
+00:09:21.430 --> 00:09:23.570
+of world coordinate frame.
+
+00:09:23.570 --> 00:09:27.940
+This technique works really well in this particular
+case where we have got three points in the
+
+00:09:27.940 --> 00:09:33.570
+scene. It doesn't work for just one or two
+points and it’s much more complex in a case
+
+00:09:33.570 --> 00:09:35.740
+where we have four or more points.
+
+00:09:35.740 --> 00:09:41.020
+It’s certainly doable but a little more complicated and beyond the scope of this particular lecture.
+

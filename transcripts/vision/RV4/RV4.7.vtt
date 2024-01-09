@@ -1,0 +1,440 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.699 --> 00:00:08.120
+Let’s consider the problem of trying to
+find a face in a crowd and, in particular,
+
+00:00:08.120 --> 00:00:15.540
+I want to find the face of the robot Bender.
+Here he is: he is hiding behind a Dalek and
+
+00:00:15.540 --> 00:00:20.669
+standing next to Eve. So rather than us having
+to scan the crowd to find Bender, let’s
+
+00:00:20.669 --> 00:00:25.430
+see if we can automate the task.
+We are going to use the spatial operator approach
+
+00:00:25.430 --> 00:00:30.849
+in order to solve this problem. What we are
+going to do is for every input window we are
+
+00:00:30.849 --> 00:00:37.340
+going to compare it with a template image,
+the template being the image, the pattern
+
+00:00:37.340 --> 00:00:42.370
+we are looking for and our function now is
+a similarity function. We are going to look
+
+00:00:42.370 --> 00:00:47.970
+at the similarity between the particular input
+window which marches across the image left
+
+00:00:47.970 --> 00:00:53.810
+to right, top to bottom. Every input window
+we are going to compare it with, our template
+
+00:00:53.810 --> 00:00:59.250
+and the similarity score is going to be placed
+into the output image. So the template will
+
+00:00:59.250 --> 00:01:04.180
+be the face of Bender and we are going to
+compare the face of Bender at every single
+
+00:01:04.180 --> 00:01:09.399
+location across the scene. So how do we compare
+two images, how do we tell that a particular
+
+00:01:09.399 --> 00:01:14.210
+input window W looks like Bender or doesn’t
+look like Bender?
+
+00:01:14.210 --> 00:01:20.560
+To do this we need an image similarity measure
+and the simplest one is called the sum of
+
+00:01:20.560 --> 00:01:28.030
+absolute differences, sometimes abbreviated
+to SAD or sad() and quite simply we take the
+
+00:01:28.030 --> 00:01:33.189
+difference between the corresponding pixels
+in the two images that we are trying to compare.
+
+00:01:33.189 --> 00:01:37.709
+Of course, they must be the same size, take
+their absolute value and sum it up. So if
+
+00:01:37.709 --> 00:01:43.270
+the images are identical, the similarity measure
+will have a value of 0. If they are dissimilar,
+
+00:01:43.270 --> 00:01:49.779
+S will have a value greater than 0. So 0 means
+perfect match; a big value means a less perfect
+
+00:01:49.779 --> 00:01:56.670
+match. A quite similar approach is the operator
+called ssd(), sum of square differences, and
+
+00:01:56.670 --> 00:02:02.700
+instead of using the absolute value operation
+we are taking the sum of the squares.
+
+00:02:02.700 --> 00:02:09.160
+Another measure is the zero mean normalised
+cross correlation, commonly abbreviated to
+
+00:02:09.160 --> 00:02:15.629
+zncc(). It looks much more complicated, but
+it has some advantages over the two simple
+
+00:02:15.629 --> 00:02:23.110
+measures above. The zncc() measure varies
+from -1 to +1. +1 means that the images are
+
+00:02:23.110 --> 00:02:29.519
+identical and -1 means that one image is the
+negative of the other one. 0 means that the
+
+00:02:29.519 --> 00:02:35.000
+two images are not very well correlated.
+Typically, a value above 0.8 is considered
+
+00:02:35.000 --> 00:02:41.640
+to be a reasonable match. Here we revisit
+the original puzzle and there is Bender highlighted.
+
+00:02:41.640 --> 00:02:47.019
+So we first of all need to create the template,
+so here I have chopped Bender out of the scene,
+
+00:02:47.019 --> 00:02:50.540
+so it is mostly Bender and a few of his neighbours
+as well.
+
+00:02:50.540 --> 00:02:56.129
+And then what I am going to do is to use a
+Photoshop-like program to remove all of the
+
+00:02:56.129 --> 00:02:59.750
+robots in that scene that are not Bender.
+I am going to zoom in as much as I can on
+
+00:02:59.750 --> 00:03:04.650
+his head and blacken out all of the other
+robots that I am not interested in. So this
+
+00:03:04.650 --> 00:03:10.310
+is the template, this is the pattern that
+I am going to go looking for in the image.
+
+00:03:10.310 --> 00:03:14.500
+The first thing I am going to do is load the
+crowd scene into a workspace variable which
+
+00:03:14.500 --> 00:03:20.099
+I am going to call crowd. I am going to load
+it from the file wheres_walle.png, it is a
+
+00:03:20.099 --> 00:03:25.569
+PNG format file. I want to convert the colour
+image to grey scale and I want to convert
+
+00:03:25.569 --> 00:03:33.310
+all the pixels to double precision values.
+That is, they lie between 0 and 1 and then
+
+00:03:33.310 --> 00:03:34.690
+let’s display that.
+
+00:03:38.329 --> 00:03:45.629
+And there we see the crowd scene, next I am
+going to load an image of the robot Bender
+
+00:03:45.629 --> 00:03:53.420
+and that is in a PNG file also; going to convert
+that to double precision and I have loaded
+
+00:03:53.420 --> 00:03:57.530
+that into the workspace variable Bender. We
+can see that it is a very small image; it
+
+00:03:57.530 --> 00:04:04.990
+has only got 55 rows of pixels and 41 columns of pixels. Let’s display that in a new window.
+
+00:04:08.920 --> 00:04:11.480
+And that is our template. So the problem to
+
+00:04:11.480 --> 00:04:19.209
+hand is to look for that particular template
+pattern in every possible location in the
+
+00:04:19.209 --> 00:04:23.200
+input image. So this is a really big searching
+problem. To do that I am going to use the
+
+00:04:23.200 --> 00:04:33.580
+tool box function called isimilarity and I
+pass in the image of Bender, the template
+
+00:04:33.580 --> 00:04:38.780
+that we are looking for, the scene in which
+I am searching for the template and the last
+
+00:04:38.780 --> 00:04:43.590
+argument is the similarity measure—we just
+talked about similarity measures—and I am
+
+00:04:43.590 --> 00:04:50.840
+going to use the zncc measure, zero mean normalise
+cross correlation, which is perhaps the Rolls
+
+00:04:50.840 --> 00:04:57.350
+Royce of image similarity measures, and I
+am going to compute that on my rather nice
+
+00:04:57.350 --> 00:05:01.410
+laptop. This calculation takes about 90 something
+seconds so we are going to skip through to
+
+00:05:01.410 --> 00:05:08.800
+the end. Great, we are done. So we have computed
+the variable S. It is a large matrix and we
+
+00:05:08.800 --> 00:05:15.560
+can consider it to be an image and display
+it as such and this is a similarity image.
+
+00:05:15.560 --> 00:05:20.310
+Now what we have here is this similarity measure,
+so let’s just click around in a few points
+
+00:05:20.310 --> 00:05:23.980
+and we can see that these pixels that I am
+clicking on have got quite low similarity
+
+00:05:23.980 --> 00:05:28.520
+measure. It means that where I have clicked
+the template is not at all a good fit.
+
+00:05:28.520 --> 00:05:34.800
+Down here we can see some similarity values
+that are a little bit bigger, 0.44, 0.47.
+
+00:05:34.800 --> 00:05:40.210
+The maximum value similarity is 1. So at this
+location it is possible that the template
+
+00:05:40.210 --> 00:05:45.140
+exists but it is not a marvellous fit. We
+can see some places that are quite dark where
+
+00:05:45.140 --> 00:05:50.580
+it is certainly is very poor fit. In fact
+it is a negative similarity measure. But somewhere
+
+00:05:50.580 --> 00:05:56.700
+in here there will be some very bright pixels
+which represent where the template fits best.
+
+00:05:56.700 --> 00:06:01.160
+So this is a very large matrix: there’s
+almost a million numbers in here and what
+
+00:06:01.160 --> 00:06:06.280
+we have to do is to find the biggest number
+within this matrix.
+
+00:06:06.280 --> 00:06:13.170
+Now we have a tool box function which can
+do that for us and it’s used like this.
+
+00:06:13.170 --> 00:06:17.370
+So it has got two output variables and I will
+explain them in just a moment.
+
+00:06:17.370 --> 00:06:24.010
+The function is called peak2 and we pass in
+the similarity image. Pass in the argument
+
+00:06:24.010 --> 00:06:30.390
+one which is saying that we want to find the
+brightest pixel, that is, the brightest pixel
+
+00:06:30.390 --> 00:06:35.460
+with respect to all of the pixels who are
+one pixel away from it. So it is like, it’s
+
+00:06:35.460 --> 00:06:42.220
+the brightest within a very local region and
+let’s ask for the five brightest peaks in
+
+00:06:42.220 --> 00:06:47.090
+descending order. So that’s the brightest
+pixel, the second brightest pixel and so on.
+
+00:06:47.090 --> 00:06:54.060
+Takes a moment to compute; and what we see
+is we have computed two output variables,
+
+00:06:54.060 --> 00:07:00.960
+now the first one, the one we call MX or maximum
+is the value of that brightest pixel and the
+
+00:07:00.960 --> 00:07:06.020
+corresponding column in the matrix P is the
+coordinate of that brightest pixel.
+
+00:07:06.020 --> 00:07:10.840
+So what it is saying is within that similarity
+image the greatest similarity that it has
+
+00:07:10.840 --> 00:07:18.800
+found has got a value of 0.6107 and it occurs
+at a U coordinate of 331 and a V coordinate
+
+00:07:18.800 --> 00:07:28.310
+of 364. The second best fit has got a similarity
+of 0.5580 and we can see its coordinate, third
+
+00:07:28.310 --> 00:07:33.210
+best fit, fourth best fit, fifth best fit
+and so on.
+
+00:07:33.210 --> 00:07:40.310
+So in order to visualise that, what we can
+do is to select the original image and what
+
+00:07:40.310 --> 00:07:47.670
+I am going to do is to plot some circles on
+this image that indicate where we found these
+
+00:07:47.670 --> 00:07:52.320
+good fits. So this is rather a lot of arguments
+to this function, but basically it is saying
+
+00:07:52.320 --> 00:07:58.450
+plot a circle of radius 30 pixels and plot
+one of these circles for every column in the
+
+00:07:58.450 --> 00:08:03.940
+matrix piece. So it is going to plot 5 circles.
+I want the circles to be coloured blue. I
+
+00:08:03.940 --> 00:08:09.740
+want them to be translucent, so we set the
+alpha value for these circles to 0.3, which
+
+00:08:09.740 --> 00:08:15.140
+means that they are see through circles and
+that they do not have any edge colour and
+
+00:08:15.140 --> 00:08:21.620
+here we go, there is a blue circle on every
+place where we think the robot Bender is.
+
+00:08:21.620 --> 00:08:28.700
+Now let’s also indicate the rank of the
+selections; another rather complex function
+
+00:08:28.700 --> 00:08:34.740
+core, but it’s basically saying for every
+point P, I want to put a sequential number
+
+00:08:34.740 --> 00:08:42.280
+in a bold font text size 36, in yellow writing
+and here we go, so we can see the first best
+
+00:08:42.280 --> 00:08:47.250
+fit, second best fit, third, fourth and fifth
+and we can see that the blue circle with the
+
+00:08:47.250 --> 00:08:51.900
+number one next to it is indeed the robot
+Bender … we are looking closely enough;
+
+00:08:51.900 --> 00:08:54.890
+we can see Bender’s happy face there.
+
+00:08:54.890 --> 00:09:01.150
+We are going to extract a region of the crowd
+scene around where we located the robot Bender.
+
+00:09:01.150 --> 00:09:05.830
+We are going to do that by using the iroi
+function, the region of interest function.
+
+00:09:05.830 --> 00:09:11.180
+And to pass in the entire image, the crowd
+image, we are going to pass in the coordinate
+
+00:09:11.180 --> 00:09:18.890
+of the point where the template had the best
+match, that is, the first column of the matrix
+
+00:09:18.890 --> 00:09:25.320
+P. Each column of the matrix P represents
+a point in the image where the template fitted
+
+00:09:25.320 --> 00:09:30.000
+either first best, second best and so on.
+So the first column is the point where the
+
+00:09:30.000 --> 00:09:35.170
+template fitted the best and we are going
+to extract a region which is 50 pixels square
+
+00:09:35.170 --> 00:09:41.150
+and so here we see the region of the crowd
+scene where we found the robot Bender and
+
+00:09:41.150 --> 00:09:45.400
+on the right we see the template of Bender.
+We can see that these regions are not quite
+
+00:09:45.400 --> 00:09:51.130
+the same. But we are showing on the left a
+pattern of pixels where the template fitted
+
+00:09:51.130 --> 00:09:54.830
+the best.
+So what I have done is to take the original
+
+00:09:54.830 --> 00:09:59.220
+image of the crowd scene and I have cut out
+a bunch of pixels which has Bender’s face
+
+00:09:59.220 --> 00:10:04.330
+in it, I have gone into Photoshop and I have
+blacked out some of the background which is
+
+00:10:04.330 --> 00:10:07.760
+not relevant—they are not part of Bender,
+they are actually part of the robots around
+
+00:10:07.760 --> 00:10:13.250
+Bender—and that is how I found the template.
+So if I applied this template to a different
+
+00:10:13.250 --> 00:10:17.980
+robot crowd scene and perhaps, in that crowd
+scene, Bender didn’t have a cigar; perhaps
+
+00:10:17.980 --> 00:10:22.050
+he was looking in another direction; perhaps
+he was closer to the camera and appeared to
+
+00:10:22.050 --> 00:10:26.420
+be bigger, or he was further away and appeared
+to be smaller. Then a simple-minded template
+
+00:10:26.420 --> 00:10:30.380
+matching technique like this is not going
+to work particularly well.
+

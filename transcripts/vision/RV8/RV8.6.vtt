@@ -1,0 +1,184 @@
+WEBVTT
+Kind: captions
+Language: en-GB
+
+00:00:00.000 --> 00:00:05.859
+Summary
+Let's recap some of the topics we've covered
+
+00:00:05.859 --> 00:00:11.040
+in this lecture. We started by talking about
+homogeneous coordinates, a different way to
+
+00:00:11.040 --> 00:00:16.379
+represent points in a 2 dimensional plane.
+We talked about ways to convert Cartesian
+
+00:00:16.379 --> 00:00:21.460
+coordinates to homogeneous coordinates and homogeneous coordinates back to Cartesian
+
+00:00:21.460 --> 00:00:25.380
+coordinates. Mathematically, lines and points are duals.
+
+00:00:25.380 --> 00:00:30.769
+This leads to some very nice ways to compute
+the intersection points at 2 lines or the
+
+00:00:30.769 --> 00:00:36.579
+line that is formed by 2 points. We've discussed
+a different perspective projection model called
+
+00:00:36.579 --> 00:00:42.270
+the Central Projection Model and the key difference
+is that the image plane is between the object
+
+00:00:42.270 --> 00:00:46.379
+and the origin and it forms an image that
+is not inverted.
+
+00:00:46.379 --> 00:00:52.050
+We can represent this as a matrix modification
+using homogeneous coordinates of the world
+
+00:00:52.050 --> 00:00:58.090
+point and of the point on the image plane.
+In a real digital camera, the image plane
+
+00:00:58.090 --> 00:01:03.320
+is a large array of light sensitive elements,
+which form the pixels of the resulting image.
+
+00:01:03.320 --> 00:01:08.630
+We need to deal with the discrete nature of
+this image plane, the fact that the coordinates
+
+00:01:08.630 --> 00:01:13.799
+are measured in units of pixels rather than
+in units of metres. There's also an origin
+
+00:01:13.799 --> 00:01:18.680
+shift involved instead of the center of the
+image plane, the origin in pixel coordinates
+
+00:01:18.680 --> 00:01:23.630
+is in the top left corner and we can introduce
+that with a simple linear transformation.
+
+00:01:23.630 --> 00:01:28.900
+Ultimately, we combine a number of matrix
+terms together. The first 2 we refer to as
+
+00:01:28.900 --> 00:01:33.680
+the intrinsic parameters of a camera.
+They described the camera entirely in terms
+
+00:01:33.680 --> 00:01:38.860
+of the dimensions of its pixels, the coordinate
+of the principal point and the focal length
+
+00:01:38.860 --> 00:01:42.869
+of the lens. These are parameters of the camera
+itself. It doesn't matter where the camera
+
+00:01:42.869 --> 00:01:47.649
+is or where it's pointing. The intrinsic parameters
+are invariant to the location of the camera.
+
+00:01:47.649 --> 00:01:52.680
+The 3rd matrix in this chain, we refer to
+as the extrinsic parameters and they described
+
+00:01:52.680 --> 00:01:58.040
+the pose of the camera that is its position
+and its orientation with respect to the world's
+
+00:01:58.040 --> 00:02:03.549
+coordinate frame. We can combine all these
+matrices together into a single 3 by 4 matrix
+
+00:02:03.549 --> 00:02:08.819
+which encodes all that information. So, the
+projection from the world point to image plane
+
+00:02:08.819 --> 00:02:14.040
+point is done simply by a matrix modification
+which gives us the homogeneous coordinates
+
+00:02:14.040 --> 00:02:19.400
+of the point on the image plane and there
+is a simple mapping between those homogeneous
+
+00:02:19.400 --> 00:02:24.599
+coordinates and the Cartesian image plane
+coordinates which we typically denote by U and V.
+
+00:02:24.599 --> 00:02:28.360
+This representation is scale invariant. We can multiply  the camera matrix
+
+00:02:28.360 --> 00:02:33.970
+by an arbitrary non-zero constant and the projection remains unchanged.
+
+00:02:33.970 --> 00:02:37.360
+This matrix is often written in a normalized
+
+00:02:37.360 --> 00:02:44.580
+form where element C34 is equal to 1. If the points lie on a plane in the world, then we
+
+00:02:44.580 --> 00:02:48.950
+can write a different relationship between
+the coordinate of the point on the plane and
+
+00:02:48.950 --> 00:02:54.000
+the coordinate of the point on the image plane
+and we use a 3 by 3 homography matrix to do this
+
+00:02:54.000 --> 00:02:57.959
+Homography matrix maps points from a plane
+
+00:02:57.959 --> 00:03:04.159
+to another plane. We can compute the homography
+matrix if we know 4 sets of corresponding
+
+00:03:04.159 --> 00:03:09.220
+points between the 2 planes. Corresponding
+means that the point P and the point Q refer
+
+00:03:09.220 --> 00:03:12.830
+to the same point, the same feature in the
+world.
+
+00:03:12.830 --> 00:03:17.900
+One application of homographies is to compute
+perspective rectification. We can compute
+
+00:03:17.900 --> 00:03:24.099
+an homography H which maps points from point
+P in 1 image to point Q in another image and
+
+00:03:24.099 --> 00:03:30.090
+if we choose H correctly, we can undo the
+effect of perspective distortion. Another
+
+00:03:30.090 --> 00:03:34.730
+application of homographies is that we can
+take a rectangular graphic like this and distort
+
+00:03:34.730 --> 00:03:41.000
+it in such a way that it appears to lay perfectly
+into a different plane. In this case, the
+
+00:03:41.000 --> 00:03:45.780
+plane is the surface of the swimming pool.
+The final example of how we might be able
+
+00:03:45.780 --> 00:03:52.470
+to use an homography is related to the project
+part of this course and we can use it to map
+
+00:03:52.470 --> 00:03:59.180
+a coordinate in the image plane of the camera
+to an XY coordinate of a point on the robots
+
+00:03:59.180 --> 00:04:00.750
+2 dimensional worksheet.
+
