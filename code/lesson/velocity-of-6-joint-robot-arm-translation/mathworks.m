@@ -16,6 +16,6 @@ show(p560,config);
 T = getTransform(p560,config,'link7')
 
 %% 4:28
-config(2) = config(2)+0.01;
+config(1) = config(1)+0.01;
 
 Td = getTransform(p560,config,'link7')
