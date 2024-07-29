@@ -8,7 +8,7 @@ print(smb.transl2(1, 2), "\n")
 
 print(smb.rot2(30, "deg"), "\n")
 
-print(smb.smb.trot2(30, "deg"), "\n")
+print(smb.trot2(30, "deg"), "\n")
 
 print(np.matmul(smb.transl2(1, 2), smb.trot2(30, "deg")), "\n")
 
