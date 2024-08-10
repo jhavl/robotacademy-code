@@ -10,7 +10,7 @@ print(r, "\n")
 r.plot([0.2, 0.3])
 
 # 9:05
-r.teach
+r.teach()
 
 # 9:30
 r.fkine([0.2, 0.3])
